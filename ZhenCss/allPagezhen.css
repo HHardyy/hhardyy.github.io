@@ -1,0 +1,10 @@
+﻿.imgShadow:hover{
+	cursor: pointer; 
+	-moz-box-shadow:0px 0px 30px #333333; 
+	-webkit-box-shadow:0px 0px 30px #333333; 
+	box-shadow:0px 0px 30px #333333;
+}
+img{
+     width:100%;
+}
+/*头像*/

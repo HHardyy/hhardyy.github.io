@@ -1,0 +1,24 @@
+.chat{
+	width: 546px;
+    height: 40px;
+    background:#633;
+    position: fixed;
+    left: 23%;
+    bottom: 100px;
+	border-radius:10px;
+	}
+/*送鲜花的对象Style*/
+#giveFlower{
+	display: block;
+	width: 450px;
+	line-height: 30px;
+	text-align: center;
+    height: 30px;
+    bottom: 100px;
+    position: fixed;
+    bottom: 300px;
+    left: 23%;
+    color: #ff2626;
+    font-size: 28px;
+    text-shadow:2px 2px 2px #ffff80;
+}

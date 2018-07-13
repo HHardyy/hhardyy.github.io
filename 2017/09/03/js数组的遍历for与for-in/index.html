@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?d890b1f16fb364253e79c5bb20225c3a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+    
+
+    
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?busuanzi_value_site_uv"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    <meta name="baidu-site-verification" content="FYMCShbUK8" />
+    <meta name="baidu-site-verification" content="ZYRF7OxQRW" />
+    <meta name="baidu-site-verification" content="cHSqtjI0PN" />
+    <meta name="baidu-site-verification" content="cHSqtjI0PN" />
+    <meta name="baidu-site-verification" content="cHSqtjI0PN" />
+    
+    
+    <link rel="canonical" href="true/2017/09/03/js数组的遍历for与for-in/">
+    
+    
+    <title>js数组的遍历for与for in | Hardy-Zhen | The IT technical communication</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#958e93">
+    
+    
+    <meta name="keywords" content="javascript,js数组遍历">
+    <meta name="description" content="介绍js的两种数组的遍历方式for与for in~~">
+<meta name="keywords" content="javascript,js数组遍历">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js数组的遍历for与for in">
+<meta property="og:url" content="http://yoursite.com/2017/09/03/js数组的遍历for与for-in/index.html">
+<meta property="og:site_name" content="Hardy-Zhen">
+<meta property="og:description" content="介绍js的两种数组的遍历方式for与for in~~">
+<meta property="og:locale" content="zh-CH">
+<meta property="og:updated_time" content="2017-09-03T08:35:49.109Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="js数组的遍历for与for in">
+<meta name="twitter:description" content="介绍js的两种数组的遍历方式for与for in~~">
+    
+        <link rel="alternate" type="application/atom+xml" title="Hardy-Zhen" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/zhenLogo.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/logoBg.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/touxiang.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">BingZhenHuang</h5>
+          <a href="mailto:huangbingzhen@hhardyy.com" title="huangbingzhen@hhardyy.com" class="mail">huangbingzhen@hhardyy.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                所有文章
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/HHardyy" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://juejin.im/user/59a26f926fb9a02487553b04"  >
+                <i class="icon icon-lg icon-pencil"></i>
+                掘金-圳
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://segmentfault.com/u/hhardyy"  >
+                <i class="icon icon-lg icon-comments"></i>
+                Segmentfault
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://codepen.io/HHardyy/" target="_blank" >
+                <i class="icon icon-lg icon-codepen"></i>
+                Codepen
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/ZhenSolive/find.html" target="_blank" >
+                <i class="icon icon-lg icon-globe"></i>
+                原生直播间
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/hero/judge.html" target="_blank" >
+                <i class="icon icon-lg icon-cloud"></i>
+                原生小悟空
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.freecodecamp.cn/hhardyy" target="_blank" >
+                <i class="icon icon-lg icon-leaf"></i>
+                Freecodecamp
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/友情链接"  >
+                <i class="icon icon-lg icon-link"></i>
+                友链
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">js数组的遍历for与for in</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">js数组的遍历for与for in</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-09-03T08:33:27.000Z" itemprop="datePublished" class="page-time">
+  2017-09-03
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#for循环遍历"><span class="post-toc-number">1.</span> <span class="post-toc-text">for循环遍历</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#for-in遍历"><span class="post-toc-number">2.</span> <span class="post-toc-text">for in遍历</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#再来一波ES6世界第一的数组去重"><span class="post-toc-number">3.</span> <span class="post-toc-text">再来一波ES6世界第一的数组去重~~~~</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-js数组的遍历for与for-in"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">js数组的遍历for与for in</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-09-03 16:33:27" datetime="2017-09-03T08:33:27.000Z"  itemprop="datePublished">2017-09-03</time>
+
+            
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>介绍js的两种数组的遍历方式for与for in~~</p>
+<p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=22785278&auto=0&height=66"></iframe><br><a id="more"></a><br>有需要的朋友可以瞄一眼或者两眼~~</p>
+<h3 id="for循环遍历"><a href="#for循环遍历" class="headerlink" title="for循环遍历"></a>for循环遍历</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var a = new Array(<span class="string">"你帅"</span>, <span class="string">"你有点帅"</span>, <span class="string">"你简直帅"</span>) </div><div class="line"><span class="keyword">for</span>(var i = 0;i &lt; a.length; i++) &#123;</div><div class="line">document.write(a[i]+<span class="string">","</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line">输出：你帅,你有点帅,你简直帅</div></pre></td></tr></table></figure>
+<h3 id="for-in遍历"><a href="#for-in遍历" class="headerlink" title="for in遍历"></a>for in遍历</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var arr = new Array(<span class="string">"你还是帅"</span>, <span class="string">"你有点帅"</span>, <span class="string">"你简直帅"</span>) </div><div class="line"><span class="keyword">for</span>(var item <span class="keyword">in</span> arr) &#123;</div><div class="line">document.write(arr[item]+<span class="string">","</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line">输出：你还是帅,你有点帅,你简直帅</div></pre></td></tr></table></figure>
+<h3 id="再来一波ES6世界第一的数组去重"><a href="#再来一波ES6世界第一的数组去重" class="headerlink" title="再来一波ES6世界第一的数组去重~~~~"></a>再来一波ES6世界第一的数组去重~~~~</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">arr1=[1,2,3,3,3]; </div><div class="line">arr2=Array(new Set(arr1)); </div><div class="line">console.log(arr2);</div></pre></td></tr></table></figure>
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2017-09-03T08:35:49.109Z" itemprop="dateUpdated">2017-09-03 16:35:49</time>
+</span><br>
+
+
+        
+        谢谢浏览，我会继续努力的，示例：<a href="/2017/09/03/js数组的遍历for与for-in/" target="_blank" rel="external">http://yoursite.com/2017/09/03/js数组的遍历for与for-in/</a>
+        
+    </div>
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/touxiang.jpg" alt="BingZhenHuang">
+            BingZhenHuang
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js数组遍历/">js数组遍历</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2017/09/03/js数组的遍历for与for-in/&title=《js数组的遍历for与for in》 — Hardy-Zhen&pic=http://yoursite.com/img/touxiang.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2017/09/03/js数组的遍历for与for-in/&title=《js数组的遍历for与for in》 — Hardy-Zhen&source=介绍js的两种数组的遍历方式for与for in~~
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/09/03/js数组的遍历for与for-in/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《js数组的遍历for与for in》 — Hardy-Zhen&url=http://yoursite.com/2017/09/03/js数组的遍历for与for-in/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2017/09/03/js数组的遍历for与for-in/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/09/04/移动端的分辨率-rpx/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">移动端的分辨率与rpx</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/08/31/你了解git吗/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">你了解git吗</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        （゜-゜）つロ Cheers
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<footer class="footer">
+    <div class="top">
+        
+
+        <p>
+
+<span id="busuanzi_container_site_uv">[&nbspviews:<span id="busuanzi_value_site_uv">loading...</span>&nbsp]</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>BingZhenHuang &copy; 2017 - 2018</span>
+            <span>
+                
+                Power by <a href="https://hhardyy.github.io/" target="_blank">zhen On August 8</a> 
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2017/09/03/js数组的遍历for与for-in/&title=《js数组的遍历for与for in》 — Hardy-Zhen&pic=http://yoursite.com/img/touxiang.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2017/09/03/js数组的遍历for与for-in/&title=《js数组的遍历for与for in》 — Hardy-Zhen&source=介绍js的两种数组的遍历方式for与for in~~
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/09/03/js数组的遍历for与for-in/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《js数组的遍历for与for in》 — Hardy-Zhen&url=http://yoursite.com/2017/09/03/js数组的遍历for与for-in/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2017/09/03/js数组的遍历for与for-in/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACM0lEQVR42u3ay07EQAxE0fn/nw5bJEinqtwB2X2zGsGQ+GRh/OjPR76ub9fdb9ff//lZ+avNFwwYMNoyruV1950MrwDWz72NAQYMGAcw1mlUId0Fp/PWnx/uDAMGDBhRYaeHqzwXBgwYMNzbXea1vvM/JFwYMGA0ZChNrD5oU1Kz2/Ru68VhwIDRkKEPzv7+8yv7DRgwYLRi1Mu7eohukv0lKhgwYIxm6AnOXQZkI7wsHhgwYJzAcI9B6In4jXT8QIUBA8Y4RjbM2nVErLL+tOeFMGDAaM5wA1WSabiGzF4TDBgwRjP0P8sKQb0cVFL8Q7QwYMAYytAB2d5QGZ+53y+lWhgwYLRluLdWlo7rp+x9LgwYMGYz3BG8XvBli0/lJw//JGDAgDGO4R6McFOq+0bdgjI83wEDBoxWjHpLqZRxeilpnxCBAQPGMYwsXbrrxkpZKZWPMGDAGM3Qx/1u4eiOz9yZv7HxgAEDRluGXsy5VPdwWCURw4ABYzajcgij3ga/OG6DAQPGOIYertLEZkFnb93YcsCAAWMEQ29Qs+WBXmhmK08YMGCcyagUbZUlQZiCYcCAMZRxmVclKWdnJKRXCQMGjNGMbIhWebA+htOXBDBgwDiB8V6bqo/h3JcSnhOBAQNGc4ae+NxRWiX5lnpxGDBgHMzQW1y3EFQS8baECwMGjGMY+oPrI7mHGGDAgHEAQ2li9dDdcLOGGQYMGOcwstaxPphbp+O9RzRgwIDRlvEFI5V0ckJWS/0AAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '~~去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!回来了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?d890b1f16fb364253e79c5bb20225c3a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+    
+
+    
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?busuanzi_value_site_uv"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    <meta name="baidu-site-verification" content="FYMCShbUK8" />
+    <meta name="baidu-site-verification" content="ZYRF7OxQRW" />
+    <meta name="baidu-site-verification" content="cHSqtjI0PN" />
+    <meta name="baidu-site-verification" content="cHSqtjI0PN" />
+    <meta name="baidu-site-verification" content="cHSqtjI0PN" />
+    
+    
+    <link rel="canonical" href="true/2018/07/03/Linux艺术/">
+    
+    
+    <title>Linux艺术 | Hardy-Zhen | The IT technical communication</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#958e93">
+    
+    
+    <meta name="keywords" content="文件系统,一丢丢shell,iptables,yum">
+    <meta name="description" content="Linux是一套基于POSIX和UNIX的多用户、多任务、支持多线程和多CPU,可以免费使用和自由传播的类Unix操作系统。">
+<meta name="keywords" content="文件系统,一丢丢shell,iptables,yum">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux艺术">
+<meta property="og:url" content="http://yoursite.com/2018/07/03/Linux艺术/index.html">
+<meta property="og:site_name" content="Hardy-Zhen">
+<meta property="og:description" content="Linux是一套基于POSIX和UNIX的多用户、多任务、支持多线程和多CPU,可以免费使用和自由传播的类Unix操作系统。">
+<meta property="og:locale" content="zh-CH">
+<meta property="og:image" content="http://yoursite.com/images/linux/1.png">
+<meta property="og:image" content="http://yoursite.com/images/linux/2.png">
+<meta property="og:image" content="http://yoursite.com/images/linux/3.png">
+<meta property="og:updated_time" content="2018-07-03T14:59:56.314Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux艺术">
+<meta name="twitter:description" content="Linux是一套基于POSIX和UNIX的多用户、多任务、支持多线程和多CPU,可以免费使用和自由传播的类Unix操作系统。">
+<meta name="twitter:image" content="http://yoursite.com/images/linux/1.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="Hardy-Zhen" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/zhenLogo.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/logoBg.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/touxiang.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">BingZhenHuang</h5>
+          <a href="mailto:huangbingzhen@hhardyy.com" title="huangbingzhen@hhardyy.com" class="mail">huangbingzhen@hhardyy.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                所有文章
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/HHardyy" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://juejin.im/user/59a26f926fb9a02487553b04"  >
+                <i class="icon icon-lg icon-pencil"></i>
+                掘金-圳
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://segmentfault.com/u/hhardyy"  >
+                <i class="icon icon-lg icon-comments"></i>
+                Segmentfault
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://codepen.io/HHardyy/" target="_blank" >
+                <i class="icon icon-lg icon-codepen"></i>
+                Codepen
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/ZhenSolive/find.html" target="_blank" >
+                <i class="icon icon-lg icon-globe"></i>
+                原生直播间
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/hero/judge.html" target="_blank" >
+                <i class="icon icon-lg icon-cloud"></i>
+                原生小悟空
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.freecodecamp.cn/hhardyy" target="_blank" >
+                <i class="icon icon-lg icon-leaf"></i>
+                Freecodecamp
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/友情链接"  >
+                <i class="icon icon-lg icon-link"></i>
+                友链
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Linux艺术</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Linux艺术</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-07-03T05:39:54.000Z" itemprop="datePublished" class="page-time">
+  2018-07-03
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#文件系统"><span class="post-toc-number">1.</span> <span class="post-toc-text">文件系统</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#权限"><span class="post-toc-number">2.</span> <span class="post-toc-text">权限</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#shell的爆炸艺术"><span class="post-toc-number">3.</span> <span class="post-toc-text">shell的爆炸艺术</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#iptables防火墙"><span class="post-toc-number">4.</span> <span class="post-toc-text">iptables防火墙</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#清除已有iptables规则"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">清除已有iptables规则</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#开放指定的端口"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">开放指定的端口</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#屏蔽IP"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">屏蔽IP</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#查看已添加的iptables规则"><span class="post-toc-number">4.4.</span> <span class="post-toc-text">查看已添加的iptables规则</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#删除已添加的iptables规则"><span class="post-toc-number">4.5.</span> <span class="post-toc-text">删除已添加的iptables规则</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#yum"><span class="post-toc-number">5.</span> <span class="post-toc-text">yum</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#yum-选项-参数"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">yum(选项)(参数)</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#yum参数"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">yum参数</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#部分常用的yum命令"><span class="post-toc-number">5.3.</span> <span class="post-toc-text">部分常用的yum命令</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-Linux艺术"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Linux艺术</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-07-03 13:39:54" datetime="2018-07-03T05:39:54.000Z"  itemprop="datePublished">2018-07-03</time>
+
+            
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>Linux是一套基于POSIX和UNIX的多用户、多任务、支持多线程和多CPU,可以免费使用和自由传播的类Unix操作系统。</p>
+<p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=29539085&auto=0&height=66"></iframe><br><a id="more"></a></p>
+<blockquote>
+<p>linux能运行主要的UNIX工具软件、应用程序和网络协议，支持32位和64位硬件。继承了Unix以网络为核心的设计思想。Linux存在着许多不同的Linux版本，但都使用Linux内核。可安装在各种计算机硬件&gt;设备中，严格来讲，Linux这个词本身只表示Linux内核，只是大家习惯了用Linux来形容整个基于Linux内核，并且使用GNU工程各种工具和数据库的操作系统。</p>
+</blockquote>
+<h3 id="文件系统"><a href="#文件系统" class="headerlink" title="文件系统"></a>文件系统</h3><p>Linux的文件系统目录结构采用分层结构<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/linux/1.png" alt="文件系统的分层结构" title="">
+                </div>
+                <div class="image-caption">文件系统的分层结构</div>
+            </figure><br>在linux中，可执行的二进制文件可以不要扩展名</p>
+<h3 id="权限"><a href="#权限" class="headerlink" title="权限"></a>权限</h3><p>用户分成3类<br>用户（user），组（group），其他用户（other）,所有用户(all)=u,g,o,a<br>权限也分成3类<br>读（read）,写（write）,执行权限（excute）=r，w，x,三种权限既可以单独使用也可以组合使用<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/linux/2.png" alt="文件系统的分层结构" title="">
+                </div>
+                <div class="image-caption">文件系统的分层结构</div>
+            </figure><br>比如我给文件hhardyy.txt的属主增加执行权限。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">chmod  u+x  hhardyy.txt</div></pre></td></tr></table></figure></p>
+<p>将文件hhardyy.txt的属组去掉写权限，同时将其他用户设置为只有执行权限，而文件属主的权限不变。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">chmod  g-w,o=x  hhardyy.txt</div></pre></td></tr></table></figure></p>
+<p>chmod的数字使用方式也是很方便的，关键是数制转换的问题。这种方式是先将每个权限位化成二进制数，其中如果某权限位是“-”则用0来表示，否则用1来表示；接着，将这9列权限分为三组（每三位一组），再将每组化成一个八进制数。例如，某文件有如下权限rwxrw-r–，则转换为二进制数为111110100，再化为八进制数则为764；反之，当看到八进制数764时也应该很快转化为相应权限。<br>例如，将文件hhardyy.txt的权限设置为：属主拥有全部权限,属组拥有读写权限,其他用户拥有执行权限。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">chmod  764  hhardyy.txt</div></pre></td></tr></table></figure></p>
+<h3 id="shell的爆炸艺术"><a href="#shell的爆炸艺术" class="headerlink" title="shell的爆炸艺术"></a>shell的爆炸艺术</h3><p>Shell是指“提供使用者使用界面”的软件（命令解析器），它类似于DOS下的command.com和后来的cmd.exe，以及node的bash。<br>用linux带的编辑编一个shell脚本输出IT界最强的大佬Hello,world:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">命令</div><div class="line">vi hello.sh</div><div class="line"></div><div class="line">内容</div><div class="line"><span class="meta">#!/bin/sh</span></div><div class="line"><span class="built_in">echo</span> “Hello,world!”</div></pre></td></tr></table></figure></p>
+<p>shell脚本是按行解释的，每个脚本的第一行总是以#!/bin/sh开头 。<br>执行shell脚本的几种方式有：<br>1.sh hhardyy.sh<br>2../hhardyy.sh<br>3.source hhardyy.sh    or     .  hhardyy.sh<br>4.直接执行，就是给脚本hhardyy.sh增加执行权chmod  a+x  hhardyy.sh<br>也可以把命令写到shell脚本执行<br>比如我要挂载光驱<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">命令</div><div class="line">vi mount.sh</div><div class="line"></div><div class="line">内容</div><div class="line"><span class="meta">#!/bin/sh</span></div><div class="line">mkdir -p mnt/cdrom</div><div class="line">mount /dev/cdrom ~/mnt/cdrom</div></pre></td></tr></table></figure></p>
+<h3 id="iptables防火墙"><a href="#iptables防火墙" class="headerlink" title="iptables防火墙"></a>iptables防火墙</h3><p>iptables是Linux上常用的防火墙软件。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install iptables    //安装</div></pre></td></tr></table></figure></p>
+<h4 id="清除已有iptables规则"><a href="#清除已有iptables规则" class="headerlink" title="清除已有iptables规则"></a>清除已有iptables规则</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">iptables -F</div><div class="line">iptables -X</div><div class="line">iptables -Z</div></pre></td></tr></table></figure>
+<h4 id="开放指定的端口"><a href="#开放指定的端口" class="headerlink" title="开放指定的端口"></a>开放指定的端口</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#允许本地回环接口(即运行本机访问本机)</span></div><div class="line">iptables -A INPUT -i lo -j ACCEPT</div><div class="line"><span class="comment"># 允许已建立的或相关连的通行</span></div><div class="line">iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT</div><div class="line"><span class="comment">#允许所有本机向外的访问</span></div><div class="line">iptables -A OUTPUT -j ACCEPT</div><div class="line"><span class="comment"># 允许访问22端口</span></div><div class="line">iptables -A INPUT -p tcp --dport 22 -j ACCEPT</div><div class="line"><span class="comment">#允许访问80端口</span></div><div class="line">iptables -A INPUT -p tcp --dport 80 -j ACCEPT</div><div class="line"><span class="comment">#允许访问443端口</span></div><div class="line">iptables -A INPUT -p tcp --dport 443 -j ACCEPT</div><div class="line"><span class="comment">#允许FTP服务的21和20端口</span></div><div class="line">iptables -A INPUT -p tcp --dport 21 -j ACCEPT</div><div class="line">iptables -A INPUT -p tcp --dport 20 -j ACCEPT</div><div class="line"><span class="comment">#如果有其他端口的话，规则也类似，稍微修改上述语句就行</span></div><div class="line"><span class="comment">#允许ping</span></div><div class="line">iptables -A INPUT -p icmp -m icmp --icmp-type 8 -j ACCEPT</div><div class="line"><span class="comment">#禁止其他未允许的规则访问</span></div><div class="line">iptables -A INPUT -j REJECT  <span class="comment">#（注意：如果22端口未加入允许规则，SSH链接会直接断开。）</span></div><div class="line">iptables -A FORWARD -j REJECT</div></pre></td></tr></table></figure>
+<h4 id="屏蔽IP"><a href="#屏蔽IP" class="headerlink" title="屏蔽IP"></a>屏蔽IP</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#如果只是想屏蔽IP的话“3、开放指定的端口”可以直接跳过。</span></div><div class="line"><span class="comment">#屏蔽单个IP的命令是</span></div><div class="line">iptables -I INPUT -s 123.45.6.7 -j DROP</div><div class="line"><span class="comment">#封整个段即从123.0.0.1到123.255.255.254的命令</span></div><div class="line">iptables -I INPUT -s 123.0.0.0/8 -j DROP</div><div class="line"><span class="comment">#封IP段即从123.45.0.1到123.45.255.254的命令</span></div><div class="line">iptables -I INPUT -s 124.45.0.0/16 -j DROP</div><div class="line"><span class="comment">#封IP段即从123.45.6.1到123.45.6.254的命令是</span></div><div class="line">iptables -I INPUT -s 123.45.6.0/24 -j DROP</div></pre></td></tr></table></figure>
+<h4 id="查看已添加的iptables规则"><a href="#查看已添加的iptables规则" class="headerlink" title="查看已添加的iptables规则"></a>查看已添加的iptables规则</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">iptables -L -n</div><div class="line">v：显示详细信息，包括每条规则的匹配包数量和匹配字节数</div><div class="line">x：在 v 的基础上，禁止自动单位换算（K、M） vps侦探</div><div class="line">n：只显示IP地址和端口号，不将ip解析为域名</div><div class="line">iptables -I INPUT -s 123.45.6.0/24 -j DROP</div></pre></td></tr></table></figure>
+<h4 id="删除已添加的iptables规则"><a href="#删除已添加的iptables规则" class="headerlink" title="删除已添加的iptables规则"></a>删除已添加的iptables规则</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">将所有iptables以序号标记显示，执行：</div><div class="line">iptables -L -n --line-numbers</div><div class="line">比如要删除INPUT里序号为8的规则，执行：</div><div class="line">iptables -D INPUT 8</div></pre></td></tr></table></figure>
+<p>iptables的开机启动及规则保存<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">CentOS上可能会存在安装好iptables后，iptables并不开机自启动，可以执行一下：</div><div class="line">chkconfig --level 345 iptables on</div><div class="line">将其加入开机启动。</div><div class="line">CentOS上可以执行：service iptables save保存规则。</div><div class="line">另外更需要注意的是Debian/Ubuntu上iptables是不会保存规则的。</div><div class="line">需要按如下步骤进行，让网卡关闭是保存iptables规则，启动时加载iptables规则：</div><div class="line">创建/etc/network/<span class="keyword">if</span>-post-down.d/iptables 文件，添加如下内容：</div><div class="line"><span class="meta">#!/bin/bash</span></div><div class="line">iptables-save &gt; /etc/iptables.rules</div><div class="line">执行：chmod +x /etc/network/<span class="keyword">if</span>-post-down.d/iptables 添加执行权限。</div><div class="line">创建/etc/network/<span class="keyword">if</span>-pre-up.d/iptables 文件，添加如下内容：</div><div class="line"><span class="meta">#!/bin/bash</span></div><div class="line">iptables-restore &lt; /etc/iptables.rules</div><div class="line">执行：chmod +x /etc/network/<span class="keyword">if</span>-pre-up.d/iptables 添加执行权限。</div></pre></td></tr></table></figure></p>
+<h3 id="yum"><a href="#yum" class="headerlink" title="yum"></a>yum</h3><p>yum命令是在Fedora和RedHat以及SUSE中基于rpm的软件包管理器，它可以使系统管理人员交互和自动化地更细与管理RPM软件包，能够从指定的服务器自动下载RPM包并且安装，可以自动处理依赖性关系，并且一次安装所有依赖的软体包，无须繁琐地一次次下载、安装。<br>yum提供了查找、安装、删除某一个、一组甚至全部软件包的命令，而且命令简洁而又好记。<br>配置本地yum源<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">1、挂载DVD光盘</div><div class="line">mount /dev/cdrom /mnt/cdrom   //mnt/cdrom是我自定义的目录，挂载光驱成功之后，成功会在cdrom下面出现一个Packages文件包</div><div class="line">2、在目录/etc/yum.repos.d/创建文件文件名(任意名).repo </div><div class="line">3、配置本地yum源</div><div class="line"><span class="built_in">cd</span> /etc/yum.repos.d/   <span class="comment">#进入yum配置目录 </span></div><div class="line">touch  centos.repo   <span class="comment">#建立yum配置文件 </span></div><div class="line">vim  centos.repo   <span class="comment">#编辑配置文件，添加以下内容 </span></div><div class="line">[centos-yum]</div><div class="line">name=centos   <span class="comment">#自定义名称 </span></div><div class="line">baseurl=file:///mnt<span class="comment">#本地光盘挂载路径 </span></div><div class="line">enabled=1   <span class="comment">#启用yum源，0为不启用，1为启用 </span></div><div class="line">gpgcheck=0  <span class="comment">#检查GPG-KEY，0为不检查，1为检查 </span></div><div class="line">:wq! <span class="comment">#保存退出 </span></div><div class="line"></div><div class="line">4、测试使用yum命令自动安装软件</div><div class="line">yum clean all   <span class="comment">#清除yum缓存 </span></div><div class="line">yum makecache  <span class="comment">#缓存本地yum源中的软件包信息</span></div></pre></td></tr></table></figure></p>
+<p>这里提示一下，假如要用yum安装dhcp的时候提示失败，很可能是因为安装源是网络源，而不是挂载的本地源，这时候要把默认的网络源禁掉就可以了，所谓禁掉就是把网络源的配置文件改个名字，它找不到了本地源就生效了<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/linux/3.png" alt="把网络源文件CentOS-Base.repo改名成CentOS-Base.repo.bak" title="">
+                </div>
+                <div class="image-caption">把网络源文件CentOS-Base.repo改名成CentOS-Base.repo.bak</div>
+            </figure></p>
+<h4 id="yum-选项-参数"><a href="#yum-选项-参数" class="headerlink" title="yum(选项)(参数)"></a>yum(选项)(参数)</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">-h：显示帮助信息； </div><div class="line">-y：对所有的提问都回答“yes”； </div><div class="line">-c：指定配置文件；</div><div class="line">-q：安静模式；</div><div class="line">-v：详细模式；</div><div class="line">-d：设置调试等级（0-10）； </div><div class="line">-e：设置错误等级（0-10）；</div><div class="line">-R：设置yum处理一个命令的最大等待时间；</div><div class="line">-C：完全从缓存中运行，而不去下载或者更新任何头文件。</div></pre></td></tr></table></figure>
+<h4 id="yum参数"><a href="#yum参数" class="headerlink" title="yum参数"></a>yum参数</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">install：安装rpm软件包； </div><div class="line">update：更新rpm软件包；</div><div class="line">check-update：检查是否有可用的更新rpm软件包；</div><div class="line">remove：删除指定的rpm软件包；</div><div class="line">list：显示软件包的信息；</div><div class="line">search：检查软件包的信息；</div><div class="line">info：显示指定的rpm软件包的描述信息和概要信息；</div><div class="line">clean：清理yum过期的缓存；</div><div class="line">shell：进入yum的shell提示符； </div><div class="line">resolvedep：显示rpm软件包的依赖关系； </div><div class="line">localinstall：安装本地的rpm软件包； </div><div class="line">localupdate：显示本地rpm软件包进行更新； </div><div class="line">deplist：显示rpm软件包的所有依赖关系。</div></pre></td></tr></table></figure>
+<h4 id="部分常用的yum命令"><a href="#部分常用的yum命令" class="headerlink" title="部分常用的yum命令"></a>部分常用的yum命令</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">自动搜索最快镜像插件：yum install yum-fastestmirror </div><div class="line">安装yum图形窗口插件：yum install yumex </div><div class="line">查看可能批量安装的列表：yum grouplist </div><div class="line">安装 yum install </div><div class="line">全部安装 yum install package1 </div><div class="line">安装指定的安装包package1 yum groupinsall group1</div><div class="line">安装程序组group1 更新和升级 yum update </div><div class="line">全部更新 yum update package1 </div><div class="line">更新指定程序包package1 yum check-update </div><div class="line">检查可更新的程序 yum upgrade package1 </div><div class="line">升级指定程序包package1 yum groupupdate group1 </div><div class="line">升级程序组group1 查找和显示 yum info package1 </div><div class="line">显示安装包信息package1 yum list </div><div class="line">显示所有已经安装和可以安装的程序包 yum list package1 </div><div class="line">显示指定程序包安装情况package1 yum groupinfo group1</div><div class="line">显示程序组group1信息yum search string 根据关键字string查找安装包 删除程序 yum remove | erase package1 </div><div class="line">删除程序包package1 yum groupremove group1</div><div class="line">删除程序组group1 yum deplist package1 </div><div class="line">查看程序package1依赖情况 清除缓存 yum clean packages</div><div class="line">清除缓存目录下的软件包 yum clean headers </div><div class="line">清除缓存目录下的 headers yum clean oldheaders </div><div class="line">清除缓存目录下旧的 headers</div></pre></td></tr></table></figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2018-07-03T14:59:56.314Z" itemprop="dateUpdated">2018-07-03 22:59:56</time>
+</span><br>
+
+
+        
+        谢谢浏览，我会继续努力的，示例：<a href="/2018/07/03/Linux艺术/" target="_blank" rel="external">http://yoursite.com/2018/07/03/Linux艺术/</a>
+        
+    </div>
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/touxiang.jpg" alt="BingZhenHuang">
+            BingZhenHuang
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iptables/">iptables</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/yum/">yum</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/一丢丢shell/">一丢丢shell</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/文件系统/">文件系统</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/07/03/Linux艺术/&title=《Linux艺术》 — Hardy-Zhen&pic=http://yoursite.com/img/touxiang.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/07/03/Linux艺术/&title=《Linux艺术》 — Hardy-Zhen&source=Linux是一套基于POSIX和UNIX的多用户、多任务、支持多线程和多CPU,可以免费使用和自由传播的类Unix操作系统。
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/07/03/Linux艺术/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Linux艺术》 — Hardy-Zhen&url=http://yoursite.com/2018/07/03/Linux艺术/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/07/03/Linux艺术/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/07/04/js的时间与时间戳/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">js的时间与时间戳</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/07/01/Web安全之XSS、SQL注入/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Web安全之XSS、SQL注入</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        （゜-゜）つロ Cheers
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<footer class="footer">
+    <div class="top">
+        
+
+        <p>
+
+<span id="busuanzi_container_site_uv">[&nbspviews:<span id="busuanzi_value_site_uv">loading...</span>&nbsp]</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>BingZhenHuang &copy; 2017 - 2018</span>
+            <span>
+                
+                Power by <a href="https://hhardyy.github.io/" target="_blank">zhen On August 8</a> 
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/07/03/Linux艺术/&title=《Linux艺术》 — Hardy-Zhen&pic=http://yoursite.com/img/touxiang.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/07/03/Linux艺术/&title=《Linux艺术》 — Hardy-Zhen&source=Linux是一套基于POSIX和UNIX的多用户、多任务、支持多线程和多CPU,可以免费使用和自由传播的类Unix操作系统。
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/07/03/Linux艺术/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Linux艺术》 — Hardy-Zhen&url=http://yoursite.com/2018/07/03/Linux艺术/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/07/03/Linux艺术/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACIUlEQVR42u3ayW7kMAwFwPz/T3eAuQWJeh5JuQHLpZPhXuTygeCir694vf6t33f23l99Z9vCwMC4LeP1dq0eYvXpZFX/GQMD42mM90F2FSiTbyYBN993eR8DAwMjSNp2hVoMDAyMOaOa2FWvMTAwMCZFbNKMe4+vtuQuqcUxMDBuyKgOBj55feF8AwMD4yaM6xr6Vww1l7tjYGAczciTud54oJfqNdtwGBgYD2DMm269AWSSCEYjCgwMjKMZk2rxivu90I+BgXEqY1fyVx2Izo90/LjGwMB4DCP/cXXomAfZ5sEODAyMoxlJSVlth31m2FCYsmJgYNyckY8Ve8lctd2Wp55REYuBgfEARtLwmo8wk9bef1p+GBgYD2ZUN+gVwPkYIKrFMTAwjmP0/rq3ffJYSYIYvUQMDIzjGNUgm5es1eJ2NCjFwMA4mtFL15JSNm+u7X2hGBgYJzF6I8P8QauhNp9LYmBgYFQLyM8nhX+MMDEwMA5lVI9B5E236jCg14bDwMB4AmOycZ5WTkJnuV+IgYFxHCPvyVXbZPPxZ6+1h4GBcR7jVVyTcFkdfCavBgMD4wmMfFWPdlXDcR7cqwMGDAyMMxhJkN3VStsVcKOsFgMD4zhGr9E2GR70jl8sXygGBgbG+FhG/iLyHUcBFwMD41BGrwSdhOZRnY2BgXEco5f29VppkxJ3ScXAwDiaMR8M5Hd6Z0A2hGMMDIy7Mr4Bi5czCPiFYf4AAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '~~去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!回来了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

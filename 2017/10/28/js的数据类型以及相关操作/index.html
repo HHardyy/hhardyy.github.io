@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?d890b1f16fb364253e79c5bb20225c3a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+    
+
+    
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?busuanzi_value_site_uv"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    <meta name="baidu-site-verification" content="FYMCShbUK8" />
+    <meta name="baidu-site-verification" content="ZYRF7OxQRW" />
+    <meta name="baidu-site-verification" content="cHSqtjI0PN" />
+    <meta name="baidu-site-verification" content="cHSqtjI0PN" />
+    <meta name="baidu-site-verification" content="cHSqtjI0PN" />
+    
+    
+    <link rel="canonical" href="true/2017/10/28/js的数据类型以及相关操作/">
+    
+    
+    <title>js的数据类型以及相关操作 | Hardy-Zhen | The IT technical communication</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#958e93">
+    
+    
+    <meta name="keywords" content="javascript,数据类型,数据转换,ECMAscript,显示转换,隐式转换">
+    <meta name="description" content="js中有六种数据类型，包括五种基本数据类型（Number,String,Boolean,Null,Undefined）,和一种混合数据类型（Object）..">
+<meta name="keywords" content="javascript,数据类型,数据转换,ECMAscript,显示转换,隐式转换">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js的数据类型以及相关操作">
+<meta property="og:url" content="http://yoursite.com/2017/10/28/js的数据类型以及相关操作/index.html">
+<meta property="og:site_name" content="Hardy-Zhen">
+<meta property="og:description" content="js中有六种数据类型，包括五种基本数据类型（Number,String,Boolean,Null,Undefined）,和一种混合数据类型（Object）..">
+<meta property="og:locale" content="zh-CH">
+<meta property="og:image" content="http://yoursite.com/images/NaNimg/1.JPG">
+<meta property="og:image" content="http://yoursite.com/images/NaNimg/2.JPG">
+<meta property="og:updated_time" content="2017-10-29T02:22:58.937Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="js的数据类型以及相关操作">
+<meta name="twitter:description" content="js中有六种数据类型，包括五种基本数据类型（Number,String,Boolean,Null,Undefined）,和一种混合数据类型（Object）..">
+<meta name="twitter:image" content="http://yoursite.com/images/NaNimg/1.JPG">
+    
+        <link rel="alternate" type="application/atom+xml" title="Hardy-Zhen" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/zhenLogo.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/logoBg.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/touxiang.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">BingZhenHuang</h5>
+          <a href="mailto:huangbingzhen@hhardyy.com" title="huangbingzhen@hhardyy.com" class="mail">huangbingzhen@hhardyy.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                所有文章
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/HHardyy" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://juejin.im/user/59a26f926fb9a02487553b04"  >
+                <i class="icon icon-lg icon-pencil"></i>
+                掘金-圳
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://segmentfault.com/u/hhardyy"  >
+                <i class="icon icon-lg icon-comments"></i>
+                Segmentfault
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://codepen.io/HHardyy/" target="_blank" >
+                <i class="icon icon-lg icon-codepen"></i>
+                Codepen
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/ZhenSolive/find.html" target="_blank" >
+                <i class="icon icon-lg icon-globe"></i>
+                原生直播间
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/hero/judge.html" target="_blank" >
+                <i class="icon icon-lg icon-cloud"></i>
+                原生小悟空
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.freecodecamp.cn/hhardyy" target="_blank" >
+                <i class="icon icon-lg icon-leaf"></i>
+                Freecodecamp
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/友情链接"  >
+                <i class="icon icon-lg icon-link"></i>
+                友链
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">js的数据类型以及相关操作</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">js的数据类型以及相关操作</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-10-28T15:46:36.000Z" itemprop="datePublished" class="page-time">
+  2017-10-28
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#ECMAscript是什么："><span class="post-toc-number">1.</span> <span class="post-toc-text">ECMAscript是什么：</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#引号’’或者””"><span class="post-toc-number">2.</span> <span class="post-toc-text">引号’’或者””</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#布尔值："><span class="post-toc-number">3.</span> <span class="post-toc-text">布尔值：</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#object对象"><span class="post-toc-number">4.</span> <span class="post-toc-text">object对象:</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#数组"><span class="post-toc-number">5.</span> <span class="post-toc-text">数组:</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#json"><span class="post-toc-number">6.</span> <span class="post-toc-text">json:</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#null"><span class="post-toc-number">7.</span> <span class="post-toc-text">null:</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Undefined"><span class="post-toc-number">8.</span> <span class="post-toc-text">Undefined:</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#数据转换"><span class="post-toc-number">9.</span> <span class="post-toc-text">数据转换</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#parseInt方法："><span class="post-toc-number">10.</span> <span class="post-toc-text">parseInt方法：</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#parseFloat方法："><span class="post-toc-number">11.</span> <span class="post-toc-text">parseFloat方法：</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#parseFloat方法：-1"><span class="post-toc-number">12.</span> <span class="post-toc-text">parseFloat方法：</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#于是可以用parseInt和parseFloat判断一个数是整数还是小数"><span class="post-toc-number">13.</span> <span class="post-toc-text">于是可以用parseInt和parseFloat判断一个数是整数还是小数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#什么是NaN"><span class="post-toc-number">14.</span> <span class="post-toc-text">什么是NaN?</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#js中稀奇古怪的隐式类型转换"><span class="post-toc-number">15.</span> <span class="post-toc-text">js中稀奇古怪的隐式类型转换</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#隐式转换与显式转换都有一个共性，就是转化不成功的时候弹出NaN。"><span class="post-toc-number">16.</span> <span class="post-toc-text">隐式转换与显式转换都有一个共性，就是转化不成功的时候弹出NaN。</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#isNaN（）"><span class="post-toc-number">17.</span> <span class="post-toc-text">isNaN（）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#isNaN应用"><span class="post-toc-number">18.</span> <span class="post-toc-text">isNaN应用</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-js的数据类型以及相关操作"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">js的数据类型以及相关操作</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-10-28 23:46:36" datetime="2017-10-28T15:46:36.000Z"  itemprop="datePublished">2017-10-28</time>
+
+            
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>js中有六种数据类型，包括五种基本数据类型（Number,String,Boolean,Null,Undefined）,和一种混合数据类型（Object）..</p>
+<p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=497047516&auto=0&height=66"></iframe><br><a id="more"></a></p>
+<h2 id="ECMAscript是什么："><a href="#ECMAscript是什么：" class="headerlink" title="ECMAscript是什么："></a>ECMAscript是什么：</h2><p>其实我们天天写的js代码就是由ECMAscript来定义的，它是一套标准，一个核心，比如js中的定义变量var不能写成vao，它除了规定js的语法之外还规定了js中的数据类型</p>
+<p>HTML标签的类型：block、inline、inline-block、table。。。意义在于根据不同的类型可以设置不一样的css,不是那个类型要转才能用。</p>
+<p>JS中的数据类型：<br>比如var i=666;要写给浏览器看，浏览器如何分辨了。。。其实js（ECMAscript）中提供了一个小小的运算符type of(类型 判断),就是用来判断数据类型的，比如alert(typeof i);弹出i的数据类型。</p>
+<h2 id="引号’’或者””"><a href="#引号’’或者””" class="headerlink" title="引号’’或者””"></a>引号’’或者””</h2><p>只要是引号就是字符串的类型，知道是个字符串就可以获取字符串的长度。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var h=<span class="string">"string "</span>;(其中带有空格也算字符串)</div><div class="line">alert(h.length);</div><div class="line"></div><div class="line">alert(h.charAT(3));弹出i</div><div class="line">charAT()方法是根据字符串的下标获取子字符串的下标（0,1,2,3）;</div></pre></td></tr></table></figure></p>
+<h2 id="布尔值："><a href="#布尔值：" class="headerlink" title="布尔值："></a>布尔值：</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">比如var b=<span class="literal">true</span>;  （只有两个值<span class="literal">true</span> or <span class="literal">false</span>）</div><div class="line">可以alert(typeof b);</div><div class="line">比如</div><div class="line"><span class="keyword">if</span>(6&lt;66)&#123;&#125;就是<span class="literal">true</span></div><div class="line"><span class="keyword">if</span>(666&lt;66)&#123;&#125;就是<span class="literal">false</span></div></pre></td></tr></table></figure>
+<h2 id="object对象"><a href="#object对象" class="headerlink" title="object对象:"></a>object对象:</h2><p>js中对象是一组属性与方法的集合。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">var obj=window;</div><div class="line">alert(typeof obj);window对象</div><div class="line"></div><div class="line">var obj=document</div><div class="line">alert(typeof obj);文档对象</div><div class="line"></div><div class="line">1、constructor属性：构造函数属性,可确定当前对象的构造函数。</div><div class="line">var o = new Object();</div><div class="line">console.log(o.constructor == Object);//<span class="literal">true</span></div><div class="line">var arr = new Array();</div><div class="line">console.log(arr.constructor == Array);//<span class="literal">true</span></div><div class="line"></div><div class="line">2、hasOwnProperty(propertyName)：判断属性是否存在于当前对象实例中（而不是原型对象中）。</div><div class="line"></div><div class="line">.....等等等等。</div></pre></td></tr></table></figure></p>
+<h2 id="数组"><a href="#数组" class="headerlink" title="数组:"></a>数组:</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var arr=[1,2,3,4];</div><div class="line">alert(arr.length);</div><div class="line">arr[2]=345;</div><div class="line">alert(arr);</div><div class="line">数组也是一个object。</div></pre></td></tr></table></figure>
+<h2 id="json"><a href="#json" class="headerlink" title="json:"></a>json:</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var json=&#123;name:<span class="string">'hardy'</span>,age:18&#125;;</div><div class="line">alert(json.name+<span class="string">'年年'</span>+json.age+<span class="string">'岁'</span>+)</div><div class="line">json也是一个object对象</div><div class="line"></div><div class="line">json只是平时的命名，可以写成</div><div class="line">var abc=&#123;name:<span class="string">'hardy'</span>,age:18&#125;;</div></pre></td></tr></table></figure>
+<h2 id="null"><a href="#null" class="headerlink" title="null:"></a>null:</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">null类型被看做空对象指针，前文说到null类型也是空的对象引用。只有一个值，即null值，所以，在你 用typeof 操作符去检测null类型的值时，结果是object类型。</div></pre></td></tr></table></figure>
+<h2 id="Undefined"><a href="#Undefined" class="headerlink" title="Undefined:"></a>Undefined:</h2><p>这个就厉害了，你们经常定义了一个那啥，最后发现她Undefined…<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var Sex = <span class="string">"女"</span>;</div><div class="line">var mygirlfriend;</div><div class="line">alert(Sex);//女</div><div class="line">alert(mygirlfriend);//undefined...</div><div class="line">alert(girlfriend);//error，变量girlfriend没有声明</div><div class="line"></div><div class="line">alert(typeof Sex);//string</div><div class="line">alert(typeof mygirlfriend);//undefined</div><div class="line">alert(typeof girlfriend);//undefined，变量girlfriend没有声明</div></pre></td></tr></table></figure></p>
+<h2 id="数据转换"><a href="#数据转换" class="headerlink" title="数据转换"></a>数据转换</h2><p>字符串变成数字：<br>ECMascript给我们提供了一个方法Number();<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">var h=<span class="string">'100'</span>;</div><div class="line">alert(h+100)//100100</div><div class="line">alert(Number(h)+100)//200</div><div class="line"></div><div class="line">var h=<span class="string">'00100'</span>;</div><div class="line">alert(Number(h))//100</div><div class="line"></div><div class="line"></div><div class="line">var h=<span class="string">''</span>;或者 var h=<span class="string">'   '</span>;</div><div class="line">alert(Number(h))//0</div><div class="line"></div><div class="line">var h=<span class="literal">true</span>;或者 var h=<span class="literal">false</span>;</div><div class="line">alert(Number(h))//1或者0</div><div class="line"></div><div class="line">var h=[];var h=[<span class="string">''</span>];</div><div class="line">alert(number(h))//0</div><div class="line"></div><div class="line">var json=&#123;abc:123&#125;;</div><div class="line">alert(number(json))//0</div><div class="line"></div><div class="line">var h=null</div><div class="line">alert(number(h))//0</div><div class="line"></div><div class="line">转不出来的东西弹出NaN</div></pre></td></tr></table></figure></p>
+<h2 id="parseInt方法："><a href="#parseInt方法：" class="headerlink" title="parseInt方法："></a>parseInt方法：</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var h=<span class="string">"100px;"</span></div><div class="line">alert(parseInt(h));</div><div class="line">转化成字符串</div><div class="line">工作原理：出现非数字截断，最后弹出100，所以即使是</div><div class="line">var h=<span class="string">"100px12345678;"</span></div><div class="line">alert(parseInt(h));</div><div class="line">弹出的还是100</div><div class="line"></div><div class="line">var h=<span class="string">"13.14元"</span></div><div class="line">alert(parseInt(h));</div><div class="line">弹出13，.后面的被截断</div></pre></td></tr></table></figure>
+<h2 id="parseFloat方法："><a href="#parseFloat方法：" class="headerlink" title="parseFloat方法："></a>parseFloat方法：</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var h=<span class="string">"13.14元"</span></div><div class="line">这时候需要用parseFloat();</div><div class="line">alert(parseFloat(b));</div><div class="line">弹出13.14</div><div class="line">但是如果是var b=<span class="string">"13.1.4元"</span></div><div class="line">弹出13.1</div></pre></td></tr></table></figure>
+<h2 id="parseFloat方法：-1"><a href="#parseFloat方法：-1" class="headerlink" title="parseFloat方法："></a>parseFloat方法：</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var h=<span class="string">"13.14元"</span></div><div class="line">这时候需要用parseFloat();</div><div class="line">alert(parseFloat(b));</div><div class="line">弹出13.14</div><div class="line">但是如果是var b=<span class="string">"13.1.4元"</span></div><div class="line">弹出13.1</div><div class="line">alert(parseFloat(b));可以写成</div><div class="line">alert(parseFloat(b，10));</div><div class="line">alert(parseFloat(b，16));</div><div class="line">就是按10进制或者16进制转。</div></pre></td></tr></table></figure>
+<p>1、parseInt与number的区别，number全部转换，parseInt从左到右依次<br>2、parseInt与parseFloat的区别，parseInt不认识小数点<br>3、parseFloat认识一个小数点</p>
+<h2 id="于是可以用parseInt和parseFloat判断一个数是整数还是小数"><a href="#于是可以用parseInt和parseFloat判断一个数是整数还是小数" class="headerlink" title="于是可以用parseInt和parseFloat判断一个数是整数还是小数"></a>于是可以用parseInt和parseFloat判断一个数是整数还是小数</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var num=<span class="string">'5.20'</span>;</div><div class="line"><span class="keyword">if</span>(parseInt(num)===parseFloat(num))&#123;</div><div class="line">   alert(<span class="string">"整数"</span>);</div><div class="line">&#125;<span class="keyword">else</span>&#123;</div><div class="line">   alert(<span class="string">"小数"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>需要说的是一个谜一样的数：NaN，它是非数字类型，为什么说是谜一样的数字呢，其实…..只是为了耍酷。</p>
+<p>它的特点：<br>① 涉及到的 任何关于NaN的操作，都会返回NaN<br>② NaN不等于自身。</p>
+<h2 id="什么是NaN"><a href="#什么是NaN" class="headerlink" title="什么是NaN?"></a>什么是NaN?</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">NaN:not a number(不是数字的数字类型)</div><div class="line">var a=Number(<span class="string">'hhh'</span>);</div><div class="line">alert(typeof (a));</div><div class="line">一旦写程序遇到了NaN,肯定进行了非法运算操作</div><div class="line">alert(<span class="string">'200px'</span>-100);</div><div class="line"></div><div class="line"><span class="keyword">if</span>(a)&#123;</div><div class="line">alert(<span class="string">'真'</span>);</div><div class="line">&#125;</div><div class="line"><span class="keyword">else</span>&#123;</div><div class="line">alert(<span class="string">'假'</span>);</div><div class="line">&#125;</div><div class="line">//假</div><div class="line">特性：NaN是个假货</div><div class="line"></div><div class="line">NaN与自己都不相等</div><div class="line">alert(a===a)//<span class="literal">false</span></div></pre></td></tr></table></figure>
+<h2 id="js中稀奇古怪的隐式类型转换"><a href="#js中稀奇古怪的隐式类型转换" class="headerlink" title="js中稀奇古怪的隐式类型转换"></a>js中稀奇古怪的隐式类型转换</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">显示类型转换（强制类型转换）:</div><div class="line">number()</div><div class="line">parseInt()</div><div class="line">parseFloat()</div><div class="line"></div><div class="line">隐式类型转换：</div><div class="line">-*/%可以让字符串操作之后变成数字</div><div class="line">alert(<span class="string">'200'</span>-3);//197（数字）</div><div class="line">alert(<span class="string">'200'</span>+3);//2003(字符串)</div><div class="line"></div><div class="line">var a=<span class="string">'10'</span>;</div><div class="line">a++;</div><div class="line">alert(a);//11（数字）</div><div class="line"></div><div class="line">数字比较与字符串比较</div><div class="line">alert(<span class="string">'10'</span>&gt;9);//<span class="literal">true</span></div><div class="line">字符串比较是一位一位的进行比较</div><div class="line">alert(<span class="string">'100000000000'</span>&gt;<span class="string">'9'</span>);//<span class="literal">false</span></div><div class="line"></div><div class="line">！取反</div><div class="line">把右边的数据类型转成布尔值</div><div class="line">alert(!<span class="literal">true</span>);//<span class="literal">false</span></div><div class="line">alert(!ok);//<span class="literal">false</span></div><div class="line">alert(!100);//<span class="literal">false</span></div><div class="line"></div><div class="line">==</div><div class="line">alert(<span class="string">'2'</span>==2)//<span class="literal">true</span></div><div class="line">对地址进行比较，最后<span class="literal">true</span></div><div class="line">alert(<span class="string">'2'</span>===2);(三个等号更严谨)</div></pre></td></tr></table></figure>
+<h2 id="隐式转换与显式转换都有一个共性，就是转化不成功的时候弹出NaN。"><a href="#隐式转换与显式转换都有一个共性，就是转化不成功的时候弹出NaN。" class="headerlink" title="隐式转换与显式转换都有一个共性，就是转化不成功的时候弹出NaN。"></a>隐式转换与显式转换都有一个共性，就是转化不成功的时候弹出NaN。</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">alert(Number(<span class="string">'....'</span>));</div><div class="line">alert(<span class="string">'....'</span>-9);</div></pre></td></tr></table></figure>
+<h2 id="isNaN（）"><a href="#isNaN（）" class="headerlink" title="isNaN（）"></a>isNaN（）</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">isNaN:is not a number 是不是不是一个数字（不是数字）</div><div class="line">（它天生烦数字）</div><div class="line">alert(isNaN(250))//<span class="literal">false</span></div><div class="line">alert(isNaN(<span class="string">'hh'</span>))//<span class="literal">true</span></div><div class="line"></div><div class="line">isNaN();</div><div class="line">可以用于判断某些值是不是数字</div><div class="line"></div><div class="line">alert(isNaN(<span class="function"><span class="title">function</span></span>()&#123;alert(1);&#125;));</div><div class="line"></div><div class="line">在isNaN内部是先通过Number进行转换之后才确定烦不烦数字，只要是number转换出来是数字，就<span class="literal">false</span>,所以isNaN只是讨厌数字但是不讨厌NaN。</div></pre></td></tr></table></figure>
+<h2 id="isNaN应用"><a href="#isNaN应用" class="headerlink" title="isNaN应用"></a>isNaN应用</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;input <span class="built_in">type</span>=<span class="string">'text'</span> id=<span class="string">"text"</span>&gt;</div><div class="line">&lt;input <span class="built_in">type</span>=<span class="string">'button'</span> id=<span class="string">"btn"</span> value=<span class="string">'测试当前数据类型'</span>&gt;</div></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/NaNimg/1.JPG" alt="“从html中直接获取的值（xxx.value）都是string类型”" title="">
+                </div>
+                <div class="image-caption">“从html中直接获取的值（xxx.value）都是string类型”</div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/NaNimg/2.JPG" alt="“加一条if语句，用isNaN判断数据类型”" title="">
+                </div>
+                <div class="image-caption">“加一条if语句，用isNaN判断数据类型”</div>
+            </figure>
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2017-10-29T02:22:58.937Z" itemprop="dateUpdated">2017-10-29 10:22:58</time>
+</span><br>
+
+
+        
+        谢谢浏览，我会继续努力的，示例：<a href="/2017/10/28/js的数据类型以及相关操作/" target="_blank" rel="external">http://yoursite.com/2017/10/28/js的数据类型以及相关操作/</a>
+        
+    </div>
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/touxiang.jpg" alt="BingZhenHuang">
+            BingZhenHuang
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ECMAscript/">ECMAscript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据类型/">数据类型</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据转换/">数据转换</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/显示转换/">显示转换</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/隐式转换/">隐式转换</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2017/10/28/js的数据类型以及相关操作/&title=《js的数据类型以及相关操作》 — Hardy-Zhen&pic=http://yoursite.com/img/touxiang.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2017/10/28/js的数据类型以及相关操作/&title=《js的数据类型以及相关操作》 — Hardy-Zhen&source=js中有六种数据类型，包括五种基本数据类型（Number,String,Boolean,Null,Undefined）,和一种混合数据类型（Object）..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/10/28/js的数据类型以及相关操作/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《js的数据类型以及相关操作》 — Hardy-Zhen&url=http://yoursite.com/2017/10/28/js的数据类型以及相关操作/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2017/10/28/js的数据类型以及相关操作/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/11/24/Asp-NET中Requiredfieldvalidator崩掉的问题解决/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Asp.NET中Requiredfieldvalidator控件崩掉的问题解决</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/10/25/关于node/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">介绍一下node的一些知识以及构建项目</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        （゜-゜）つロ Cheers
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<footer class="footer">
+    <div class="top">
+        
+
+        <p>
+
+<span id="busuanzi_container_site_uv">[&nbspviews:<span id="busuanzi_value_site_uv">loading...</span>&nbsp]</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>BingZhenHuang &copy; 2017 - 2018</span>
+            <span>
+                
+                Power by <a href="https://hhardyy.github.io/" target="_blank">zhen On August 8</a> 
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2017/10/28/js的数据类型以及相关操作/&title=《js的数据类型以及相关操作》 — Hardy-Zhen&pic=http://yoursite.com/img/touxiang.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2017/10/28/js的数据类型以及相关操作/&title=《js的数据类型以及相关操作》 — Hardy-Zhen&source=js中有六种数据类型，包括五种基本数据类型（Number,String,Boolean,Null,Undefined）,和一种混合数据类型（Object）..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/10/28/js的数据类型以及相关操作/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《js的数据类型以及相关操作》 — Hardy-Zhen&url=http://yoursite.com/2017/10/28/js的数据类型以及相关操作/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2017/10/28/js的数据类型以及相关操作/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACxUlEQVR42u3aQY7bMAwF0Nz/0i1adFdE/l+UMlk8r4LBRNZTAJMm+XrF16+/17u/rD8n301W+H+dYxceHh7e1tbfXevb5LD1Ftd3T9hv18fDw8O7xlsHg73NJQ/05CDWx/pgwcPDw/tRXpIo3wgb69Xw8PDwvp83KUnslRU+Ghjw8PDwYl5SjFh/K3+g50GlPTI8PDy8z/DaBtg3fL7Y38PDw8MbdNXbB26+lTxF3tvnv9Xw8PDwLvDysYD15pK0+1TBNz8yPDw8vNu8vWQ6b2Xl+Lz8Ed0LDw8P7yhvvbm8bNqWXPcKvjUYDw8P7xov+UJeSJ0cRDsW8LAmHh4e3gVe8UofY9qyRR6W5rvFw8PDm/OSFHYyzDQZ1Wp/gIe4h4eHh3eUtzccMEmg5/eKUnw8PDy8y7xJep0Xf5OUOi9wPGTOeHh4eBd4k/DQDg2caqrVJWA8PDy8o7w8MCTnlGwx2eipcjAeHh7ePV4eQ/Ib7A0BtMl09MaAh4eHd4E3GWZqA0bbNssbckXcw8PDwxvw8s5R27JqSxVtWWQ06ICHh4d3lNeWZdtixN7B5bCHNfHw8PDGvKQdlT/E90q37ejAqz0JPDw8vKO85NGcJ8d7afG8KBxNRuDh4eEd4rVbn48OtANbbTNs9Mvg4eHhxVlo27bfKze0YwRtiv/2Xnh4eHhHeclG86Z++5/zw3r4Ox4eHt5lXr7R9gE9P8QkqLyNeHh4eHhHee2b+14YmJQY8rIIHh4e3md4k3LDpGq619BK9hO9MeDh4eENeDcmlya3z0eyovo0Hh4e3jXepOW/N4bVrly/GeDh4eF9hJcXIHJM3bIqA1JSHMHDw8P7Wd5eAMgDSfvQjwoceHh4eF/Am7TK7pV0H9pgeHh4eBd4eckgKTG0aXGRIreHhYeHh3eBd6oBNh8gOJWyX+nv4eHh4f25fgM9PSvwlUGvbAAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '~~去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!回来了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

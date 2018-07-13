@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?d890b1f16fb364253e79c5bb20225c3a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+    
+
+    
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?busuanzi_value_site_uv"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    <meta name="baidu-site-verification" content="FYMCShbUK8" />
+    <meta name="baidu-site-verification" content="ZYRF7OxQRW" />
+    <meta name="baidu-site-verification" content="cHSqtjI0PN" />
+    <meta name="baidu-site-verification" content="cHSqtjI0PN" />
+    <meta name="baidu-site-verification" content="cHSqtjI0PN" />
+    
+    
+    <link rel="canonical" href="true/2017/12/20/node-pash命令合集/">
+    
+    
+    <title>node pash命令合集 | Hardy-Zhen | The IT technical communication</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#958e93">
+    
+    
+    <meta name="keywords" content="node,node命令,pash,npm">
+    <meta name="description" content="来一波node的命令大全，避免在敲命令的时候耍酷失败~">
+<meta name="keywords" content="node,node命令,pash,npm">
+<meta property="og:type" content="article">
+<meta property="og:title" content="node pash命令合集">
+<meta property="og:url" content="http://yoursite.com/2017/12/20/node-pash命令合集/index.html">
+<meta property="og:site_name" content="Hardy-Zhen">
+<meta property="og:description" content="来一波node的命令大全，避免在敲命令的时候耍酷失败~">
+<meta property="og:locale" content="zh-CH">
+<meta property="og:image" content="http://yoursite.com/images/nodeImg/up1.JPG">
+<meta property="og:updated_time" content="2017-12-20T03:47:44.547Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="node pash命令合集">
+<meta name="twitter:description" content="来一波node的命令大全，避免在敲命令的时候耍酷失败~">
+<meta name="twitter:image" content="http://yoursite.com/images/nodeImg/up1.JPG">
+    
+        <link rel="alternate" type="application/atom+xml" title="Hardy-Zhen" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/zhenLogo.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/logoBg.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/touxiang.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">BingZhenHuang</h5>
+          <a href="mailto:huangbingzhen@hhardyy.com" title="huangbingzhen@hhardyy.com" class="mail">huangbingzhen@hhardyy.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                所有文章
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/HHardyy" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://juejin.im/user/59a26f926fb9a02487553b04"  >
+                <i class="icon icon-lg icon-pencil"></i>
+                掘金-圳
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://segmentfault.com/u/hhardyy"  >
+                <i class="icon icon-lg icon-comments"></i>
+                Segmentfault
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://codepen.io/HHardyy/" target="_blank" >
+                <i class="icon icon-lg icon-codepen"></i>
+                Codepen
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/ZhenSolive/find.html" target="_blank" >
+                <i class="icon icon-lg icon-globe"></i>
+                原生直播间
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/hero/judge.html" target="_blank" >
+                <i class="icon icon-lg icon-cloud"></i>
+                原生小悟空
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.freecodecamp.cn/hhardyy" target="_blank" >
+                <i class="icon icon-lg icon-leaf"></i>
+                Freecodecamp
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/友情链接"  >
+                <i class="icon icon-lg icon-link"></i>
+                友链
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">node pash命令合集</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">node pash命令合集</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-12-20T02:46:21.000Z" itemprop="datePublished" class="page-time">
+  2017-12-20
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#查看当前版本"><span class="post-toc-number">1.</span> <span class="post-toc-text">查看当前版本</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#清除npm-cache"><span class="post-toc-number">2.</span> <span class="post-toc-text">清除npm cache</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装n模块"><span class="post-toc-number">3.</span> <span class="post-toc-text">安装n模块</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#升级到想要的版本，比如我自己现在的版本8-9"><span class="post-toc-number">4.</span> <span class="post-toc-text">升级到想要的版本，比如我自己现在的版本8.9</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#升级到最新的版本"><span class="post-toc-number">5.</span> <span class="post-toc-text">升级到最新的版本</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#常用node-npm命令"><span class="post-toc-number">6.</span> <span class="post-toc-text">常用node npm命令</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-node-pash命令合集"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">node pash命令合集</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-12-20 10:46:21" datetime="2017-12-20T02:46:21.000Z"  itemprop="datePublished">2017-12-20</time>
+
+            
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>来一波node的命令大全，避免在敲命令的时候耍酷失败~</p>
+<p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=493283235&auto=0&height=66"></iframe><br><a id="more"></a><br>最近遇到个脑疼的问题，在升级node最新版本的时候，遇到了win不支持N模块的问题.<br>node 升级版本的命令：</p>
+<h3 id="查看当前版本"><a href="#查看当前版本" class="headerlink" title="查看当前版本"></a>查看当前版本</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">node -v</div></pre></td></tr></table></figure>
+<h3 id="清除npm-cache"><a href="#清除npm-cache" class="headerlink" title="清除npm cache"></a>清除npm cache</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo npm cache clean -f</div></pre></td></tr></table></figure>
+<h3 id="安装n模块"><a href="#安装n模块" class="headerlink" title="安装n模块"></a>安装n模块</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo npm install -g n</div></pre></td></tr></table></figure>
+<h3 id="升级到想要的版本，比如我自己现在的版本8-9"><a href="#升级到想要的版本，比如我自己现在的版本8-9" class="headerlink" title="升级到想要的版本，比如我自己现在的版本8.9"></a>升级到想要的版本，比如我自己现在的版本8.9</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo n 8.9.3</div></pre></td></tr></table></figure>
+<h3 id="升级到最新的版本"><a href="#升级到最新的版本" class="headerlink" title="升级到最新的版本"></a>升级到最新的版本</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo n stable</div></pre></td></tr></table></figure>
+<p>再次node -v查看当前版本，必要的时候可以重启一下看看。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/nodeImg/up1.JPG" alt="“我之前是6.9.5版本，这是升级之后的版本，没记得截图6.9.5~~”" title="">
+                </div>
+                <div class="image-caption">“我之前是6.9.5版本，这是升级之后的版本，没记得截图6.9.5~~”</div>
+            </figure>;</p>
+<p>注意：win系统不支持n模块的话直接用命令升级是不靠谱的，我开始也在和它死磕，一直不靠谱之后听了朋友建议直接去官网下=  。=</p>
+<h3 id="常用node-npm命令"><a href="#常用node-npm命令" class="headerlink" title="常用node npm命令"></a>常用node npm命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line">npm install moduleNames：安装Node模块 </div><div class="line"></div><div class="line">npm start 启动模块</div><div class="line"></div><div class="line">npm stop 停止模块</div><div class="line"></div><div class="line">npm restart 重新启动模块</div><div class="line"></div><div class="line">npm cache 管理模块的缓存</div><div class="line"></div><div class="line">npm config管理npm的配置路径</div><div class="line"></div><div class="line">npm view moduleNames：查看node模块的package.json文件夹</div><div class="line"></div><div class="line">npm list：查看当前目录下已安装的node包</div><div class="line"></div><div class="line">npm <span class="built_in">help</span>：查看帮助命令</div><div class="line"></div><div class="line">npm view moudleName dependencies：查看包的依赖关系 </div><div class="line"></div><div class="line">npm view moduleName repository.url：查看包的源文件地址 </div><div class="line"></div><div class="line">npm view moduleName engines：查看包所依赖的Node的版本 </div><div class="line"></div><div class="line">npm <span class="built_in">help</span> folders：查看npm使用的所有文件夹 </div><div class="line"></div><div class="line">npm rebuild moduleName：用于更改包内容后进行重建  </div><div class="line"></div><div class="line">npm outdated：检查包是否已经过时，此命令会列出所有已经过时的包，可以及时进行包的更新  </div><div class="line"></div><div class="line">npm update moduleName：更新node模块 </div><div class="line"></div><div class="line">npm uninstall moudleName：卸载node模块 </div><div class="line"></div><div class="line">一个npm包是包含了package.json的文件夹，package.json描述了这个文件夹的结构。访问npm的json文件夹的方法如下： $ npm <span class="built_in">help</span> json   此命令会以默认的方式打开一个网页，如果更改了默认打开程序则可能不会以网页的形式打开。</div><div class="line"></div><div class="line">发布一个npm包的时候，需要检验某个包名是否已存在 $ npm search packageName  </div><div class="line"></div><div class="line">npm init：会引导你创建一个package.json文件，包括名称、版本、作者这些信息等 </div><div class="line"></div><div class="line">npm root：查看当前包的安装路径 npm root -g：查看全局的包的安装路径</div></pre></td></tr></table></figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2017-12-20T03:47:44.547Z" itemprop="dateUpdated">2017-12-20 11:47:44</time>
+</span><br>
+
+
+        
+        谢谢浏览，我会继续努力的，示例：<a href="/2017/12/20/node-pash命令合集/" target="_blank" rel="external">http://yoursite.com/2017/12/20/node-pash命令合集/</a>
+        
+    </div>
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/touxiang.jpg" alt="BingZhenHuang">
+            BingZhenHuang
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node/">node</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node命令/">node命令</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/npm/">npm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pash/">pash</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2017/12/20/node-pash命令合集/&title=《node pash命令合集》 — Hardy-Zhen&pic=http://yoursite.com/img/touxiang.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2017/12/20/node-pash命令合集/&title=《node pash命令合集》 — Hardy-Zhen&source=来一波node的命令大全，避免在敲命令的时候耍酷失败~
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/12/20/node-pash命令合集/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《node pash命令合集》 — Hardy-Zhen&url=http://yoursite.com/2017/12/20/node-pash命令合集/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2017/12/20/node-pash命令合集/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/12/29/中关村的圣诞/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">中关村的圣诞</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/12/01/node的一个小问题/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">node的一个小问题</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        （゜-゜）つロ Cheers
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<footer class="footer">
+    <div class="top">
+        
+
+        <p>
+
+<span id="busuanzi_container_site_uv">[&nbspviews:<span id="busuanzi_value_site_uv">loading...</span>&nbsp]</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>BingZhenHuang &copy; 2017 - 2018</span>
+            <span>
+                
+                Power by <a href="https://hhardyy.github.io/" target="_blank">zhen On August 8</a> 
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2017/12/20/node-pash命令合集/&title=《node pash命令合集》 — Hardy-Zhen&pic=http://yoursite.com/img/touxiang.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2017/12/20/node-pash命令合集/&title=《node pash命令合集》 — Hardy-Zhen&source=来一波node的命令大全，避免在敲命令的时候耍酷失败~
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/12/20/node-pash命令合集/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《node pash命令合集》 — Hardy-Zhen&url=http://yoursite.com/2017/12/20/node-pash命令合集/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2017/12/20/node-pash命令合集/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACDUlEQVR42u3ay2rEMAwF0Pz/T6frMjRcSZmC7eNVyQTHpwuhh68rXvfH+uudz/eTX5+fv7YwMDCWZdyPK/9AfvRk5WfDwMA4h5EE0OfjJp/PwfnZMDAwMP56p4qZ8zAwMDB6jOo+1Z0xMDAwqkVsNYxOiuEv1uIYGBgLMvKu+////ZX5BgYGxlKMXrM+D7vJse7xwsDA2JuRB7j8iNULGb2Ai4GBcQ5j3u5/3mGeFD5/5XpraoGBgbEUoxCng5FAdYe85ffrCQYGxpGM6oix2vrvDQmu6ksYGBhbMJKR4QRTTTfLSSEGBsaRjF7A7RXA74ZvDAyMXRm9ojFvvc27YUlrDwMDA6O86UuDz8L7GBgYWzPyorR60KSdNzl6uSLHwMBYnJG35vNWfp50Tv59GBgYJzCiSDwIr0lSmMCiyxYYGBgHMPLCdXLBKycVWngYGBhbM3ohNQ/TvVSyd5UNAwPjBMZkMNDD52li+XIYBgbGdoxqAO2Rmr3A/DkGBsYBjF6jvwebDBswMDAwJiFvUtxWxxIYGBjnMO7i6pW71fZZ+dIYBgbG1ox89QrdcnrXu2yBgYFxAKN3MSIPu73StJw+YmBgHMBICtT817xkzZPIaAaLgYGBUWRMrnmV98TAwMAolqZvjRDyxBQDA+MExvxKRHLcydExMDBOZoxKx0Eh2mvVjQaZGBgY6zF+AJS8vCoLQQ0hAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '~~去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!回来了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

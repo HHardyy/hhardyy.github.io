@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?d890b1f16fb364253e79c5bb20225c3a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+    
+
+    
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?busuanzi_value_site_uv"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    <meta name="baidu-site-verification" content="FYMCShbUK8" />
+    <meta name="baidu-site-verification" content="ZYRF7OxQRW" />
+    <meta name="baidu-site-verification" content="cHSqtjI0PN" />
+    <meta name="baidu-site-verification" content="cHSqtjI0PN" />
+    <meta name="baidu-site-verification" content="cHSqtjI0PN" />
+    
+    
+    <link rel="canonical" href="true/2018/03/11/git版本更新/">
+    
+    
+    <title>git版本更新 | Hardy-Zhen | The IT technical communication</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#958e93">
+    
+    
+    <meta name="keywords" content="Git更新,Git推送失败">
+    <meta name="description" content="今晚在推送项目的时候遇到了Git推送失败：HttpRequestException">
+<meta name="keywords" content="Git更新,Git推送失败">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git版本更新">
+<meta property="og:url" content="http://yoursite.com/2018/03/11/git版本更新/index.html">
+<meta property="og:site_name" content="Hardy-Zhen">
+<meta property="og:description" content="今晚在推送项目的时候遇到了Git推送失败：HttpRequestException">
+<meta property="og:locale" content="zh-CH">
+<meta property="og:image" content="http://yoursite.com/images/gitupdate/git.JPG">
+<meta property="og:updated_time" content="2018-03-12T00:24:04.138Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="git版本更新">
+<meta name="twitter:description" content="今晚在推送项目的时候遇到了Git推送失败：HttpRequestException">
+<meta name="twitter:image" content="http://yoursite.com/images/gitupdate/git.JPG">
+    
+        <link rel="alternate" type="application/atom+xml" title="Hardy-Zhen" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/zhenLogo.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/logoBg.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/touxiang.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">BingZhenHuang</h5>
+          <a href="mailto:huangbingzhen@hhardyy.com" title="huangbingzhen@hhardyy.com" class="mail">huangbingzhen@hhardyy.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                所有文章
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/HHardyy" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://juejin.im/user/59a26f926fb9a02487553b04"  >
+                <i class="icon icon-lg icon-pencil"></i>
+                掘金-圳
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://segmentfault.com/u/hhardyy"  >
+                <i class="icon icon-lg icon-comments"></i>
+                Segmentfault
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://codepen.io/HHardyy/" target="_blank" >
+                <i class="icon icon-lg icon-codepen"></i>
+                Codepen
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/ZhenSolive/find.html" target="_blank" >
+                <i class="icon icon-lg icon-globe"></i>
+                原生直播间
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/hero/judge.html" target="_blank" >
+                <i class="icon icon-lg icon-cloud"></i>
+                原生小悟空
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.freecodecamp.cn/hhardyy" target="_blank" >
+                <i class="icon icon-lg icon-leaf"></i>
+                Freecodecamp
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/友情链接"  >
+                <i class="icon icon-lg icon-link"></i>
+                友链
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">git版本更新</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">git版本更新</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-03-10T18:02:55.000Z" itemprop="datePublished" class="page-time">
+  2018-03-11
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#远程免密推送"><span class="post-toc-number">1.</span> <span class="post-toc-text">远程免密推送</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-git版本更新"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">git版本更新</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-03-11 02:02:55" datetime="2018-03-10T18:02:55.000Z"  itemprop="datePublished">2018-03-11</time>
+
+            
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>今晚在推送项目的时候遇到了Git推送失败：HttpRequestException</p>
+<p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=408280692&auto=0&height=66"></iframe><br><a id="more"></a><br>推送失败有可能不是项目本身的问题，因为本地开启服务器能正常跑起来，提示说是用户名找不到，原因是<a href="https://githubengineering.com/crypto-removal-notice/" target="_blank" rel="external">这是我查到的资料</a><br>可以从<a href="https://git-scm.com/" target="_blank" rel="external">下载</a>并重新安装Git的最新源代码版本。我自己是windows，所以下载适用于Windows的Git的最新（2.16.2）。这是最近维护的版本。它于18日前在2018-02-20发布，会同时更新Git Credential Manager。<br>下载安装完成之后（步骤无脑next也可以）<br>查看是否更新成功：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//查看Git版本的命令</div><div class="line">git --version</div></pre></td></tr></table></figure></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/gitupdate/git.JPG" alt="“查看结果”" title="">
+                </div>
+                <div class="image-caption">“查看结果”</div>
+            </figure>
+<p>这样git版本就更新完成了</p>
+<h3 id="远程免密推送"><a href="#远程免密推送" class="headerlink" title="远程免密推送"></a>远程免密推送</h3><p>因为远程的代码管理是基于SSH的，Git则需要配置SSH。<br>1 、设置Git的user name和email<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git config --global user.name <span class="string">"xxxx"</span>  //这里是用户名</div><div class="line">$ git config --global user.email <span class="string">"xx@xxx"</span>  //这里是邮箱</div></pre></td></tr></table></figure></p>
+<p>2、配置SSH密钥：<br>1）查看是否生成过ssh秘钥，路径是c盘下面的.ssh文件夹（没有说明没生成过秘钥）,有的话备份再删除因为一会会生成新的<br>2）生成密钥：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh-keygen -t rsa -C “xxx@xx”</div></pre></td></tr></table></figure></p>
+<p>按回车，得到id_rsa和id_rsa.pub（这两文件是生成在.ssh里头的）<br>4）登录github添加“id_rsa.pub”里面的公钥。<br>5）测试：ssh git@github.com<br>到这里如果成功的话，就可以了。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2018-03-12T00:24:04.138Z" itemprop="dateUpdated">2018-03-12 08:24:04</time>
+</span><br>
+
+
+        
+        谢谢浏览，我会继续努力的，示例：<a href="/2018/03/11/git版本更新/" target="_blank" rel="external">http://yoursite.com/2018/03/11/git版本更新/</a>
+        
+    </div>
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/touxiang.jpg" alt="BingZhenHuang">
+            BingZhenHuang
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git推送失败/">Git推送失败</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git更新/">Git更新</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/03/11/git版本更新/&title=《git版本更新》 — Hardy-Zhen&pic=http://yoursite.com/img/touxiang.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/03/11/git版本更新/&title=《git版本更新》 — Hardy-Zhen&source=今晚在推送项目的时候遇到了Git推送失败：HttpRequestException
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/03/11/git版本更新/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《git版本更新》 — Hardy-Zhen&url=http://yoursite.com/2018/03/11/git版本更新/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/03/11/git版本更新/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/04/11/网络安全之数据包截取原理/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">网络安全之数据包截取原理</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/03/10/vue2-0我踩过的坑，希望你别踩/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">vue2.0我踩过的坑，希望你别踩</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        （゜-゜）つロ Cheers
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<footer class="footer">
+    <div class="top">
+        
+
+        <p>
+
+<span id="busuanzi_container_site_uv">[&nbspviews:<span id="busuanzi_value_site_uv">loading...</span>&nbsp]</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>BingZhenHuang &copy; 2017 - 2018</span>
+            <span>
+                
+                Power by <a href="https://hhardyy.github.io/" target="_blank">zhen On August 8</a> 
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/03/11/git版本更新/&title=《git版本更新》 — Hardy-Zhen&pic=http://yoursite.com/img/touxiang.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/03/11/git版本更新/&title=《git版本更新》 — Hardy-Zhen&source=今晚在推送项目的时候遇到了Git推送失败：HttpRequestException
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/03/11/git版本更新/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《git版本更新》 — Hardy-Zhen&url=http://yoursite.com/2018/03/11/git版本更新/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/03/11/git版本更新/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKklEQVR42u3a226DQAxF0fz/T1OprxTYx55UYrx5QkkaZqWS5dvng6/j9yLvnu/P19V3nj+z+JIhQ8ZrGcftdfUZzuafJ8+9PIMMGTIGMMhRSLhMY+P96+RsMmTIkEFIJLHjaaIMGTJkrGKkoZmHbxkyZMjoFLGk7OSpXpqSLqvFZciQ8UJGOhj4z/svzjdkyJDxEsYRXvfJWdqeqwXZP04lQ4aMrRlkfPi9UeXaoYIMGTImMGoLEPxw6ffEC2QyZMgYwKglf2lwTAvUoGEnQ4aMrRmdXtaqVn6tcJUhQ8YEBm+o8cEhGXbW0srLexkyZAxg1EpWct9fxUB/K0OGjK0Z/ZK1H7LTcenDqWTIkDGMwQNxulSR/kBBOJYhQ8Z2DL6qRR7Jk8K0xH2AyZAhYwyDp1/9IQFP+0gpK0OGjAmM1jIWHhKkjbyg2SdDhowxjPTx6UpZGr6DpQ0ZMmRszSAP5gVtsMgVAoKgL0OGjDEMPgzgjwnGkOBnRSNMGTJkbMFI2/f8uDzd7J9BhgwZ0xj91C1dqiAJHypcZciQsSmDL4GlC2S1blhnzCBDhoxdGbV2PHmlNpIkJXSwbCFDhowtGLVg1wnQvKlHji5Dhow5jH6QrRWoKe/hPyBDhowBDB4o01CYLmEUO2kyZMiQUSpxvxeIL1NDGTJkyGiviPEj8hRWhgwZcxi1MJo262vfjJbPZMiQsTWjs+iwapGLN/haSxsyZMh4H+MHsFrWLLv9vzcAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '~~去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!回来了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

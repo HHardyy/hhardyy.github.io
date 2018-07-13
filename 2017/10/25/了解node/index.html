@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?busuanzi_value_site_uv"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="true/2017/10/25/了解node/">
+    
+    
+    <title>了解node.js | HHardyy</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#958e93">
+    
+    
+    <meta name="keywords" content="javascript,node.js,Web">
+    <meta name="description" content="你可能已经基本掌握了html、css、和JavaScript，可能已经独立完成一些网页效果等等，那么可以进入node.js的世界了~~">
+<meta name="keywords" content="javascript,node.js,Web">
+<meta property="og:type" content="article">
+<meta property="og:title" content="了解node.js">
+<meta property="og:url" content="http://yoursite.com/2017/10/25/了解node/index.html">
+<meta property="og:site_name" content="HHardyy">
+<meta property="og:description" content="你可能已经基本掌握了html、css、和JavaScript，可能已经独立完成一些网页效果等等，那么可以进入node.js的世界了~~">
+<meta property="og:locale" content="zh-CH">
+<meta property="og:updated_time" content="2017-10-25T09:13:56.604Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="了解node.js">
+<meta name="twitter:description" content="你可能已经基本掌握了html、css、和JavaScript，可能已经独立完成一些网页效果等等，那么可以进入node.js的世界了~~">
+    
+        <link rel="alternate" type="application/atom+xml" title="HHardyy" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/hardy.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/logoBg.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/touxiang.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">BingZhenHuang</h5>
+          <a href="mailto:1526674294@qq.com" title="1526674294@qq.com" class="mail">1526674294@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                所有文章
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/HHardyy" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://juejin.im/user/59a26f926fb9a02487553b04"  >
+                <i class="icon icon-lg icon-juejin"></i>
+                掘金圳
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://segmentfault.com/u/hhardyy"  >
+                <i class="icon icon-lg icon-segmentfault"></i>
+                Segmentfault
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://codepen.io/HHardyy/" target="_blank" >
+                <i class="icon icon-lg icon-codepen"></i>
+                Codepen
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/ZhenSolive/find.html" target="_blank" >
+                <i class="icon icon-lg icon-solive"></i>
+                原生直播间
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.freecodecamp.cn/hhardyy" target="_blank" >
+                <i class="icon icon-lg icon-freecodecamp"></i>
+                编码作品集
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-link"></i>
+                实验室
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">了解node.js</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">了解node.js</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-10-25T07:24:10.000Z" itemprop="datePublished" class="page-time">
+  2017-10-25
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#node的诞生"><span class="post-toc-number">1.</span> <span class="post-toc-text">node的诞生</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-了解node"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">了解node.js</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-10-25 15:24:10" datetime="2017-10-25T07:24:10.000Z"  itemprop="datePublished">2017-10-25</time>
+
+            
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>你可能已经基本掌握了html、css、和JavaScript，可能已经独立完成一些网页效果等等，那么可以进入node.js的世界了~~</p>
+<p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=449116783&auto=0&height=66"></iframe><br><a id="more"></a></p>
+<h3 id="node的诞生"><a href="#node的诞生" class="headerlink" title="node的诞生"></a>node的诞生</h3><p>2008年武器大师（武器大师贾克斯=ajax）开始流行，网站开始追求像本地应用一样的用户体验，这就是web应用的新浪潮，而当时的服务器端不是很厉害，于是Ryan Dahl的目标：创建一个易扩展、适用于现代Web应用通信的服务器平台，方便的应用于以API为中心，而不是以页面为中心的开发~其次是支持浏览器以及服务器端的实时通信~尤其是浏览器到服务器端的消息推送~最后是要具有优秀的模块化功能，可以方便的进行扩充<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">### 什么是node</div><div class="line">比如平时的看到的网页的js主要靠浏览器进行编译，编译后才能产生我们想看到的效果。但是如何让js在服务器上编译呢？于是有了Node.js。</div><div class="line">Node是一个服务器端JavaScript解释器,是一个JS运行环境，可以用来做服务器，也可以用来像批处理一样执行某些任务。&lt;br&gt;</div><div class="line">Node.js是用C++编写的，是Javascript的运行环境，也就是说你可以编写系统级或者服务器端的Javascript代码，交给Node.js来解释执行。&lt;br&gt;</div><div class="line">在node这个平台上用JavaScript语言写应用。类似：java是一个平台，在这个平台上用java语言写应用。你可以在node平台上开发桌面gui应用，命令行工具。也可以开发服务器应用，比如web服务器应用等平台这个含义可以理解为有自己的生态环境，丰富的库。&lt;br&gt;</div><div class="line">node在前端开发里一般是用来执行编译 CSS 预编译语言、预编译、压缩、混淆JS、压缩图片、reload、deploy等工程化任务，常用的平台有 Grunt 和 Gulp。&lt;br&gt;</div><div class="line">### 与Apache和Tomcat比较</div><div class="line">Apache和Tomcat都是web服务器。Apache主要是用C语言编写的，可以编译php；Tomcat主要是用Java编写的，可以编译java。为什么服务器上要编译js／php／java 呢？因为有些网页的复杂功能(业务逻辑等等)用到了这些，将这些语言编写的代码放在云服务器，然后通过云服务器上的Node.js／Apache／Tomcat来进行编译执行。&lt;br&gt;</div><div class="line">Node是一个服务器程序。但是肯定不像Apache或Tomcat。一般支持在一分钟之内启动并运行一个服务器。Node肯定不是。Apache 能通过添加一个PHP模块来允许开发人员创建动态Web页，添加一个SSL模块来实现安全连接，与此类似，Node也有模块概念，允许向 Node 内核添加模块。实际上，可供选择的用于 Node 的模块有数百个之多，社区在创建、发布和更新模块方面非常活跃，一天甚至可以处理数十个模块。&lt;br&gt;</div><div class="line">### 学node的准备</div><div class="line">准备~~~准备~~~准备，来倒数3，2，1~~准备好了，让我们抛弃那些协议算法环境线程以及大佬的建议直接下载安装包安装然后~~~~~即可。&lt;br&gt;</div><div class="line">安装之后肯定要美滋滋打开，然后看到了这个。</div><div class="line">![“装好node之后第一次打开的窗口”](/images/nodeImg/node_1.JPG)</div><div class="line">### 如何测试安装结果</div><div class="line">同时按下windows键+R键，出来运行窗口，在里面输入cmd然后Enter打开命令行，这个是windows操作系统自带的命令行工具。输入node -v，安装成功会出现你所安装的node版本，如果下载并安装了git，就可以直接使用git bash这个命令行工具了。&lt;br&gt;</div><div class="line">![“node -v”](/images/nodeImg/nodeV.JPG)</div><div class="line">### 构建第一个node项目</div><div class="line">1、新建一个文件夹hhardyy(命名什么无所谓)</div><div class="line">2、在文件夹中新建一个文件zuishuai.js(写什么什么.js也无所谓)，然后在里面写上：</div><div class="line">``` bash</div><div class="line">console.log(&quot;hello zhenzhen&quot;);</div><div class="line">```</div><div class="line">![“构建第一个node项目”](/images/nodeImg/nodeP1.JPG)</div><div class="line">3、将命令行工具的目录切换到这个新建的文件夹中，然后执行：node zuishuai.js，在命令行中就会输出hello zhenzhen,第一个node项目就构建成功了</div><div class="line">![“执行成功”](/images/nodeImg/nodeP2.JPG)</div><div class="line">总结起来就是：说干就干，不要管什么理论概念应该一般以及所谓大佬的建议，hold不住了再求教翻书什么乱七八糟的，补充完接着干。对了node是不需要在桌面放快捷方式图标的，因为根本用不上，耍酷例外~~~~~希望能帮到有缘人</div></pre></td></tr></table></figure></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2017-10-25T09:13:56.604Z" itemprop="dateUpdated">2017-10-25 17:13:56</time>
+</span><br>
+
+
+        
+        谢谢浏览，我会继续努力的，示例：<a href="/2017/10/25/了解node/" target="_blank" rel="external">http://yoursite.com/2017/10/25/了解node/</a>
+        
+    </div>
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/touxiang.jpg" alt="BingZhenHuang">
+            BingZhenHuang
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Web/">Web</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2017/10/25/了解node/&title=《了解node.js》 — HHardyy&pic=http://yoursite.com/img/touxiang.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2017/10/25/了解node/&title=《了解node.js》 — HHardyy&source=你可能已经基本掌握了html、css、和JavaScript，可能已经独立完成一些网页效果等等，那么可以进入node.js的世界了~~
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/10/25/了解node/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《了解node.js》 — HHardyy&url=http://yoursite.com/2017/10/25/了解node/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2017/10/25/了解node/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/09/12/各种姿势加载第三方js/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">各种姿势加载第三方js</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃鸡翅~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<footer class="footer">
+    <div class="top">
+        
+
+        <p>
+
+<span id="busuanzi_container_site_uv">[&nbspviews:<span id="busuanzi_value_site_uv">loading...</span>&nbsp]</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>BingZhenHuang &copy; 2017</span>
+            <span>
+                
+                Power by <a href="https://hhardyy.github.io/" target="_blank">zhen On August 8</a> 
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2017/10/25/了解node/&title=《了解node.js》 — HHardyy&pic=http://yoursite.com/img/touxiang.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2017/10/25/了解node/&title=《了解node.js》 — HHardyy&source=你可能已经基本掌握了html、css、和JavaScript，可能已经独立完成一些网页效果等等，那么可以进入node.js的世界了~~
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/10/25/了解node/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《了解node.js》 — HHardyy&url=http://yoursite.com/2017/10/25/了解node/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2017/10/25/了解node/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAAByElEQVR42u3aS27DMAwFwNz/0u62QGH1kZScBBitgiBWRl4Q/Oj1itf1a62/SZ5d/37DwsXFHXOv5fq79frvE9z68Ot9cHFxn+TeRYw8GOWIu2fXBlxc3G/h7g1tuLi438itHqMaBHFxcT+Nm6QjeVskCWHHazVcXNwBN+9Snvt8pL+Li4vb4l6tlYSkO9A1WLi4uM9wJ0VOLzxN0ilcXNz3cpPhR0JJ9syLK1xc3Oe5eeszwe0KYYW3gouLu5VbbYLkgak6uG02UHBxcbdyq6OLJOhMRiD/vFFcXNw3cZPLE9UjVQuk24CIi4v7IDe5DtVLWXrhL+rf4OLiPsKd0PMrWaOLHbi4uI9we+VK3hCplkDRUXFxcQ9zk5ZlLzD1GqnRxQtcXNzD3Emps7f4Sf4LFxf3GW71glTvwlZ156hWw8XFPcbN04s82PXKnkLzFBcX9zD3Kq58dNobn0S5GC4u7mFuL7hsGIeMAyUuLu5pbh685glQMo4tTH5wcXEPc/PwNBnTbhjl4uLifhh3UgLl05BX78S4uLhv4ub77Bq4RqNWXFzcY9xJ8VM9fNJAKQxZcXFxD3B7eUUvxVknN9Xrobi4uAe4P+uoyC8yYTIRAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '~~去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!回来了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

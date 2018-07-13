@@ -1,0 +1,234 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>HHardyy|直播间</title>
+<link rel="icon" href="images/zhenLogo.ico" />
+<!---引入CSS文件--->
+<link rel="stylesheet" type="text/css" href="css/mobil.css" media="only screen and (max-width:600px)"/>
+<link href="css/find.css" type="text/css" rel="stylesheet"/>
+<!----引入JS------->
+<script src="js/js.js" type="text/javascript"></script>
+<script src="js/tan.js" type="text/javascript"></script>
+  <style>
+@keyframes fly{
+            0%{
+                background-position:0 0,0 0;
+            }
+            100%{
+                background-position:500px 500px, 1000px 500px;;
+     }
+}
+#fly{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background: url('images/fly1.gif'),url('images/fly2.gif');
+    animation:6s fly linear infinite;
+    pointer-events: none;
+}
+  </style>
+</head>
+<body onLoad="createCode();">
+<!----h-star------>
+<header id="top" class="clear">
+	JS直播间
+</header>
+<!-----H-end---------->
+<!------身体--------->
+<div class="main">
+<!--中间模块-->
+<div id="fly"></div>
+<div class="box">
+<div class="box-top"><input type="button" name="button" class="bo" value="窗口截图" onClick="getPhoto()"><span class="box-title">HHardyy</span></div>
+<div class="gamre flex-column"><video id="myVideo" width="100%" height="568" autoplay></video></div>
+<div class="foot"><input type="button" name="button" class="bot" value="开启摄像头" onClick="getMedia()">
+<input type="button" name="button" class="bot" value="清空截图" onClick="clearMap()">
+<!--鲜花数量-->
+	<span class="getFlower">获得鲜花x</span><span id="get-flower">0</span>
+<!--鲜花-->
+ </div>
+ 
+ <!--截图标题-->
+ <div class="CatImgTitle">
+ 	屏幕截图区域
+ </div>
+<!--截图位置画布-->
+<canvas id="canvas" >浏览器不支持Canvas标签</canvas>
+<script type="text/javascript">
+  var myVideo=document.getElementById("myVideo");
+  var canvas=document.getElementById("canvas");
+  var ctx=canvas.getContext("2d");
+  navigator.getUserMedia=navigator.getUserMedia||navigator.webkitGetUserMedia||navigator.mozGetUserMedia||navigator.msGetUserMedia;
+  function getMedia(){
+	  //判断浏览器是否支持摄像头
+     if(navigator.getUserMedia)
+        {
+			navigator.getUserMedia({
+			'video' : true,//打开视频
+			'audio' : true//打开音频
+			},sucessFn,errorFn);//获取摄像头成功就执行sucessFn，否则执行errorFn
+		}else{
+		alert("您当前的浏览器不支持摄像头功能");
+		}
+  }
+  window.URL=window.URL||window.webkitURL||window.mozURL||window.msURL;
+  //获取摄像头里面的视频给VIDEO一个src路径
+  function sucessFn(stream){
+	  //如果是火狐浏览器
+	  //myVideo.mozSrcObject,视频标签的SRC路径
+	  if(myVideo.mozSrcObject!==undefined)
+	  {
+		  myVideo.mozSrcObject=stream;
+	  }
+	  else
+	  {
+		  myVideo.src=window.URL &&
+		  window.URL.createObjectURL(stream)||stream;
+	  }
+  }
+  function errorFn(ev){
+	  alert("出错了"+ev);
+  }
+  //截图功能
+  function getPhoto()
+  {
+	  ctx.drawImage(myVideo,0,0,300,140);
+  }
+  function closeMedia(){
+	  //判断浏览器是否支持摄像头
+     if(navigator.getUserMedia)
+        {
+			navigator.getUserMedia({
+			'video' : close(),//打开视频
+			'audio' : close()//打开音频
+			},sucessFn,errorFn);//获取摄像头成功就执行sucessFn，否则执行errorFn
+		}else{
+		alert("您当前的浏览器不支持摄像头功能");
+		}
+  }
+  function offMovie()
+  {
+	  myVideo.close();
+  
+  }
+  //清除画布
+  function clearMap(){
+  ctx.clearRect(0,0,600,400);
+  }
+   //关闭摄像头
+   function clos()
+   {
+   myVideo.pause();
+   }
+/*直播画布实时截图结束*/
+</script>
+<!--画布结束-->
+<!--送鲜花显示送给谁-->
+<span id="giveFlower"></span>
+<!--发言部分框架-->
+<div class="chat flex-row">
+<input type="text" class="chat-txt" placeholder="发送你的弹幕(づ￣ 3￣)づ">
+<!--<img src="images/find.xianhua.png" width="40" height="40" align="absmiddle" id="flower" onclick="document.getElementById('get-flower').innerHTML++">-->
+<input type="button" id ="flower" value="." onClick="chat()">
+<input type="button" class="chat-btn" value="发 送">
+<input type="button" class="index-btn" value="退出直播间" onclick="backIndex()">
+</div>
+<!--发言部分结束-->
+<!--中间大模块-->
+</div>
+</div>
+<!----身体结束----->
+<!-----底部文件--------->
+<!----------<footer class="foot"></footer>--------->
+</body>
+<script src="js/jquery-1.9.1.min.js"></script>
+<script>
+    var gamre = document.querySelector('.gamre');   
+    var chAtcontent = document.querySelector('.chat-txt');   
+    var chAtBtn= document.querySelector('.chat-btn');  
+    var chAtcontentW = gamre.offsetWidth;   
+    var chAtcontentH = gamre.offsetHeight;   
+    var message = '';   
+    chAtBtn.onclick = send;   
+    chAtcontent.onkeydown = function (e) {
+        e = e || window.event;
+        if (e.keyCode === 13) {
+            send();
+        }
+    };
+    function send() {
+        if (chAtcontent.value.length <= 0 || (/^\s+$/).test(chAtcontent.value)) {
+            alert('请写上你的弹幕(づ￣ 3￣)づ');
+            return false;
+        }
+        message = chAtcontent.value;
+        console.log(message);
+        createEle(message);  
+        chAtcontent.value = '';   
+    }
+    function createEle(txt) {
+        var oMessage = document.createElement('span');   
+        oMessage.innerHTML = txt;   
+        oMessage.style.left = chAtcontentW+ 'px';  
+        gamre.appendChild(oMessage);  
+        roll.call(oMessage, {
+            timing: ['linear', 'ease-out'][~~(Math.random() * 2)],
+            color: '#' + (~~(Math.random() * (1 << 24))).toString(16),
+            top: random(0, chAtcontentH),
+            fontSize: random(16, 32)
+        });
+    }
+    function roll(opt) {
+        opt.timing = opt.timing || 'linear';
+        opt.color = opt.color || '#fff';
+        opt.top = opt.top || 0;
+        opt.fontSize = opt.fontSize || 16;
+        this._left = parseInt(this.offsetLeft);   
+        this.style.color = opt.color; 
+        this.style.top = opt.top + 'px';
+        this.style.fontSize = opt.fontSize + 'px';
+        this.timer = setInterval(function () {
+            if (this._left <= 100) {
+                clearInterval(this.timer);  
+                this.parentNode.removeChild(this);
+                return;   
+            }
+            switch (opt.timing) {
+                case 'linear':   
+                    this._left += -2;
+                    break;
+                case 'ease-out':  
+                    this._left += (0 - this._left) * .01;
+                    break;
+            }
+            this.style.left = this._left + 'px';
+        }.bind(this), 1000 / 60);
+    }
+    function random(start, end) {
+        return start + ~~(Math.random() * (end - start));
+    }
+    var aLi = document.querySelectorAll('li');  
+
+    function forEach(ele, cb) {
+        for (var i = 0, len = aLi.length; i < len; i++) {
+            cb && cb(ele[i], i);
+        }
+    }
+    forEach(aLi, function (ele, i) {
+        ele.style.left = i * 100 + 'px';
+    });
+    var obj = {
+        num: 1,
+        add: function () {
+            this.num++;   
+            (function () {
+                console.log(this.num);
+            })
+        }
+    };
+    obj.add();  
+</script>
+</html>

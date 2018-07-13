@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?d890b1f16fb364253e79c5bb20225c3a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+    
+
+    
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?busuanzi_value_site_uv"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    <meta name="baidu-site-verification" content="FYMCShbUK8" />
+    <meta name="baidu-site-verification" content="ZYRF7OxQRW" />
+    <meta name="baidu-site-verification" content="cHSqtjI0PN" />
+    <meta name="baidu-site-verification" content="cHSqtjI0PN" />
+    <meta name="baidu-site-verification" content="cHSqtjI0PN" />
+    
+    
+    <link rel="canonical" href="true/2018/07/04/js的时间与时间戳/">
+    
+    
+    <title>js的时间与时间戳 | Hardy-Zhen | The IT technical communication</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#958e93">
+    
+    
+    <meta name="keywords" content="js,时间,时间戳,toLocaleDateString">
+    <meta name="description" content="玩到一个转换时间戳的问题，突然想知道它能怎么变。。。">
+<meta name="keywords" content="js,时间,时间戳,toLocaleDateString">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js的时间与时间戳">
+<meta property="og:url" content="http://yoursite.com/2018/07/04/js的时间与时间戳/index.html">
+<meta property="og:site_name" content="Hardy-Zhen">
+<meta property="og:description" content="玩到一个转换时间戳的问题，突然想知道它能怎么变。。。">
+<meta property="og:locale" content="zh-CH">
+<meta property="og:image" content="http://yoursite.com/images/Data/1.png">
+<meta property="og:image" content="http://yoursite.com/images/Data/2.png">
+<meta property="og:image" content="http://yoursite.com/images/Data/3.png">
+<meta property="og:image" content="http://yoursite.com/images/Data/du2.png">
+<meta property="og:image" content="http://yoursite.com/images/Data/du1.png">
+<meta property="og:image" content="http://yoursite.com/images/Data/kunlun.png">
+<meta property="og:updated_time" content="2018-07-04T10:28:11.307Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="js的时间与时间戳">
+<meta name="twitter:description" content="玩到一个转换时间戳的问题，突然想知道它能怎么变。。。">
+<meta name="twitter:image" content="http://yoursite.com/images/Data/1.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="Hardy-Zhen" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/zhenLogo.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/logoBg.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/touxiang.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">BingZhenHuang</h5>
+          <a href="mailto:huangbingzhen@hhardyy.com" title="huangbingzhen@hhardyy.com" class="mail">huangbingzhen@hhardyy.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                所有文章
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/HHardyy" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://juejin.im/user/59a26f926fb9a02487553b04"  >
+                <i class="icon icon-lg icon-pencil"></i>
+                掘金-圳
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://segmentfault.com/u/hhardyy"  >
+                <i class="icon icon-lg icon-comments"></i>
+                Segmentfault
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://codepen.io/HHardyy/" target="_blank" >
+                <i class="icon icon-lg icon-codepen"></i>
+                Codepen
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/ZhenSolive/find.html" target="_blank" >
+                <i class="icon icon-lg icon-globe"></i>
+                原生直播间
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/hero/judge.html" target="_blank" >
+                <i class="icon icon-lg icon-cloud"></i>
+                原生小悟空
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.freecodecamp.cn/hhardyy" target="_blank" >
+                <i class="icon icon-lg icon-leaf"></i>
+                Freecodecamp
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/友情链接"  >
+                <i class="icon icon-lg icon-link"></i>
+                友链
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">js的时间与时间戳</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">js的时间与时间戳</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-07-04T07:38:46.000Z" itemprop="datePublished" class="page-time">
+  2018-07-04
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#时间转时间戳"><span class="post-toc-number">1.</span> <span class="post-toc-text">时间转时间戳</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#时间戳转时间"><span class="post-toc-number">2.</span> <span class="post-toc-text">时间戳转时间</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-js的时间与时间戳"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">js的时间与时间戳</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-07-04 15:38:46" datetime="2018-07-04T07:38:46.000Z"  itemprop="datePublished">2018-07-04</time>
+
+            
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>玩到一个转换时间戳的问题，突然想知道它能怎么变。。。</p>
+<p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=451126390&auto=0&height=66"></iframe><br><a id="more"></a></p>
+<blockquote>
+<p>时间戳能表示一份数据在某个特定时间之前已经存在的、完整的、可验证的数据，通常是一个字符序列就像1530693131572，唯一地标识某一刻的时间。使用数字签名技术产生的数据签名的对象包括原始文件信息、签名参数、签名时间&gt;等信息。时间戳广泛运用在知识产权保护、合同签字、金融账务、电子报价投标、股票交易等方面。</p>
+</blockquote>
+<h3 id="时间转时间戳"><a href="#时间转时间戳" class="headerlink" title="时间转时间戳"></a>时间转时间戳</h3><p>方法有五种，都是通过实例化时间对象Date()来获取当前的时间戳，为了防止测试结果不一致，这里实例化一个时间对象data来进行五种方法测试；<br>第一种：通过原型方法直接获得当前时间的毫秒值，比较准确<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var t1=data.getTime();</div><div class="line">console.log(<span class="string">"第一种方法时间戳"</span>+t1)</div></pre></td></tr></table></figure></p>
+<p>第二种：通过valueOf()函数返回指定对象的原始值获得准确的时间戳值<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var t2=data.valueOf();</div><div class="line">console.log(<span class="string">"第二种方法时间戳"</span>+t2)</div></pre></td></tr></table></figure></p>
+<p>第三种：将时间转化为一个number类型的时间戳值<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var t3=Number(data);</div><div class="line">console.log(<span class="string">"第三种方法时间戳"</span>+t3)</div></pre></td></tr></table></figure></p>
+<p>第四种:貌似多年前学ASP.NET的时候用到过类似的，不过那个是DataTime.Now;<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var t4=Date.now();</div><div class="line">console.log(<span class="string">"第四种方法时间戳"</span>+t4)</div></pre></td></tr></table></figure></p>
+<p>第五种：不太厉害，毫秒级别的数值被转化成000<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var t5=Date.parse(data);</div><div class="line">console.log(<span class="string">"第五种方法时间戳"</span>+t5)</div></pre></td></tr></table></figure></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/Data/1.png" alt="时间艺术" title="">
+                </div>
+                <div class="image-caption">时间艺术</div>
+            </figure>
+<h3 id="时间戳转时间"><a href="#时间戳转时间" class="headerlink" title="时间戳转时间"></a>时间戳转时间</h3><p>直接用时间对象Date来对上面得到的时间戳1530693131572进行转化<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var T=new Date(1530693131572)</div></pre></td></tr></table></figure></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/Data/2.png" alt="转化的艺术" title="">
+                </div>
+                <div class="image-caption">转化的艺术</div>
+            </figure>
+<p>对这个格式不太满意的话，可以再利用toLocaleDateString()方法返回该日期对象，再正则匹配将/替换成-，再将对象的时间部分转换为字符串，到这一步之后还剩yyyy-MM-dd hh:mm:ss GMT+0800(中国标准时间)，这时候再用substr方法取从0到8的字符打印出来就是yyyy-MM-dd hh:mm:ss的时间格式了。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">T.toLocaleDateString().replace(/\//g, <span class="string">"-"</span>) + <span class="string">" "</span> + T.toTimeString().substr(0, 8);</div></pre></td></tr></table></figure></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/Data/3.png" alt="正则的艺术" title="">
+                </div>
+                <div class="image-caption">正则的艺术</div>
+            </figure>
+<p>toLocaleDateString在不同的浏览器显示方法是不一样的，需要注意一下，火狐下面显示的日期格式是yyyy-MM-dd，IE11是yyyy-MM-dd，谷歌版本低于58的时候yyyy/MM/dd，版本大于等于58的时候是yyyy-MM-dd，所以如果上面出现的效果不对或者报错，是因为toLocaleDateString()因浏览器而异。</p>
+<p>解决方法：<br>分别获取时间的年月日然后拼接：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">getDate</span></span>()&#123;</div><div class="line">	var data=new Date();</div><div class="line">	<span class="built_in">let</span> year=data.getFullYear();</div><div class="line">	<span class="built_in">let</span> month=(<span class="string">"0"</span>+(data.getMonth()+1)).slice(-2);</div><div class="line">	<span class="built_in">let</span> day=(<span class="string">"0"</span>+data.getDate()).slice(-2);</div><div class="line">	<span class="built_in">return</span> year + <span class="string">"-"</span> + month + <span class="string">"-"</span> + day + <span class="string">" "</span> + data.toTimeString().substr(0, 8);   </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>正好今天百度2018AI开发者大会，share一下我早上截屏到的几张美照<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/Data/du2.png" alt="新时器--这是表白的时候定的玫瑰花快递刚好送到" title="">
+                </div>
+                <div class="image-caption">新时器--这是表白的时候定的玫瑰花快递刚好送到</div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/Data/du1.png" alt="见证历史的时刻--Apollo3.0面向量产，更加开放" title="">
+                </div>
+                <div class="image-caption">见证历史的时刻--Apollo3.0面向量产，更加开放</div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/Data/kunlun.png" alt="昆仑--百度自研的中国第一款云端全功能AI芯片" title="">
+                </div>
+                <div class="image-caption">昆仑--百度自研的中国第一款云端全功能AI芯片</div>
+            </figure></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2018-07-04T10:28:11.307Z" itemprop="dateUpdated">2018-07-04 18:28:11</time>
+</span><br>
+
+
+        
+        谢谢浏览，我会继续努力的，示例：<a href="/2018/07/04/js的时间与时间戳/" target="_blank" rel="external">http://yoursite.com/2018/07/04/js的时间与时间戳/</a>
+        
+    </div>
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/touxiang.jpg" alt="BingZhenHuang">
+            BingZhenHuang
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/toLocaleDateString/">toLocaleDateString</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/时间/">时间</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/时间戳/">时间戳</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/07/04/js的时间与时间戳/&title=《js的时间与时间戳》 — Hardy-Zhen&pic=http://yoursite.com/img/touxiang.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/07/04/js的时间与时间戳/&title=《js的时间与时间戳》 — Hardy-Zhen&source=玩到一个转换时间戳的问题，突然想知道它能怎么变。。。
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/07/04/js的时间与时间戳/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《js的时间与时间戳》 — Hardy-Zhen&url=http://yoursite.com/2018/07/04/js的时间与时间戳/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/07/04/js的时间与时间戳/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/07/05/npm-install出现的小问题/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">npm install出现的小问题</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/07/03/Linux艺术/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Linux艺术</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        （゜-゜）つロ Cheers
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<footer class="footer">
+    <div class="top">
+        
+
+        <p>
+
+<span id="busuanzi_container_site_uv">[&nbspviews:<span id="busuanzi_value_site_uv">loading...</span>&nbsp]</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>BingZhenHuang &copy; 2017 - 2018</span>
+            <span>
+                
+                Power by <a href="https://hhardyy.github.io/" target="_blank">zhen On August 8</a> 
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/07/04/js的时间与时间戳/&title=《js的时间与时间戳》 — Hardy-Zhen&pic=http://yoursite.com/img/touxiang.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/07/04/js的时间与时间戳/&title=《js的时间与时间戳》 — Hardy-Zhen&source=玩到一个转换时间戳的问题，突然想知道它能怎么变。。。
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/07/04/js的时间与时间戳/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《js的时间与时间戳》 — Hardy-Zhen&url=http://yoursite.com/2018/07/04/js的时间与时间戳/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/07/04/js的时间与时间戳/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACNUlEQVR42u3ay3aDMAxF0fz/T9NpBgXOlaBdlo9HXYQQ7w6E9fh88Dq+1tn170/PrvCnfd5YMmTIWJZxXK7r7dYwneunVBkyZGzAOItgnXuuv3W9df67MmTIkJE+msCuj4AyZMiQ8RTj2fD6bwFXhgwZSzH4cY3ASNJ7XTd7MReXIUPGggxedf/7v1/pb8iQIWMpxhEuHl75ttJmwC+/IkOGjNEMHuD4Ie+VUhrZjwwZMkYzahNWtXCZHgprabAMGTImMXjISwtqtWSYNwzizoYMGTKWZaS1LF705y1P0nJ4rF4oQ4aMcYzOsEWnSclDf3DOlSFDxuIMPlSRhuDaYMTDgxQyZMgYxKiNqPKSHN9oOo4mQ4aMHRi8McDvT5/TGbmQIUPGbEbaSiSb4y3J/jAZyrZlyJCxOIOkmjxckgDaL+QFSawMGTJGMDphrlZEq8FuXgMyZMjYgMFbjLzcz9sGndfATTyWIUPGBozOga9z6Iz/iTJkyBjNqB3pOu1Jnqw+MNcmQ4aMQQx+dOMhtVak66TBMmTI2IGRDkCQlmSarNbGzmTIkLEPgz+OD0/UElc+YHHz3pAhQ8YIxhGup1JfftxEpT0ZMmSMZtS2xR9BjpV8pKM49SZDhowRjE4i2imopaW6YIxVhgwZQxlp4EubmmnDMt2tDBkyZPCB1HRQ7KkGpwwZMmR07kkDca2ZKkOGjB0YJIklbc5+g5OnzTJkyNiHUTt31QYmggCKvyVDhozRjB9CX+7N0TrlugAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '~~去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!回来了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
