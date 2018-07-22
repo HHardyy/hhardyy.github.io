@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?d890b1f16fb364253e79c5bb20225c3a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+    
+
+    
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?busuanzi_value_site_uv"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    <meta name="baidu-site-verification" content="FYMCShbUK8" />
+    <meta name="baidu-site-verification" content="ZYRF7OxQRW" />
+    <meta name="baidu-site-verification" content="cHSqtjI0PN" />
+    <meta name="baidu-site-verification" content="cHSqtjI0PN" />
+    <meta name="baidu-site-verification" content="cHSqtjI0PN" />
+    
+    
+    <link rel="canonical" href="true/2018/07/22/BMap-is-not-defined？BMap初始化报错爆红/">
+    
+    
+    <title>&#39;BMap&#39; is not defined？BMap初始化爆红 | Hardy-Zhen | The IT technical communication</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#958e93">
+    
+    
+    <meta name="keywords" content="百度地图,BMap,vue">
+    <meta name="description" content="用vue全家桶撸一个项目的时候，eslint给我找了一个麻烦。">
+<meta name="keywords" content="百度地图,BMap,vue">
+<meta property="og:type" content="article">
+<meta property="og:title" content="&#39;BMap&#39; is not defined？BMap初始化爆红">
+<meta property="og:url" content="http://yoursite.com/2018/07/22/BMap-is-not-defined？BMap初始化报错爆红/index.html">
+<meta property="og:site_name" content="Hardy-Zhen">
+<meta property="og:description" content="用vue全家桶撸一个项目的时候，eslint给我找了一个麻烦。">
+<meta property="og:locale" content="zh-CH">
+<meta property="og:image" content="http://yoursite.com/images/vueMap/juli.png">
+<meta property="og:image" content="http://yoursite.com/images/vueMap/1.JPG">
+<meta property="og:image" content="http://yoursite.com/images/vueMap/2.JPG">
+<meta property="og:updated_time" content="2018-07-22T08:23:48.117Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="&#39;BMap&#39; is not defined？BMap初始化爆红">
+<meta name="twitter:description" content="用vue全家桶撸一个项目的时候，eslint给我找了一个麻烦。">
+<meta name="twitter:image" content="http://yoursite.com/images/vueMap/juli.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="Hardy-Zhen" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/zhenLogo.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/logoBg.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/touxiang.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">BingZhenHuang</h5>
+          <a href="mailto:huangbingzhen@hhardyy.com" title="huangbingzhen@hhardyy.com" class="mail">huangbingzhen@hhardyy.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                所有文章
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/HHardyy" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://juejin.im/user/59a26f926fb9a02487553b04"  >
+                <i class="icon icon-lg icon-pencil"></i>
+                掘金-圳
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://segmentfault.com/u/hhardyy"  >
+                <i class="icon icon-lg icon-comments"></i>
+                Segmentfault
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://codepen.io/HHardyy/" target="_blank" >
+                <i class="icon icon-lg icon-codepen"></i>
+                Codepen
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/ZhenSolive/find.html" target="_blank" >
+                <i class="icon icon-lg icon-globe"></i>
+                原生直播间
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/hero/judge.html" target="_blank" >
+                <i class="icon icon-lg icon-cloud"></i>
+                原生小悟空
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.freecodecamp.cn/hhardyy" target="_blank" >
+                <i class="icon icon-lg icon-leaf"></i>
+                Freecodecamp
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/友情链接"  >
+                <i class="icon icon-lg icon-link"></i>
+                友链
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">&#39;BMap&#39; is not defined？BMap初始化爆红</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="搜尋">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">&#39;BMap&#39; is not defined？BMap初始化爆红</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-07-22T08:00:12.000Z" itemprop="datePublished" class="page-time">
+  2018-07-22
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#说说爆红"><span class="post-toc-number">1.</span> <span class="post-toc-text">说说爆红</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#解决方案"><span class="post-toc-number">2.</span> <span class="post-toc-text">解决方案</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#那么问题来了，如果加window不顶用咋办，Cannot-read-property-‘Map’-of-undefined？"><span class="post-toc-number">3.</span> <span class="post-toc-text">那么问题来了，如果加window不顶用咋办，Cannot read property ‘Map’ of undefined？</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-BMap-is-not-defined？BMap初始化报错爆红"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">'BMap' is not defined？BMap初始化爆红</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-07-22 16:00:12" datetime="2018-07-22T08:00:12.000Z"  itemprop="datePublished">2018-07-22</time>
+
+            
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>用vue全家桶撸一个项目的时候，eslint给我找了一个麻烦。</p>
+<p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=498549913&auto=0&height=66"></iframe><br><a id="more"></a></p>
+<blockquote>
+<p>BMap是什么东西：省略的字=它的解释.length</p>
+<h3 id="说说爆红"><a href="#说说爆红" class="headerlink" title="说说爆红"></a>说说爆红</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/vueMap/juli.png" alt="undefind" title="">
+                </div>
+                <div class="image-caption">undefind</div>
+            </figure>
+<p>根据api，在vue页面中初始化百度地图，假如在初始化项目的时候不安装eslint规则的话，它是不会有事的，但是安装了之后，就给爆红线了，说BMap undefind,但是是可以正常跑的，如果代码中存在较多BMap，满频幕红线，我不信你不会闹心，简单来两个<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/vueMap/1.JPG" alt="红线" title="">
+                </div>
+                <div class="image-caption">红线</div>
+            </figure></p>
+<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p>在BMap.Map前面加window，就是new window.BMap.Map。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/vueMap/2.JPG" alt="eg" title="">
+                </div>
+                <div class="image-caption">eg</div>
+            </figure><br>粗略的搞个demo，methods里头定义一个这样的方法,mounted里头：this.creatMap();<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="title">creatMap</span></span> () &#123;</div><div class="line">    navigator.geolocation.getCurrentPosition(</div><div class="line">        <span class="keyword">function</span> (position) &#123;</div><div class="line">          var x = position.coords.longitude</div><div class="line">          var y = position.coords.latitude</div><div class="line">          var map = new window.BMap.Map(<span class="string">'myMap'</span>)</div><div class="line">          var point = new window.BMap.Point(y, x)</div><div class="line">          map.centerAndZoom(point, 14)</div><div class="line">          map.enableScrollWheelZoom()</div><div class="line">          var myIcon = new window.BMap.Icon(<span class="string">'HHardyy.png'</span>, new BMap.Size(30, 30))</div><div class="line">          var marker2 = new window.BMap.Marker(point, &#123; icon: myIcon &#125;)    // 创建标注</div><div class="line">          map.addOverlay(marker2)</div><div class="line">          var opts = &#123;</div><div class="line">            width: 200, // 信息窗口宽度</div><div class="line">            height: 60, // 信息窗口高度</div><div class="line">            title: <span class="string">'HHardyy'</span> // 信息窗口标题</div><div class="line">          &#125;</div><div class="line">        var infoWindow = new window.BMap.InfoWindow(<span class="string">'show time'</span>, opts) // 创建信息窗口对象</div><div class="line">        map.openInfoWindow(infoWindow, point) // 开启信息窗口</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="那么问题来了，如果加window不顶用咋办，Cannot-read-property-‘Map’-of-undefined？"><a href="#那么问题来了，如果加window不顶用咋办，Cannot-read-property-‘Map’-of-undefined？" class="headerlink" title="那么问题来了，如果加window不顶用咋办，Cannot read property ‘Map’ of undefined？"></a>那么问题来了，如果加window不顶用咋办，Cannot read property ‘Map’ of undefined？</h3><p>参考：<a href="https://blog.csdn.net/leeleejoker/article/details/80598528" target="_blank" rel="external">这里</a></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最後更新時間：<time datetime="2018-07-22T08:23:48.117Z" itemprop="dateUpdated">2018-07-22 16:23:48</time>
+</span><br>
+
+
+        
+        谢谢浏览，我会继续努力的，示例：<a href="/2018/07/22/BMap-is-not-defined？BMap初始化报错爆红/" target="_blank" rel="external">http://yoursite.com/2018/07/22/BMap-is-not-defined？BMap初始化报错爆红/</a>
+        
+    </div>
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/touxiang.jpg" alt="BingZhenHuang">
+            BingZhenHuang
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BMap/">BMap</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/百度地图/">百度地图</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/07/22/BMap-is-not-defined？BMap初始化报错爆红/&title=《'BMap' is not defined？BMap初始化爆红》 — Hardy-Zhen&pic=http://yoursite.com/img/touxiang.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/07/22/BMap-is-not-defined？BMap初始化报错爆红/&title=《'BMap' is not defined？BMap初始化爆红》 — Hardy-Zhen&source=用vue全家桶撸一个项目的时候，eslint给我找了一个麻烦。
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/07/22/BMap-is-not-defined？BMap初始化报错爆红/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《'BMap' is not defined？BMap初始化爆红》 — Hardy-Zhen&url=http://yoursite.com/2018/07/22/BMap-is-not-defined？BMap初始化报错爆红/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/07/22/BMap-is-not-defined？BMap初始化报错爆红/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/07/08/面向对象的艺术/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">面向对象的艺术</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        （゜-゜）つロ Cheers
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<footer class="footer">
+    <div class="top">
+        
+
+        <p>
+
+<span id="busuanzi_container_site_uv">[&nbspviews:<span id="busuanzi_value_site_uv">loading...</span>&nbsp]</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>BingZhenHuang &copy; 2017 - 2018</span>
+            <span>
+                
+                Power by <a href="https://hhardyy.github.io/" target="_blank">zhen On August 8</a> 
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/07/22/BMap-is-not-defined？BMap初始化报错爆红/&title=《'BMap' is not defined？BMap初始化爆红》 — Hardy-Zhen&pic=http://yoursite.com/img/touxiang.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/07/22/BMap-is-not-defined？BMap初始化报错爆红/&title=《'BMap' is not defined？BMap初始化爆红》 — Hardy-Zhen&source=用vue全家桶撸一个项目的时候，eslint给我找了一个麻烦。
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/07/22/BMap-is-not-defined？BMap初始化报错爆红/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《'BMap' is not defined？BMap初始化爆红》 — Hardy-Zhen&url=http://yoursite.com/2018/07/22/BMap-is-not-defined？BMap初始化报错爆红/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/07/22/BMap-is-not-defined？BMap初始化报错爆红/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACuElEQVR42u3a0W7jMAwEwPz/T/eAezqgrbwkxaYHjJ8C17E1LiAyK71e8fHx9/h85t/z5zOf/3r+1nd3eG0ceHh4eK2hn4dyHsR315yHm4wnuc/DK8DDw8Nb452LQT5BV6fvaoHJx4yHh4f3G3jJpJwXmPPUn48HDw8P7//i5YVhUlreVhjw8PDwjrxkQq8GvtVm/VZxwsPDw9vmTQb9rs+L63t4eHh4g1X16oRbXf5PlrhG8QceHh7eVrJaeHweEORBbW8bQeFKPDw8vDXeHJC8pjzy6MUTX3wXDw8P7ypv0uxWW/Dk/vONVg+/GPDw8PDGvOp0Px/u5Q1VSZuOh4eHd5V3axCTZapJiPwQVeDh4eGt8XqPPwcQycRdLQBJofriFwMeHh7eVV6CqU7HeWxRXRLLl9Pw8PDw9nj5dJ9Qq4tbt4LaKIzAw8PDu8TrbXXqLflPIoledIKHh4e3zcsXuvKNAnmsUB10+RXj4eHhXeVVt0zlAUGvEZ+XDTw8PLxt3mRRv3rreYxb3RCGh4eHt82bDDRplHste7Udx8PDw9vj9Sb6eYw7iX0Ly3V4eHh4C7y7U3a+8D8pNuV1Ljw8PLyrvLwtzovH3WCimqDg4eHhbfOqj+mdPzff82D34TweHh7eAq/6Iz+f9KsRQ681j1JqPDw8vEu8PFbIw4jJPZPCcP5f4eHh4f0kbxI39MKIvIHutex4eHh4G7xqm1uNEvJGufpSeq8DDw8Pb877KB7Vx8wn8d4LxcPDw9vjbdeWh7AgKB7zK/Hw8PA2eNUtVr1vFeLXYmEo7IzAw8PDu8rrLdWfy0B+vrqtqnANHh4e3lt5OaC3PFaNEqJGHw8PD+8X8PJYNt+GNYl0H56Fh4eHt8brhRHVgU7a67wY4OHh4W3zqs1r/jlvvqv4ySYtPDw8vAHvD4rsfYI7mecnAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '~~去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!回来了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
