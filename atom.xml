@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-07-22T08:23:48.117Z</updated>
+  <updated>2018-07-27T01:19:04.486Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>React巨卡</title>
+    <link href="http://yoursite.com/2018/07/27/React%E5%B7%A8%E5%8D%A1/"/>
+    <id>http://yoursite.com/2018/07/27/React巨卡/</id>
+    <published>2018-07-27T00:52:54.000Z</published>
+    <updated>2018-07-27T01:19:04.486Z</updated>
+    
+    <content type="html"><![CDATA[<p>react脚手架建项目的时候突然太卡，改一下npm的registry或许有帮助。。。</p><p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=26209792&auto=0&height=66"></iframe><br><a id="more"></a><br>建react项目的时候，突然的巨卡，create-react-app之后吃个苹果回来还在卡着不动，就像这样。<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/images/react-juka/11.gif" alt="“emmmmm”" title="">                </div>                <div class="image-caption">“emmmmm”</div>            </figure><br>换源：create-react-app指令默认npm，永久设置registry就ok了。<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/images/react-juka/22.JPG" alt="“emmmmm”" title="">                </div>                <div class="image-caption">“emmmmm”</div>            </figure><br>图中的命令从上往下依次是清理npm缓存，设置registry成<a href="https://registry.npm.taobao.org，" target="_blank" rel="external">https://registry.npm.taobao.org，</a></p><p>查看registry设置是否成功（也可以npm info express）</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;react脚手架建项目的时候突然太卡，改一下npm的registry或许有帮助。。。&lt;/p&gt;
+&lt;p&gt;&lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=&quot;330&quot; height=&quot;86&quot; src=&quot;//music.163.com/outchain/player?type=2&amp;id=26209792&amp;auto=0&amp;height=66&quot;&gt;&lt;/iframe&gt;&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="React" scheme="http://yoursite.com/tags/React/"/>
+    
+      <category term="npm" scheme="http://yoursite.com/tags/npm/"/>
+    
+  </entry>
   
   <entry>
     <title>&#39;BMap&#39; is not defined？BMap初始化爆红</title>
@@ -524,33 +547,6 @@
       <category term="java" scheme="http://yoursite.com/tags/java/"/>
     
       <category term="实训" scheme="http://yoursite.com/tags/%E5%AE%9E%E8%AE%AD/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>node pash命令合集</title>
-    <link href="http://yoursite.com/2017/12/20/node-pash%E5%91%BD%E4%BB%A4%E5%90%88%E9%9B%86/"/>
-    <id>http://yoursite.com/2017/12/20/node-pash命令合集/</id>
-    <published>2017-12-20T02:46:21.000Z</published>
-    <updated>2017-12-20T03:47:44.547Z</updated>
-    
-    <content type="html"><![CDATA[<p>来一波node的命令大全，避免在敲命令的时候耍酷失败~</p><p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=493283235&auto=0&height=66"></iframe><br><a id="more"></a><br>最近遇到个脑疼的问题，在升级node最新版本的时候，遇到了win不支持N模块的问题.<br>node 升级版本的命令：</p><h3 id="查看当前版本"><a href="#查看当前版本" class="headerlink" title="查看当前版本"></a>查看当前版本</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">node -v</div></pre></td></tr></table></figure><h3 id="清除npm-cache"><a href="#清除npm-cache" class="headerlink" title="清除npm cache"></a>清除npm cache</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo npm cache clean -f</div></pre></td></tr></table></figure><h3 id="安装n模块"><a href="#安装n模块" class="headerlink" title="安装n模块"></a>安装n模块</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo npm install -g n</div></pre></td></tr></table></figure><h3 id="升级到想要的版本，比如我自己现在的版本8-9"><a href="#升级到想要的版本，比如我自己现在的版本8-9" class="headerlink" title="升级到想要的版本，比如我自己现在的版本8.9"></a>升级到想要的版本，比如我自己现在的版本8.9</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo n 8.9.3</div></pre></td></tr></table></figure><h3 id="升级到最新的版本"><a href="#升级到最新的版本" class="headerlink" title="升级到最新的版本"></a>升级到最新的版本</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo n stable</div></pre></td></tr></table></figure><p>再次node -v查看当前版本，必要的时候可以重启一下看看。<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/images/nodeImg/up1.JPG" alt="“我之前是6.9.5版本，这是升级之后的版本，没记得截图6.9.5~~”" title="">                </div>                <div class="image-caption">“我之前是6.9.5版本，这是升级之后的版本，没记得截图6.9.5~~”</div>            </figure>;</p><p>注意：win系统不支持n模块的话直接用命令升级是不靠谱的，我开始也在和它死磕，一直不靠谱之后听了朋友建议直接去官网下=  。=</p><h3 id="常用node-npm命令"><a href="#常用node-npm命令" class="headerlink" title="常用node npm命令"></a>常用node npm命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line">npm install moduleNames：安装Node模块 </div><div class="line"></div><div class="line">npm start 启动模块</div><div class="line"></div><div class="line">npm stop 停止模块</div><div class="line"></div><div class="line">npm restart 重新启动模块</div><div class="line"></div><div class="line">npm cache 管理模块的缓存</div><div class="line"></div><div class="line">npm config管理npm的配置路径</div><div class="line"></div><div class="line">npm view moduleNames：查看node模块的package.json文件夹</div><div class="line"></div><div class="line">npm list：查看当前目录下已安装的node包</div><div class="line"></div><div class="line">npm <span class="built_in">help</span>：查看帮助命令</div><div class="line"></div><div class="line">npm view moudleName dependencies：查看包的依赖关系 </div><div class="line"></div><div class="line">npm view moduleName repository.url：查看包的源文件地址 </div><div class="line"></div><div class="line">npm view moduleName engines：查看包所依赖的Node的版本 </div><div class="line"></div><div class="line">npm <span class="built_in">help</span> folders：查看npm使用的所有文件夹 </div><div class="line"></div><div class="line">npm rebuild moduleName：用于更改包内容后进行重建  </div><div class="line"></div><div class="line">npm outdated：检查包是否已经过时，此命令会列出所有已经过时的包，可以及时进行包的更新  </div><div class="line"></div><div class="line">npm update moduleName：更新node模块 </div><div class="line"></div><div class="line">npm uninstall moudleName：卸载node模块 </div><div class="line"></div><div class="line">一个npm包是包含了package.json的文件夹，package.json描述了这个文件夹的结构。访问npm的json文件夹的方法如下： $ npm <span class="built_in">help</span> json   此命令会以默认的方式打开一个网页，如果更改了默认打开程序则可能不会以网页的形式打开。</div><div class="line"></div><div class="line">发布一个npm包的时候，需要检验某个包名是否已存在 $ npm search packageName  </div><div class="line"></div><div class="line">npm init：会引导你创建一个package.json文件，包括名称、版本、作者这些信息等 </div><div class="line"></div><div class="line">npm root：查看当前包的安装路径 npm root -g：查看全局的包的安装路径</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;来一波node的命令大全，避免在敲命令的时候耍酷失败~&lt;/p&gt;
-&lt;p&gt;&lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=&quot;330&quot; height=&quot;86&quot; src=&quot;//music.163.com/outchain/player?type=2&amp;id=493283235&amp;auto=0&amp;height=66&quot;&gt;&lt;/iframe&gt;&lt;br&gt;
-    
-    </summary>
-    
-    
-      <category term="node" scheme="http://yoursite.com/tags/node/"/>
-    
-      <category term="node命令" scheme="http://yoursite.com/tags/node%E5%91%BD%E4%BB%A4/"/>
-    
-      <category term="pash" scheme="http://yoursite.com/tags/pash/"/>
-    
-      <category term="npm" scheme="http://yoursite.com/tags/npm/"/>
     
   </entry>
   
