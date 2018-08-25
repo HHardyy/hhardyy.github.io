@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-07-27T01:19:04.486Z</updated>
+  <updated>2018-08-25T03:09:25.262Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,13 +17,13 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>React巨卡</title>
-    <link href="http://yoursite.com/2018/07/27/React%E5%B7%A8%E5%8D%A1/"/>
-    <id>http://yoursite.com/2018/07/27/React巨卡/</id>
+    <title>React探路合集</title>
+    <link href="http://yoursite.com/2018/07/27/React%E6%8E%A2%E8%B7%AF%E5%90%88%E9%9B%86/"/>
+    <id>http://yoursite.com/2018/07/27/React探路合集/</id>
     <published>2018-07-27T00:52:54.000Z</published>
-    <updated>2018-07-27T01:19:04.486Z</updated>
+    <updated>2018-08-25T03:09:25.262Z</updated>
     
-    <content type="html"><![CDATA[<p>react脚手架建项目的时候突然太卡，改一下npm的registry或许有帮助。。。</p><p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=26209792&auto=0&height=66"></iframe><br><a id="more"></a><br>建react项目的时候，突然的巨卡，create-react-app之后吃个苹果回来还在卡着不动，就像这样。<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/images/react-juka/11.gif" alt="“emmmmm”" title="">                </div>                <div class="image-caption">“emmmmm”</div>            </figure><br>换源：create-react-app指令默认npm，永久设置registry就ok了。<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/images/react-juka/22.JPG" alt="“emmmmm”" title="">                </div>                <div class="image-caption">“emmmmm”</div>            </figure><br>图中的命令从上往下依次是清理npm缓存，设置registry成<a href="https://registry.npm.taobao.org，" target="_blank" rel="external">https://registry.npm.taobao.org，</a></p><p>查看registry设置是否成功（也可以npm info express）</p>]]></content>
+    <content type="html"><![CDATA[<p>react脚手架建项目的时候突然太卡，改一下npm的registry或许有帮助。。。</p><p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=26209792&auto=0&height=66"></iframe><br><a id="more"></a></p><h3 id="React巨卡"><a href="#React巨卡" class="headerlink" title="React巨卡"></a>React巨卡</h3><p>建react项目的时候，突然的巨卡，create-react-app之后吃个苹果回来还在卡着不动，就像这样。<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/images/react-juka/11.gif" alt="“emmmmm”" title="">                </div>                <div class="image-caption">“emmmmm”</div>            </figure><br>换源：create-react-app指令默认npm，永久设置registry就ok了。<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/images/react-juka/22.JPG" alt="“emmmmm”" title="">                </div>                <div class="image-caption">“emmmmm”</div>            </figure><br>图中的命令从上往下依次是清理npm缓存，设置registry成<a href="https://registry.npm.taobao.org，" target="_blank" rel="external">https://registry.npm.taobao.org，</a></p><p>查看registry设置是否成功（也可以npm info express）</p><h3 id="npm-run-eject"><a href="#npm-run-eject" class="headerlink" title="npm run eject"></a>npm run eject</h3><p>npm run eject不弹出个性化配置，并提示This git repository has untracked files or uncommitted changes:<br>意思是这个git仓库有未跟踪的文件或未提交的更改：</p><p>很简单，这时候git status查看一下状态，看看有没有未提交的修改，修改一下再提交仓库。<br>这时候npm run eject出现下面这些东西的时候就是成功了<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/images/react-juka/33.JPG" alt="“emmmmm”" title="">                </div>                <div class="image-caption">“emmmmm”</div>            </figure></p>]]></content>
     
     <summary type="html">
     
@@ -33,9 +33,11 @@
     </summary>
     
     
+      <category term="React" scheme="http://yoursite.com/tags/React/"/>
+    
       <category term="npm" scheme="http://yoursite.com/tags/npm/"/>
     
-      <category term="React" scheme="http://yoursite.com/tags/React/"/>
+      <category term="npm run eject" scheme="http://yoursite.com/tags/npm-run-eject/"/>
     
   </entry>
   
@@ -56,11 +58,11 @@
     </summary>
     
     
+      <category term="vue" scheme="http://yoursite.com/tags/vue/"/>
+    
       <category term="百度地图" scheme="http://yoursite.com/tags/%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE/"/>
     
       <category term="BMap" scheme="http://yoursite.com/tags/BMap/"/>
-    
-      <category term="vue" scheme="http://yoursite.com/tags/vue/"/>
     
   </entry>
   
@@ -264,8 +266,6 @@
     </summary>
     
     
-      <category term="vue" scheme="http://yoursite.com/tags/vue/"/>
-    
       <category term="props" scheme="http://yoursite.com/tags/props/"/>
     
       <category term="$emit" scheme="http://yoursite.com/tags/emit/"/>
@@ -273,6 +273,8 @@
       <category term="$on" scheme="http://yoursite.com/tags/on/"/>
     
       <category term="父子组件通信" scheme="http://yoursite.com/tags/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1/"/>
+    
+      <category term="vue" scheme="http://yoursite.com/tags/vue/"/>
     
       <category term="非父子组件通信" scheme="http://yoursite.com/tags/%E9%9D%9E%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1/"/>
     
