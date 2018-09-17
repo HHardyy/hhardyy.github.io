@@ -65,7 +65,7 @@ var _hmt = _hmt || [];
 <meta property="og:description" content="vue全家桶做的音乐播放器">
 <meta property="og:locale" content="zh-CH">
 <meta property="og:image" content="http://yoursite.com/images/vueMusic/getdata.JPG">
-<meta property="og:updated_time" content="2018-09-17T09:47:33.135Z">
+<meta property="og:updated_time" content="2018-09-17T11:09:07.935Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue音乐播放器">
 <meta name="twitter:description" content="vue全家桶做的音乐播放器">
@@ -205,7 +205,7 @@ var _hmt = _hmt || [];
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
                 <i class="icon icon-lg icon-chevron-left"></i>
             </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="搜尋">
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
                 <i class="icon icon-lg icon-search"></i>
             </a>
@@ -265,11 +265,8 @@ var _hmt = _hmt || [];
         <div class="post-content" id="post-content" itemprop="postContent">
             <p>vue全家桶做的音乐播放器</p>
 <p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=480579211&auto=0&height=66"></iframe><br><a id="more"></a></p>
-<blockquote>
-<p>音乐接口来自qq音乐</p>
 <h3 id="依赖："><a href="#依赖：" class="headerlink" title="依赖："></a>依赖：</h3><p>“babel-runtime”: “^6.26.0”,对ES语法进行转义<br>“fastclick”: “^1.0.6”,解决移动端300毫秒延迟<br>“babel-polyfill”: “^6.26.0”,(polyfill补丁的意思)，就是对一些ES6 的api比如promise这种做一个转义<br>jsonp解决跨域问题（<a href="https://github.com/webmodules/jsonp）" target="_blank" rel="external">https://github.com/webmodules/jsonp）</a></p>
 <h3 id="组件轮播"><a href="#组件轮播" class="headerlink" title="组件轮播"></a>组件轮播</h3><p>better-scroll<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install better-scroll --save</div></pre></td></tr></table></figure></p>
-</blockquote>
 <h3 id="代码转化babel-loader"><a href="#代码转化babel-loader" class="headerlink" title="代码转化babel-loader"></a>代码转化babel-loader</h3><p><a href="https://www.npmjs.com/package/babel-loader" target="_blank" rel="external">文档地址</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install --save-dev babel-loader babel-core babel-preset-env webpack</div></pre></td></tr></table></figure></p>
 <h3 id="vue-lazyload插件-用于图片懒加载"><a href="#vue-lazyload插件-用于图片懒加载" class="headerlink" title="vue-lazyload插件:用于图片懒加载"></a>vue-lazyload插件:用于图片懒加载</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install vue-lazyload --save</div></pre></td></tr></table></figure>
 <h3 id="v-for爆红，"><a href="#v-for爆红，" class="headerlink" title="v-for爆红，"></a>v-for爆红，</h3><p>Vue 2.2 之后，要求 component 进行列表渲染时，必须指定 key，因此这里可能是 vscode 的一个误报（tr 不是 component），如果不想看到这样的提示，你可以绑定一个 key，或者先检查一下自己有没有做过升级，然后再去看看相关内容升级之后有些什么变化。也可以设置里面添加：”vetur.validation.template”: false<br>也可以： <li class="item" v-for="(item,index) in discList" :key="index"><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">|0(或0)：表示向下取整相当于math.floor</div></pre></td></tr></table></figure></li></p>
@@ -291,6 +288,7 @@ var _hmt = _hmt || [];
                 <div class="image-caption">succ</div>
             </figure>
 <h3 id="后端接口代理"><a href="#后端接口代理" class="headerlink" title="后端接口代理"></a>后端接口代理</h3><p>在build下面的webpack.dev.conf.js里面配置后端代理，写成自定义接口，然后前端请求自定义的接口<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div></pre></td><td class="code"><pre><div class="line">const axios = require(<span class="string">'axios'</span>) </div><div class="line">devServer 里添加</div><div class="line">  before(app) &#123;</div><div class="line">      app.get(<span class="string">'/getDiscList'</span>, <span class="keyword">function</span> (req, res) &#123;</div><div class="line">        var url = <span class="string">'https://c.y.qq.com/splcloud/fcgi-bin/fcg_get_diss_by_tag.fcg'</span></div><div class="line">        axios.get(url, &#123;</div><div class="line">          headers: &#123;</div><div class="line">            referer: <span class="string">'https://y.qq.com/'</span></div><div class="line">          &#125;,</div><div class="line">          params: req.query</div><div class="line">        &#125;).<span class="keyword">then</span>((response) =&gt; &#123;</div><div class="line">          res.json(response.data)</div><div class="line">        &#125;).catch((e) =&gt; &#123;</div><div class="line">          console.log(e)</div><div class="line">        &#125;)</div><div class="line">      &#125;)</div><div class="line">    &#125;</div><div class="line"></div><div class="line">//api/recommend(推荐歌单的api)</div><div class="line"><span class="built_in">export</span> <span class="keyword">function</span> <span class="function"><span class="title">getDiscList</span></span>() &#123;</div><div class="line">  const url = <span class="string">'/getDiscList'</span></div><div class="line">  const data = Object.assign(&#123;&#125;, commonParams, &#123;</div><div class="line">    platform: <span class="string">'yqq'</span>,</div><div class="line">    picmid: 1,</div><div class="line">    hostUin: 0,</div><div class="line">    sin: 0,</div><div class="line">    ein: 29,</div><div class="line">    sortId: 5,</div><div class="line">    needNewCode: 0,</div><div class="line">    categoryId: 10000000,</div><div class="line">    rnd: Math.random(),</div><div class="line">    format: <span class="string">'json'</span></div><div class="line">  &#125;)</div><div class="line">  <span class="built_in">return</span> axios.get(url, &#123;</div><div class="line">    params: data</div><div class="line">  &#125;).<span class="keyword">then</span>((res) =&gt; &#123;</div><div class="line">    <span class="built_in">return</span> Promise.resolve(res.data)</div><div class="line">  &#125;)</div><div class="line">&#125;</div><div class="line"></div><div class="line">//组件中</div><div class="line">import &#123;getDiscList&#125; from <span class="string">'api/recommend'</span></div><div class="line"></div><div class="line">methods: &#123;</div><div class="line">    <span class="function"><span class="title">_getDiscList</span></span>() &#123;</div><div class="line">        getDiscList().<span class="keyword">then</span>((res) =&gt; &#123;</div><div class="line">          <span class="keyword">if</span> (res.code === ERR_OK) &#123;</div><div class="line">            this.discList = res.data.list</div><div class="line">          &#125;</div><div class="line">        &#125;)</div><div class="line">      &#125;      </div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+<p><a href="https://github.com/HHardyy/vue-music" target="_blank" rel="external">项目地址</a></p>
 
         </div>
 
@@ -298,7 +296,7 @@ var _hmt = _hmt || [];
     <div class="content">
         
 <span class="post-time">
-    最後更新時間：<time datetime="2018-09-17T09:47:33.135Z" itemprop="dateUpdated">2018-09-17 17:47:33</time>
+    Last updated: <time datetime="2018-09-17T11:09:07.935Z" itemprop="dateUpdated">2018-09-17 19:09:07</time>
 </span><br>
 
 
