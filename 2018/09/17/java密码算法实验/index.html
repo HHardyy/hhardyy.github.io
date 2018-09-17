@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?d890b1f16fb364253e79c5bb20225c3a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+    
+
+    
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?busuanzi_value_site_uv"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    <meta name="baidu-site-verification" content="FYMCShbUK8" />
+    <meta name="baidu-site-verification" content="ZYRF7OxQRW" />
+    <meta name="baidu-site-verification" content="cHSqtjI0PN" />
+    <meta name="baidu-site-verification" content="cHSqtjI0PN" />
+    <meta name="baidu-site-verification" content="cHSqtjI0PN" />
+    
+    
+    <link rel="canonical" href="true/2018/09/17/java密码算法实验/">
+    
+    
+    <title>java密码算法实验 | Hardy-Zhen | The IT technical communication</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#958e93">
+    
+    
+    <meta name="keywords" content="java,RSA,AES,HASH">
+    <meta name="description" content="很久很久很久，简直久以前的密码算法实验。。。">
+<meta name="keywords" content="java,RSA,AES,HASH">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java密码算法实验">
+<meta property="og:url" content="http://yoursite.com/2018/09/17/java密码算法实验/index.html">
+<meta property="og:site_name" content="Hardy-Zhen">
+<meta property="og:description" content="很久很久很久，简直久以前的密码算法实验。。。">
+<meta property="og:locale" content="zh-CH">
+<meta property="og:image" content="http://yoursite.com/images/javaSav/run.JPG">
+<meta property="og:updated_time" content="2018-09-17T10:46:22.294Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="java密码算法实验">
+<meta name="twitter:description" content="很久很久很久，简直久以前的密码算法实验。。。">
+<meta name="twitter:image" content="http://yoursite.com/images/javaSav/run.JPG">
+    
+        <link rel="alternate" type="application/atom+xml" title="Hardy-Zhen" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/zhenLogo.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/logoBg.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/touxiang.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">BingZhenHuang</h5>
+          <a href="mailto:huangbingzhen@hhardyy.com" title="huangbingzhen@hhardyy.com" class="mail">huangbingzhen@hhardyy.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                所有文章
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/HHardyy" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://juejin.im/user/59a26f926fb9a02487553b04"  >
+                <i class="icon icon-lg icon-pencil"></i>
+                掘金-圳
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://segmentfault.com/u/hhardyy"  >
+                <i class="icon icon-lg icon-comments"></i>
+                Segmentfault
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://codepen.io/HHardyy/" target="_blank" >
+                <i class="icon icon-lg icon-codepen"></i>
+                Codepen
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/ZhenSolive/find.html" target="_blank" >
+                <i class="icon icon-lg icon-globe"></i>
+                原生直播间
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/hero/judge.html" target="_blank" >
+                <i class="icon icon-lg icon-cloud"></i>
+                原生小悟空
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/airPlay/HHardyy_PC.html" target="_blank" >
+                <i class="icon icon-lg icon-camera"></i>
+                原生飞机大战（PC）
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.freecodecamp.cn/hhardyy" target="_blank" >
+                <i class="icon icon-lg icon-leaf"></i>
+                Freecodecamp
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/友情链接"  >
+                <i class="icon icon-lg icon-link"></i>
+                友链
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">java密码算法实验</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">java密码算法实验</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-09-17T09:07:33.000Z" itemprop="datePublished" class="page-time">
+  2018-09-17
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#服务器启动，开启6666端口"><span class="post-toc-number">1.</span> <span class="post-toc-text">服务器启动，开启6666端口</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#客户机接入"><span class="post-toc-number">2.</span> <span class="post-toc-text">客户机接入</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#客户机构建窗体"><span class="post-toc-number">3.</span> <span class="post-toc-text">客户机构建窗体</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#服务器监听端口"><span class="post-toc-number">4.</span> <span class="post-toc-text">服务器监听端口</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#加密身份认证"><span class="post-toc-number">5.</span> <span class="post-toc-text">加密身份认证</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#解密认证"><span class="post-toc-number">6.</span> <span class="post-toc-text">解密认证</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#通信数据加密"><span class="post-toc-number">7.</span> <span class="post-toc-text">通信数据加密</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#客户机关闭连接"><span class="post-toc-number">8.</span> <span class="post-toc-text">客户机关闭连接</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#剑谱"><span class="post-toc-number">9.</span> <span class="post-toc-text">剑谱</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#保存秘钥的方法"><span class="post-toc-number">9.1.</span> <span class="post-toc-text">保存秘钥的方法</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#保存数据的方法"><span class="post-toc-number">9.2.</span> <span class="post-toc-text">保存数据的方法</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#读取数据的方法"><span class="post-toc-number">9.3.</span> <span class="post-toc-text">读取数据的方法</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#读取秘钥的方法"><span class="post-toc-number">9.4.</span> <span class="post-toc-text">读取秘钥的方法</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Coder-java"><span class="post-toc-number">9.5.</span> <span class="post-toc-text">Coder.java</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#AES-java"><span class="post-toc-number">9.6.</span> <span class="post-toc-text">AES.java</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Hash-java"><span class="post-toc-number">9.7.</span> <span class="post-toc-text">Hash.java</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#RSA-java"><span class="post-toc-number">10.</span> <span class="post-toc-text">RSA.java</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-java密码算法实验"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">java密码算法实验</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-09-17 17:07:33" datetime="2018-09-17T09:07:33.000Z"  itemprop="datePublished">2018-09-17</time>
+
+            
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>很久很久很久，简直久以前的密码算法实验。。。</p>
+<p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=1300819741&auto=0&height=66"></iframe><br><a id="more"></a></p>
+<h3 id="服务器启动，开启6666端口"><a href="#服务器启动，开启6666端口" class="headerlink" title="服务器启动，开启6666端口"></a>服务器启动，开启6666端口</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">try &#123;</div><div class="line">		ss = new ServerSocket(6666);</div><div class="line">		started = <span class="literal">true</span>;</div><div class="line">	&#125; catch (BindException e) &#123;</div><div class="line">        System.out.println(<span class="string">"Sorry,Port in use!"</span>);</div><div class="line">        System.out.println(<span class="string">"Please turn off the program to restart the server!"</span>);</div><div class="line">        System.exit(0);</div><div class="line">	&#125; catch (IOException e) &#123;</div><div class="line">		e.printStackTrace();</div><div class="line">	&#125;</div><div class="line">	try &#123;</div><div class="line">		<span class="keyword">while</span> (started) &#123;</div><div class="line">		    	Socket s = ss.accept();</div><div class="line">		    	Client c = new Client(s);</div><div class="line">		    	System.out.println(<span class="string">"a client connected!"</span>);</div><div class="line">			    new Thread(c).start();</div><div class="line">			    clients.add(c);</div><div class="line">		    &#125;</div><div class="line">	    &#125; catch (IOException e) &#123;</div><div class="line">			e.printStackTrace();</div><div class="line">	&#125; finally &#123;</div><div class="line">	try &#123;</div><div class="line">		ss.close();</div><div class="line">	&#125; catch (IOException e) &#123;</div><div class="line">		e.printStackTrace();</div><div class="line">		&#125;</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<h3 id="客户机接入"><a href="#客户机接入" class="headerlink" title="客户机接入"></a>客户机接入</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">try &#123;</div><div class="line">		s = new Socket(<span class="string">"localhost"</span>, 6666);</div><div class="line">		dos = new DataOutputStream(s.getOutputStream());</div><div class="line">		dis = new DataInputStream(s.getInputStream());</div><div class="line">		bConnected = <span class="literal">true</span>;</div><div class="line">	&#125; catch (UnknownHostException e) &#123;</div><div class="line">			e.printStackTrace();</div><div class="line">	&#125; catch (IOException e) &#123;</div><div class="line">			e.printStackTrace();</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<h3 id="客户机构建窗体"><a href="#客户机构建窗体" class="headerlink" title="客户机构建窗体"></a>客户机构建窗体</h3><p>（比较简陋的项目，只是eclipse里面做个窗体来假装客户机）<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">setLocation(600, 300);</div><div class="line">add(tfTxt, BorderLayout.SOUTH);</div><div class="line">add(taContent, BorderLayout.NORTH);</div><div class="line">pack();</div><div class="line">this.addWindowListener(new <span class="function"><span class="title">WindowAdapter</span></span>() &#123;</div><div class="line">	public void windowClosing(WindowEvent arg0) &#123;</div><div class="line">		disconnect();</div><div class="line">		System.exit(0);</div><div class="line">	&#125;</div><div class="line">&#125;);</div><div class="line">tfTxt.addActionListener(new TFListener());</div><div class="line">setVisible(<span class="literal">true</span>);</div><div class="line">connect();</div><div class="line">tRecv.start();</div></pre></td></tr></table></figure></p>
+<h3 id="服务器监听端口"><a href="#服务器监听端口" class="headerlink" title="服务器监听端口"></a>服务器监听端口</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">try &#123;</div><div class="line">	<span class="keyword">while</span> (started) &#123;</div><div class="line">		Socket s = ss.accept();</div><div class="line">		Client c = new Client(s);</div><div class="line">		System.out.println(<span class="string">"a client connected!"</span>);</div><div class="line">		new Thread(c).start();</div><div class="line">		clients.add(c);</div><div class="line">	&#125;</div><div class="line">&#125; catch (IOException e) &#123;</div><div class="line">	e.printStackTrace();</div><div class="line">&#125; finally &#123;</div><div class="line">	try &#123;</div><div class="line">		ss.close();</div><div class="line">	&#125; catch (IOException e) &#123;</div><div class="line">		// TODO Auto-generated catch block</div><div class="line">		e.printStackTrace();</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="加密身份认证"><a href="#加密身份认证" class="headerlink" title="加密身份认证"></a>加密身份认证</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">String str1 = null;</div><div class="line">Random random = new Random();</div><div class="line">int r = random.nextInt();</div><div class="line">String u = <span class="string">"hhardyy"</span>;</div><div class="line">String Verification_code = u + r;</div><div class="line">String Decryption_certification = null;</div><div class="line">System.out.println(<span class="string">"发送的认证消息"</span> + u + r);</div><div class="line">// 生成一对公钥</div><div class="line">try &#123;</div><div class="line">	Rsa rsa = new Rsa();</div><div class="line">	KeyPair rsak = rsa.genKeyPair();</div><div class="line">	PrivateKey ks = rsak.getPrivate();// 私钥</div><div class="line">	PublicKey kp = rsak.getPublic();// 公钥</div><div class="line"></div><div class="line">	// 用公钥把发送的时候生成的随机数进行加密发送</div><div class="line">	byte[] byte_Verification_code = Verification_code.getBytes(<span class="string">"utf-8"</span>);</div><div class="line">	byte[] er = rsa.encrypt(byte_Verification_code, kp);</div><div class="line">	// 保存密钥</div><div class="line">	saveKey(ks, <span class="string">"key_Private.key"</span>);</div><div class="line">	saveData(er, <span class="string">"key_pubData.data"</span>);</div><div class="line"></div><div class="line">	str1 = new String(er);</div><div class="line">	System.out.println(<span class="string">"服务器收到的客户机加密用户认证："</span> + str1);</div><div class="line">&#125; catch (Exception e1) &#123;</div><div class="line">	// TODO Auto-generated catch block</div><div class="line">	e1.printStackTrace();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="解密认证"><a href="#解密认证" class="headerlink" title="解密认证"></a>解密认证</h3><p>注意：这里判断两个值是否相等不能用==或者===，=更不行，因为==或者===对比的是值得路径等等，所以要用str1.equals(str2)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">String DemsgString=null;//定义一个变量存储通信数据</div><div class="line">try &#123;</div><div class="line">	// 解密start</div><div class="line">	Rsa rsa = new Rsa();</div><div class="line">	PrivateKey privatekey = readKey(<span class="string">"key_Private.key"</span>); </div><div class="line">	byte[] er = readData(<span class="string">"key_pubData.data"</span>); </div><div class="line">	byte[] k = rsa.decrypt(er, privatekey); //k = RSAdec(ek, ks)				</div><div class="line">    <span class="keyword">if</span> (Verification_code.equals(Decryption_certification)) &#123;</div><div class="line">        str2 = <span class="string">"认证成功，允许通信"</span>;	//测试成功		</div><div class="line">	&#125; <span class="keyword">else</span> &#123;</div><div class="line">        str2 = <span class="string">"认证失败"</span>; //测试失败</div><div class="line">		DemsgString=<span class="string">"身份认证失败"</span>;</div><div class="line">	&#125;</div><div class="line">&#125; catch (Exception e2) &#123;</div><div class="line">	e2.printStackTrace();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="通信数据加密"><a href="#通信数据加密" class="headerlink" title="通信数据加密"></a>通信数据加密</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">try &#123;</div><div class="line">	Aes aes = new Aes();			</div><div class="line">	//生成密钥，用口令来生成密钥</div><div class="line">	String <span class="built_in">pwd</span> = <span class="string">"xiaofangkuai"</span>;</div><div class="line">	byte[] aesKs = aes.genKey(<span class="built_in">pwd</span>);</div><div class="line">	System.out.println(<span class="string">"通信内容："</span>+str);</div><div class="line">	byte[] msgb=str.getBytes(<span class="string">"utf-8"</span>);</div><div class="line">	byte[] em = aes.encrypt(msgb, aesKs);//通信内容加密</div><div class="line">							</div><div class="line">	<span class="built_in">print</span>(<span class="string">"AES口令生成秘钥Key:"</span>,aesKs);</div><div class="line">	System.out.println(<span class="string">""</span>);</div><div class="line">	String EemsgString = new String(em, <span class="string">"UTF-8"</span>);</div><div class="line">	System.out.println(<span class="string">"加密之后："</span>+EemsgString);</div><div class="line">							</div><div class="line">	byte[] m = aes.decrypt(em, aesKs);</div><div class="line">	DemsgString = new String(m, <span class="string">"UTF-8"</span>);</div><div class="line">	System.out.println(<span class="string">"解密之后："</span>+m);</div><div class="line">	System.out.println(<span class="string">"转码："</span>+DemsgString);</div><div class="line">	&#125; catch (Exception ec) &#123;</div><div class="line">		ec.printStackTrace();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="客户机关闭连接"><a href="#客户机关闭连接" class="headerlink" title="客户机关闭连接"></a>客户机关闭连接</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">try &#123;</div><div class="line">		dos.close();</div><div class="line">		dis.close();</div><div class="line">		s.close();</div><div class="line">	&#125; catch (IOException e) &#123;</div><div class="line">		e.printStackTrace();</div><div class="line">	&#125;</div><div class="line">try &#123;</div><div class="line">		bConnected = <span class="literal">false</span>;</div><div class="line">		tRecv.join();</div><div class="line">	&#125; catch (InterruptedException e) &#123;</div><div class="line">		e.printStackTrace();</div><div class="line">	&#125; finally &#123;</div><div class="line">try &#123;</div><div class="line">		dos.close();</div><div class="line">		dis.close();</div><div class="line">		s.close();</div><div class="line">	&#125; catch (IOException e) &#123;</div><div class="line">		e.printStackTrace();</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>例子比较简陋，看懂不懂没关系，主要看配图<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/javaSav/run.JPG" alt="。。。" title="">
+                </div>
+                <div class="image-caption">。。。</div>
+            </figure></p>
+<h3 id="剑谱"><a href="#剑谱" class="headerlink" title="剑谱"></a>剑谱</h3><h4 id="保存秘钥的方法"><a href="#保存秘钥的方法" class="headerlink" title="保存秘钥的方法"></a>保存秘钥的方法</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">public static void saveKey(Key key, String keyName) throws Exception &#123;</div><div class="line">	FileOutputStream foskey = new FileOutputStream(keyName);</div><div class="line">	ObjectOutputStream oos = new ObjectOutputStream(foskey);</div><div class="line">	oos.writeObject(key);</div><div class="line">	oos.close();</div><div class="line">	foskey.close();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="保存数据的方法"><a href="#保存数据的方法" class="headerlink" title="保存数据的方法"></a>保存数据的方法</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">public static void saveData(byte[] results, String dataName) throws Exception &#123;</div><div class="line">	FileOutputStream fosData = new FileOutputStream(dataName);</div><div class="line">	fosData.write(results);</div><div class="line">	fosData.close();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="读取数据的方法"><a href="#读取数据的方法" class="headerlink" title="读取数据的方法"></a>读取数据的方法</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">public static byte[] readData(String dataName) throws Exception &#123;</div><div class="line">	FileInputStream fisDat = new FileInputStream(dataName);</div><div class="line"></div><div class="line">	// 读二进制数据</div><div class="line">	ByteArrayOutputStream arrayOutputStream = new ByteArrayOutputStream();</div><div class="line">	int len = 0;</div><div class="line">	byte[] data = new byte[1024];</div><div class="line">	<span class="keyword">while</span> ((len = fisDat.read(data)) != -1) &#123;</div><div class="line">		arrayOutputStream.write(data, 0, len);</div><div class="line">	&#125;</div><div class="line">	byte[] result = arrayOutputStream.toByteArray();</div><div class="line">	arrayOutputStream.close();</div><div class="line"></div><div class="line">	fisDat.close();</div><div class="line">	<span class="built_in">return</span> result;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="读取秘钥的方法"><a href="#读取秘钥的方法" class="headerlink" title="读取秘钥的方法"></a>读取秘钥的方法</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">public static PrivateKey readKey(String keyName) throws Exception &#123;</div><div class="line">	FileInputStream fiskey = new FileInputStream(keyName);</div><div class="line">	ObjectInputStream oiskey = new ObjectInputStream(fiskey);</div><div class="line">	PrivateKey key = (PrivateKey) oiskey.readObject();</div><div class="line">	oiskey.close();</div><div class="line">	fiskey.close();</div><div class="line">	<span class="built_in">return</span> key;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="Coder-java"><a href="#Coder-java" class="headerlink" title="Coder.java"></a>Coder.java</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">import java.util.Base64;</div><div class="line">public class Coder &#123;</div><div class="line">	public static String encode(byte[] data) &#123;</div><div class="line">		Base64.Encoder ecd = Base64.getEncoder();</div><div class="line">		<span class="built_in">return</span> ecd.encodeToString(data);</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	public static byte[] decode(String str) &#123;</div><div class="line">		Base64.Decoder dcd = Base64.getDecoder();</div><div class="line">		<span class="built_in">return</span> dcd.decode(str);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="AES-java"><a href="#AES-java" class="headerlink" title="AES.java"></a>AES.java</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div></pre></td><td class="code"><pre><div class="line">import java.security.SecureRandom;</div><div class="line">import javax.crypto.Cipher;</div><div class="line">import javax.crypto.KeyGenerator;</div><div class="line">import javax.crypto.SecretKey;</div><div class="line">import javax.crypto.spec.SecretKeySpec;</div><div class="line"></div><div class="line">public class TestAES &#123;</div><div class="line">	private Cipher cipher;</div><div class="line">	</div><div class="line">	public TestAES() throws Exception &#123;</div><div class="line">		cipher=Cipher.getInstance(<span class="string">"AES"</span>);</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	private SecretKey getKey(byte[] key) throws Exception&#123;</div><div class="line">		<span class="built_in">return</span> new SecretKeySpec(key, <span class="string">"AES"</span>);</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	public byte[] encrypt(byte[] data, byte[] key) throws Exception&#123;</div><div class="line">		cipher.init(Cipher.ENCRYPT_MODE, getKey(key));</div><div class="line">		byte [] encData=cipher.doFinal(data);</div><div class="line">		<span class="built_in">return</span> encData;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	public byte[] decrypt(byte[] encData, byte[] key) throws Exception &#123;</div><div class="line">		cipher.init(Cipher.DECRYPT_MODE, getKey(key));</div><div class="line">		byte [] data=cipher.doFinal(encData);</div><div class="line">		<span class="built_in">return</span> data;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	public byte[] genKey(String fact) throws Exception&#123;</div><div class="line">		KeyGenerator keygen=KeyGenerator.getInstance(<span class="string">"AES"</span>);</div><div class="line">        keygen.init(128, new SecureRandom(fact.getBytes()));</div><div class="line">        SecretKey original_key=keygen.generateKey();</div><div class="line">        byte [] key=original_key.getEncoded();</div><div class="line">        <span class="built_in">return</span> key;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	</div><div class="line">	public String genKeyStr(String fact) throws Exception&#123;</div><div class="line">        byte [] key=genKey(fact);</div><div class="line">        String keyStr = Coder.encode(key);</div><div class="line">        <span class="built_in">return</span> keyStr;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	public String encrypt(String dataStr, String keyStr) throws Exception&#123;</div><div class="line">		byte[] data = dataStr.getBytes();</div><div class="line">		byte[] key = Coder.decode(keyStr);</div><div class="line">		byte[] edata = encrypt(data,key);</div><div class="line">		<span class="built_in">return</span> Coder.encode(edata);</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	public String decrypt(String encDataStr, String keyStr) throws Exception &#123;</div><div class="line">		byte[] edata = Coder.decode(encDataStr);</div><div class="line">		byte[] key = Coder.decode(keyStr);</div><div class="line">		byte [] data = decrypt(edata,key);</div><div class="line">		<span class="built_in">return</span> new String(data);</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	public static void main(String[] args) &#123;</div><div class="line">		try &#123;</div><div class="line">			TestAES t = new TestAES();</div><div class="line">			</div><div class="line">			//生成密钥，用口令来生成密钥</div><div class="line">			String <span class="built_in">pwd</span> = <span class="string">"123456"</span>;</div><div class="line">			byte[] k = t.genKey(<span class="built_in">pwd</span>);</div><div class="line">			</div><div class="line">			String msg = <span class="string">"Plain text 1"</span>;</div><div class="line">			byte[] msgb=msg.getBytes();</div><div class="line">			</div><div class="line">			byte[] emsgb = t.encrypt(msgb, k);</div><div class="line">			byte[] dmsgb = t.decrypt(emsgb, k);</div><div class="line"></div><div class="line">			t.print(<span class="string">"Key"</span>,k);</div><div class="line">			t.print(<span class="string">"msgb"</span>, msgb);</div><div class="line">			t.print(<span class="string">"emsgb"</span>, emsgb);</div><div class="line">			t.print(<span class="string">"dmsgb"</span>, dmsgb);</div><div class="line"></div><div class="line">			System.out.println(<span class="string">"End"</span>);</div><div class="line">		&#125;</div><div class="line">		catch(Exception ec) &#123;</div><div class="line">			ec.printStackTrace();</div><div class="line">		&#125;</div><div class="line"></div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	private void <span class="built_in">print</span>(String note, byte[] bs)&#123;</div><div class="line">		System.out.println(note+<span class="string">": "</span>+Coder.encode(bs));</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="Hash-java"><a href="#Hash-java" class="headerlink" title="Hash.java"></a>Hash.java</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">import java.security.MessageDigest;</div><div class="line"></div><div class="line">public class TestHash &#123;</div><div class="line">	public byte[] getSha256(byte[] data) throws Exception&#123;</div><div class="line">		MessageDigest  md = MessageDigest.getInstance(<span class="string">"SHA-256"</span>);</div><div class="line">	    md.update(data);</div><div class="line">	    <span class="built_in">return</span> md.digest();</div><div class="line">	&#125;</div><div class="line">	public byte[] getSha1(byte[] data) throws Exception</div><div class="line">	&#123;</div><div class="line">		MessageDigest messageDigest = MessageDigest.getInstance(<span class="string">"SHA-1"</span>);    </div><div class="line">		messageDigest.update(data);</div><div class="line">		<span class="built_in">return</span> messageDigest.digest();    </div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	public static void main(String[] args) &#123;</div><div class="line">		try &#123;</div><div class="line">			TestHash t = new TestHash();</div><div class="line">			</div><div class="line">			String msg = <span class="string">"a"</span>;</div><div class="line">			byte[] msgb=msg.getBytes();</div><div class="line">			byte[] d = t.getSha256(msgb);</div><div class="line">			</div><div class="line">			t.print(<span class="string">"msgb"</span>, msgb);</div><div class="line">			t.print(<span class="string">"Dig"</span>, d);</div><div class="line">		&#125;</div><div class="line">		catch(Exception ec) &#123;</div><div class="line">			ec.printStackTrace();</div><div class="line">		&#125;</div><div class="line"></div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	private void <span class="built_in">print</span>(String note, byte[] bs)&#123;</div><div class="line">		System.out.println(note+<span class="string">"["</span>+bs.length+<span class="string">"]: "</span>+Coder.encode(bs));</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="RSA-java"><a href="#RSA-java" class="headerlink" title="RSA.java"></a>RSA.java</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div></pre></td><td class="code"><pre><div class="line">import java.security.KeyPair;</div><div class="line">import java.security.KeyPairGenerator;</div><div class="line">import java.security.PrivateKey;</div><div class="line">import java.security.PublicKey;</div><div class="line">import javax.crypto.Cipher;</div><div class="line"></div><div class="line">public class TestRSA &#123;</div><div class="line">	Cipher cipher;</div><div class="line">	</div><div class="line">	public TestRSA() throws Exception&#123;</div><div class="line">		cipher=Cipher.getInstance(<span class="string">"RSA"</span>);//java默认<span class="string">"RSA"</span>=<span class="string">"RSA/ECB/PKCS1Padding"</span>  </div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	//生成密钥对  </div><div class="line">    public  KeyPair genKeyPair() throws Exception&#123;  </div><div class="line">        KeyPairGenerator keyPairGenerator=KeyPairGenerator.getInstance(<span class="string">"RSA"</span>);  </div><div class="line">        keyPairGenerator.initialize(1024);        </div><div class="line">        <span class="built_in">return</span> keyPairGenerator.generateKeyPair();  </div><div class="line">    &#125;  </div><div class="line">    </div><div class="line">    public String getKeyString() throws Exception &#123;</div><div class="line">    	KeyPair k = genKeyPair();</div><div class="line">    	</div><div class="line">    	String kstr = <span class="string">""</span>;</div><div class="line">    	</div><div class="line">    	<span class="built_in">return</span> kstr;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    //公钥加密  </div><div class="line">    public  byte[] encrypt(byte[] content, PublicKey pKey) throws Exception&#123;  </div><div class="line">        cipher.init(Cipher.ENCRYPT_MODE, pKey);  </div><div class="line">        <span class="built_in">return</span> cipher.doFinal(content);  </div><div class="line">    &#125;  </div><div class="line">    //私钥解密  </div><div class="line">    public  byte[] decrypt(byte[] content, PrivateKey sKey) throws Exception&#123;  </div><div class="line">        cipher.init(Cipher.DECRYPT_MODE, sKey);  </div><div class="line">        <span class="built_in">return</span> cipher.doFinal(content);  </div><div class="line">    &#125;  </div><div class="line"> </div><div class="line">    //私钥加密  </div><div class="line">    public  byte[] encrypt(byte[] content, PrivateKey sKey) throws Exception&#123;  </div><div class="line">        cipher.init(Cipher.ENCRYPT_MODE, sKey);  </div><div class="line">        <span class="built_in">return</span> cipher.doFinal(content);  </div><div class="line">    &#125;  </div><div class="line">    //公钥解密  </div><div class="line">    public  byte[] decrypt(byte[] content, PublicKey pKey) throws Exception&#123;  </div><div class="line">        cipher.init(Cipher.DECRYPT_MODE, pKey);  </div><div class="line">        <span class="built_in">return</span> cipher.doFinal(content);  </div><div class="line">    &#125;  </div><div class="line"> </div><div class="line">    </div><div class="line">	public static void main(String[] args) &#123;</div><div class="line">		try &#123;</div><div class="line">			TestRSA t = new TestRSA();</div><div class="line">			</div><div class="line">			//密钥对</div><div class="line">			KeyPair k = t.genKeyPair();</div><div class="line">			PrivateKey ks = k.getPrivate();</div><div class="line">			PublicKey kp = k.getPublic();</div><div class="line">			</div><div class="line">			t.print(<span class="string">"Private Key"</span>,ks.getEncoded());</div><div class="line">			t.print(<span class="string">"Public Key"</span>,kp.getEncoded());</div><div class="line">			</div><div class="line">			String msg=<span class="string">"abcd"</span>;</div><div class="line">			byte[] msgb = msg.getBytes();</div><div class="line">			</div><div class="line">			byte[] emsgb = t.encrypt(msgb,ks);</div><div class="line">			byte[] dmsgb = t.decrypt(emsgb, kp);</div><div class="line">			</div><div class="line">			t.print(<span class="string">"msgb"</span>, msgb);</div><div class="line">			t.print(<span class="string">"emsgb"</span>, emsgb);</div><div class="line">			t.print(<span class="string">"dmsgb"</span>, dmsgb);</div><div class="line">			</div><div class="line">			emsgb = t.encrypt(msgb,kp);</div><div class="line">			dmsgb = t.decrypt(emsgb, ks);</div><div class="line">			</div><div class="line">			t.print(<span class="string">"msgb"</span>, msgb);</div><div class="line">			t.print(<span class="string">"emsgb"</span>, emsgb);</div><div class="line">			t.print(<span class="string">"dmsgb"</span>, dmsgb);</div><div class="line">		&#125;</div><div class="line">		catch(Exception ec) &#123;</div><div class="line">			ec.printStackTrace();</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	private void <span class="built_in">print</span>(String note, byte[] bs)&#123;</div><div class="line">		System.out.println(note+<span class="string">"["</span>+bs.length+<span class="string">"]: "</span>+Coder.encode(bs));</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2018-09-17T10:46:22.294Z" itemprop="dateUpdated">2018-09-17 18:46:22</time>
+</span><br>
+
+
+        
+        谢谢浏览，我会继续努力的，示例：<a href="/2018/09/17/java密码算法实验/" target="_blank" rel="external">http://yoursite.com/2018/09/17/java密码算法实验/</a>
+        
+    </div>
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/touxiang.jpg" alt="BingZhenHuang">
+            BingZhenHuang
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AES/">AES</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HASH/">HASH</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/RSA/">RSA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/09/17/java密码算法实验/&title=《java密码算法实验》 — Hardy-Zhen&pic=http://yoursite.com/img/touxiang.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/09/17/java密码算法实验/&title=《java密码算法实验》 — Hardy-Zhen&source=很久很久很久，简直久以前的密码算法实验。。。
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/09/17/java密码算法实验/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《java密码算法实验》 — Hardy-Zhen&url=http://yoursite.com/2018/09/17/java密码算法实验/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/09/17/java密码算法实验/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/09/17/Vue音乐播放器/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Vue音乐播放器</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        （゜-゜）つロ Cheers
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<footer class="footer">
+    <div class="top">
+        
+
+        <p>
+
+<span id="busuanzi_container_site_uv">[&nbspviews:<span id="busuanzi_value_site_uv">loading...</span>&nbsp]</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>BingZhenHuang &copy; 2017 - 2018</span>
+            <span>
+                
+                Power by <a href="https://hhardyy.github.io/" target="_blank">zhen On August 8</a> 
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/09/17/java密码算法实验/&title=《java密码算法实验》 — Hardy-Zhen&pic=http://yoursite.com/img/touxiang.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/09/17/java密码算法实验/&title=《java密码算法实验》 — Hardy-Zhen&source=很久很久很久，简直久以前的密码算法实验。。。
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/09/17/java密码算法实验/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《java密码算法实验》 — Hardy-Zhen&url=http://yoursite.com/2018/09/17/java密码算法实验/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/09/17/java密码算法实验/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACMElEQVR42u3aS27cMBAFQN//0hMgW0fye2zFgMjiytB4LBYXbfbn6yten7/r6vn39f1b959e/c7DCwMD47WMz+3Kt5t8mu8h3xsGBsY5jPsgmwTTyV/Lg/LlcwwMDIzbVybbakM2BgYGxpzRZpTJVjAwMDDuGXnhbF50axkP5+IYGBgvZLSNgd/8+T/2NzAwMF7C+JQrudi1B3FfjIt2hYGBsTXjsVJX2R5ojyAayMDAwDiAMQ+Ua03QtfbAZcDFwMDYlFEEtbid2Y5o5K2FIt3FwMDYiJFs+neGVtuRDgwMjHMYeYLapqBJuGwPIkp3MTAwDmDMC2fztmUerDEwME5jzAPxJCivfRcDA+M0RpuIJhe+JBxPhlkxMDBOYLQl+LbRmD/Jk94fqoYYGBgbMZJwlhfF1jbRHtY/jgADA2NrRnsdTJLMItLHrYJi2AIDA2NrRhJM2zLZ2rhGG/QxMDD2ZrRDEpNUtrjktak1BgbG1oy1Qv9k0/kwx3wgAwMDYw9GPtyQh7y11kJ+rbz8v4GBgXEkI3/ZfBJtLQEuZmkxMDBey1i7iq0NVcwnaosDxcDA2IgxH7CYF+nWCm2XV0MMDIztGPnKk9UkXOYFuPl7MTAw9mC0QfapE5q/K6rMYWBgbMSYJ7T5KEZy0VxMZTEwMI5nPBWU8+JdPriGgYGB0bYS14J10uZ8OOBiYGC8itEG0zYct4W8upmKgYGxNWPSGGi3nofUPOhjYGBszfgDmlTMUmAV6z8AAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '~~去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!回来了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

@@ -68,7 +68,7 @@ var _hmt = _hmt || [];
 <meta property="og:image" content="http://yoursite.com/images/asp_net/2.JPG">
 <meta property="og:image" content="http://yoursite.com/images/asp_net/3.JPG">
 <meta property="og:image" content="http://yoursite.com/images/asp_net/4.JPG">
-<meta property="og:updated_time" content="2017-11-24T06:11:29.881Z">
+<meta property="og:updated_time" content="2018-09-17T10:23:12.541Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Asp.NET中Requiredfieldvalidator控件崩掉的问题解决">
 <meta name="twitter:description" content="说一个今早我用ASP.NET写东西的时候遇到的小bug">
@@ -208,7 +208,7 @@ var _hmt = _hmt || [];
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
                 <i class="icon icon-lg icon-chevron-left"></i>
             </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="搜尋">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
                 <i class="icon icon-lg icon-search"></i>
             </a>
@@ -300,7 +300,7 @@ var _hmt = _hmt || [];
                 </div>
                 <div class="image-caption">“页面就活活跑起来了”</div>
             </figure> </p>
-<p>SOkay, that’s it</p>
+<p>有个朋友问到了文字转拼音的方法，我get到了<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line">public static string ChineseToFullPinYin(string chinese)</div><div class="line">        &#123;</div><div class="line">            // 匹配中文字符</div><div class="line">            Regex regex = new Regex(<span class="string">"^[\u4e00-\u9fa5]$"</span>);</div><div class="line">            byte[] array = new byte[2];</div><div class="line">            string pyString = <span class="string">""</span>;</div><div class="line">            int chrAsc = 0;</div><div class="line">            int i1 = 0;</div><div class="line">            int i2 = 0;</div><div class="line">            char[] noWChar = chinese.ToCharArray();</div><div class="line"> </div><div class="line">            <span class="keyword">for</span> (int j = 0; j &lt; noWChar.Length; j++)</div><div class="line">            &#123;</div><div class="line">                // 中文字符</div><div class="line">                <span class="keyword">if</span> (regex.IsMatch(noWChar[j].ToString()))</div><div class="line">                &#123;</div><div class="line">                    array = System.Text.Encoding.Default.GetBytes(noWChar[j].ToString());</div><div class="line">                    i1 = (short)(array[0]);</div><div class="line">                    i2 = (short)(array[1]);</div><div class="line">                    chrAsc = i1 * 256 + i2 - 65536;</div><div class="line">                    <span class="keyword">if</span> (chrAsc &gt; 0 &amp;&amp; chrAsc &lt; 160)</div><div class="line">                    &#123;</div><div class="line">                        pyString += noWChar[j];</div><div class="line">                    &#125;</div><div class="line">                    <span class="keyword">else</span></div><div class="line">                    &#123;</div><div class="line">                        // 修正部分文字</div><div class="line">                        <span class="keyword">if</span> (chrAsc == -9254) </div><div class="line">                            pyString += <span class="string">"Zhen"</span>;</div><div class="line">                        <span class="keyword">else</span> <span class="keyword">if</span> (chrAsc == -12080)</div><div class="line">                        &#123;</div><div class="line">                            pyString += <span class="string">"Hang"</span>;</div><div class="line">                        &#125;</div><div class="line">                        <span class="keyword">else</span></div><div class="line">                        &#123;</div><div class="line">                            <span class="keyword">for</span> (int i = (pyValue.Length - 1); i &gt;= 0; i--)</div><div class="line">                            &#123;</div><div class="line">                                <span class="keyword">if</span> (pyValue[i] &lt;= chrAsc)</div><div class="line">                                &#123;</div><div class="line">                                    pyString += pyName[i];</div><div class="line">                                    <span class="built_in">break</span>;</div><div class="line">                                &#125;</div><div class="line">                            &#125;</div><div class="line">                        &#125;</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">                // 非中文字符</div><div class="line">                <span class="keyword">else</span></div><div class="line">                &#123;</div><div class="line">                    pyString += noWChar[j].ToString();</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            <span class="built_in">return</span> pyString;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
         </div>
 
@@ -308,7 +308,7 @@ var _hmt = _hmt || [];
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2017-11-24T06:11:29.881Z" itemprop="dateUpdated">2017-11-24 14:11:29</time>
+    最後更新時間：<time datetime="2018-09-17T10:23:12.541Z" itemprop="dateUpdated">2018-09-17 18:23:12</time>
 </span><br>
 
 
