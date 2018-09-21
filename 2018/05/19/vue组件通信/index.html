@@ -55,9 +55,9 @@ var _hmt = _hmt || [];
     <meta name="theme-color" content="#958e93">
     
     
-    <meta name="keywords" content="vue,props,$emit,$on,父子组件通信,非父子组件通信">
+    <meta name="keywords" content="props,$emit,$on,父子组件通信,vue,非父子组件通信">
     <meta name="description" content="这里我没用脚手架，可以用html和js的思维了解，最重要的是这次的音乐是我最喜欢的Flower Dance">
-<meta name="keywords" content="vue,props,$emit,$on,父子组件通信,非父子组件通信">
+<meta name="keywords" content="props,$emit,$on,父子组件通信,vue,非父子组件通信">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vue组件通信">
 <meta property="og:url" content="http://yoursite.com/2018/05/19/vue组件通信/index.html">
@@ -68,7 +68,7 @@ var _hmt = _hmt || [];
 <meta property="og:image" content="http://yoursite.com/images/props_img/1.png">
 <meta property="og:image" content="http://yoursite.com/images/props_img/2.JPG">
 <meta property="og:image" content="http://yoursite.com/images/props_img/3.JPG">
-<meta property="og:updated_time" content="2018-07-04T09:58:49.551Z">
+<meta property="og:updated_time" content="2018-09-21T05:01:00.305Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue组件通信">
 <meta name="twitter:description" content="这里我没用脚手架，可以用html和js的思维了解，最重要的是这次的音乐是我最喜欢的Flower Dance">
@@ -93,7 +93,7 @@ var _hmt = _hmt || [];
     <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
         <i class="icon icon-lg icon-close"></i>
     </a>
-    <div class="brand-wrap" style="background-image:url(/img/logoBg.jpg)">
+    <div class="brand-wrap" style="background-image:url(/img/logoBg.gif)">
       <div class="brand">
         <a href="/" class="avatar waves-effect waves-circle waves-light">
           <img src="/img/touxiang.jpg">
@@ -310,6 +310,7 @@ var _hmt = _hmt || [];
             </figure>  </p>
 <p>理解简单点就是兄组件绑定一个handelFunction<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;div @click=<span class="string">"handelFunction"</span>&gt;&lt;/div&gt;</div><div class="line">methods: &#123;</div><div class="line">    <span class="function"><span class="title">handelFunction</span></span>() &#123;</div><div class="line">        vm.<span class="variable">$emit</span>(<span class="string">'hanFunction'</span>,<span class="string">'HHardyy'</span>); //触发事件</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>弟组件on监听hanFunction<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="title">created</span></span>() &#123;</div><div class="line">  vm.<span class="variable">$on</span>(<span class="string">'hanFunction'</span>, (re) =&gt; &#123; </div><div class="line">        this.test= re; // 接收HHardyy</div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>可以理解成<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var bus = new Vue()//这个可以新建一个event.js,里头<span class="built_in">let</span> bus=new Vue(); 然后把把bus向外<span class="built_in">export</span></div><div class="line"></div><div class="line">// 触发组件 A 中的事件</div><div class="line">bus.<span class="variable">$emit</span>(<span class="string">'id-selected'</span>, 1)</div><div class="line">// 在组件 B 创建的钩子中监听事件</div><div class="line">bus.<span class="variable">$on</span>(<span class="string">'id-selected'</span>, <span class="keyword">function</span> (id) &#123;</div><div class="line">  // ...</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
 
         </div>
 
@@ -317,7 +318,7 @@ var _hmt = _hmt || [];
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2018-07-04T09:58:49.551Z" itemprop="dateUpdated">2018-07-04 17:58:49</time>
+    Last updated: <time datetime="2018-09-21T05:01:00.305Z" itemprop="dateUpdated">2018-09-21 13:01:00</time>
 </span><br>
 
 
@@ -580,10 +581,10 @@ var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
     var OriginTitile = document.title, titleTime;
     document.addEventListener('visibilitychange', function() {
         if (document.hidden) {
-            document.title = '~~去哪里了！';
+            document.title = '（゜-゜）つロ！';
             clearTimeout(titleTime);
         } else {
-            document.title = '(つェ⊂)咦!回来了!';
+            document.title = '(つェ⊂)!';
             titleTime = setTimeout(function() {
                 document.title = OriginTitile;
             },2000);
