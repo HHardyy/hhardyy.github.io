@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Hardy-Zhen</title>
+  <title>hhardyy-黄炳圳</title>
   
-  <subtitle>The IT technical communication</subtitle>
+  <subtitle>With headphones on, the world is full of code</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
@@ -10,7 +10,7 @@
   <id>http://yoursite.com/</id>
   
   <author>
-    <name>BingZhenHuang</name>
+    <name>BingZhenhuang</name>
     
   </author>
   
@@ -149,11 +149,11 @@
     </summary>
     
     
-      <category term="vue" scheme="http://yoursite.com/tags/vue/"/>
-    
       <category term="百度地图" scheme="http://yoursite.com/tags/%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE/"/>
     
       <category term="BMap" scheme="http://yoursite.com/tags/BMap/"/>
+    
+      <category term="vue" scheme="http://yoursite.com/tags/vue/"/>
     
   </entry>
   
@@ -392,6 +392,8 @@
     </summary>
     
     
+      <category term="vue" scheme="http://yoursite.com/tags/vue/"/>
+    
       <category term="props" scheme="http://yoursite.com/tags/props/"/>
     
       <category term="$emit" scheme="http://yoursite.com/tags/emit/"/>
@@ -399,8 +401,6 @@
       <category term="$on" scheme="http://yoursite.com/tags/on/"/>
     
       <category term="父子组件通信" scheme="http://yoursite.com/tags/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1/"/>
-    
-      <category term="vue" scheme="http://yoursite.com/tags/vue/"/>
     
       <category term="非父子组件通信" scheme="http://yoursite.com/tags/%E9%9D%9E%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1/"/>
     
@@ -501,9 +501,9 @@
     </summary>
     
     
-      <category term="better-scroll" scheme="http://yoursite.com/tags/better-scroll/"/>
-    
       <category term="vue-router" scheme="http://yoursite.com/tags/vue-router/"/>
+    
+      <category term="better-scroll" scheme="http://yoursite.com/tags/better-scroll/"/>
     
       <category term="express" scheme="http://yoursite.com/tags/express/"/>
     
