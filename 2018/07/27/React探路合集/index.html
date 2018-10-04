@@ -55,9 +55,9 @@ var _hmt = _hmt || [];
     <meta name="theme-color" content="#958e93">
     
     
-    <meta name="keywords" content="React,npm,npm run eject,connect装饰器">
+    <meta name="keywords" content="React,npm,npm run eject,connect装饰器,onClick">
     <meta name="description" content="react脚手架建项目的时候突然太卡，改一下npm的registry或许有帮助。。。">
-<meta name="keywords" content="React,npm,npm run eject,connect装饰器">
+<meta name="keywords" content="React,npm,npm run eject,connect装饰器,onClick">
 <meta property="og:type" content="article">
 <meta property="og:title" content="React探路合集">
 <meta property="og:url" content="http://yoursite.com/2018/07/27/React探路合集/index.html">
@@ -69,7 +69,7 @@ var _hmt = _hmt || [];
 <meta property="og:image" content="http://yoursite.com/images/react-juka/33.JPG">
 <meta property="og:image" content="http://yoursite.com/images/react-juka/111.JPG">
 <meta property="og:image" content="http://yoursite.com/images/react-juka/222.JPG">
-<meta property="og:updated_time" content="2018-09-24T05:26:39.426Z">
+<meta property="og:updated_time" content="2018-10-04T18:47:31.698Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="React探路合集">
 <meta name="twitter:description" content="react脚手架建项目的时候突然太卡，改一下npm的registry或许有帮助。。。">
@@ -248,7 +248,7 @@ var _hmt = _hmt || [];
     <aside class="post-widget">
         <nav class="post-toc-wrap" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#React巨卡"><span class="post-toc-number">1.</span> <span class="post-toc-text">React巨卡</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#npm-run-eject"><span class="post-toc-number">2.</span> <span class="post-toc-text">npm run eject</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#connect装饰器爆红"><span class="post-toc-number">3.</span> <span class="post-toc-text">@connect装饰器爆红</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#React巨卡"><span class="post-toc-number">1.</span> <span class="post-toc-text">React巨卡</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#npm-run-eject"><span class="post-toc-number">2.</span> <span class="post-toc-text">npm run eject</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#connect装饰器爆红"><span class="post-toc-number">3.</span> <span class="post-toc-text">@connect装饰器爆红</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#onClick失效"><span class="post-toc-number">4.</span> <span class="post-toc-text">onClick失效</span></a></li></ol>
         </nav>
     </aside>
     
@@ -308,13 +308,15 @@ var _hmt = _hmt || [];
                 </div>
                 <div class="image-caption">“emmmmm”</div>
             </figure>
+<h3 id="onClick失效"><a href="#onClick失效" class="headerlink" title="onClick失效"></a>onClick失效</h3><p>刚在写退出登录功能的时候，方法不执行，即使bind了this，代码也完全没问题，排除了默认以及冒泡等，可能是被遮住了，点不到那个元素，这时候设置一下z-index就可以了，不行就设置z-index: 10 !important; 提升它的优先级，然后就可以了</p>
+
         </div>
 
         <blockquote class="post-copyright">
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-09-24T05:26:39.426Z" itemprop="dateUpdated">2018-09-24 13:26:39</time>
+    最后更新时间：<time datetime="2018-10-04T18:47:31.698Z" itemprop="dateUpdated">2018-10-05 02:47:31</time>
 </span><br>
 
 
@@ -339,7 +341,7 @@ var _hmt = _hmt || [];
 
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/connect装饰器/">connect装饰器</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/npm/">npm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/npm-run-eject/">npm run eject</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/connect装饰器/">connect装饰器</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/npm/">npm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/npm-run-eject/">npm run eject</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/onClick/">onClick</a></li></ul>
 
 
             

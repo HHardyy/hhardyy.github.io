@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?d890b1f16fb364253e79c5bb20225c3a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+    
+
+    
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?busuanzi_value_site_uv"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    <meta name="baidu-site-verification" content="FYMCShbUK8" />
+    <meta name="baidu-site-verification" content="ZYRF7OxQRW" />
+    <meta name="baidu-site-verification" content="cHSqtjI0PN" />
+    <meta name="baidu-site-verification" content="cHSqtjI0PN" />
+    <meta name="baidu-site-verification" content="cHSqtjI0PN" />
+    
+    
+    <link rel="canonical" href="true/2018/10/05/浅谈高阶组件/">
+    
+    
+    <title>浅谈高阶组件 | 小方块-hhardyy | With headphones on, the world is full of code</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#958e93">
+    
+    
+    <meta name="keywords" content="react,高阶组件,反向继承,属性代理">
+    <meta name="description" content="我们都知道高阶函数，本文讲的高阶组件最大的特点就是代码复用，逻辑抽象…">
+<meta name="keywords" content="react,高阶组件,反向继承,属性代理">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浅谈高阶组件">
+<meta property="og:url" content="http://yoursite.com/2018/10/05/浅谈高阶组件/index.html">
+<meta property="og:site_name" content="小方块-hhardyy">
+<meta property="og:description" content="我们都知道高阶函数，本文讲的高阶组件最大的特点就是代码复用，逻辑抽象…">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/images/heightTopZu/1.JPG">
+<meta property="og:image" content="http://yoursite.com/images/heightTopZu/2.JPG">
+<meta property="og:image" content="http://yoursite.com/images/heightTopZu/3.JPG">
+<meta property="og:image" content="http://yoursite.com/images/heightTopZu/4.png">
+<meta property="og:image" content="http://yoursite.com/images/heightTopZu/5.png">
+<meta property="og:image" content="http://yoursite.com/images/heightTopZu/6.png">
+<meta property="og:image" content="http://yoursite.com/images/heightTopZu/7.png">
+<meta property="og:image" content="http://yoursite.com/images/heightTopZu/8.png">
+<meta property="og:image" content="http://yoursite.com/images/heightTopZu/9.png">
+<meta property="og:updated_time" content="2018-10-04T18:52:31.886Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="浅谈高阶组件">
+<meta name="twitter:description" content="我们都知道高阶函数，本文讲的高阶组件最大的特点就是代码复用，逻辑抽象…">
+<meta name="twitter:image" content="http://yoursite.com/images/heightTopZu/1.JPG">
+    
+        <link rel="alternate" type="application/atom+xml" title="小方块-hhardyy" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/zhenLogo.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/logoBg.png)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/touxiang.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">BingZhenhuang</h5>
+          <a href="mailto:huangbingzhen@hhardyy.com" title="huangbingzhen@hhardyy.com" class="mail">huangbingzhen@hhardyy.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                所有文章
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/HHardyy" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://juejin.im/user/59a26f926fb9a02487553b04"  >
+                <i class="icon icon-lg icon-pencil"></i>
+                掘金-圳
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://segmentfault.com/u/hhardyy"  >
+                <i class="icon icon-lg icon-comments"></i>
+                Segmentfault
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://codepen.io/HHardyy/" target="_blank" >
+                <i class="icon icon-lg icon-codepen"></i>
+                Codepen
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/ZhenSolive/find.html" target="_blank" >
+                <i class="icon icon-lg icon-globe"></i>
+                原生直播间
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/hero/judge.html" target="_blank" >
+                <i class="icon icon-lg icon-cloud"></i>
+                原生小悟空
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/airPlay/HHardyy_PC.html" target="_blank" >
+                <i class="icon icon-lg icon-camera"></i>
+                原生飞机大战（PC）
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.freecodecamp.cn/hhardyy" target="_blank" >
+                <i class="icon icon-lg icon-leaf"></i>
+                Freecodecamp
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/友情链接"  >
+                <i class="icon icon-lg icon-link"></i>
+                友链
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">浅谈高阶组件</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">浅谈高阶组件</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-10-04T18:19:24.000Z" itemprop="datePublished" class="page-time">
+  2018-10-05
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#高阶组件主要分两种"><span class="post-toc-number">1.</span> <span class="post-toc-text">高阶组件主要分两种</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#属性代理"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">属性代理</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#反向继承"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">反向继承</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-浅谈高阶组件"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">浅谈高阶组件</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-10-05 02:19:24" datetime="2018-10-04T18:19:24.000Z"  itemprop="datePublished">2018-10-05</time>
+
+            
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>我们都知道高阶函数，本文讲的高阶组件最大的特点就是代码复用，逻辑抽象…</p>
+<p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=534165062&auto=0&height=66"></iframe><br><a id="more"></a></p>
+<blockquote>
+<p>最近学会了吉他，再加上是深夜了，所以就配个吉他版夜的钢琴曲</p>
+</blockquote>
+<p>切入正题，就简单粗暴的举例说明吧</p>
+<p>简单解释高阶组件，首先示例一个函数<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">hello</span></span>()&#123;</div><div class="line">    console.log(<span class="string">"hhardyy i love you"</span>);</div><div class="line">&#125;</div><div class="line">hello()</div></pre></td></tr></table></figure></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/heightTopZu/1.JPG" alt="“”" title="">
+                </div>
+                <div class="image-caption">“”</div>
+            </figure>  
+<p>然后高阶组件这么写<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">hello</span></span>()&#123;</div><div class="line">    console.log(<span class="string">"hhardyy i love you"</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">function</span> newHello(fnc)&#123;</div><div class="line">    <span class="built_in">return</span> <span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">        console.log(<span class="string">"befor hello"</span>)</div><div class="line">        fnc()</div><div class="line">        console.log(<span class="string">"after hello"</span>)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">hello = newHello(hello)</div><div class="line">hello()</div></pre></td></tr></table></figure></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/heightTopZu/2.JPG" alt="“”" title="">
+                </div>
+                <div class="image-caption">“”</div>
+            </figure>  
+<p>这种模式就叫装饰器模式，这两hello()使用的时候虽然是一样的，但是内部已经发生了翻天覆地的变化，这是理解高阶组件的第一步，接下来我写个组件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">class Hello extends Component&#123;</div><div class="line">    <span class="function"><span class="title">render</span></span>()&#123;</div><div class="line">        <span class="built_in">return</span> &lt;h2&gt;hhardyy <span class="built_in">test</span> react &amp; 疯狂<span class="built_in">test</span> react&lt;/h2&gt;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>然后在我的项目中的组件（一个写好的组件就可以）的return中用上，然后打印<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/heightTopZu/3.JPG" alt="“”" title="">
+                </div>
+                <div class="image-caption">“”</div>
+            </figure><br>高阶组件其实就是一个组件传入另一个组件，而大家也意识到，组件其实就是个函数，我用<a href="https://babeljs.io/repl" target="_blank" rel="external">babel</a>来解析一下这个组件<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/heightTopZu/4.png" alt="“babel解析hello组件”" title="">
+                </div>
+                <div class="image-caption">“babel解析hello组件”</div>
+            </figure><br>从这里可以看出来，所有的组件本质上都是一个函数，再举个栗子，我写个专门装饰上面hello组件的函数<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> newHello(Component)&#123;</div><div class="line">    class newHel extends Component&#123;</div><div class="line">        <span class="function"><span class="title">render</span></span>()&#123;</div><div class="line">            <span class="built_in">return</span> (</div><div class="line">                &lt;div&gt;</div><div class="line">                    &lt;p&gt;高阶组件元素&lt;/p&gt;</div><div class="line">                    &lt;Component &#123;...this.props&#125;&gt;&lt;/Component&gt;</div><div class="line">                &lt;/div&gt;</div><div class="line">            )</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">return</span> newHel</div><div class="line">&#125;</div><div class="line">Hello = newHello(Hello)</div></pre></td></tr></table></figure></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/heightTopZu/5.png" alt="“专门装饰上面hello组件的函数”" title="">
+                </div>
+                <div class="image-caption">“专门装饰上面hello组件的函数”</div>
+            </figure>  
+<p>我们常用的@connect装饰器其实就是这么个原理，这里我假装newHello是从别的地方引进来的，很远很远的地方（怕太远了你们看不到就往上移了几行，假装很远），然后在hello组件上写上@newHello，也就是这个样子<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">@newHello</div><div class="line">class Hello extends Component&#123;</div><div class="line">    <span class="function"><span class="title">render</span></span>()&#123;</div><div class="line">        <span class="built_in">return</span> &lt;h2&gt;hhardyy <span class="built_in">test</span> react组件 模拟@ &amp; 疯狂<span class="built_in">test</span> react&lt;/h2&gt;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/heightTopZu/6.png" alt="“模拟装饰器写法”" title="">
+                </div>
+                <div class="image-caption">“模拟装饰器写法”</div>
+            </figure>  
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/heightTopZu/7.png" alt="“效果”" title="">
+                </div>
+                <div class="image-caption">“效果”</div>
+            </figure>  
+<p>来模拟@connect装饰器，这就是最简单的一个高阶组件，也就是给一个组件，然后返回另外一个组件，另外的组件把原来的组件包裹一层，这样就可以在原来的组件之上添加或者修改一些功能</p>
+<h3 id="高阶组件主要分两种"><a href="#高阶组件主要分两种" class="headerlink" title="高阶组件主要分两种"></a>高阶组件主要分两种</h3><h4 id="属性代理"><a href="#属性代理" class="headerlink" title="属性代理"></a>属性代理</h4><p>上面这个组件叫属性代理，我们可以在<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;Component &#123;...this.props&#125;&gt;&lt;/Component&gt;</div></pre></td></tr></table></figure></p>
+<p>上给name,data等等</p>
+<h4 id="反向继承"><a href="#反向继承" class="headerlink" title="反向继承"></a>反向继承</h4><p>就是不继承React.Component,而是直接继承原来的组件，这样就可以改写原来component的生命周期，比如这样子<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> newHello(Component)&#123;</div><div class="line">    class newHel extends Component&#123;  //这里的Component不是继承自React的Component，而是传进来的Component</div><div class="line">        <span class="function"><span class="title">componentDidMount</span></span>() &#123;</div><div class="line">            console.log(<span class="string">"高阶组件新增生命周期完成"</span>)</div><div class="line">        &#125;</div><div class="line">        <span class="function"><span class="title">render</span></span>()&#123;</div><div class="line">            <span class="built_in">return</span> &lt;Component&gt;&lt;/Component&gt;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">return</span> newHel</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>这样之后和之前的关系就成了继承的关系，而不是代理的关系，这种方式可以修改它的生命周期，可以修改渲染逻辑以及整个渲染的流程，使用高阶组件的作用主要是代码复用以及逻辑抽象等<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/heightTopZu/8.png" alt="“两者简单的代码比较”" title="">
+                </div>
+                <div class="image-caption">“两者简单的代码比较”</div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/heightTopZu/9.png" alt="“属性继承和反向代理的区别效果”" title="">
+                </div>
+                <div class="image-caption">“属性继承和反向代理的区别效果”</div>
+            </figure><br>有点困，仗着国庆小长假疯狂试探新知识，平均睡觉时间3点</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-10-04T18:52:31.886Z" itemprop="dateUpdated">2018-10-05 02:52:31</time>
+</span><br>
+
+
+        
+        谢谢浏览，我会继续努力的，示例：<a href="/2018/10/05/浅谈高阶组件/" target="_blank" rel="external">http://yoursite.com/2018/10/05/浅谈高阶组件/</a>
+        
+    </div>
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/touxiang.jpg" alt="BingZhenhuang">
+            BingZhenhuang
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/反向继承/">反向继承</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/属性代理/">属性代理</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/高阶组件/">高阶组件</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/10/05/浅谈高阶组件/&title=《浅谈高阶组件》 — 小方块-hhardyy&pic=http://yoursite.com/img/touxiang.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/10/05/浅谈高阶组件/&title=《浅谈高阶组件》 — 小方块-hhardyy&source=我们都知道高阶函数，本文讲的高阶组件最大的特点就是代码复用，逻辑抽象…
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/10/05/浅谈高阶组件/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《浅谈高阶组件》 — 小方块-hhardyy&url=http://yoursite.com/2018/10/05/浅谈高阶组件/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/10/05/浅谈高阶组件/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/09/21/redux、react-router/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">redux、react-router</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        （゜-゜）つロ Cheers
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<footer class="footer">
+    <div class="top">
+        
+
+        <p>
+
+<span id="busuanzi_container_site_uv">[&nbsp访问量:<span id="busuanzi_value_site_uv">loading...</span>&nbsp]</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>BingZhenhuang &copy; 2017 - 2018</span>
+            <span>
+                
+                Power by <a href="https://hhardyy.github.io/" target="_blank">zhen On August 8</a> 
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/10/05/浅谈高阶组件/&title=《浅谈高阶组件》 — 小方块-hhardyy&pic=http://yoursite.com/img/touxiang.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/10/05/浅谈高阶组件/&title=《浅谈高阶组件》 — 小方块-hhardyy&source=我们都知道高阶函数，本文讲的高阶组件最大的特点就是代码复用，逻辑抽象…
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/10/05/浅谈高阶组件/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《浅谈高阶组件》 — 小方块-hhardyy&url=http://yoursite.com/2018/10/05/浅谈高阶组件/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/10/05/浅谈高阶组件/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLUlEQVR42u3aQXLDMAgF0Nz/0u1Mtx27H1DTWnpaZRI70fOCIOD1itfH17p6fbWursnvXbwwMDAey8i3cg+rfsP9vWUqBgbGAYw8yE7CZRWc7A0DAwPj+8/n20rW1bdhYGBgTAJudVvJO3/wv4GBgfFARn6YTMJxAuuV6hacxTEwMB7ImDcGfu/1W/sbGBgY/5IxOXb2Cv1JUljeDwYGxtaM+zRuEt+S0Lmq9IaBgbE3Ix+qqIbO5NPkiJukqhgYGHszeoX4QrF+AC4/GgwMjE0Z1SZlLx9rBtA8ZGNgYGzNyG9LGL0BjuqVhSM3BgbGFoxVg1z3x92kAVAtsV2mhhgYGMcweuNc+XDGPGXEwMA4hzEpeCXbSgJrNQGNMlwMDIyNGHnQrIbdyVhYddQDAwPjHEa1HDZpW/ZCcHMsDAMD4+GMVcMW8/QxCqz3DxEDA+MARl7u741i9IYwklCOgYGxNyMflegNZuX4apvhh/4GBgbGRoxe+X7Sf+gNc0SBHgMD4wBGoc+5tqwfNyEK6S4GBsamjLfOdCxtKmBgYJzAqB4jewMZheNoTMLAwDiB8VFc1TmHfMxilD5iYGBszWj2PBelcdUG54LGJwYGxmMZeYux1+ysjoU1Ay4GBsYBjDzw5dfkoxh50L/8RQwMDIxg9KEavpMCX4GKgYGBUSy9JUfZvEg3OmdjYGBsxJiE0Rz2G48DAwPjBEY1KOcDZPehPH80y0gYGBjPY3wCWdcZBrqUvwgAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '（゜-゜）つロ！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
