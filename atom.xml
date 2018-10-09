@@ -536,11 +536,11 @@
     
       <category term="better-scroll" scheme="http://yoursite.com/tags/better-scroll/"/>
     
-      <category term="props" scheme="http://yoursite.com/tags/props/"/>
-    
       <category term="express" scheme="http://yoursite.com/tags/express/"/>
     
       <category term="vue--resource" scheme="http://yoursite.com/tags/vue-resource/"/>
+    
+      <category term="props" scheme="http://yoursite.com/tags/props/"/>
     
       <category term="2.0弃用的方法" scheme="http://yoursite.com/tags/2-0%E5%BC%83%E7%94%A8%E7%9A%84%E6%96%B9%E6%B3%95/"/>
     
