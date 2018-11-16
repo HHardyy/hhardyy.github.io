@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-11-05T17:49:57.397Z</updated>
+  <updated>2018-11-16T05:07:37.920Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>react造了一个PC城市选择的轮子</title>
+    <link href="http://yoursite.com/2018/11/16/react%E9%80%A0%E4%BA%86%E4%B8%80%E4%B8%AAPC%E5%9F%8E%E5%B8%82%E9%80%89%E6%8B%A9%E7%9A%84%E8%BD%AE%E5%AD%90/"/>
+    <id>http://yoursite.com/2018/11/16/react造了一个PC城市选择的轮子/</id>
+    <published>2018-11-16T04:48:42.000Z</published>
+    <updated>2018-11-16T05:07:37.920Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近做一个react项目的时候，突然想做出来留着下次需要就二次开</p><p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=167679&auto=0&height=66"></iframe><br><a id="more"></a></p><p>在做城市选择的时候，找了网上的一些现成资料，但是都是移动端的，PC的太少，antd的我自己觉得不太好用，然后就想着自己写一个备用，下次需要就在它基础上二次开发就可以了<br><a href="https://github.com/HHardyy/react-cityselect" target="_blank" rel="external">它在这里</a><br>，这个不是我项目里面的，毕竟项目里面的代码不能暴露，这是我重新设计的极简版，没有太多余的依赖文件，可以扩展的空间也更多，demo是我用脚手架建的一个简单的使用这个组件的例子，里头我用的是redux和装饰器来做。</p><blockquote><p>用的时候初始化一下ul的默认样式（margin，padding）</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近做一个react项目的时候，突然想做出来留着下次需要就二次开&lt;/p&gt;
+&lt;p&gt;&lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=&quot;330&quot; height=&quot;86&quot; src=&quot;//music.163.com/outchain/player?type=2&amp;id=167679&amp;auto=0&amp;height=66&quot;&gt;&lt;/iframe&gt;&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="react" scheme="http://yoursite.com/tags/react/"/>
+    
+      <category term="轮子" scheme="http://yoursite.com/tags/%E8%BD%AE%E5%AD%90/"/>
+    
+      <category term="城市选择" scheme="http://yoursite.com/tags/%E5%9F%8E%E5%B8%82%E9%80%89%E6%8B%A9/"/>
+    
+  </entry>
   
   <entry>
     <title>Ant Design of React(Upload)</title>
@@ -147,6 +172,8 @@
     </summary>
     
     
+      <category term="better-scroll" scheme="http://yoursite.com/tags/better-scroll/"/>
+    
       <category term="Vue2.x" scheme="http://yoursite.com/tags/Vue2-x/"/>
     
       <category term="Vuex" scheme="http://yoursite.com/tags/Vuex/"/>
@@ -154,8 +181,6 @@
       <category term="Vue Router" scheme="http://yoursite.com/tags/Vue-Router/"/>
     
       <category term="axios jsonp" scheme="http://yoursite.com/tags/axios-jsonp/"/>
-    
-      <category term="better-scroll" scheme="http://yoursite.com/tags/better-scroll/"/>
     
       <category term="Webpack" scheme="http://yoursite.com/tags/Webpack/"/>
     
@@ -232,9 +257,9 @@
     </summary>
     
     
-      <category term="深拷贝与浅拷贝" scheme="http://yoursite.com/tags/%E6%B7%B1%E6%8B%B7%E8%B4%9D%E4%B8%8E%E6%B5%85%E6%8B%B7%E8%B4%9D/"/>
-    
       <category term="stringify" scheme="http://yoursite.com/tags/stringify/"/>
+    
+      <category term="深拷贝与浅拷贝" scheme="http://yoursite.com/tags/%E6%B7%B1%E6%8B%B7%E8%B4%9D%E4%B8%8E%E6%B5%85%E6%8B%B7%E8%B4%9D/"/>
     
       <category term="ES6-Object.assign()" scheme="http://yoursite.com/tags/ES6-Object-assign/"/>
     
@@ -265,8 +290,6 @@
     
       <category term="js" scheme="http://yoursite.com/tags/js/"/>
     
-      <category term="stringify" scheme="http://yoursite.com/tags/stringify/"/>
-    
       <category term="面向对象" scheme="http://yoursite.com/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"/>
     
       <category term="原型" scheme="http://yoursite.com/tags/%E5%8E%9F%E5%9E%8B/"/>
@@ -282,6 +305,8 @@
       <category term="原型继承" scheme="http://yoursite.com/tags/%E5%8E%9F%E5%9E%8B%E7%BB%A7%E6%89%BF/"/>
     
       <category term="类式继承" scheme="http://yoursite.com/tags/%E7%B1%BB%E5%BC%8F%E7%BB%A7%E6%89%BF/"/>
+    
+      <category term="stringify" scheme="http://yoursite.com/tags/stringify/"/>
     
       <category term="浅拷贝与深拷贝" scheme="http://yoursite.com/tags/%E6%B5%85%E6%8B%B7%E8%B4%9D%E4%B8%8E%E6%B7%B1%E6%8B%B7%E8%B4%9D/"/>
     
@@ -539,39 +564,6 @@
       <category term="Git更新" scheme="http://yoursite.com/tags/Git%E6%9B%B4%E6%96%B0/"/>
     
       <category term="Git推送失败" scheme="http://yoursite.com/tags/Git%E6%8E%A8%E9%80%81%E5%A4%B1%E8%B4%A5/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>vue2.0我踩过的坑，希望你别踩</title>
-    <link href="http://yoursite.com/2018/03/10/vue2-0%E6%88%91%E8%B8%A9%E8%BF%87%E7%9A%84%E5%9D%91%EF%BC%8C%E5%B8%8C%E6%9C%9B%E4%BD%A0%E5%88%AB%E8%B8%A9/"/>
-    <id>http://yoursite.com/2018/03/10/vue2-0我踩过的坑，希望你别踩/</id>
-    <published>2018-03-10T10:01:12.000Z</published>
-    <updated>2018-03-10T18:05:26.549Z</updated>
-    
-    <content type="html"><![CDATA[<p>这是一个伤心的故事，vue2.0做1.0的东西踩过的坑…</p><p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=5273093&auto=0&height=66"></iframe><br><a id="more"></a></p><h3 id="express"><a href="#express" class="headerlink" title="express"></a>express</h3><p>（还有许多依赖包也是如此比如css-loader等）<br>这东西在1.0的时候只需要在package.json里面声明一下然后<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install</div></pre></td></tr></table></figure></p><p>express的依赖就安装完毕了，但是在2.0这样玩的时候报出express is not defind<br>解决方案就是安装一下express，安装命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install express --save</div></pre></td></tr></table></figure></p><p>假如是暂时安装而不将其添加到依赖项列表中，则忽略–save，安装完之后直接跑起来如果还是报错，到依赖包package.json里面定义一下，然后npm install，<br>webpack配置文件再定义一下，就可以跑了<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var express = require(<span class="string">'express'</span>);</div></pre></td></tr></table></figure></p><p>。。。也许你都装了那些配置，然后只是忘了var express = require(‘express’）,非常尴尬的说我就是如此hhhhh，装完一切才发现我是没var就用，这个例子很简单，但是2.0的很多依赖都是这么整的，所以碰到坑的时候不妨一试</p><h3 id="vue路由（vue-router）"><a href="#vue路由（vue-router）" class="headerlink" title="vue路由（vue-router）"></a>vue路由（vue-router）</h3><p>在用脚手架构建项目的时候会提示时候安装vue-router，如果选了它就直接帮忙安装好，路由的东西写在脚手架生成的router文件下的index.js下面，假如选择了否之后，就需要自己装路由<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install vue-router</div></pre></td></tr></table></figure></p><p>package.json里（dependencies）加上”vue-router”: “^0.7.13（这个版本号是看你自己要装什么版本）”</p><p>它的坑：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Cannot <span class="built_in">read</span> property <span class="string">'component'</span> of undefined</div></pre></td></tr></table></figure></p><p>解决方案：<br>1.打开package.json将”dependencies”中的   “vue-router”版本改为：”^2.2.0”<br>2.npm install<br>3.在App.vue中<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">将</div><div class="line">&lt;a v-link=<span class="string">"&#123;path:'/xxx'&#125;"</span>&gt;xxx&lt;/a&gt;</div><div class="line">改成</div><div class="line">&lt;router-link to=<span class="string">"/xxx"</span>&gt;xxx&lt;/router-link&gt;</div></pre></td></tr></table></figure></p><p>4.然后在main.js中import<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">import VueRouter from <span class="string">'vue-router'</span>;</div></pre></td></tr></table></figure></p><p>否则如图<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/images/vue2.0keng/1.gif" alt="“。。。”" title="">                </div>                <div class="image-caption">“。。。”</div>            </figure><br>使用模块化机制编程，導入Vue和VueRouter，要调用 Vue.use(VueRouter)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">//定义路由</div><div class="line">var routes=[</div><div class="line">&#123;path:<span class="string">'/'</span>,redirect: <span class="string">'/xxx'</span>&#125;, </div><div class="line">&#123;path:<span class="string">'/xxx'</span>,component:xxx&#125;,</div><div class="line">&#123;path:<span class="string">'/yyy'</span>,component:yyy&#125;,</div><div class="line">&#123;path:<span class="string">'/zzz'</span>,component:zzz&#125;</div><div class="line">]</div><div class="line">//创建 router 实例，然后传 `routes` 配置</div><div class="line">var router=new VueRouter(&#123;</div><div class="line">linkActiveClass: <span class="string">'active'</span>,</div><div class="line">  routes</div><div class="line">&#125;);</div><div class="line">//=&gt;是ES6的箭头语法</div><div class="line">new Vue(&#123;</div><div class="line">el:<span class="string">'#app'</span>,</div><div class="line">router,</div><div class="line">render:h=&gt;h(App)</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p><h3 id="处理前后端数据交互vue–resource"><a href="#处理前后端数据交互vue–resource" class="headerlink" title="处理前后端数据交互vue–resource"></a>处理前后端数据交互vue–resource</h3><p>安装<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install vue-resource</div></pre></td></tr></table></figure></p><p>交互也可以用axios</p><h3 id="better-scroll操作dom的时候的坑"><a href="#better-scroll操作dom的时候的坑" class="headerlink" title="better-scroll操作dom的时候的坑"></a>better-scroll操作dom的时候的坑</h3><p>这里先装一下better-scroll<br>1、package.json写上”better-scroll”: “^1.8.1”<br>2、执行命令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install</div></pre></td></tr></table></figure></p><p>（用这个的时候的坑）<br>在vue1.0的时候两个外部dom获取写成<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">&lt;div class=<span class="string">"menu-wrapper"</span> v-el:menu-wrapper&gt;</div><div class="line">&lt;div class=<span class="string">"foods-wrapper"</span> v-el:foods-wrapper&gt;、</div><div class="line"></div><div class="line">//挂载到els的时候</div><div class="line">this.meunScroll = new BScroll(this.<span class="variable">$els</span>.menuWrapper, &#123;&#125;);</div><div class="line">this.foodsScroll = new BScroll(this.<span class="variable">$els</span>.foodsWrapper, &#123;&#125;);</div><div class="line"><span class="function"><span class="title">created</span></span>() &#123;</div><div class="line">      this.<span class="variable">$http</span>.get(<span class="string">'/api/goods'</span>).<span class="keyword">then</span>((response) =&gt; &#123;</div><div class="line">        response = response.body;</div><div class="line">        <span class="keyword">if</span> (response.errno === ERR_OK) &#123;</div><div class="line">          this.goods = response.data;</div><div class="line">          this.<span class="variable">$nextTick</span>(() =&gt; &#123;</div><div class="line">            this._initScroll();</div><div class="line">            this._calculateHeight();</div><div class="line">          &#125;);</div><div class="line">        &#125;</div><div class="line">      &#125;);</div><div class="line">    &#125;,</div><div class="line">methods: &#123;</div><div class="line">      <span class="function"><span class="title">_initScroll</span></span>() &#123;</div><div class="line">        this.meunScroll = new BScroll(this.<span class="variable">$els</span>.menuWrapper, &#123;&#125;);</div><div class="line">        this.foodsScroll = new BScroll(this.<span class="variable">$els</span>.foodsWrapper, &#123;&#125;);</div><div class="line">      &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p><p>在1.0里面这样写没问题，但是到了2.0版本就爆炸了，所以在2.0里面要换一种写法<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">//两个外部dom获取写成ref</div><div class="line">&lt;div class=<span class="string">"menu-wrapper"</span> ref=<span class="string">"menuWrapper"</span>&gt;</div><div class="line">&lt;div class=<span class="string">"foods-wrapper"</span> ref=<span class="string">"foodsWrapper"</span>&gt;</div><div class="line"></div><div class="line">//挂载的时候挂在到refs</div><div class="line"><span class="function"><span class="title">created</span></span>() &#123;</div><div class="line">      this.<span class="variable">$http</span>.get(<span class="string">'/api/goods'</span>).<span class="keyword">then</span>((response) =&gt; &#123;</div><div class="line">        response = response.body</div><div class="line">        <span class="keyword">if</span> (response.errno === ERR_OK) &#123;</div><div class="line">          this.goods = response.data</div><div class="line">          this.<span class="variable">$nextTick</span>(() =&gt; &#123;</div><div class="line">            this._initScroll()</div><div class="line">          &#125;)</div><div class="line">        &#125;</div><div class="line">      &#125;)</div><div class="line">    &#125;,</div><div class="line">methods: &#123;</div><div class="line">      <span class="function"><span class="title">_initScroll</span></span>() &#123;</div><div class="line">        this.meunScroll = new BScroll(this.<span class="variable">$refs</span>.menuWrapper, &#123;&#125;)</div><div class="line">        this.foodsScroll = new BScroll(this.<span class="variable">$refs</span>.foodsWrapper, &#123;&#125;)</div><div class="line">      &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p><h3 id="dispatch"><a href="#dispatch" class="headerlink" title="$dispatch"></a>$dispatch</h3><p>这个的坑比较简单，因为在2.0版本的时候这东西被废弃了，用它肯定Uncaught TypeError: this.$dispatch is not a function啊<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/images/vue2.0keng/1.JPG" alt="“你好，我叫报错”" title="">                </div>                <div class="image-caption">“你好，我叫报错”</div>            </figure><br>这是因为在vue2.0的时候$dispatch和$broadcast已经被弃用了<br>解决方案：<br>可以改成用#$emit方法，$on也可以试试</p><h3 id="props的问题"><a href="#props的问题" class="headerlink" title="props的问题"></a>props的问题</h3><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/images/vue2.0keng/2.JPG" alt="“你好，我叫props的问题”" title="">                </div>                <div class="image-caption">“你好，我叫props的问题”</div>            </figure><p>解决方案：<br>在Vue2中组件的props的数据流动改为了只能单向流动，即只能由组件外（调用组件方）通过组件的DOM属性attribute传递props给组件内，组件内只能被动接收组件外传递过来的数据，不能修改由外层传来的props数据。可以把product-list.vue中的products放到data中。<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/images/vue2.0keng/3.JPG" alt="“你好，我叫弄好了”" title="">                </div>                <div class="image-caption">“你好，我叫弄好了”</div>            </figure><br>另外Vue1.0中可以使用的双向props，2.0中不再支持双向props，且规定组件自身修改props是反模式的。可以使用computed和data来代替props的操作。</p><h3 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h3><p>切换组件时，组件当前的状态能被保留，vue.js给我们提供了一个非常方便的api，组件状态保留功能<br>用法：在APP.vue路由标签加上keep-alive<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;router-view :seller=<span class="string">"seller"</span> keep-alive&gt;&lt;/router-view&gt;</div></pre></td></tr></table></figure></p><p>当然这是vue1.0版本的用法，vue2.0提供了一个keep-alive组件用来缓存组件,避免多次加载相应的组件,减少性能消耗<br>用法（同APP.vue）：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">  &lt;!--组件缓存--&gt;</div><div class="line">&lt;keep-alive&gt;</div><div class="line"></div><div class="line">&lt;component&gt;</div><div class="line">  &lt;!-- 组件将被缓存 --&gt;</div><div class="line">&lt;/component&gt;</div><div class="line">&lt;/keep-alive&gt;</div><div class="line">有时候可能需要缓存整个站点的所有页面,而页面一般一进去都要触发请求的</div><div class="line">在使用keep-alive的情况下</div><div class="line">&lt;keep-alive&gt;</div><div class="line">    &lt;router-view :seller=<span class="string">"seller"</span> keep-alive&gt;&lt;/router-view&gt;</div><div class="line">&lt;/keep-alive&gt;</div></pre></td></tr></table></figure></p><p>2.0中的transition用法也有所改变不再是以前写在标签内，而是用transition组件包住需要写动画的地方<br>具体可以瞄一眼api</p><p>来一个题外话<br>1W是多少度电？？（这和it木有关系，只因我比较喜欢养鱼，因为仔细观察鱼很神奇）<br>这个问题相信很多喜欢养鱼的朋友都在想，毕竟增氧泵24小时都在工作，担心耗电的话来算一算，度是用电器耗电量的单位千瓦时,1度=1千瓦时,1W的电器工作1000小时耗1度电,1000瓦的用电器工作1小时耗1度电,500瓦的用电器工作2小时耗1度电。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;这是一个伤心的故事，vue2.0做1.0的东西踩过的坑…&lt;/p&gt;
-&lt;p&gt;&lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=&quot;330&quot; height=&quot;86&quot; src=&quot;//music.163.com/outchain/player?type=2&amp;id=5273093&amp;auto=0&amp;height=66&quot;&gt;&lt;/iframe&gt;&lt;br&gt;
-    
-    </summary>
-    
-    
-      <category term="vue-router" scheme="http://yoursite.com/tags/vue-router/"/>
-    
-      <category term="better-scroll" scheme="http://yoursite.com/tags/better-scroll/"/>
-    
-      <category term="express" scheme="http://yoursite.com/tags/express/"/>
-    
-      <category term="vue--resource" scheme="http://yoursite.com/tags/vue-resource/"/>
-    
-      <category term="props" scheme="http://yoursite.com/tags/props/"/>
-    
-      <category term="2.0弃用的方法" scheme="http://yoursite.com/tags/2-0%E5%BC%83%E7%94%A8%E7%9A%84%E6%96%B9%E6%B3%95/"/>
-    
-      <category term="组件状态保留" scheme="http://yoursite.com/tags/%E7%BB%84%E4%BB%B6%E7%8A%B6%E6%80%81%E4%BF%9D%E7%95%99/"/>
     
   </entry>
   
