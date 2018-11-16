@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-11-16T05:07:37.920Z</updated>
+  <updated>2018-11-16T05:32:33.914Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://yoursite.com/2018/11/16/react%E9%80%A0%E4%BA%86%E4%B8%80%E4%B8%AAPC%E5%9F%8E%E5%B8%82%E9%80%89%E6%8B%A9%E7%9A%84%E8%BD%AE%E5%AD%90/"/>
     <id>http://yoursite.com/2018/11/16/react造了一个PC城市选择的轮子/</id>
     <published>2018-11-16T04:48:42.000Z</published>
-    <updated>2018-11-16T05:07:37.920Z</updated>
+    <updated>2018-11-16T05:32:33.914Z</updated>
     
-    <content type="html"><![CDATA[<p>最近做一个react项目的时候，突然想做出来留着下次需要就二次开</p><p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=167679&auto=0&height=66"></iframe><br><a id="more"></a></p><p>在做城市选择的时候，找了网上的一些现成资料，但是都是移动端的，PC的太少，antd的我自己觉得不太好用，然后就想着自己写一个备用，下次需要就在它基础上二次开发就可以了<br><a href="https://github.com/HHardyy/react-cityselect" target="_blank" rel="external">它在这里</a><br>，这个不是我项目里面的，毕竟项目里面的代码不能暴露，这是我重新设计的极简版，没有太多余的依赖文件，可以扩展的空间也更多，demo是我用脚手架建的一个简单的使用这个组件的例子，里头我用的是redux和装饰器来做。</p><blockquote><p>用的时候初始化一下ul的默认样式（margin，padding）</p></blockquote>]]></content>
+    <content type="html"><![CDATA[<p>最近做一个react项目的时候，突然想做出来留着下次需要就二次开</p><p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=167679&auto=0&height=66"></iframe><br><a id="more"></a></p><p>在做城市选择的时候，找了网上的一些现成资料，但是都是移动端的，PC的太少，antd的我自己觉得不太好用，然后就想着自己写一个备用，下次需要就在它基础上二次开发就可以了<br><a href="https://github.com/HHardyy/react-cityselect" target="_blank" rel="external">它在这里</a><br>，这个不是我项目里面的，毕竟项目里面的代码不能暴露，这是我重新设计的极简版，没有太多余的依赖文件，可以扩展的空间也更多，demo是我用脚手架建的一个简单的使用这个组件的例子，里头我用的是redux和装饰器来做。<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/images/reactcityselect/runcityselect.gif" alt="running" title="">                </div>                <div class="image-caption">running</div>            </figure></p><blockquote><p>用的时候初始化一下ul的默认样式（margin，padding）</p></blockquote>]]></content>
     
     <summary type="html">
     
@@ -172,8 +172,6 @@
     </summary>
     
     
-      <category term="better-scroll" scheme="http://yoursite.com/tags/better-scroll/"/>
-    
       <category term="Vue2.x" scheme="http://yoursite.com/tags/Vue2-x/"/>
     
       <category term="Vuex" scheme="http://yoursite.com/tags/Vuex/"/>
@@ -181,6 +179,8 @@
       <category term="Vue Router" scheme="http://yoursite.com/tags/Vue-Router/"/>
     
       <category term="axios jsonp" scheme="http://yoursite.com/tags/axios-jsonp/"/>
+    
+      <category term="better-scroll" scheme="http://yoursite.com/tags/better-scroll/"/>
     
       <category term="Webpack" scheme="http://yoursite.com/tags/Webpack/"/>
     
@@ -257,9 +257,9 @@
     </summary>
     
     
-      <category term="stringify" scheme="http://yoursite.com/tags/stringify/"/>
-    
       <category term="深拷贝与浅拷贝" scheme="http://yoursite.com/tags/%E6%B7%B1%E6%8B%B7%E8%B4%9D%E4%B8%8E%E6%B5%85%E6%8B%B7%E8%B4%9D/"/>
+    
+      <category term="stringify" scheme="http://yoursite.com/tags/stringify/"/>
     
       <category term="ES6-Object.assign()" scheme="http://yoursite.com/tags/ES6-Object-assign/"/>
     
@@ -290,6 +290,8 @@
     
       <category term="js" scheme="http://yoursite.com/tags/js/"/>
     
+      <category term="stringify" scheme="http://yoursite.com/tags/stringify/"/>
+    
       <category term="面向对象" scheme="http://yoursite.com/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"/>
     
       <category term="原型" scheme="http://yoursite.com/tags/%E5%8E%9F%E5%9E%8B/"/>
@@ -305,8 +307,6 @@
       <category term="原型继承" scheme="http://yoursite.com/tags/%E5%8E%9F%E5%9E%8B%E7%BB%A7%E6%89%BF/"/>
     
       <category term="类式继承" scheme="http://yoursite.com/tags/%E7%B1%BB%E5%BC%8F%E7%BB%A7%E6%89%BF/"/>
-    
-      <category term="stringify" scheme="http://yoursite.com/tags/stringify/"/>
     
       <category term="浅拷贝与深拷贝" scheme="http://yoursite.com/tags/%E6%B5%85%E6%8B%B7%E8%B4%9D%E4%B8%8E%E6%B7%B1%E6%8B%B7%E8%B4%9D/"/>
     
