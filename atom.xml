@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Hardy</title>
+  <title>Hardy黄炳圳</title>
   
   <subtitle>With headphones on, the world is full of code</subtitle>
   <link href="/atom.xml" rel="self"/>
@@ -255,9 +255,9 @@
     </summary>
     
     
-      <category term="npm" scheme="http://yoursite.com/tags/npm/"/>
-    
       <category term="React" scheme="http://yoursite.com/tags/React/"/>
+    
+      <category term="npm" scheme="http://yoursite.com/tags/npm/"/>
     
       <category term="npm run eject" scheme="http://yoursite.com/tags/npm-run-eject/"/>
     
