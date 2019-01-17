@@ -593,10 +593,10 @@ var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
     var OriginTitile = document.title, titleTime;
     document.addEventListener('visibilitychange', function() {
         if (document.hidden) {
-            document.title = '（゜-゜）つロ！';
+            document.title = '(๑•̀ㅂ•́)و✧ 记得回来！';
             clearTimeout(titleTime);
         } else {
-            document.title = '(つェ⊂)!';
+            document.title = '（゜-゜）つロ欢迎回来！';
             titleTime = setTimeout(function() {
                 document.title = OriginTitile;
             },2000);
