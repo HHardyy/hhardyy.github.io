@@ -286,11 +286,11 @@
     </summary>
     
     
-      <category term="vue" scheme="http://yoursite.com/tags/vue/"/>
-    
       <category term="百度地图" scheme="http://yoursite.com/tags/%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE/"/>
     
       <category term="BMap" scheme="http://yoursite.com/tags/BMap/"/>
+    
+      <category term="vue" scheme="http://yoursite.com/tags/vue/"/>
     
   </entry>
   
@@ -529,6 +529,8 @@
     </summary>
     
     
+      <category term="vue" scheme="http://yoursite.com/tags/vue/"/>
+    
       <category term="props" scheme="http://yoursite.com/tags/props/"/>
     
       <category term="$emit" scheme="http://yoursite.com/tags/emit/"/>
@@ -536,8 +538,6 @@
       <category term="$on" scheme="http://yoursite.com/tags/on/"/>
     
       <category term="父子组件通信" scheme="http://yoursite.com/tags/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1/"/>
-    
-      <category term="vue" scheme="http://yoursite.com/tags/vue/"/>
     
       <category term="非父子组件通信" scheme="http://yoursite.com/tags/%E9%9D%9E%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1/"/>
     
