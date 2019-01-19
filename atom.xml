@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Hardy黄炳圳</title>
   
-  <subtitle>做一个异端是有回报的，不仅是在科学领域，在任何有竞争的地方，只要你能看到别人看不到或不敢看的东西，你就有很大的优势。Paul Graham《黑客与画家》</subtitle>
+  <subtitle>程序写出来是给人看的，附带能在机器上运行---Paul Graham《黑客与画家》</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
@@ -255,9 +255,9 @@
     </summary>
     
     
-      <category term="React" scheme="http://yoursite.com/tags/React/"/>
-    
       <category term="npm" scheme="http://yoursite.com/tags/npm/"/>
+    
+      <category term="React" scheme="http://yoursite.com/tags/React/"/>
     
       <category term="npm run eject" scheme="http://yoursite.com/tags/npm-run-eject/"/>
     
