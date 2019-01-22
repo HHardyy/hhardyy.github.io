@@ -68,7 +68,7 @@ var _hmt = _hmt || [];
 <meta property="og:image" content="http://yoursite.com/images/linux/1.png">
 <meta property="og:image" content="http://yoursite.com/images/linux/2.png">
 <meta property="og:image" content="http://yoursite.com/images/linux/3.png">
-<meta property="og:updated_time" content="2019-01-18T08:32:13.869Z">
+<meta property="og:updated_time" content="2019-01-22T15:27:23.304Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux艺术">
 <meta name="twitter:description" content="Linux是一套基于POSIX和UNIX的多用户、多任务、支持多线程和多CPU,可以免费使用和自由传播的类Unix操作系统。">
@@ -274,14 +274,10 @@ var _hmt = _hmt || [];
 <h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><p>诶。。。这个地方</p>
 <h4 id="1、linux删除指定后缀的文件"><a href="#1、linux删除指定后缀的文件" class="headerlink" title="1、linux删除指定后缀的文件"></a>1、linux删除指定后缀的文件</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">find . -name <span class="string">"*.png"</span> | xargs rm -rf</div></pre></td></tr></table></figure>
 <p>find命令把匹配到的文件传递给xargs命令，而xargs命令每次只获取一部分文件而不是全部<br>xargs要处理的文件如果不是在结尾，需要加上 -i这个参数</p>
-<h4 id="2、vim编辑器下"><a href="#2、vim编辑器下" class="headerlink" title="2、vim编辑器下"></a>2、vim编辑器下</h4><p>dd:删除游标所在的一整行(常用)<br>ndd:n为数字。删除光标所在的向下n行，例如20dd则是删除光标所在的向下20行<br>d1G:删除光标所在到第一行的所有数据<br>dG:删除光标所在到最后一行的所有数据<br>d$:删除光标所在处，到该行的最后一个字符<br>d0:那个是数字0,删除光标所在到该行的最前面的一个字符<br>x,X:x向后删除一个字符(相当于[del]按键),X向前删除一个字符(相当于[backspace]即退格键)<br>nx:n为数字，连续向后删除n个字符</p>
-<h4 id="3、复制一个文件的所有内容到另一个文件"><a href="#3、复制一个文件的所有内容到另一个文件" class="headerlink" title="3、复制一个文件的所有内容到另一个文件"></a>3、复制一个文件的所有内容到另一个文件</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cat file1 &gt;&gt; file2</div></pre></td></tr></table></figure>
-<blockquote>
-<blockquote>
-<p>是追加到后面的意思<br>是覆盖原先的文件</p>
+<h4 id="2、vim编辑器下"><a href="#2、vim编辑器下" class="headerlink" title="2、vim编辑器下"></a>2、vim编辑器下</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cat /dev/null &gt; a.txt</div></pre></td></tr></table></figure>
+<p>dd:删除游标所在的一整行(常用)<br>ndd:n为数字。删除光标所在的向下n行，例如20dd则是删除光标所在的向下20行<br>d1G:删除光标所在到第一行的所有数据<br>dG:删除光标所在到最后一行的所有数据<br>d$:删除光标所在处，到该行的最后一个字符<br>d0:那个是数字0,删除光标所在到该行的最前面的一个字符<br>x,X:x向后删除一个字符(相当于[del]按键),X向前删除一个字符(相当于[backspace]即退格键)<br>nx:n为数字，连续向后删除n个字符</p>
+<h4 id="3、复制一个文件的所有内容到另一个文件"><a href="#3、复制一个文件的所有内容到另一个文件" class="headerlink" title="3、复制一个文件的所有内容到另一个文件"></a>3、复制一个文件的所有内容到另一个文件</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">cat file1 &gt;&gt; file2</div><div class="line"></div><div class="line">&gt;&gt;是追加到后面的意思</div><div class="line">&gt;是覆盖原先的文件</div></pre></td></tr></table></figure>
 <h4 id="4、将a-txt内容清除，并且使得文件的大小为0，而不删除文件"><a href="#4、将a-txt内容清除，并且使得文件的大小为0，而不删除文件" class="headerlink" title="4、将a.txt内容清除，并且使得文件的大小为0，而不删除文件"></a>4、将a.txt内容清除，并且使得文件的大小为0，而不删除文件</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cat /dev/null &gt; a.txt</div></pre></td></tr></table></figure>
-</blockquote>
-</blockquote>
 <h3 id="文件系统"><a href="#文件系统" class="headerlink" title="文件系统"></a>文件系统</h3><p>Linux的文件系统目录结构采用分层结构<br><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
@@ -325,7 +321,7 @@ var _hmt = _hmt || [];
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-01-18T08:32:13.869Z" itemprop="dateUpdated">2019-01-18 16:32:13</time>
+    最后更新时间：<time datetime="2019-01-22T15:27:23.304Z" itemprop="dateUpdated">2019-01-22 23:27:23</time>
 </span><br>
 
 

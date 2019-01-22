@@ -70,7 +70,7 @@ var _hmt = _hmt || [];
 <meta property="og:image" content="http://yoursite.com/images/deepcopy/3.JPG">
 <meta property="og:image" content="http://yoursite.com/images/deepcopy/4.JPG">
 <meta property="og:image" content="http://yoursite.com/images/deepcopy/5.JPG">
-<meta property="og:updated_time" content="2018-08-30T05:37:44.652Z">
+<meta property="og:updated_time" content="2019-01-22T15:20:27.345Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="对象深拷贝与浅拷贝">
 <meta name="twitter:description" content="偶然与道友产生了深浅拷贝的异议，所以赶紧补一补习，需要的你也可以看看">
@@ -306,6 +306,7 @@ var _hmt = _hmt || [];
                 </div>
                 <div class="image-caption">b.func被干掉了</div>
             </figure>
+<p>stringify的缺点就是：无法实现对函数、RegExp等特殊对象的克隆，会抛弃对象的construct，所有的构造函数会指Object，有循环引用，会报错</p>
 <h4 id="递归拷贝"><a href="#递归拷贝" class="headerlink" title="递归拷贝"></a>递归拷贝</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">var a = &#123;</div><div class="line">    name: &#123;</div><div class="line">        <span class="string">'firstname'</span>:<span class="string">'xiao'</span>,</div><div class="line">        <span class="string">'lastname'</span>:&#123;</div><div class="line">            age:20</div><div class="line">        &#125;</div><div class="line">      &#125;,</div><div class="line">      <span class="function"><span class="title">func</span></span>()&#123;</div><div class="line">          console.log(<span class="string">'hhardyy'</span>)</div><div class="line">      &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var b=&#123;&#125;;</div><div class="line"></div><div class="line"><span class="keyword">function</span> deepClone(objA, objB) &#123;    </div><div class="line">  var obj = objB || &#123;&#125;;    </div><div class="line">  <span class="keyword">for</span> (var i <span class="keyword">in</span> objA) &#123;        </div><div class="line">    var prop = objA[i];        // 避免相互引用对象导致死循环</div><div class="line">    <span class="keyword">if</span>(prop === obj) &#123;            </div><div class="line">      <span class="built_in">continue</span>;</div><div class="line">    &#125;  </div><div class="line"></div><div class="line">    <span class="keyword">if</span> (typeof prop === <span class="string">'object'</span>) &#123;</div><div class="line">      obj[i] = (prop.constructor === Array) ? [] : &#123;&#125;;            </div><div class="line">      arguments.callee(prop, obj[i]);</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">      obj[i] = prop;</div><div class="line">    &#125;</div><div class="line">  &#125;    </div><div class="line">  <span class="built_in">return</span> obj;</div><div class="line">&#125;</div><div class="line"></div><div class="line">deepClone(a, b);</div><div class="line">console.log(a);</div><div class="line">console.log(b);</div></pre></td></tr></table></figure>
 <figure class="image-bubble">
                 <div class="img-lightbox">
@@ -318,6 +319,10 @@ var _hmt = _hmt || [];
 <h4 id="函数库lodash的-cloneDeep"><a href="#函数库lodash的-cloneDeep" class="headerlink" title="函数库lodash的_.cloneDeep"></a>函数库lodash的_.cloneDeep</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">var _ = require(<span class="string">'lodash'</span>);</div><div class="line">var $ = require(<span class="string">'jquery'</span>);</div><div class="line">var a = &#123;</div><div class="line">    name: &#123;</div><div class="line">        <span class="string">'firstname'</span>:<span class="string">'xiao'</span>,</div><div class="line">        <span class="string">'lastname'</span>:&#123;</div><div class="line">            age:20</div><div class="line">        &#125;</div><div class="line">      &#125;,</div><div class="line">      <span class="function"><span class="title">func</span></span>()&#123;</div><div class="line">          console.log(<span class="string">'hhardyy'</span>)</div><div class="line">      &#125;</div><div class="line">&#125;</div><div class="line">var b = _.cloneDeep(a);</div></pre></td></tr></table></figure>
 <p>这个用起来简单，而且性能也不错</p>
 <h3 id="封装一个对象拷贝的方法"><a href="#封装一个对象拷贝的方法" class="headerlink" title="封装一个对象拷贝的方法"></a>封装一个对象拷贝的方法</h3><p>假如obj2要拷贝obj1里面的属性和方法可以用<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> HexTend(obj1,obj2)&#123;</div><div class="line">    <span class="keyword">for</span>(var attr <span class="keyword">in</span> obj1)&#123;</div><div class="line">        obj2[attr]=obj1[attr];</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">return</span> obj2;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>也可以简单点b={…a}或者Object.assign(b,a),如果非对象参数出现在源对象的位置，那么这些参数都会转成对象，如果无法转成对象，就会跳过。也就是undefined和null不放<br>在第一个参数，就不会报错。其他类型的值比如number、string、boolean不在第一个参数，也不会报错。但是字符串会以数组形式拷贝入目标对象，其他值没效果。</p>
+<blockquote>
+<p>注意：Object.assign方法实行的是浅拷贝，如果源对象某个属性的值是对象，则目标对象拷贝到的是这个对象的引用。</p>
+</blockquote>
 
         </div>
 
@@ -325,7 +330,7 @@ var _hmt = _hmt || [];
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-08-30T05:37:44.652Z" itemprop="dateUpdated">2018-08-30 13:37:44</time>
+    最后更新时间：<time datetime="2019-01-22T15:20:27.345Z" itemprop="dateUpdated">2019-01-22 23:20:27</time>
 </span><br>
 
 
