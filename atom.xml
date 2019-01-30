@@ -249,6 +249,8 @@
     </summary>
     
     
+      <category term="better-scroll" scheme="http://yoursite.com/tags/better-scroll/"/>
+    
       <category term="Vue2.x" scheme="http://yoursite.com/tags/Vue2-x/"/>
     
       <category term="Vuex" scheme="http://yoursite.com/tags/Vuex/"/>
@@ -256,8 +258,6 @@
       <category term="Vue Router" scheme="http://yoursite.com/tags/Vue-Router/"/>
     
       <category term="axios jsonp" scheme="http://yoursite.com/tags/axios-jsonp/"/>
-    
-      <category term="better-scroll" scheme="http://yoursite.com/tags/better-scroll/"/>
     
       <category term="Webpack" scheme="http://yoursite.com/tags/Webpack/"/>
     
