@@ -266,7 +266,14 @@ var _hmt = _hmt || [];
         <div class="post-content" id="post-content" itemprop="postContent">
             <p>今晚在推送项目的时候遇到了Git推送失败：HttpRequestException</p>
 <p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=408280692&auto=0&height=66"></iframe><br><a id="more"></a><br>推送失败有可能不是项目本身的问题，因为本地开启服务器能正常跑起来，提示说是用户名找不到，原因是<a href="https://githubengineering.com/crypto-removal-notice/" target="_blank" rel="external">这是我查到的资料</a><br>可以从<a href="https://git-scm.com/" target="_blank" rel="external">下载</a>并重新安装Git的最新源代码版本。我自己是windows，所以下载适用于Windows的Git的最新（2.16.2）。这是最近维护的版本。它于18日前在2018-02-20发布，会同时更新Git Credential Manager。<br>下载安装完成之后（步骤无脑next也可以）<br>查看是否更新成功：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//查看Git版本的命令</div><div class="line">git --version</div></pre></td></tr></table></figure></p>
-<p><img src="/images/gitupdate/git.JPG" alt="“查看结果”"><br>这样git版本就更新完成了</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/gitupdate/git.JPG" alt="“查看结果”" title="">
+                </div>
+                <div class="image-caption">“查看结果”</div>
+            </figure>
+<p>这样git版本就更新完成了</p>
 <h3 id="远程免密推送"><a href="#远程免密推送" class="headerlink" title="远程免密推送"></a>远程免密推送</h3><p>因为远程的代码管理是基于SSH的，Git则需要配置SSH。<br>1 、设置Git的user name和email<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git config --global user.name <span class="string">"xxxx"</span>  //这里是用户名</div><div class="line">$ git config --global user.email <span class="string">"xx@xxx"</span>  //这里是邮箱</div></pre></td></tr></table></figure></p>
 <p>2、配置SSH密钥：<br>1）查看是否生成过ssh秘钥，路径是c盘下面的.ssh文件夹（没有说明没生成过秘钥）,有的话备份再删除因为一会会生成新的<br>2）生成密钥：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh-keygen -t rsa -C “xxx@xx”</div></pre></td></tr></table></figure></p>
 <p>按回车，得到id_rsa和id_rsa.pub（这两文件是生成在.ssh里头的）<br>4）登录github添加“id_rsa.pub”里面的公钥。<br>5）测试：ssh git@github.com<br>到这里如果成功的话，就可以了。</p>

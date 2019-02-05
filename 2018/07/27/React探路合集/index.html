@@ -270,17 +270,48 @@ var _hmt = _hmt || [];
         <div class="post-content" id="post-content" itemprop="postContent">
             <p>react脚手架建项目的时候突然太卡，改一下npm的registry或许有帮助。。。</p>
 <p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=26209792&auto=0&height=66"></iframe><br><a id="more"></a></p>
-<h3 id="React巨卡"><a href="#React巨卡" class="headerlink" title="React巨卡"></a>React巨卡</h3><p>建react项目的时候，突然的巨卡，create-react-app之后吃个苹果回来还在卡着不动，就像这样。<br><img src="/images/react-juka/11.gif" alt="“emmmmm”"><br>换源：create-react-app指令默认npm，永久设置registry就ok了。<br><img src="/images/react-juka/22.JPG" alt="“emmmmm”"><br>图中的命令从上往下依次是清理npm缓存，设置registry成<a href="https://registry.npm.taobao.org，" target="_blank" rel="external">https://registry.npm.taobao.org，</a><br>查看registry设置是否成功（也可以npm info express）</p>
+<h3 id="React巨卡"><a href="#React巨卡" class="headerlink" title="React巨卡"></a>React巨卡</h3><p>建react项目的时候，突然的巨卡，create-react-app之后吃个苹果回来还在卡着不动，就像这样。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/react-juka/11.gif" alt="“emmmmm”" title="">
+                </div>
+                <div class="image-caption">“emmmmm”</div>
+            </figure><br>换源：create-react-app指令默认npm，永久设置registry就ok了。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/react-juka/22.JPG" alt="“emmmmm”" title="">
+                </div>
+                <div class="image-caption">“emmmmm”</div>
+            </figure><br>图中的命令从上往下依次是清理npm缓存，设置registry成<a href="https://registry.npm.taobao.org，" target="_blank" rel="external">https://registry.npm.taobao.org，</a><br>查看registry设置是否成功（也可以npm info express）</p>
 <h3 id="npm源切换淘宝镜像和原来的方法："><a href="#npm源切换淘宝镜像和原来的方法：" class="headerlink" title="npm源切换淘宝镜像和原来的方法："></a>npm源切换淘宝镜像和原来的方法：</h3><p>查看现在的镜像<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm get registry</div></pre></td></tr></table></figure></p>
 <p>1、设置淘宝镜像<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm config set registry http://registry.npm.taobao.org/</div></pre></td></tr></table></figure></p>
 <p>2、切换回原镜像<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm config set registry https://registry.npmjs.org/</div></pre></td></tr></table></figure></p>
 <h3 id="npm-run-eject"><a href="#npm-run-eject" class="headerlink" title="npm run eject"></a>npm run eject</h3><p>npm run eject不弹出个性化配置，并提示This git repository has untracked files or uncommitted changes:<br>意思是这个git仓库有未跟踪的文件或未提交的更改：</p>
-<p>很简单，这时候git status查看一下状态，看看有没有未提交的修改，修改一下再提交仓库。<br>这时候npm run eject出现下面这些东西的时候就是成功了<br><img src="/images/react-juka/33.JPG" alt="“emmmmm”"></p>
+<p>很简单，这时候git status查看一下状态，看看有没有未提交的修改，修改一下再提交仓库。<br>这时候npm run eject出现下面这些东西的时候就是成功了<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/react-juka/33.JPG" alt="“emmmmm”" title="">
+                </div>
+                <div class="image-caption">“emmmmm”</div>
+            </figure></p>
 <h3 id="connect装饰器爆红"><a href="#connect装饰器爆红" class="headerlink" title="@connect装饰器爆红"></a>@connect装饰器爆红</h3><p>写react联合redux的时候可能会用到装饰器babel-plugin-transform-decorators-legacy，顺带提一下用法<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install --save-dev babel-plugin-transform-decorators-legacy</div></pre></td></tr></table></figure></p>
 <p>package.json的babel里头添加这个<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="string">"plugins"</span>: [</div><div class="line">      <span class="string">"transform-decorators-legacy"</span></div><div class="line">]</div></pre></td></tr></table></figure></p>
-<p><img src="/images/react-juka/111.JPG" alt="“emmmmm”"><br>注意：插件顺序很重要，如果要手动包括您的插件和使用transform-class-properties，确保transform-decorators-legacy来之前 transform-class-properties。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="string">"plugins"</span>: [</div><div class="line">      <span class="string">"transform-decorators-legacy"</span>,</div><div class="line">      <span class="string">"transform-class-properties"</span></div><div class="line">]</div></pre></td></tr></table></figure></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/react-juka/111.JPG" alt="“emmmmm”" title="">
+                </div>
+                <div class="image-caption">“emmmmm”</div>
+            </figure>
+<p>注意：插件顺序很重要，如果要手动包括您的插件和使用transform-class-properties，确保transform-decorators-legacy来之前 transform-class-properties。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="string">"plugins"</span>: [</div><div class="line">      <span class="string">"transform-decorators-legacy"</span>,</div><div class="line">      <span class="string">"transform-class-properties"</span></div><div class="line">]</div></pre></td></tr></table></figure></p>
 <p>写完重新start就生效了，这里说的是在组件中@connect之后，下面有红线，一个原因是你没在package.json里面用上免得插件,也有可能是已经添加了上面那个插件，但是没用，这时候可以选择修改一下setting.json，添加下面这个代码，覆盖掉原本它默认的false<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="string">"javascript.implicitProjectConfig.experimentalDecorators"</span>: <span class="literal">true</span></div></pre></td></tr></table></figure></p>
-<p><img src="/images/react-juka/222.JPG" alt="“emmmmm”"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/react-juka/222.JPG" alt="“emmmmm”" title="">
+                </div>
+                <div class="image-caption">“emmmmm”</div>
+            </figure>
 <h3 id="onClick失效"><a href="#onClick失效" class="headerlink" title="onClick失效"></a>onClick失效</h3><p>刚在写退出登录功能的时候，方法不执行，即使bind了this，代码也完全没问题，排除了默认以及冒泡等，可能是被遮住了，点不到那个元素，这时候设置一下z-index就可以了，不行就设置z-index: xxx !important; 提升它的优先级，然后就可以了</p>
 
         </div>

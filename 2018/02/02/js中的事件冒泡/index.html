@@ -273,10 +273,40 @@ var _hmt = _hmt || [];
             <p>事件是javascript中的核心内容之一，在对事件的应用中不可避免的要涉及到一个重要的概念，那就是事件冒泡，在了解事件冒泡之前，先了解一下事件流<br><a id="more"></a></p>
 <p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=496040491&auto=0&height=66"></iframe></p>
 <h3 id="什么是事件流："><a href="#什么是事件流：" class="headerlink" title="什么是事件流："></a>什么是事件流：</h3><p>从window到document到h1、p、h2、form…等。也就是html元素触发事件，那么这个事件就会在DOM中的触发节点和根节点之间按照一定的顺序传播，所有经过的节点都会接收到被触发的事件，这个传播过程被称之为事件流。</p>
-<h3 id="什么是事件冒泡："><a href="#什么是事件冒泡：" class="headerlink" title="什么是事件冒泡："></a>什么是事件冒泡：</h3><p>就是当一个元素触发一个事件，事件会像是水泡一样，从触发元素向它的所有父节点传播，一直到根节点都会接收到此事件，如果父元素中注册了相应的事件处理函数，那么尽管事件在子节点触发的，在父元素上注册的事件处理函数同样会被触发。<br><img src="/images/maopaoImg/maopao.jpg" alt="“冒泡大哥”"><br>例如:我创建了三个div，给最里头的div加上点击事件（准确的说是给元素加上事件处理函数）<br><img src="/images/maopaoImg/1.JPG" alt="“html代码”"><br>预览效果：<br><img src="/images/maopaoImg/2.JPG" alt="“预览效果”"><br>里头的div分别绑定了click事件，然后点击最里头的div3，就会依次弹出div3,div2,div1，这就是事件冒泡，原理是当div3执行完事件处理函数之后，事件就会向父级传播，像冒泡一样所以叫事件冒泡。</p>
+<h3 id="什么是事件冒泡："><a href="#什么是事件冒泡：" class="headerlink" title="什么是事件冒泡："></a>什么是事件冒泡：</h3><p>就是当一个元素触发一个事件，事件会像是水泡一样，从触发元素向它的所有父节点传播，一直到根节点都会接收到此事件，如果父元素中注册了相应的事件处理函数，那么尽管事件在子节点触发的，在父元素上注册的事件处理函数同样会被触发。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/maopaoImg/maopao.jpg" alt="“冒泡大哥”" title="">
+                </div>
+                <div class="image-caption">“冒泡大哥”</div>
+            </figure><br>例如:我创建了三个div，给最里头的div加上点击事件（准确的说是给元素加上事件处理函数）<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/maopaoImg/1.JPG" alt="“html代码”" title="">
+                </div>
+                <div class="image-caption">“html代码”</div>
+            </figure><br>预览效果：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/maopaoImg/2.JPG" alt="“预览效果”" title="">
+                </div>
+                <div class="image-caption">“预览效果”</div>
+            </figure><br>里头的div分别绑定了click事件，然后点击最里头的div3，就会依次弹出div3,div2,div1，这就是事件冒泡，原理是当div3执行完事件处理函数之后，事件就会向父级传播，像冒泡一样所以叫事件冒泡。</p>
 <p>假设把div2的事件注释掉<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">// dIv2.addEventListener(<span class="string">'click'</span>,fn);</div></pre></td></tr></table></figure></p>
 <p>依然可以弹出div1和div3,事实上div2身上也接收到了默认冒泡事件，只是没有给它事件处理函数，也就是没有告诉它接收到事件之后做什么，所以即使父级不绑定执行的函数，冒泡也默认存在，这就是默认存在的事件冒泡机制。</p>
-<h3 id="事件冒泡的影响："><a href="#事件冒泡的影响：" class="headerlink" title="事件冒泡的影响："></a>事件冒泡的影响：</h3><p>直接举个例子：比如下拉菜单（此处有点丑）<br><img src="/images/maopaoImg/3.JPG" alt="“html代码”"><br>效果图：<br><img src="/images/maopaoImg/4.JPG" alt="“预览效果”"><br>需求是点击按钮菜单显示，点击文档区域菜单隐藏，js代码：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var oBtn=document.getElementById(<span class="string">"btn"</span>);</div><div class="line">var dIv=document.getElementById(<span class="string">"div"</span>);</div><div class="line"></div><div class="line">oBtn.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">	dIv.style.display=<span class="string">"block"</span>;</div><div class="line">&#125;);</div><div class="line">document.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">	dIv.style.display=<span class="string">"none"</span>;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<h3 id="事件冒泡的影响："><a href="#事件冒泡的影响：" class="headerlink" title="事件冒泡的影响："></a>事件冒泡的影响：</h3><p>直接举个例子：比如下拉菜单（此处有点丑）<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/maopaoImg/3.JPG" alt="“html代码”" title="">
+                </div>
+                <div class="image-caption">“html代码”</div>
+            </figure><br>效果图：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/maopaoImg/4.JPG" alt="“预览效果”" title="">
+                </div>
+                <div class="image-caption">“预览效果”</div>
+            </figure><br>需求是点击按钮菜单显示，点击文档区域菜单隐藏，js代码：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var oBtn=document.getElementById(<span class="string">"btn"</span>);</div><div class="line">var dIv=document.getElementById(<span class="string">"div"</span>);</div><div class="line"></div><div class="line">oBtn.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">	dIv.style.display=<span class="string">"block"</span>;</div><div class="line">&#125;);</div><div class="line">document.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">	dIv.style.display=<span class="string">"none"</span>;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
 <p>那么问题来了，文档还没加上点击事件的时候，按钮点击菜单可以显示，文档加上点击事件之后，按钮点击就点不出菜单了。</p>
 <p>这时候给文档点击加上延时执行定时器：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">document.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">    setTimeout(<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">        dIv.style.display=<span class="string">"none"</span>;</div><div class="line">    &#125;, 1000);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
 <p>这时候就可以正常点击。</p>
@@ -284,7 +314,19 @@ var _hmt = _hmt || [];
 <h3 id="阻止冒泡："><a href="#阻止冒泡：" class="headerlink" title="阻止冒泡："></a>阻止冒泡：</h3><p>如果在某个地方不想让事件冒泡可以单独阻止，毕竟冒泡事件带来的好处也很大，比如直接触发文档流下的许多元素绑定的事件处理函数</p>
 <h3 id="阻止冒泡的方法：在当前要阻止的事件冒泡函数中调用event-cancelBubble-true"><a href="#阻止冒泡的方法：在当前要阻止的事件冒泡函数中调用event-cancelBubble-true" class="headerlink" title="阻止冒泡的方法：在当前要阻止的事件冒泡函数中调用event.cancelBubble=true;"></a>阻止冒泡的方法：在当前要阻止的事件冒泡函数中调用event.cancelBubble=true;</h3><p>例如将上面的js修改为：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">oBtn.addEventListener(<span class="string">'click'</span>, <span class="keyword">function</span>(ev)&#123;</div><div class="line">    var ev=ev||event;</div><div class="line">    ev.cancelBubble=<span class="literal">true</span>;//阻止当前对象的当前事件的冒泡</div><div class="line">    dIv.style.display=<span class="string">"block"</span>;</div><div class="line">&#125;);</div><div class="line">document.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">    dIv.style.display=<span class="string">"none"</span>;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
 <p>下拉菜单就可以正常跑起来了（虽丑），那么问题又来了，假如按钮身上同时还绑定了一个mouseover的事件，上面设置的阻止冒泡就不生效了，这时候也需要给mouseover事件阻止冒泡，也就是冒泡只能单独阻止。</p>
-<h3 id="事件冒泡的用法："><a href="#事件冒泡的用法：" class="headerlink" title="事件冒泡的用法："></a>事件冒泡的用法：</h3><p>也直接举例子，比如分享功能：<br><img src="/images/maopaoImg/6.JPG" alt="“html代码”"><br>效果图：<br><img src="/images/maopaoImg/6.JPG" alt="“预览效果”"><br>需求：鼠标经过的时候从左边出来，鼠标离开的时候只显示分享到部分，传统的做法是分别加上mouseover、mouseout,<br>但是用冒泡的做法是直接给div去做就行了：</p>
+<h3 id="事件冒泡的用法："><a href="#事件冒泡的用法：" class="headerlink" title="事件冒泡的用法："></a>事件冒泡的用法：</h3><p>也直接举例子，比如分享功能：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/maopaoImg/6.JPG" alt="“html代码”" title="">
+                </div>
+                <div class="image-caption">“html代码”</div>
+            </figure><br>效果图：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/maopaoImg/6.JPG" alt="“预览效果”" title="">
+                </div>
+                <div class="image-caption">“预览效果”</div>
+            </figure><br>需求：鼠标经过的时候从左边出来，鼠标离开的时候只显示分享到部分，传统的做法是分别加上mouseover、mouseout,<br>但是用冒泡的做法是直接给div去做就行了：</p>
 <p>js代码：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var oDiv=document.getElementById(<span class="string">"div1"</span>);</div><div class="line">oDiv.addEventListener(<span class="string">'mouseover'</span>, <span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">    this.style.left=<span class="string">"0px"</span>;</div><div class="line">&#125;);</div><div class="line">oDiv.addEventListener(<span class="string">'mouseout'</span>, <span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">    this.style.left=<span class="string">"-100px"</span>;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
 <p>当然，阻止事件冒泡的方法还有两种：</p>
 <h3 id="另外两种阻止事件冒泡的方法和用法"><a href="#另外两种阻止事件冒泡的方法和用法" class="headerlink" title="另外两种阻止事件冒泡的方法和用法"></a>另外两种阻止事件冒泡的方法和用法</h3><p>方法一：event.stopPropagation();<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"xxx"</span>).click(<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">    event.stopPropagation();</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>

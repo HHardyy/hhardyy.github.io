@@ -274,7 +274,55 @@ var _hmt = _hmt || [];
             <p>今年不像个前端，更像个杂牌军，什么都学，什么都想学，并且突然学上了网络安全，简单描述一下数据包截获的原理</p>
 <p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=420401412&auto=0&height=66"></iframe><br><a id="more"></a><br>废话不多说，我写步骤，你们看就懂了，很简单的原理。<br>这里我做个试验，就是用虚拟机建了四台PC，分别是VM0,VM1,VM2,VM3。<br>配置分别是<br>VM0：ip：192.168.200.10（作为截取数据包用的机器）<br>VM1：ip：192.168.200.1<br>VM2：配了两个网卡，网卡1:192.168.100.2，网卡2:192.168.200.2<br>VM3：ip：192.168.200.3（作为WEB Server和FTP Server）</p>
 <p>分别放在LAN1区段，LAN2区段<br>保证VM2能ping通VM3</p>
-<h3 id="开始步骤"><a href="#开始步骤" class="headerlink" title="开始步骤"></a>开始步骤</h3><p>一、<br>Vm3–web服务<br><img src="/images/websav/1.png" alt="“装iis并设置访问地址为VM3的ip”"><br><img src="/images/websav/2.png" alt="“VM2的浏览器能通过VM3的IP访问VM3的网站”"><br>二、<br>Vm3–FTP服务<br><img src="/images/websav/3.png" alt="“装FTP服务”"><br><img src="/images/websav/4.png" alt="“设置登录密码”"><br><img src="/images/websav/5.png" alt="“FTP管理员登录”"><br>三、<br>开始用VM0截取VM2访问VM3的数据<br>（1）为了可以把抓包工具直接拖到虚拟机，先在vm0上安装VMware Toos<br><img src="/images/websav/6.png" alt="“FTP管理员登录”"><br>打开抓包工具设置截取的协议以及地址之后开始抓包，然后用VM2访问VM3的网站<br><img src="/images/websav/7.png" alt="“截取到的数据”"><br>同样的方式，打开抓包工具之后，VM2登录FTP，就截获了VM3的管理员以及密码（划线部分）<br><img src="/images/websav/8.png" alt="“截取到的FTP数据”"></p>
+<h3 id="开始步骤"><a href="#开始步骤" class="headerlink" title="开始步骤"></a>开始步骤</h3><p>一、<br>Vm3–web服务<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/websav/1.png" alt="“装iis并设置访问地址为VM3的ip”" title="">
+                </div>
+                <div class="image-caption">“装iis并设置访问地址为VM3的ip”</div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/websav/2.png" alt="“VM2的浏览器能通过VM3的IP访问VM3的网站”" title="">
+                </div>
+                <div class="image-caption">“VM2的浏览器能通过VM3的IP访问VM3的网站”</div>
+            </figure><br>二、<br>Vm3–FTP服务<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/websav/3.png" alt="“装FTP服务”" title="">
+                </div>
+                <div class="image-caption">“装FTP服务”</div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/websav/4.png" alt="“设置登录密码”" title="">
+                </div>
+                <div class="image-caption">“设置登录密码”</div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/websav/5.png" alt="“FTP管理员登录”" title="">
+                </div>
+                <div class="image-caption">“FTP管理员登录”</div>
+            </figure><br>三、<br>开始用VM0截取VM2访问VM3的数据<br>（1）为了可以把抓包工具直接拖到虚拟机，先在vm0上安装VMware Toos<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/websav/6.png" alt="“FTP管理员登录”" title="">
+                </div>
+                <div class="image-caption">“FTP管理员登录”</div>
+            </figure><br>打开抓包工具设置截取的协议以及地址之后开始抓包，然后用VM2访问VM3的网站<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/websav/7.png" alt="“截取到的数据”" title="">
+                </div>
+                <div class="image-caption">“截取到的数据”</div>
+            </figure><br>同样的方式，打开抓包工具之后，VM2登录FTP，就截获了VM3的管理员以及密码（划线部分）<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/websav/8.png" alt="“截取到的FTP数据”" title="">
+                </div>
+                <div class="image-caption">“截取到的FTP数据”</div>
+            </figure></p>
 
         </div>
 

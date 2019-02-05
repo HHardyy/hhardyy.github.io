@@ -269,16 +269,34 @@ var _hmt = _hmt || [];
             <p>今晚跑一个vue项目，碰到的一个小坑。</p>
 <p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=165347&auto=0&height=66"></iframe><br><a id="more"></a></p>
 <h3 id="1、假设你美滋滋install一个vue项目"><a href="#1、假设你美滋滋install一个vue项目" class="headerlink" title="1、假设你美滋滋install一个vue项目"></a>1、假设你美滋滋install一个vue项目</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">npm install -g vue-cli</div><div class="line">vue init webpack yourproject</div><div class="line">...</div></pre></td></tr></table></figure>
-<p>这些都木有问题，接下来到npm install的时候，突然biu出来几个大写红色的ERR！，like this<br><img src="/images/npmInstall/npmbug1.JPG" alt="大写红色的ERR！"><br>那么这下或许懵逼了，可能你以为直接跑项目无视掉就好，然后就<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm run dev</div></pre></td></tr></table></figure></p>
+<p>这些都木有问题，接下来到npm install的时候，突然biu出来几个大写红色的ERR！，like this<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/npmInstall/npmbug1.JPG" alt="大写红色的ERR！" title="">
+                </div>
+                <div class="image-caption">大写红色的ERR！</div>
+            </figure><br>那么这下或许懵逼了，可能你以为直接跑项目无视掉就好，然后就<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm run dev</div></pre></td></tr></table></figure></p>
 <p>这下更厉害了，满屏幕大写红色的ERR！<br>要是可视化还好，一堆字母在这看着确实不舒服。</p>
 <h4 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h4><p>1、跑一下这个<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm cache clean --force</div></pre></td></tr></table></figure></p>
 <p>2、或者跑一下这个<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g cnpm --registry=https://registry.npm.taobao.org</div></pre></td></tr></table></figure></p>
-<p><img src="/images/npmInstall/npmbug2.JPG" alt="项目就好好跑起来了"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/npmInstall/npmbug2.JPG" alt="项目就好好跑起来了" title="">
+                </div>
+                <div class="image-caption">项目就好好跑起来了</div>
+            </figure>
 <h3 id="2、vue项目打包之后出现map文件，也就是-m"><a href="#2、vue项目打包之后出现map文件，也就是-m" class="headerlink" title="2、vue项目打包之后出现map文件，也就是.m"></a>2、vue项目打包之后出现map文件，也就是.m</h3><p>vue项目打包之后的dist目录中存在很多map文件，包括打包好的项目文件。</p>
 <h4 id="map文件：打包后的代码经过压缩加密，如果运行报错，输出的错误信息无法准确得知是哪里的代码报错。"><a href="#map文件：打包后的代码经过压缩加密，如果运行报错，输出的错误信息无法准确得知是哪里的代码报错。" class="headerlink" title="map文件：打包后的代码经过压缩加密，如果运行报错，输出的错误信息无法准确得知是哪里的代码报错。"></a>map文件：打包后的代码经过压缩加密，如果运行报错，输出的错误信息无法准确得知是哪里的代码报错。</h4><p>有了map可以像未加密的代码一样，准确的输出是哪一行哪一列。</p>
 <h4 id="去掉map的方法"><a href="#去掉map的方法" class="headerlink" title="去掉map的方法"></a>去掉map的方法</h4><p>src-&gt;config-&gt;index.js中修改<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">productionSourceMap:<span class="literal">false</span></div></pre></td></tr></table></figure></p>
 <p>改完打包就不会出现map文件了，也可以在打包之后将map文件干掉（linux下）<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">find . -name <span class="string">"*.png"</span> | xargs rm -rf</div></pre></td></tr></table></figure></p>
-<h3 id="3、vue打包之后报错，或者每次install报错（React中也存在）"><a href="#3、vue打包之后报错，或者每次install报错（React中也存在）" class="headerlink" title="3、vue打包之后报错，或者每次install报错（React中也存在）"></a>3、vue打包之后报错，或者每次install报错（React中也存在）</h3><p><img src="/images/npmInstall/buildbug.JPG" alt="就像这样"></p>
+<h3 id="3、vue打包之后报错，或者每次install报错（React中也存在）"><a href="#3、vue打包之后报错，或者每次install报错（React中也存在）" class="headerlink" title="3、vue打包之后报错，或者每次install报错（React中也存在）"></a>3、vue打包之后报错，或者每次install报错（React中也存在）</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/npmInstall/buildbug.JPG" alt="就像这样" title="">
+                </div>
+                <div class="image-caption">就像这样</div>
+            </figure>
 <h4 id="产生原因"><a href="#产生原因" class="headerlink" title="产生原因"></a>产生原因</h4><p>fsevents是mac osx系统的，在windows下使用了所以会有问题，或者fsevents不在package.json里，但是仍然安装了，是因为你的系统不是Windows系统，fsevents是苹果系统的可选依赖,团队的其他人在他的mac上安装了fsevents相关依赖库，所以你这里也就安装上了。</p>
 <h4 id="解决方案-1"><a href="#解决方案-1" class="headerlink" title="解决方案"></a>解决方案</h4><p>1、如果是warning错误: 这个fsevents是mac下用的，windows检查你的package.json文件中是不是有fsevents相关依赖，删除即好，或者忽略掉，意思就是你已经安装成功了。<br>2、如果是error错误:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm update </div><div class="line">npm install</div></pre></td></tr></table></figure></p>
 <p>如果无法解决，请尝试升级node版本</p>

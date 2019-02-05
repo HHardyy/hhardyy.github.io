@@ -290,8 +290,20 @@ var _hmt = _hmt || [];
 <h2 id="隐式转换与显式转换都有一个共性，就是转化不成功的时候弹出NaN。"><a href="#隐式转换与显式转换都有一个共性，就是转化不成功的时候弹出NaN。" class="headerlink" title="隐式转换与显式转换都有一个共性，就是转化不成功的时候弹出NaN。"></a>隐式转换与显式转换都有一个共性，就是转化不成功的时候弹出NaN。</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">alert(Number(<span class="string">'....'</span>));</div><div class="line">alert(<span class="string">'....'</span>-9);</div></pre></td></tr></table></figure>
 <h2 id="isNaN（）"><a href="#isNaN（）" class="headerlink" title="isNaN（）"></a>isNaN（）</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">isNaN:is not a number 是不是不是一个数字（不是数字）</div><div class="line">（它天生烦数字）</div><div class="line">alert(isNaN(250))//<span class="literal">false</span></div><div class="line">alert(isNaN(<span class="string">'hh'</span>))//<span class="literal">true</span></div><div class="line"></div><div class="line">isNaN();</div><div class="line">可以用于判断某些值是不是数字</div><div class="line"></div><div class="line">alert(isNaN(<span class="function"><span class="title">function</span></span>()&#123;alert(1);&#125;));</div><div class="line"></div><div class="line">在isNaN内部是先通过Number进行转换之后才确定烦不烦数字，只要是number转换出来是数字，就<span class="literal">false</span>,所以isNaN只是讨厌数字但是不讨厌NaN。</div></pre></td></tr></table></figure>
 <h2 id="isNaN应用"><a href="#isNaN应用" class="headerlink" title="isNaN应用"></a>isNaN应用</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;input <span class="built_in">type</span>=<span class="string">'text'</span> id=<span class="string">"text"</span>&gt;</div><div class="line">&lt;input <span class="built_in">type</span>=<span class="string">'button'</span> id=<span class="string">"btn"</span> value=<span class="string">'测试当前数据类型'</span>&gt;</div></pre></td></tr></table></figure>
-<p><img src="/images/NaNimg/1.JPG" alt="“从html中直接获取的值（xxx.value）都是string类型”"><br><img src="/images/NaNimg/2.JPG" alt="“加一条if语句，用isNaN判断数据类型”"></p>
-
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/NaNimg/1.JPG" alt="“从html中直接获取的值（xxx.value）都是string类型”" title="">
+                </div>
+                <div class="image-caption">“从html中直接获取的值（xxx.value）都是string类型”</div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/NaNimg/2.JPG" alt="“加一条if语句，用isNaN判断数据类型”" title="">
+                </div>
+                <div class="image-caption">“加一条if语句，用isNaN判断数据类型”</div>
+            </figure>
         </div>
 
         <blockquote class="post-copyright">
