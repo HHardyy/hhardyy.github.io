@@ -50,7 +50,7 @@ var _hmt = _hmt || [];
     <link rel="canonical" href="https://hhardyy.com/2017/10/25/关于node/">
     
     
-    <title>介绍一下node的一些知识以及构建项目 | Hardy | 小方块 | 复杂的坑+归其原理+了解实现规则===解决？解决成功：加油解决成功;&amp;nbsp;&amp;nbsp;&amp;nbsp;cout&lt;&lt;黄炳圳;</title>
+    <title>介绍一下node的一些知识以及构建项目 | Hardy | 小方块 | 复杂的坑+归其原理+了解实现规则===解决？解决成功：加油解决成功;&amp;nbsp;&amp;nbsp;&amp;nbsp;cout&lt;&lt;&#34;黄炳圳&#34;;</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#958e93">
@@ -277,35 +277,10 @@ var _hmt = _hmt || [];
 <p>node在前端开发里一般是用来执行编译CSS预编译语言、预编译、压缩、混淆JS、压缩图片、reload、deploy等工程化任务，常用的平台有Grunt和Gulp。</p>
 <h3 id="与Apache和Tomcat比较"><a href="#与Apache和Tomcat比较" class="headerlink" title="与Apache和Tomcat比较"></a>与Apache和Tomcat比较</h3><p>Apache和Tomcat都是web服务器。Apache主要是用C语言编写的，可以编译php；Tomcat主要是用Java编写的，可以编译java。为什么服务器上要编译js／php／java呢？因为有些网页的复杂功能(业务逻辑等等)用到了这些，将这些语言编写的代码放在云服务器，然后通过云服务器上的Node.js／Apache／Tomcat来进行编译执行。</p>
 <p>Node是一个服务器程序。但是肯定不像Apache或Tomcat。一般支持在一分钟之内启动并运行一个服务器。Node肯定不是。Apache能通过添加一个PHP模块来允许开发人员创建动态Web页，添加一个SSL模块来实现安全连接，与此类似，Node也有模块概念，允许向Node内核添加模块。实际上，可供选择的用于Node的模块有数百个之多，社区在创建、发布和更新模块方面非常活跃，一天甚至可以处理数十个模块。</p>
-<h3 id="学node的准备"><a href="#学node的准备" class="headerlink" title="学node的准备"></a>学node的准备</h3><p>准备……准备……准备，来倒数3……2……1……准备好了，让我们抛弃那些协议算法环境线程以及大佬的建议直接下载安装包安装然后…即可。<br>安装之后肯定要美滋滋打开，然后看到了这个。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/images/nodeImg/node_1.JPG" alt="“装好node之后第一次打开的窗口”" title="">
-                </div>
-                <div class="image-caption">“装好node之后第一次打开的窗口”</div>
-            </figure></p>
-<h3 id="如何测试安装结果"><a href="#如何测试安装结果" class="headerlink" title="如何测试安装结果"></a>如何测试安装结果</h3><p>同时按下windows键+R键，出来运行窗口，在里面输入cmd然后Enter打开命令行，这个是windows操作系统自带的命令行工具。输入node-v，安装成功会出现你所安装的node版本，如果下载并安装了git，就可以直接使用git bash这个命令行工具了。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/images/nodeImg/nodeV.JPG" alt="“node-v”" title="">
-                </div>
-                <div class="image-caption">“node-v”</div>
-            </figure></p>
+<h3 id="学node的准备"><a href="#学node的准备" class="headerlink" title="学node的准备"></a>学node的准备</h3><p>准备……准备……准备，来倒数3……2……1……准备好了，让我们抛弃那些协议算法环境线程以及大佬的建议直接下载安装包安装然后…即可。<br>安装之后肯定要美滋滋打开，然后看到了这个。<br><img src="/images/nodeImg/node_1.JPG" alt="“装好node之后第一次打开的窗口”"></p>
+<h3 id="如何测试安装结果"><a href="#如何测试安装结果" class="headerlink" title="如何测试安装结果"></a>如何测试安装结果</h3><p>同时按下windows键+R键，出来运行窗口，在里面输入cmd然后Enter打开命令行，这个是windows操作系统自带的命令行工具。输入node-v，安装成功会出现你所安装的node版本，如果下载并安装了git，就可以直接使用git bash这个命令行工具了。<br><img src="/images/nodeImg/nodeV.JPG" alt="“node-v”"></p>
 <h3 id="构建第一个node项目"><a href="#构建第一个node项目" class="headerlink" title="构建第一个node项目"></a>构建第一个node项目</h3><p>1、新建一个文件夹hhardyy(命名什么无所谓)。<br>2、在文件夹中新建一个文件zuishuai.js(写什么什么.js也无所谓)，然后在里面写上：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">console.log(<span class="string">"hello zhenzhen"</span>);</div></pre></td></tr></table></figure></p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/images/nodeImg/nodeP1.JPG" alt="“构建第一个node项目”" title="">
-                </div>
-                <div class="image-caption">“构建第一个node项目”</div>
-            </figure>
-<p>3、将命令行工具的目录切换到这个新建的文件夹中，然后执行：node zuishuai.js，在命令行中就会输出hello zhenzhen,第一个node项目就构建成功了。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/images/nodeImg/nodeP2.JPG" alt="“执行成功”" title="">
-                </div>
-                <div class="image-caption">“执行成功”</div>
-            </figure><br>总结起来就是：说干就干，不要管什么理论概念应该一般以及所谓大佬的建议，hold不住了再求教翻书什么乱七八糟的，补充完接着干。对了node是不需要在桌面放快捷方式图标的，因为根本用不上，耍酷例外……希望能帮到有缘人…..</p>
+<p><img src="/images/nodeImg/nodeP1.JPG" alt="“构建第一个node项目”"><br>3、将命令行工具的目录切换到这个新建的文件夹中，然后执行：node zuishuai.js，在命令行中就会输出hello zhenzhen,第一个node项目就构建成功了。<br><img src="/images/nodeImg/nodeP2.JPG" alt="“执行成功”"><br>总结起来就是：说干就干，不要管什么理论概念应该一般以及所谓大佬的建议，hold不住了再求教翻书什么乱七八糟的，补充完接着干。对了node是不需要在桌面放快捷方式图标的，因为根本用不上，耍酷例外……希望能帮到有缘人…..</p>
 
         </div>
 

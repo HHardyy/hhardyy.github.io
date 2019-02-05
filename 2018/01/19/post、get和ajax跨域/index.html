@@ -50,7 +50,7 @@ var _hmt = _hmt || [];
     <link rel="canonical" href="https://hhardyy.com/2018/01/19/post、get和ajax跨域/">
     
     
-    <title>post、get和ajax跨域 | Hardy | 小方块 | 复杂的坑+归其原理+了解实现规则===解决？解决成功：加油解决成功;&amp;nbsp;&amp;nbsp;&amp;nbsp;cout&lt;&lt;黄炳圳;</title>
+    <title>post、get和ajax跨域 | Hardy | 小方块 | 复杂的坑+归其原理+了解实现规则===解决？解决成功：加油解决成功;&amp;nbsp;&amp;nbsp;&amp;nbsp;cout&lt;&lt;&#34;黄炳圳&#34;;</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#958e93">
@@ -268,24 +268,12 @@ var _hmt = _hmt || [];
         <div class="post-content" id="post-content" itemprop="postContent">
             <p>做Web的需求一定会涉及到浏览器和服务器的交互，也就是B/S，B/S的交互又是通过HTTP协议，而post和get是HTTP协议中的两种方法。</p>
 <p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=497047516&auto=0&height=66"></iframe><br><a id="more"></a></p>
-<p>HTTP协议规定GET是获取资源的方法，POST是创建资源的方法，PUT是更新资源的方法，DELETE是删除资源的方法，PATCH是修改资源的方法。<br>一个URL地址，它用于描述一个网络上的资源，而HTTP中的GET，POST，PUT，DELETE就对应着对这个资源的查，改，增，删4个操作。而GET一般用于获取/查询资源信息，POST一般用于更新资源信息。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/images/post_and_get/1.jpg" alt="“......”" title="">
-                </div>
-                <div class="image-caption">“......”</div>
-            </figure></p>
+<p>HTTP协议规定GET是获取资源的方法，POST是创建资源的方法，PUT是更新资源的方法，DELETE是删除资源的方法，PATCH是修改资源的方法。<br>一个URL地址，它用于描述一个网络上的资源，而HTTP中的GET，POST，PUT，DELETE就对应着对这个资源的查，改，增，删4个操作。而GET一般用于获取/查询资源信息，POST一般用于更新资源信息。<br><img src="/images/post_and_get/1.jpg" alt="“......”"></p>
 <h3 id="get相对post的优势是什么"><a href="#get相对post的优势是什么" class="headerlink" title="get相对post的优势是什么"></a>get相对post的优势是什么</h3><p>GET的所有信息都在URL，也就是地址栏，所以很方便的被记录下来，<br>请求中的URL可以被存在各种地方，甚至被搜索引擎收录<br>数据比POST透明化一点，“方便大家都看得到”。</p>
 <h3 id="post和get的浏览器长度限制"><a href="#post和get的浏览器长度限制" class="headerlink" title="post和get的浏览器长度限制"></a>post和get的浏览器长度限制</h3><p>get<br>get是通过URL提交数据，因此get可提交的数据量就受url的最大长度限制，HTTP协议对URL长度是没有限制的，限制URL长度多是浏览器或者服务器的配置参数。<br>post<br>HTTP协议也没有对POST进行限制，一般是受服务器配置限制或者内存大小。PHP下可以修改的配置来设置POST的大小（最初默认是8M）。</p>
 <h3 id="post和get的安全性"><a href="#post和get的安全性" class="headerlink" title="post和get的安全性"></a>post和get的安全性</h3><p>post和get都是明文传输<br>1.get是通过URL方式请求，可以直接看到，可能会保存在Web的日志中,也可能会保存在浏览器历史记录以及缓存中。<br>2.post是通过请求header请求，可以通过开发者工具或者抓包看到。<br>所以该https的时候还是得https</p>
 <h3 id="get幂等，post不幂等"><a href="#get幂等，post不幂等" class="headerlink" title="get幂等，post不幂等"></a>get幂等，post不幂等</h3><p>幂等意味着对同一URL的多个请求应该返回同样的结果。。<br>1.按照RFC规范，PUT，DELETE和安全方法都是幂等的，但服务端实现是否幂等是无法确保的。<br>2.引入幂等主要是为了处理同一个请求重复发送的情况，比如在请求响应前失去连接，如果方法是幂等的，就可以放心地重发一次请求。<br>3.get请求用于信息获取，由于是安全且幂等的。一般不容易产生副作用。它仅仅是获取资源信息，不会影响资源的状态。</p>
-<p>post不幂等，可能改变服务器上的资源的请求。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/images/post_and_get/3.jpg" alt="“......”" title="">
-                </div>
-                <div class="image-caption">“......”</div>
-            </figure></p>
+<p>post不幂等，可能改变服务器上的资源的请求。<br><img src="/images/post_and_get/3.jpg" alt="“......”"></p>
 <h3 id="用ajax时的get"><a href="#用ajax时的get" class="headerlink" title="用ajax时的get"></a>用ajax时的get</h3><p>get：<br>数据放在url<br>把数据名称和数据值用=连接，如果有多个的话，那么他会把多个数据组合用&amp;进行连接，然后把数据放到url?后面传到指定页面<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">xhr.open(<span class="string">'get'</span>,<span class="string">'get.php?username=hhardyy&amp;sex=man'</span>,<span class="literal">true</span>);</div></pre></td></tr></table></figure></p>
 <p>(具体数据根据后端给的接口拼接，因为不同的需求需要的数据不一样)</p>
 <h3 id="后端php接收："><a href="#后端php接收：" class="headerlink" title="后端php接收："></a>后端php接收：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;?php</div><div class="line">header(<span class="string">'content-type:text/html;charset="utf-8"'</span>);</div><div class="line">error_reporting(0);</div><div class="line"><span class="variable">$username</span>=<span class="variable">$_GET</span>[<span class="string">'username'</span>];</div><div class="line"><span class="variable">$sex</span>=<span class="variable">$_GET</span>[<span class="string">'sex'</span>];</div><div class="line"><span class="built_in">echo</span> <span class="string">"你的名字:&#123;<span class="variable">$username</span>&#125;,性别:&#123;<span class="variable">$sex</span>&#125;"</span>;</div><div class="line">?&gt;</div></pre></td></tr></table></figure>
@@ -296,13 +284,7 @@ var _hmt = _hmt || [];
 <p>原因就是缓存的问题，重新提交一次数据，由于url地址一样，它会读出缓存里面的而不是读出服务器里面，</p>
 <h3 id="get缓存问题解决方法："><a href="#get缓存问题解决方法：" class="headerlink" title="get缓存问题解决方法："></a>get缓存问题解决方法：</h3><p>在url?后面接上一个随机数或者时间戳，防止每次url一样<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">xhr.open(<span class="string">'get'</span>,<span class="string">'get.php?username=hhardyy&amp;sex=man&amp;'</span>+ new Date().getTime(),<span class="literal">true</span>);</div></pre></td></tr></table></figure></p>
 <h3 id="get提交中文乱码解决办法："><a href="#get提交中文乱码解决办法：" class="headerlink" title="get提交中文乱码解决办法："></a>get提交中文乱码解决办法：</h3><p>编码encodeURI()<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">xhr.open(<span class="string">'get'</span>,<span class="string">'get.php?username='</span>+圳+<span class="string">'&amp;sex=man&amp;'</span>+ new Date().getTime(),<span class="literal">true</span>);/弹出中文乱码</div><div class="line">xhr.open(<span class="string">'get'</span>,<span class="string">'get.php?username='</span>+encodeURI(<span class="string">'圳'</span>)+<span class="string">'&amp;sex=man&amp;'</span>+ new Date().getTime(),<span class="literal">true</span>);/正常</div></pre></td></tr></table></figure></p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/images/post_and_get/5.jpg" alt="“......”" title="">
-                </div>
-                <div class="image-caption">“......”</div>
-            </figure>
+<p><img src="/images/post_and_get/5.jpg" alt="“......”"></p>
 <h3 id="用ajax时的post"><a href="#用ajax时的post" class="headerlink" title="用ajax时的post"></a>用ajax时的post</h3><p>post：<br>数据放在send方法里面<br>enctype:提交的数据格式，默认application/x-www-form-urlencoded”application/x-www-form-urlencoded”&gt;<br>意思是根据url进行编码，也可以进行二进制编码等，后端拿到之后解码就可以拿到数据了</p>
 <h3 id="后端php接收：-1"><a href="#后端php接收：-1" class="headerlink" title="后端php接收："></a>后端php接收：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;?php</div><div class="line">header(<span class="string">'content-type:text/html;charset="utf-8"'</span>);</div><div class="line">error_reporting(0);</div><div class="line"><span class="variable">$username</span>=<span class="variable">$_POST</span>[<span class="string">'username'</span>];</div><div class="line"><span class="variable">$sex</span>=<span class="variable">$_POST</span>[<span class="string">'sex'</span>];</div><div class="line"><span class="built_in">echo</span> <span class="string">"你的名字:&#123;<span class="variable">$username</span>&#125;,性别:&#123;<span class="variable">$sex</span>&#125;"</span>;</div><div class="line">?&gt;</div></pre></td></tr></table></figure>
 <h3 id="前端数据提交："><a href="#前端数据提交：" class="headerlink" title="前端数据提交："></a>前端数据提交：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">xhr.open(<span class="string">'post'</span>,<span class="string">'post.php'</span>,<span class="literal">true</span>);</div><div class="line"></div><div class="line">xhr.setRequestHeader(<span class="string">'content-type'</span>,<span class="string">'application/x-www-form-urlencoded'</span>);</div><div class="line">（声明发送的数据类型application/x-www-form-urlencoded）</div><div class="line">xhr.send(<span class="string">'username=hhardyy&amp;sex=18'</span>);</div></pre></td></tr></table></figure>

@@ -50,7 +50,7 @@ var _hmt = _hmt || [];
     <link rel="canonical" href="https://hhardyy.com/2018/07/05/npm-install出现的小问题/">
     
     
-    <title>npm install出现的小问题 | Hardy | 小方块 | 复杂的坑+归其原理+了解实现规则===解决？解决成功：加油解决成功;&amp;nbsp;&amp;nbsp;&amp;nbsp;cout&lt;&lt;黄炳圳;</title>
+    <title>npm install出现的小问题 | Hardy | 小方块 | 复杂的坑+归其原理+了解实现规则===解决？解决成功：加油解决成功;&amp;nbsp;&amp;nbsp;&amp;nbsp;cout&lt;&lt;&#34;黄炳圳&#34;;</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#958e93">
@@ -259,13 +259,7 @@ var _hmt = _hmt || [];
         <div class="post-content" id="post-content" itemprop="postContent">
             <p>有个妹子遇到了个小问题，就是项目跑不起来,装不上依赖。so</p>
 <p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=571463950&auto=0&height=66"></iframe><br><a id="more"></a></p>
-<p>咱直接说解决方式，先来看看问题。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/images/npmInstall/bug.png" alt="npm安装任何依赖包之后这样子" title="">
-                </div>
-                <div class="image-caption">npm安装任何依赖包之后这样子</div>
-            </figure><br>其实这就是说明依赖包需要更新了，这个问题的出现可能是因为你的node和npm的版本撑不起项目的奔跑，<br>这时候只需要升级一下node的版本，window用户建议别升级了直接去官网下载好一点，原因就是我之前踩坑生成的一篇文章<br><a href="https://hhardyy.com/2017/12/20/node-pash%E5%91%BD%E4%BB%A4%E5%90%88%E9%9B%86/" target="_blank" rel="external">文章在这里</a><br>要是懒得看就直接上node官网下载安装吧。<br>安装完node之后<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">node -v</div></pre></td></tr></table></figure></p>
+<p>咱直接说解决方式，先来看看问题。<br><img src="/images/npmInstall/bug.png" alt="npm安装任何依赖包之后这样子"><br>其实这就是说明依赖包需要更新了，这个问题的出现可能是因为你的node和npm的版本撑不起项目的奔跑，<br>这时候只需要升级一下node的版本，window用户建议别升级了直接去官网下载好一点，原因就是我之前踩坑生成的一篇文章<br><a href="https://hhardyy.com/2017/12/20/node-pash%E5%91%BD%E4%BB%A4%E5%90%88%E9%9B%86/" target="_blank" rel="external">文章在这里</a><br>要是懒得看就直接上node官网下载安装吧。<br>安装完node之后<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">node -v</div></pre></td></tr></table></figure></p>
 <p>如果出现node的版本号，说明node成功，接下来可以更新一下npm了，npm更新比较帅气，但是由于npm自身的更新频率比node高很多，所以可以选择下面的命令更新到最新版。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install npm@latest -g</div></pre></td></tr></table></figure></p>
 <p>也可以选择下面这个命令安装特定安装包<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install &lt;package_name&gt;</div></pre></td></tr></table></figure></p>
 <p>node和npm都更新完之后应该没问题了</p>

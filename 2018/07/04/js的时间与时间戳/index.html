@@ -50,7 +50,7 @@ var _hmt = _hmt || [];
     <link rel="canonical" href="https://hhardyy.com/2018/07/04/js的时间与时间戳/">
     
     
-    <title>js的时间与时间戳 | Hardy | 小方块 | 复杂的坑+归其原理+了解实现规则===解决？解决成功：加油解决成功;&amp;nbsp;&amp;nbsp;&amp;nbsp;cout&lt;&lt;黄炳圳;</title>
+    <title>js的时间与时间戳 | Hardy | 小方块 | 复杂的坑+归其原理+了解实现规则===解决？解决成功：加油解决成功;&amp;nbsp;&amp;nbsp;&amp;nbsp;cout&lt;&lt;&#34;黄炳圳&#34;;</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#958e93">
@@ -279,50 +279,12 @@ var _hmt = _hmt || [];
 <p>第三种：将时间转化为一个number类型的时间戳值<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var t3=Number(data);</div><div class="line">console.log(<span class="string">"第三种方法时间戳"</span>+t3)</div></pre></td></tr></table></figure></p>
 <p>第四种:貌似多年前学ASP.NET的时候用到过类似的，不过那个是DataTime.Now;<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var t4=Date.now();</div><div class="line">console.log(<span class="string">"第四种方法时间戳"</span>+t4)</div></pre></td></tr></table></figure></p>
 <p>第五种：不太厉害，毫秒级别的数值被转化成000<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var t5=Date.parse(data);</div><div class="line">console.log(<span class="string">"第五种方法时间戳"</span>+t5)</div></pre></td></tr></table></figure></p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/images/Data/1.png" alt="时间艺术" title="">
-                </div>
-                <div class="image-caption">时间艺术</div>
-            </figure>
+<p><img src="/images/Data/1.png" alt="时间艺术"></p>
 <h3 id="时间戳转时间"><a href="#时间戳转时间" class="headerlink" title="时间戳转时间"></a>时间戳转时间</h3><p>直接用时间对象Date来对上面得到的时间戳1530693131572进行转化<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var T=new Date(1530693131572)</div></pre></td></tr></table></figure></p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/images/Data/2.png" alt="转化的艺术" title="">
-                </div>
-                <div class="image-caption">转化的艺术</div>
-            </figure>
-<p>对这个格式不太满意的话，可以再利用toLocaleDateString()方法返回该日期对象，再正则匹配将/替换成-，再将对象的时间部分转换为字符串，到这一步之后还剩yyyy-MM-dd hh:mm:ss GMT+0800(中国标准时间)，这时候再用substr方法取从0到8的字符打印出来就是yyyy-MM-dd hh:mm:ss的时间格式了。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">T.toLocaleDateString().replace(/\//g, <span class="string">"-"</span>) + <span class="string">" "</span> + T.toTimeString().substr(0, 8);</div></pre></td></tr></table></figure></p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/images/Data/3.png" alt="正则的艺术" title="">
-                </div>
-                <div class="image-caption">正则的艺术</div>
-            </figure>
-<p>toLocaleDateString在不同的浏览器显示方法是不一样的，需要注意一下，火狐下面显示的日期格式是yyyy-MM-dd，IE11是yyyy-MM-dd，谷歌版本低于58的时候yyyy/MM/dd，版本大于等于58的时候是yyyy-MM-dd，所以如果上面出现的效果不对或者报错，是因为toLocaleDateString()因浏览器而异。</p>
+<p><img src="/images/Data/2.png" alt="转化的艺术"><br>对这个格式不太满意的话，可以再利用toLocaleDateString()方法返回该日期对象，再正则匹配将/替换成-，再将对象的时间部分转换为字符串，到这一步之后还剩yyyy-MM-dd hh:mm:ss GMT+0800(中国标准时间)，这时候再用substr方法取从0到8的字符打印出来就是yyyy-MM-dd hh:mm:ss的时间格式了。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">T.toLocaleDateString().replace(/\//g, <span class="string">"-"</span>) + <span class="string">" "</span> + T.toTimeString().substr(0, 8);</div></pre></td></tr></table></figure></p>
+<p><img src="/images/Data/3.png" alt="正则的艺术"><br>toLocaleDateString在不同的浏览器显示方法是不一样的，需要注意一下，火狐下面显示的日期格式是yyyy-MM-dd，IE11是yyyy-MM-dd，谷歌版本低于58的时候yyyy/MM/dd，版本大于等于58的时候是yyyy-MM-dd，所以如果上面出现的效果不对或者报错，是因为toLocaleDateString()因浏览器而异。</p>
 <p>解决方法：<br>分别获取时间的年月日然后拼接：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">getDate</span></span>()&#123;</div><div class="line">	var data=new Date();</div><div class="line">	<span class="built_in">let</span> year=data.getFullYear();</div><div class="line">	<span class="built_in">let</span> month=(<span class="string">"0"</span>+(data.getMonth()+1)).slice(-2);</div><div class="line">	<span class="built_in">let</span> day=(<span class="string">"0"</span>+data.getDate()).slice(-2);</div><div class="line">	<span class="built_in">return</span> year + <span class="string">"-"</span> + month + <span class="string">"-"</span> + day + <span class="string">" "</span> + data.toTimeString().substr(0, 8);   </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>正好今天百度2018AI开发者大会，share一下我早上截屏到的几张美照<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/images/Data/du2.png" alt="新时器--这是表白的时候定的玫瑰花快递刚好送到" title="">
-                </div>
-                <div class="image-caption">新时器--这是表白的时候定的玫瑰花快递刚好送到</div>
-            </figure><br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/images/Data/du1.png" alt="见证历史的时刻--Apollo3.0面向量产，更加开放" title="">
-                </div>
-                <div class="image-caption">见证历史的时刻--Apollo3.0面向量产，更加开放</div>
-            </figure><br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/images/Data/kunlun.png" alt="昆仑--百度自研的中国第一款云端全功能AI芯片" title="">
-                </div>
-                <div class="image-caption">昆仑--百度自研的中国第一款云端全功能AI芯片</div>
-            </figure></p>
+<p>正好今天百度2018AI开发者大会，share一下我早上截屏到的几张美照<br><img src="/images/Data/du2.png" alt="新时器--这是表白的时候定的玫瑰花快递刚好送到"><br><img src="/images/Data/du1.png" alt="见证历史的时刻--Apollo3.0面向量产，更加开放"><br><img src="/images/Data/kunlun.png" alt="昆仑--百度自研的中国第一款云端全功能AI芯片"></p>
 
         </div>
 

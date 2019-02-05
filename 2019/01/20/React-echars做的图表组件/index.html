@@ -50,7 +50,7 @@ var _hmt = _hmt || [];
     <link rel="canonical" href="https://hhardyy.com/2019/01/20/React-echars做的图表组件/">
     
     
-    <title>react+echars做的图表轮子 | Hardy | 小方块 | 复杂的坑+归其原理+了解实现规则===解决？解决成功：加油解决成功;&amp;nbsp;&amp;nbsp;&amp;nbsp;cout&lt;&lt;黄炳圳;</title>
+    <title>react+echars做的图表轮子 | Hardy | 小方块 | 复杂的坑+归其原理+了解实现规则===解决？解决成功：加油解决成功;&amp;nbsp;&amp;nbsp;&amp;nbsp;cout&lt;&lt;&#34;黄炳圳&#34;;</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#958e93">
@@ -266,13 +266,7 @@ var _hmt = _hmt || [];
 <p>2、在父组件准备需要的数据，类似这样<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">const data = [</div><div class="line">  &#123;value: 232, name: <span class="string">"奥特之父"</span>&#125;,</div><div class="line">  &#123;value: 200, name: <span class="string">"奥特之母"</span>&#125;,</div><div class="line">  &#123;value: 325, name: <span class="string">"奥特之王"</span>&#125;,</div><div class="line">  &#123;value: 413, name: <span class="string">"佐菲"</span>&#125;,</div><div class="line">  &#123;value: 135, name: <span class="string">"初代"</span>&#125;,</div><div class="line">  &#123;value: 326, name: <span class="string">"赛文"</span>&#125;,</div><div class="line">  &#123;value: 537, name: <span class="string">"杰克"</span>&#125;,</div><div class="line">  &#123;value: 138, name: <span class="string">"艾斯"</span>&#125;,</div><div class="line">  &#123;value: 213, name: <span class="string">"泰罗"</span>&#125;,</div><div class="line">  &#123;value: 329, name: <span class="string">"雷欧"</span>&#125;</div><div class="line">]</div></pre></td></tr></table></figure></p>
 <p>3、在父组件import这个组件之后在你想放它的地方写上它,然后给它传入数据，图表的标题<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;EcharsPie data=&#123;data&#125; title=<span class="string">"各种奥特曼的占比（瞎掰的）"</span>&gt;&lt;/EcharsPie&gt;</div></pre></td></tr></table></figure></p>
 <p>echarspie.css的样式(无关紧要，你自己show time)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">.h-echarspie-box&#123;</div><div class="line">	width: 100%;</div><div class="line">	height: 100%;</div><div class="line">	margin: 0 auto;</div><div class="line">&#125;</div><div class="line">.h-echarspie-box div&#123;</div><div class="line">	width: 100%;</div><div class="line">	height: 100%;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p><a href="https://github.com/HHardyy/React-echars-pie" target="_blank" rel="external">它在这里</a><br><a href="https://echarts.baidu.com/index.html" target="_blank" rel="external">想做更丰富的可以到这里研究</a><br>它长这样:<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/images/reactEchars/show.gif" alt="它长这样" title="">
-                </div>
-                <div class="image-caption">它长这样</div>
-            </figure></p>
+<p><a href="https://github.com/HHardyy/React-echars-pie" target="_blank" rel="external">它在这里</a><br><a href="https://echarts.baidu.com/index.html" target="_blank" rel="external">想做更丰富的可以到这里研究</a><br>它长这样:<br><img src="/images/reactEchars/show.gif" alt="它长这样"></p>
 
         </div>
 
