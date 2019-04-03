@@ -56,9 +56,9 @@ var _hmt = _hmt || [];
     <meta name="theme-color" content="#958e93">
     
     
-    <meta name="keywords" content="ES6,let,const,箭头函数,symbol,set,map,promise,generator,面向对象,ES7&amp;&amp;ES8,keys/values/entries,幂,字符串,async await">
+    <meta name="keywords" content="map,ES6,let,const,箭头函数,symbol,set,promise,generator,面向对象,ES7&amp;&amp;ES8,keys/values/entries,幂,字符串,async await">
     <meta name="description" content="ES6是下一代JavaScript语言标准的统称，每年6月发布一次修订版，迄今为止已经发布了3个版本，分别是ES2015、ES2016、ES2017。">
-<meta name="keywords" content="ES6,let,const,箭头函数,symbol,set,map,promise,generator,面向对象,ES7&amp;&amp;ES8,keys&#x2F;values&#x2F;entries,幂,字符串,async await">
+<meta name="keywords" content="map,ES6,let,const,箭头函数,symbol,set,promise,generator,面向对象,ES7&amp;&amp;ES8,keys&#x2F;values&#x2F;entries,幂,字符串,async await">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ES6的基本玩法">
 <meta property="og:url" content="http://yoursite.com/2018/05/13/ES6的基本玩法/index.html">
@@ -515,6 +515,44 @@ var _hmt = _hmt || [];
 </div>
 
         <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script>
+    function secondToDate(second) {
+        if (!second) {
+            return 0;
+        }
+        var time = new Array(0, 0, 0, 0, 0);
+        if (second >= 365 * 24 * 3600) {
+            time[0] = parseInt(second / (365 * 24 * 3600));
+            second %= 365 * 24 * 3600;
+        }
+        if (second >= 24 * 3600) {
+            time[1] = parseInt(second / (24 * 3600));
+            second %= 24 * 3600;
+        }
+        if (second >= 3600) {
+            time[2] = parseInt(second / 3600);
+            second %= 3600;
+        }
+        if (second >= 60) {
+            time[3] = parseInt(second / 60);
+            second %= 60;
+        }
+        if (second > 0) {
+            time[4] = second;
+        }
+        return time;
+    }</script>
+<script type="text/javascript" language="javascript">
+    function setTime() {
+        var create_time = Math.round(new Date(Date.UTC(2017, 08, 18, 11, 42, 23)).getTime() / 1000);
+        var timestamp = Math.round((new Date().getTime() + 8 * 60 * 60 * 1000) / 1000);
+        currentTime = secondToDate((timestamp - create_time));
+        currentTimeHtml = 'Running：' + currentTime[0] + '年 ' + currentTime[1] + '天 '
+                + currentTime[2] + '时 ' + currentTime[3] + '分 ' + currentTime[4]
+                + '秒';
+        document.getElementById("htmer_time").innerHTML = currentTimeHtml;
+    }    setInterval(setTime, 1000);
+</script>
 <footer class="footer">
     <div class="top">
         
@@ -532,6 +570,7 @@ var _hmt = _hmt || [];
                 
                 Power by <a href="https://hhardyy.github.io/" target="_blank">zhen On August 8</a> 
             </span>
+            <span id="htmer_time" "></span>
         </p>
     </div>
 </footer>
