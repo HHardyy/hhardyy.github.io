@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-04-06T07:00:18.572Z</updated>
+  <updated>2019-05-12T14:37:03.911Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>浅谈前端架构</title>
+    <link href="http://yoursite.com/2019/05/12/%E6%B5%85%E8%B0%88%E5%89%8D%E7%AB%AF%E6%9E%B6%E6%9E%84/"/>
+    <id>http://yoursite.com/2019/05/12/浅谈前端架构/</id>
+    <published>2019-05-12T14:28:39.000Z</published>
+    <updated>2019-05-12T14:37:03.911Z</updated>
+    
+    <content type="html"><![CDATA[<p>一个阿里前辈的经验，好好学习</p><p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=1297742771&auto=0&height=66"></iframe><br><a id="more"></a><br><a href="https://blog.csdn.net/qq20004604/article/details/70480932" target="_blank" rel="external">‘戳这里’</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;一个阿里前辈的经验，好好学习&lt;/p&gt;
+&lt;p&gt;&lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=&quot;330&quot; height=&quot;86&quot; src=&quot;//music.163.com/outchain/player?type=2&amp;id=1297742771&amp;auto=0&amp;height=66&quot;&gt;&lt;/iframe&gt;&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="前端架构" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF%E6%9E%B6%E6%9E%84/"/>
+    
+  </entry>
   
   <entry>
     <title>读React源码</title>
@@ -243,13 +264,13 @@
     
       <category term="java" scheme="http://yoursite.com/tags/java/"/>
     
+      <category term="网络安全" scheme="http://yoursite.com/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
+    
       <category term="RSA" scheme="http://yoursite.com/tags/RSA/"/>
     
       <category term="AES" scheme="http://yoursite.com/tags/AES/"/>
     
       <category term="HASH" scheme="http://yoursite.com/tags/HASH/"/>
-    
-      <category term="网络安全" scheme="http://yoursite.com/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
     
   </entry>
   
@@ -357,9 +378,9 @@
     </summary>
     
     
-      <category term="stringify" scheme="http://yoursite.com/tags/stringify/"/>
-    
       <category term="深拷贝与浅拷贝" scheme="http://yoursite.com/tags/%E6%B7%B1%E6%8B%B7%E8%B4%9D%E4%B8%8E%E6%B5%85%E6%8B%B7%E8%B4%9D/"/>
+    
+      <category term="stringify" scheme="http://yoursite.com/tags/stringify/"/>
     
       <category term="ES6-Object.assign()" scheme="http://yoursite.com/tags/ES6-Object-assign/"/>
     
@@ -392,6 +413,8 @@
     
       <category term="js" scheme="http://yoursite.com/tags/js/"/>
     
+      <category term="stringify" scheme="http://yoursite.com/tags/stringify/"/>
+    
       <category term="原型" scheme="http://yoursite.com/tags/%E5%8E%9F%E5%9E%8B/"/>
     
       <category term="hasOwnProperty" scheme="http://yoursite.com/tags/hasOwnProperty/"/>
@@ -405,8 +428,6 @@
       <category term="原型继承" scheme="http://yoursite.com/tags/%E5%8E%9F%E5%9E%8B%E7%BB%A7%E6%89%BF/"/>
     
       <category term="类式继承" scheme="http://yoursite.com/tags/%E7%B1%BB%E5%BC%8F%E7%BB%A7%E6%89%BF/"/>
-    
-      <category term="stringify" scheme="http://yoursite.com/tags/stringify/"/>
     
       <category term="浅拷贝与深拷贝" scheme="http://yoursite.com/tags/%E6%B5%85%E6%8B%B7%E8%B4%9D%E4%B8%8E%E6%B7%B1%E6%8B%B7%E8%B4%9D/"/>
     
@@ -534,27 +555,6 @@
       <category term="vuex" scheme="http://yoursite.com/tags/vuex/"/>
     
       <category term="axios" scheme="http://yoursite.com/tags/axios/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Vue全家桶开发旅游app</title>
-    <link href="http://yoursite.com/2018/06/10/Vue%E5%85%A8%E5%AE%B6%E6%A1%B6%E5%BC%80%E5%8F%91%E6%97%85%E6%B8%B8app/"/>
-    <id>http://yoursite.com/2018/06/10/Vue全家桶开发旅游app/</id>
-    <published>2018-06-09T18:26:24.000Z</published>
-    <updated>2018-06-10T10:30:56.901Z</updated>
-    
-    <content type="html"><![CDATA[<p>vue全家桶做的一个web版旅游app</p><p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=558261233&auto=0&height=66"></iframe><br><a id="more"></a></p><h3 id="css辅助工具依赖包stylus"><a href="#css辅助工具依赖包stylus" class="headerlink" title="css辅助工具依赖包stylus"></a>css辅助工具依赖包stylus</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm install stylus --save</div><div class="line">npm install stylus-loader --save</div></pre></td></tr></table></figure><h3 id="首页轮播-第三方插件vue-awesome-swiper-2-6-7稳定版"><a href="#首页轮播-第三方插件vue-awesome-swiper-2-6-7稳定版" class="headerlink" title="首页轮播=第三方插件vue-awesome-swiper,2.6.7稳定版"></a>首页轮播=第三方插件vue-awesome-swiper,2.6.7稳定版</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install vue-awesome-swiper@2.6.7 --save</div></pre></td></tr></table></figure><h3 id="axios"><a href="#axios" class="headerlink" title="axios"></a>axios</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install axios --save</div></pre></td></tr></table></figure><h3 id="Better-scroll滚屏"><a href="#Better-scroll滚屏" class="headerlink" title="Better-scroll滚屏"></a>Better-scroll滚屏</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">npm install better-scroll --save</div><div class="line"></div><div class="line"><span class="keyword">if</span>(this.latter)&#123;</div><div class="line">    this.scroll.scrollToElement()</div><div class="line">&#125;</div></pre></td></tr></table></figure><h3 id="手指滑动事件"><a href="#手指滑动事件" class="headerlink" title="手指滑动事件"></a>手指滑动事件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">touchstart</div><div class="line">touchmove</div><div class="line">touchend</div><div class="line"></div><div class="line">函数节流，限制执行效率touchmove执行效率过高了</div><div class="line">ref=<span class="string">"xxx"</span></div><div class="line">import bscroll from <span class="string">'better-scroll'</span></div><div class="line"><span class="function"><span class="title">mounted</span></span>()&#123;</div><div class="line">this.bscroll=new bscroll(this.<span class="variable">$refs</span>.xxx)</div><div class="line">&#125;</div></pre></td></tr></table></figure><h2 id="解决的一些问题"><a href="#解决的一些问题" class="headerlink" title="解决的一些问题:"></a>解决的一些问题:</h2><h3 id="pagination分页"><a href="#pagination分页" class="headerlink" title="pagination分页"></a>pagination分页</h3><p>移步swiper中文网<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">解决swiper加载之前，gallary组件先渲染导致banner的时候出现bug的问题</div><div class="line">搜observeParents以及observer意思是当父组件dom刷新的时候，swiper重新刷新一次</div><div class="line">observeParents:<span class="literal">true</span></div><div class="line">observer：<span class="literal">true</span></div></pre></td></tr></table></figure></p><h3 id="对全局事件的解绑"><a href="#对全局事件的解绑" class="headerlink" title="对全局事件的解绑"></a>对全局事件的解绑</h3><p>由于使用了keep-alive产生的生命周期钩子activated，绑定的事件处理函数是<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">window.addEventListener(<span class="string">'scroll'</span>, this.handelScroll)</div></pre></td></tr></table></figure></p><p>因为绑定的是window对象，这样不光本页滚动会触发该事件处理函数，回到主页也会触发该事件处理函数，所以是默默的写了一个影响引擎的错误。<br>全局解绑就是deactivated，在上面那个方法后面加上这个方法<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">window.removeEventListener(<span class="string">'scroll'</span>, this.handelScroll)</div></pre></td></tr></table></figure></p><p>它会在页面重新加载的时候重新加载事件处理函数</p><h3 id="APP-vue对路由下的组件避免缓存"><a href="#APP-vue对路由下的组件避免缓存" class="headerlink" title="APP.vue对路由下的组件避免缓存"></a>APP.vue对路由下的组件避免缓存</h3><p>可以加上exclude，对其中的某个组件进行避免缓存，这样其mounted方法就不会一直缓存在同一个状态，导致路由跳转的状态不变从而axios获取数据的时候key值不被改变<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;template&gt;</div><div class="line">  &lt;div id=<span class="string">"app"</span>&gt;</div><div class="line">  &lt;keep-alive exclude=<span class="string">"detail"</span>&gt;</div><div class="line">      &lt;router-view/&gt;</div><div class="line">&lt;/keep-alive&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">&lt;/template&gt;</div></pre></td></tr></table></figure></p><h3 id="移动端使用click会延迟300毫秒之后才执行"><a href="#移动端使用click会延迟300毫秒之后才执行" class="headerlink" title="移动端使用click会延迟300毫秒之后才执行"></a>移动端使用click会延迟300毫秒之后才执行</h3><p>解决：引入faserclick<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install fastclick --save</div></pre></td></tr></table></figure></p><p>把这个包安装到项目依赖，因为线上线下都要用就–save保存到package.json<br>项目入口文件里<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">import FastClick from <span class="string">'fastclick'</span></div><div class="line">FastClick.attach(document.body)</div></pre></td></tr></table></figure></p><h3 id="git-push之后的这个问题"><a href="#git-push之后的这个问题" class="headerlink" title="git push之后的这个问题"></a>git push之后的这个问题</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">....... ....  hhardyy/Travel (master|MERGING)</div></pre></td></tr></table></figure><p>原因是可能同时上传了更新的文件导致冲突，这时候可以查看一下工作目录里面“README.md”文件的内容：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD  </div><div class="line">这是第二个人提交的......................  </div><div class="line">=======  </div><div class="line">这是第一个人提交的  </div><div class="line">&gt;&gt;&gt;&gt;&gt;&gt;&gt; origin/master</div></pre></td></tr></table></figure></p><p>这时候git status查看哪个文件有报错，去到那个文件里面把多余的类似于&gt;&gt;&gt; head的代码干掉，重新add .然后提交就ok了</p><h3 id="阻止页面默认行为"><a href="#阻止页面默认行为" class="headerlink" title="阻止页面默认行为"></a>阻止页面默认行为</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">修复bug：在城市选择选择页从字母上滚动的时候屏幕默认会跟着上下移动，需要的效果是手指从字母上移动的时候根据移动到的字母左边显示出相应字母开头拼音的城市</div><div class="line">@touchstart.prevent=<span class="string">"handelTouchStart"</span></div><div class="line">.prevent=事件修饰符，可以阻止页面默认行为</div></pre></td></tr></table></figure><h3 id="真机测试的时候有些浏览器默认不支持promise"><a href="#真机测试的时候有些浏览器默认不支持promise" class="headerlink" title="真机测试的时候有些浏览器默认不支持promise"></a>真机测试的时候有些浏览器默认不支持promise</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">安装这个依赖</div><div class="line">npm install babel-polyfill --save</div></pre></td></tr></table></figure><p>它会判断浏览器如果没有promise，会自动增加这个es6的新特性<br>进入入口文件main.js里头import ‘babel-polyfill’在所有浏览器上就都支持promise了，以及解决部分白屏问题。<br><a href="https://github.com/HHardyy/Vue2.0-Travel-App" target="_blank" rel="external">项目地址</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;vue全家桶做的一个web版旅游app&lt;/p&gt;
-&lt;p&gt;&lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=&quot;330&quot; height=&quot;86&quot; src=&quot;//music.163.com/outchain/player?type=2&amp;id=558261233&amp;auto=0&amp;height=66&quot;&gt;&lt;/iframe&gt;&lt;br&gt;
-    
-    </summary>
-    
-    
-      <category term="app" scheme="http://yoursite.com/tags/app/"/>
     
   </entry>
   
