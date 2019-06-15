@@ -67,7 +67,7 @@ var _hmt = _hmt || [];
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/images/earch_juli/1.JPG">
 <meta property="og:image" content="http://yoursite.com/images/earch_juli/2.JPG">
-<meta property="og:updated_time" content="2019-06-15T08:41:25.729Z">
+<meta property="og:updated_time" content="2019-06-15T08:52:13.209Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="根据经纬度计算两点间距">
 <meta name="twitter:description" content="打卡是很多人每天都要做两次的事情，钉钉很多人都用过，但是应该怎么判断你的位置可不可以打卡呢">
@@ -268,7 +268,7 @@ var _hmt = _hmt || [];
             <p>打卡是很多人每天都要做两次的事情，钉钉很多人都用过，但是应该怎么判断你的位置可不可以打卡呢</p>
 <p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=35476986&auto=0&height=66"></iframe><br><a id="more"></a></p>
 <blockquote>
-<p>我最近在做一个打卡的工具，简单缩略它的流程就是打卡的发起人设置一个打卡的地点，打卡的范围，允许打卡的时间等，设置完成之后提醒某个团体进行打卡，但是只能在设定的范围内打卡，不在范围或者不在打卡时间则打卡失败，因为源代码和软件是公司的东西，这里就简单记录一下如何计算两点之间的距离。</p>
+<p>我最近在做一个打卡的工具，简略它就是设置一个打卡的地点，允许打卡的范围等，然后提醒某个团体进行打卡，但是只能在设定的范围内打卡，不在范围或者不在打卡时间则打卡失败，因为源代码和软件是公司的东西，这里就写一个大家都玩的小例子来计算一下经纬度间的距离。</p>
 </blockquote>
 <h3 id="计算距离主要需要的数据就是"><a href="#计算距离主要需要的数据就是" class="headerlink" title="计算距离主要需要的数据就是"></a>计算距离主要需要的数据就是</h3><p>1、设置的活动地点的经纬度<br>2、打卡者当前位置的经纬度（这个经纬度有可能会改变，因为打卡者有可能在移动，或者是在没进入范围的时候发起的打卡，避免进入范围之后打卡失败）<br>得到上面1、2的数据之后，就可以根据计算出的距离≤设置的打卡范围（100米，200米，500米等），则打卡成功<br>3、地球半径<br><figure class="image-bubble">
                 <div class="img-lightbox">
@@ -297,7 +297,7 @@ var _hmt = _hmt || [];
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-06-15T08:41:25.729Z" itemprop="dateUpdated">2019-06-15 16:41:25</time>
+    最后更新时间：<time datetime="2019-06-15T08:52:13.209Z" itemprop="dateUpdated">2019-06-15 16:52:13</time>
 </span><br>
 
 
