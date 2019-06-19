@@ -56,9 +56,9 @@ var _hmt = _hmt || [];
     <meta name="theme-color" content="#958e93">
     
     
-    <meta name="keywords" content="js,时间,时间戳,toLocaleDateString">
+    <meta name="keywords" content="js,时间,时间戳,toLocaleDateString,小程序中时间转成时间戳bug">
     <meta name="description" content="玩到一个转换时间戳的问题，突然想知道它能怎么变。。。">
-<meta name="keywords" content="js,时间,时间戳,toLocaleDateString">
+<meta name="keywords" content="js,时间,时间戳,toLocaleDateString,小程序中时间转成时间戳bug">
 <meta property="og:type" content="article">
 <meta property="og:title" content="js的时间与时间戳">
 <meta property="og:url" content="http://yoursite.com/2018/07/04/js的时间与时间戳/index.html">
@@ -71,7 +71,7 @@ var _hmt = _hmt || [];
 <meta property="og:image" content="http://yoursite.com/images/Data/du2.png">
 <meta property="og:image" content="http://yoursite.com/images/Data/du1.png">
 <meta property="og:image" content="http://yoursite.com/images/Data/kunlun.png">
-<meta property="og:updated_time" content="2018-07-17T15:35:28.124Z">
+<meta property="og:updated_time" content="2019-06-19T23:26:00.738Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js的时间与时间戳">
 <meta name="twitter:description" content="玩到一个转换时间戳的问题，突然想知道它能怎么变。。。">
@@ -304,6 +304,9 @@ var _hmt = _hmt || [];
             </figure>
 <p>toLocaleDateString在不同的浏览器显示方法是不一样的，需要注意一下，火狐下面显示的日期格式是yyyy-MM-dd，IE11是yyyy-MM-dd，谷歌版本低于58的时候yyyy/MM/dd，版本大于等于58的时候是yyyy-MM-dd，所以如果上面出现的效果不对或者报错，是因为toLocaleDateString()因浏览器而异。</p>
 <p>解决方法：<br>分别获取时间的年月日然后拼接：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">getDate</span></span>()&#123;</div><div class="line">	var data=new Date();</div><div class="line">	<span class="built_in">let</span> year=data.getFullYear();</div><div class="line">	<span class="built_in">let</span> month=(<span class="string">"0"</span>+(data.getMonth()+1)).slice(-2);</div><div class="line">	<span class="built_in">let</span> day=(<span class="string">"0"</span>+data.getDate()).slice(-2);</div><div class="line">	<span class="built_in">return</span> year + <span class="string">"-"</span> + month + <span class="string">"-"</span> + day + <span class="string">" "</span> + data.toTimeString().substr(0, 8);   </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>还有一个问题就是在微信小程序中，你偶然会使用<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">new Date(<span class="string">'2019-06-20 02:18'</span>).getTime()</div></pre></td></tr></table></figure></p>
+<p>这样的方式将一个时间转换成时间戳，但是部分机型会返回undefined或者Invalid date，这是我在做一个打卡小程序的打卡时间判断的时候遇到的，它在某些机型可以返回正常的时间戳，但是在一些机型变成NaN打印出来<br>解决方法：<br>写成<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">new Date(<span class="string">'2019-06-20 02:18'</span>.replace(/-/g,<span class="string">"/"</span>)).getTime()</div></pre></td></tr></table></figure></p>
+<p>意思是把时间中的-替换成/，就像2019-06-20 02:18变成2019/06/20 02:18</p>
 <p>正好今天百度2018AI开发者大会，share一下我早上截屏到的几张美照<br><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
@@ -330,7 +333,7 @@ var _hmt = _hmt || [];
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-07-17T15:35:28.124Z" itemprop="dateUpdated">2018-07-17 23:35:28</time>
+    最后更新时间：<time datetime="2019-06-19T23:26:00.738Z" itemprop="dateUpdated">2019-06-20 07:26:00</time>
 </span><br>
 
 
@@ -355,7 +358,7 @@ var _hmt = _hmt || [];
 
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/toLocaleDateString/">toLocaleDateString</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/时间/">时间</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/时间戳/">时间戳</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/toLocaleDateString/">toLocaleDateString</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/小程序中时间转成时间戳bug/">小程序中时间转成时间戳bug</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/时间/">时间</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/时间戳/">时间戳</a></li></ul>
 
 
             
