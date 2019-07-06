@@ -50,17 +50,17 @@ var _hmt = _hmt || [];
     <link rel="canonical" href="https://hhardyy.com/2019/06/22/React16-6配置代理/">
     
     
-    <title>React16.6配置代理 | Hardy | 小方块 | 复杂的坑+归其原理+了解实现规则===解决？解决成功：加油解决成功;</title>
+    <title>React16.6配置代理&amp;style私有 | Hardy | 小方块 | 复杂的坑+归其原理+了解实现规则===解决？解决成功：加油解决成功;</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#958e93">
     
     
-    <meta name="keywords" content="React16.6,create-react-app,proxy">
+    <meta name="keywords" content="React16.6,create-react-app,proxy,scoped,css私有">
     <meta name="description" content="你或许想知道的新代理">
-<meta name="keywords" content="React16.6,create-react-app,proxy">
+<meta name="keywords" content="React16.6,create-react-app,proxy,scoped,css私有">
 <meta property="og:type" content="article">
-<meta property="og:title" content="React16.6配置代理">
+<meta property="og:title" content="React16.6配置代理&amp;style私有">
 <meta property="og:url" content="http://yoursite.com/2019/06/22/React16-6配置代理/index.html">
 <meta property="og:site_name" content="Hardy | 小方块">
 <meta property="og:description" content="你或许想知道的新代理">
@@ -73,9 +73,11 @@ var _hmt = _hmt || [];
 <meta property="og:image" content="http://yoursite.com/images/react166/install.JPG">
 <meta property="og:image" content="http://yoursite.com/images/react166/thiscode.JPG">
 <meta property="og:image" content="http://yoursite.com/images/react166/success.JPG">
-<meta property="og:updated_time" content="2019-06-22T10:43:43.510Z">
+<meta property="og:image" content="http://yoursite.com/images/react166/styled-components.JPG">
+<meta property="og:image" content="http://yoursite.com/images/react166/red.JPG">
+<meta property="og:updated_time" content="2019-07-06T17:25:07.542Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="React16.6配置代理">
+<meta name="twitter:title" content="React16.6配置代理&amp;style私有">
 <meta name="twitter:description" content="你或许想知道的新代理">
 <meta name="twitter:image" content="http://yoursite.com/images/react166/nodemock.JPG">
     
@@ -207,7 +209,7 @@ var _hmt = _hmt || [];
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">React16.6配置代理</div>
+        <div class="flex-col header-title ellipsis">React16.6配置代理&amp;style私有</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -229,7 +231,7 @@ var _hmt = _hmt || [];
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">React16.6配置代理</h1>
+        <h1 class="title">React16.6配置代理&amp;style私有</h1>
         <h5 class="subtitle">
             
                 <time datetime="2019-06-22T09:56:19.000Z" itemprop="datePublished" class="page-time">
@@ -249,11 +251,18 @@ var _hmt = _hmt || [];
 
 <div class="container body-wrap">
     
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#scoped-amp-amp-styled-components"><span class="post-toc-number">1.</span> <span class="post-toc-text">scoped&&styled-components</span></a></li></ol>
+        </nav>
+    </aside>
+    
 <article id="post-React16-6配置代理"
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">React16.6配置代理</h1>
+        <h1 class="post-card-title">React16.6配置代理&style私有</h1>
         <div class="post-meta">
             <time class="post-time" title="2019-06-22 17:56:19" datetime="2019-06-22T09:56:19.000Z"  itemprop="datePublished">2019-06-22</time>
 
@@ -318,6 +327,28 @@ var _hmt = _hmt || [];
                 </div>
                 <div class="image-caption">install</div>
             </figure><br><a href="https://facebook.github.io/create-react-app/docs/proxying-api-requests-in-development#docsNav" target="_blank" rel="external">更加详细戳这里</a>   </p>
+<h3 id="scoped-amp-amp-styled-components"><a href="#scoped-amp-amp-styled-components" class="headerlink" title="scoped&amp;&amp;styled-components"></a>scoped&amp;&amp;styled-components</h3><p>在index.js引入index.css的时候假如index.css里面有个.hardy,那么在APP组件里面的div使用ClassName=’hardy’也会生效。</p>
+<blockquote>
+<p>在vue组件中，在style标签上添加scoped属性，以表示它的样式作用于当下的模块，很好的实现了样式私有化的目的，这是一个非常好的机制。但是在实际业务中我们往往会对公共组件样式做细微的<br>调整，如果添加了scoped属性，那么样式将会变得不易修改。</p>
+</blockquote>
+<p>在react中我们可以使用一个依赖叫styled-components<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install styled-components</div></pre></td></tr></table></figure></p>
+<p>来实现css的私有<br>举例个小栗子（reset统一不同内核浏览器的标签）：<br>1、安装styled-components<br>2、把index.css改成style.js<br>然后在style.js中<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">import &#123; injectGlobal &#125; from <span class="string">'styled-components'</span></div><div class="line">injectGlobal `</div><div class="line">    body&#123;background:red&#125;</div><div class="line">`</div></pre></td></tr></table></figure></p>
+<p>在早一点的版本中，这么写是没问题的，body应该会变红，但是<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/react166/styled-components.JPG" alt="error" title="">
+                </div>
+                <div class="image-caption">error</div>
+            </figure><br>原因是：styled-components 4.x版本将原来的injectGlobal方法用createGlobalStyle替换了。createGlobalStyle是这么用的<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">//style.js</div><div class="line">import &#123;createGlobalStyle&#125; from <span class="string">'styled-components'</span>;</div><div class="line"><span class="built_in">export</span> const GlobalStyle=createGlobalStyle `</div><div class="line">    body&#123;</div><div class="line">      background:red;</div><div class="line">    &#125;</div><div class="line">`</div></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">//index.js</div><div class="line">import React,&#123;fragments&#125; from <span class="string">'react'</span>;</div><div class="line">import ReactDOM from <span class="string">'react-dom'</span>;</div><div class="line">import &#123;GlobalStyle&#125; from <span class="string">'./style.js'</span></div><div class="line">import App from <span class="string">'./App'</span>;</div><div class="line"></div><div class="line">ReactDOM.render(</div><div class="line">  &lt;fragments&gt;</div><div class="line">  &lt;GlobalStyle/&gt;</div><div class="line">    &lt;App /&gt;</div><div class="line">  &lt;/fragments&gt;</div><div class="line">  , document.getElementById(<span class="string">'root'</span>));</div></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/react166/red.JPG" alt="succ" title="">
+                </div>
+                <div class="image-caption">succ</div>
+            </figure>
+<p>重置的话写成这样就可以了<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line">import &#123;createGlobalStyle&#125; from <span class="string">'styled-components'</span>;</div><div class="line"><span class="built_in">export</span> const GlobalStyle=createGlobalStyle `</div><div class="line">    html, body, div, span, applet, object, iframe,</div><div class="line">    h1, h2, h3, h4, h5, h6, p, blockquote, pre,</div><div class="line">    a, abbr, acronym, address, big, cite, code,</div><div class="line">    del, dfn, em, img, ins, kbd, q, s, samp,</div><div class="line">    small, strike, strong, sub, sup, tt, var,</div><div class="line">    b, u, i, center,</div><div class="line">    dl, dt, dd, ol, ul, li,</div><div class="line">    fieldset, form, label, legend,</div><div class="line">    table, caption, tbody, tfoot, thead, tr, th, td,</div><div class="line">    article, aside, canvas, details, embed, </div><div class="line">    figure, figcaption, footer, header, hgroup, </div><div class="line">    menu, nav, output, ruby, section, summary,</div><div class="line">    time, mark, audio, video &#123;</div><div class="line">      margin: 0;</div><div class="line">      padding: 0;</div><div class="line">      border: 0;</div><div class="line">      font-size: 100%;</div><div class="line">      font: inherit;</div><div class="line">      vertical-align: baseline;</div><div class="line">    &#125;</div><div class="line">    /* HTML5 display-role reset <span class="keyword">for</span> older browsers */</div><div class="line">    article, aside, details, figcaption, figure, </div><div class="line">    footer, header, hgroup, menu, nav, section &#123;</div><div class="line">      display: block;</div><div class="line">    &#125;</div><div class="line">    body &#123;</div><div class="line">      line-height: 1;</div><div class="line">    &#125;</div><div class="line">    ol, ul &#123;</div><div class="line">      list-style: none;</div><div class="line">    &#125;</div><div class="line">    blockquote, q &#123;</div><div class="line">      quotes: none;</div><div class="line">    &#125;</div><div class="line">    blockquote:before, blockquote:after,</div><div class="line">    q:before, q:after &#123;</div><div class="line">      content: <span class="string">''</span>;</div><div class="line">      content: none;</div><div class="line">    &#125;</div><div class="line">    table &#123;</div><div class="line">      border-collapse: collapse;</div><div class="line">      border-spacing: 0;</div><div class="line">    &#125;</div><div class="line">`</div></pre></td></tr></table></figure></p>
 
         </div>
 
@@ -325,7 +356,7 @@ var _hmt = _hmt || [];
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-06-22T10:43:43.510Z" itemprop="dateUpdated">2019-06-22 18:43:43</time>
+    最后更新时间：<time datetime="2019-07-06T17:25:07.542Z" itemprop="dateUpdated">2019-07-07 01:25:07</time>
 </span><br>
 
 
@@ -350,7 +381,7 @@ var _hmt = _hmt || [];
 
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React16-6/">React16.6</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/create-react-app/">create-react-app</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/proxy/">proxy</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React16-6/">React16.6</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/create-react-app/">create-react-app</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css私有/">css私有</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/proxy/">proxy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/scoped/">scoped</a></li></ul>
 
 
             
@@ -360,7 +391,7 @@ var _hmt = _hmt || [];
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/06/22/React16-6配置代理/&title=《React16.6配置代理》 — Hardy | 小方块&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/06/22/React16-6配置代理/&title=《React16.6配置代理&style私有》 — Hardy | 小方块&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -370,7 +401,7 @@ var _hmt = _hmt || [];
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/06/22/React16-6配置代理/&title=《React16.6配置代理》 — Hardy | 小方块&source=你或许想知道的新代理
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/06/22/React16-6配置代理/&title=《React16.6配置代理&style私有》 — Hardy | 小方块&source=你或许想知道的新代理
 " data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
@@ -381,7 +412,7 @@ var _hmt = _hmt || [];
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《React16.6配置代理》 — Hardy | 小方块&url=http://yoursite.com/2019/06/22/React16-6配置代理/&via=http://yoursite.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《React16.6配置代理&style私有》 — Hardy | 小方块&url=http://yoursite.com/2019/06/22/React16-6配置代理/&via=http://yoursite.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
@@ -535,7 +566,7 @@ var _hmt = _hmt || [];
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/06/22/React16-6配置代理/&title=《React16.6配置代理》 — Hardy | 小方块&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/06/22/React16-6配置代理/&title=《React16.6配置代理&style私有》 — Hardy | 小方块&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -545,7 +576,7 @@ var _hmt = _hmt || [];
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/06/22/React16-6配置代理/&title=《React16.6配置代理》 — Hardy | 小方块&source=你或许想知道的新代理
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/06/22/React16-6配置代理/&title=《React16.6配置代理&style私有》 — Hardy | 小方块&source=你或许想知道的新代理
 " data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
@@ -556,7 +587,7 @@ var _hmt = _hmt || [];
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《React16.6配置代理》 — Hardy | 小方块&url=http://yoursite.com/2019/06/22/React16-6配置代理/&via=http://yoursite.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《React16.6配置代理&style私有》 — Hardy | 小方块&url=http://yoursite.com/2019/06/22/React16-6配置代理/&via=http://yoursite.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
