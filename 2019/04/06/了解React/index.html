@@ -56,9 +56,9 @@ var _hmt = _hmt || [];
     <meta name="theme-color" content="#958e93">
     
     
-    <meta name="keywords" content="react">
+    <meta name="keywords" content="react,jsx,diff">
     <meta name="description" content="我年轻需要指点">
-<meta name="keywords" content="react">
+<meta name="keywords" content="react,jsx,diff">
 <meta property="og:type" content="article">
 <meta property="og:title" content="读React源码">
 <meta property="og:url" content="http://yoursite.com/2019/04/06/了解React/index.html">
@@ -76,7 +76,7 @@ var _hmt = _hmt || [];
 <meta property="og:image" content="http://yoursite.com/images/konwReact/9concurrentmodeJustSymbol.JPG">
 <meta property="og:image" content="http://yoursite.com/images/konwReact/10suspenseYeshichangliangJPG.JPG">
 <meta property="og:image" content="http://yoursite.com/images/konwReact/11lazyNotaSymbol.JPG">
-<meta property="og:updated_time" content="2019-04-06T07:00:18.572Z">
+<meta property="og:updated_time" content="2019-08-04T06:20:35.956Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="读React源码">
 <meta name="twitter:description" content="我年轻需要指点">
@@ -255,7 +255,7 @@ var _hmt = _hmt || [];
     <aside class="post-widget">
         <nav class="post-toc-wrap" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1、JSX代码转变到javascript之createElement"><span class="post-toc-number">1.</span> <span class="post-toc-text">1、JSX代码转变到javascript之createElement</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2、react-Element"><span class="post-toc-number">2.</span> <span class="post-toc-text">2、react-Element</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3、react-Component"><span class="post-toc-number">3.</span> <span class="post-toc-text">3、react-Component</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4、PureComponent"><span class="post-toc-number">4.</span> <span class="post-toc-text">4、PureComponent:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5、react-ref的三种方式"><span class="post-toc-number">5.</span> <span class="post-toc-text">5、react-ref的三种方式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1、string-ref"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">1、string ref</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2、function"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">2、function</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3、createRef"><span class="post-toc-number">5.3.</span> <span class="post-toc-text">3、createRef</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6、forwardRef"><span class="post-toc-number">6.</span> <span class="post-toc-text">6、forwardRef</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#7、context"><span class="post-toc-number">7.</span> <span class="post-toc-text">7、context</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#8、ConCurrentMode（re16之后）"><span class="post-toc-number">8.</span> <span class="post-toc-text">8、ConCurrentMode（re16之后）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#9、hooks"><span class="post-toc-number">9.</span> <span class="post-toc-text">9、hooks</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1、JSX代码转变到javascript之createElement"><span class="post-toc-number">1.</span> <span class="post-toc-text">1、JSX代码转变到javascript之createElement</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2、react-Element"><span class="post-toc-number">2.</span> <span class="post-toc-text">2、react-Element</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3、react-Component"><span class="post-toc-number">3.</span> <span class="post-toc-text">3、react-Component</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4、PureComponent"><span class="post-toc-number">4.</span> <span class="post-toc-text">4、PureComponent:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5、react-ref的三种方式"><span class="post-toc-number">5.</span> <span class="post-toc-text">5、react-ref的三种方式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1、string-ref"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">1、string ref</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2、function"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">2、function</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3、createRef"><span class="post-toc-number">5.3.</span> <span class="post-toc-text">3、createRef</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6、forwardRef"><span class="post-toc-number">6.</span> <span class="post-toc-text">6、forwardRef</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#7、context"><span class="post-toc-number">7.</span> <span class="post-toc-text">7、context</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#8、ConCurrentMode（re16之后）"><span class="post-toc-number">8.</span> <span class="post-toc-text">8、ConCurrentMode（re16之后）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#9、hooks"><span class="post-toc-number">9.</span> <span class="post-toc-text">9、hooks</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#react中的diff算法"><span class="post-toc-number">10.</span> <span class="post-toc-text">react中的diff算法</span></a></li></ol>
         </nav>
     </aside>
     
@@ -385,6 +385,10 @@ var _hmt = _hmt || [];
             </figure><br>_status用来记录状态<br>_result用来记录promise对象返回之后的属性，最终resolve出来的会放在_result上面</p>
 <h3 id="9、hooks"><a href="#9、hooks" class="headerlink" title="9、hooks"></a>9、hooks</h3><p>要安装hooks必须要react&amp;&amp;react-dom16.7以上，如果没有16.7.0，可以安装react16.7.0-alpha.2&amp;&amp;react-dom16.7.0-alpha.2，如果已经有了直接安装最新版<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">import React,&#123; useState &#125; from <span class="string">'react'</span></div><div class="line"><span class="built_in">export</span> default ()=&gt;&#123;</div><div class="line">	const [name,setname]=useState(<span class="string">'hardy'</span>)</div><div class="line">	<span class="built_in">return</span> (</div><div class="line">	&lt;&gt;</div><div class="line">	   &lt;p&gt;my name is:&#123;name&#125;&lt;/p&gt;</div><div class="line">		 &lt;input <span class="built_in">type</span>=<span class="string">"text"</span> value=&#123;name&#125; onChange=&#123;e=&gt;setName(e.target.value)&#125;&gt;&lt;/input&gt;</div><div class="line">	&lt;/&gt;</div><div class="line">	)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>这是一个函数组件，和class组件的区别就是没有this对象，没有this就没有this.state,也没有生命周期方法，这个demo用hooks来给组件存储state，给useState传入一个默认值，然后返回一个<br>数组，再解构。name是变量，setname是改变变量的方法.</p>
+<h3 id="react中的diff算法"><a href="#react中的diff算法" class="headerlink" title="react中的diff算法"></a>react中的diff算法</h3><p>虚拟dom中的diff算法<br>1、state<br>2、jsx模板<br>3、数据+模板  生成虚拟dom（虚拟dom就是一个js对象，用它来描述真实dom）（损耗了性能）<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[<span class="string">'div'</span>,&#123;id:<span class="string">'abc'</span>&#125;,[<span class="string">'span'</span>,&#123;&#125;,<span class="string">'helloword'</span>]]</div></pre></td></tr></table></figure></p>
+<p>4、用虚拟dom的结构生成真实的dom，来显示<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div id=<span class="string">'abc'</span>&gt;&lt;span&gt;hello word&lt;/span&gt;&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<p>5、state 发生变化<br>6、数据+模板  生成新的虚拟dom （提升性能）<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[<span class="string">'div'</span>,&#123;id:<span class="string">'abc'</span>&#125;,[<span class="string">'span'</span>,&#123;&#125;,<span class="string">'bye bye'</span>]]</div></pre></td></tr></table></figure></p>
+<p>7、比较原始虚拟dom和新的虚拟dom的区别，找到区别是span中的内容（提升性能）<br>8、直接操作dom，改变span中的内容<br>优点：<br>性能提升<br>使得跨端应用得以实现（比如react native）</p>
 <p>待续….</p>
 
         </div>
@@ -393,7 +397,7 @@ var _hmt = _hmt || [];
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-04-06T07:00:18.572Z" itemprop="dateUpdated">2019-04-06 15:00:18</time>
+    最后更新时间：<time datetime="2019-08-04T06:20:35.956Z" itemprop="dateUpdated">2019-08-04 14:20:35</time>
 </span><br>
 
 
@@ -418,7 +422,7 @@ var _hmt = _hmt || [];
 
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/diff/">diff</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jsx/">jsx</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li></ul>
 
 
             
