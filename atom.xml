@@ -79,11 +79,11 @@
     </summary>
     
     
-      <category term="proxy" scheme="http://yoursite.com/tags/proxy/"/>
-    
       <category term="React16.6" scheme="http://yoursite.com/tags/React16-6/"/>
     
       <category term="create-react-app" scheme="http://yoursite.com/tags/create-react-app/"/>
+    
+      <category term="proxy" scheme="http://yoursite.com/tags/proxy/"/>
     
       <category term="scoped" scheme="http://yoursite.com/tags/scoped/"/>
     
@@ -432,9 +432,9 @@
     </summary>
     
     
-      <category term="npm" scheme="http://yoursite.com/tags/npm/"/>
-    
       <category term="React" scheme="http://yoursite.com/tags/React/"/>
+    
+      <category term="npm" scheme="http://yoursite.com/tags/npm/"/>
     
       <category term="npm run eject" scheme="http://yoursite.com/tags/npm-run-eject/"/>
     
