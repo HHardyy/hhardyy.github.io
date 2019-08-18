@@ -50,25 +50,25 @@ var _hmt = _hmt || [];
     <link rel="canonical" href="https://hhardyy.com/2018/03/11/git版本更新/">
     
     
-    <title>git版本更新 | Hardy | 小方块 | 复杂的坑+归其原理+了解实现规则===解决？解决成功：加油解决成功;</title>
+    <title>git版本更新&amp;常用命令 | Hardy | 小方块 | 复杂的坑+归其原理+了解实现规则===解决？解决成功：加油解决成功;</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#958e93">
     
     
-    <meta name="keywords" content="Git更新,Git推送失败">
+    <meta name="keywords" content="git更新,git推送失败,git常用命令">
     <meta name="description" content="今晚在推送项目的时候遇到了Git推送失败：HttpRequestException">
-<meta name="keywords" content="Git更新,Git推送失败">
+<meta name="keywords" content="git更新,git推送失败,git常用命令">
 <meta property="og:type" content="article">
-<meta property="og:title" content="git版本更新">
+<meta property="og:title" content="git版本更新&amp;常用命令">
 <meta property="og:url" content="http://yoursite.com/2018/03/11/git版本更新/index.html">
 <meta property="og:site_name" content="Hardy | 小方块">
 <meta property="og:description" content="今晚在推送项目的时候遇到了Git推送失败：HttpRequestException">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/images/gitupdate/git.JPG">
-<meta property="og:updated_time" content="2018-03-12T00:24:04.138Z">
+<meta property="og:updated_time" content="2019-08-18T01:13:08.344Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="git版本更新">
+<meta name="twitter:title" content="git版本更新&amp;常用命令">
 <meta name="twitter:description" content="今晚在推送项目的时候遇到了Git推送失败：HttpRequestException">
 <meta name="twitter:image" content="http://yoursite.com/images/gitupdate/git.JPG">
     
@@ -200,7 +200,7 @@ var _hmt = _hmt || [];
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">git版本更新</div>
+        <div class="flex-col header-title ellipsis">git版本更新&amp;常用命令</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -222,7 +222,7 @@ var _hmt = _hmt || [];
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">git版本更新</h1>
+        <h1 class="title">git版本更新&amp;常用命令</h1>
         <h5 class="subtitle">
             
                 <time datetime="2018-03-10T18:02:55.000Z" itemprop="datePublished" class="page-time">
@@ -245,7 +245,7 @@ var _hmt = _hmt || [];
     <aside class="post-widget">
         <nav class="post-toc-wrap" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#远程免密推送"><span class="post-toc-number">1.</span> <span class="post-toc-text">远程免密推送</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#远程免密推送"><span class="post-toc-number">1.</span> <span class="post-toc-text">远程免密推送</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#git常用的一些命令"><span class="post-toc-number">2.</span> <span class="post-toc-text">git常用的一些命令</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#克隆之前首先要选择克隆文件的位置（cd）"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">克隆之前首先要选择克隆文件的位置（cd）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#在对应的文件夹中添加新有项"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">在对应的文件夹中添加新有项</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#用git创建仓库"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">用git创建仓库</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#分支操作"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">分支操作</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#合并分支"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">合并分支</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#更改提交的操作"><span class="post-toc-number">2.6.</span> <span class="post-toc-text">更改提交的操作</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#推进历史"><span class="post-toc-number">2.7.</span> <span class="post-toc-text">推进历史</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#修改提交信息-git-commit-–amend"><span class="post-toc-number">2.8.</span> <span class="post-toc-text">修改提交信息 git commit –amend</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#查看master分支在最近七天内的差别"><span class="post-toc-number">2.9.</span> <span class="post-toc-text">查看master分支在最近七天内的差别</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#查看与指定日期之间的差别"><span class="post-toc-number">2.10.</span> <span class="post-toc-text">查看与指定日期之间的差别</span></a></li></ol></li></ol>
         </nav>
     </aside>
     
@@ -253,7 +253,7 @@ var _hmt = _hmt || [];
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">git版本更新</h1>
+        <h1 class="post-card-title">git版本更新&常用命令</h1>
         <div class="post-meta">
             <time class="post-time" title="2018-03-11 02:02:55" datetime="2018-03-10T18:02:55.000Z"  itemprop="datePublished">2018-03-11</time>
 
@@ -276,7 +276,43 @@ var _hmt = _hmt || [];
 <p>这样git版本就更新完成了</p>
 <h3 id="远程免密推送"><a href="#远程免密推送" class="headerlink" title="远程免密推送"></a>远程免密推送</h3><p>因为远程的代码管理是基于SSH的，Git则需要配置SSH。<br>1 、设置Git的user name和email<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git config --global user.name <span class="string">"xxxx"</span>  //这里是用户名</div><div class="line">$ git config --global user.email <span class="string">"xx@xxx"</span>  //这里是邮箱</div></pre></td></tr></table></figure></p>
 <p>2、配置SSH密钥：<br>1）查看是否生成过ssh秘钥，路径是c盘下面的.ssh文件夹（没有说明没生成过秘钥）,有的话备份再删除因为一会会生成新的<br>2）生成密钥：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh-keygen -t rsa -C “xxx@xx”</div></pre></td></tr></table></figure></p>
-<p>按回车，得到id_rsa和id_rsa.pub（这两文件是生成在.ssh里头的）<br>4）登录github添加“id_rsa.pub”里面的公钥。<br>5）测试：ssh git@github.com<br>到这里如果成功的话，就可以了。</p>
+<p>按回车，得到id_rsa和id_rsa.pub（这两文件是生成在.ssh里头的）<br>4）登录github添加“id_rsa.pub”里面的公钥。<br>5）测试：ssh git@github.com<br>到这里如果成功的话，下次再次提交文件就可以免密提交了</p>
+<h3 id="git常用的一些命令"><a href="#git常用的一些命令" class="headerlink" title="git常用的一些命令"></a>git常用的一些命令</h3><h4 id="克隆之前首先要选择克隆文件的位置（cd）"><a href="#克隆之前首先要选择克隆文件的位置（cd）" class="headerlink" title="克隆之前首先要选择克隆文件的位置（cd）"></a>克隆之前首先要选择克隆文件的位置（cd）</h4><p>　　clone已有仓库<br>　　git clone git@github.com:XXX/yyyy.git //XXX为github的用户名，yyy为仓库名</p>
+<h4 id="在对应的文件夹中添加新有项"><a href="#在对应的文件夹中添加新有项" class="headerlink" title="在对应的文件夹中添加新有项"></a>在对应的文件夹中添加新有项</h4><p>　　git status<br>　　4、提交<br>　　git add mmm.sss //mmm为文件名称，sss为文件拓展名（常用git add .）<br>　　git commit -m “hhh” //hhh为git commit 提交信息，是对这个提交的概述</p>
+<p>　　git log//用于查看提交日志<br>　　git push //更新GitHub上的仓库</p>
+<h4 id="用git创建仓库"><a href="#用git创建仓库" class="headerlink" title="用git创建仓库"></a>用git创建仓库</h4><p>　　mkdir nnn //仓库名</p>
+<p>　　cd hhh</p>
+<p>　　git init //初始化仓库</p>
+<p>　　git status //查看仓库状态</p>
+<p>　　touch README.md //创建READEME.md文件</p>
+<p>　　git add ERADME.md //添加ERADME.md至暂存区</p>
+<p>　　git commit -m “hhh” //如果想要提交信息记录的更详细，请不要加 -m</p>
+<p>　　git log –pretty=short //加–pretty=short 只显示提交信息的第一行</p>
+<p>　　git log ggg //ggg是指指定的文件或目录，用于查看指定的目录、文件的日志</p>
+<p>　　git log -p //查看提交所带来的改动</p>
+<p>　　git log -p ggg //查看指定文件的改动</p>
+<p>　　git diff //可以查看工作树，暂存区，最新提交之间的差别</p>
+<p>　　git diff HEAD //查看工作树与最新提交的差别</p>
+<h4 id="分支操作"><a href="#分支操作" class="headerlink" title="分支操作"></a>分支操作</h4><p>　　git branch //显示分支一览表，同时确认当前所在的分支</p>
+<p>　　git checkout -b aaa //创建名为aaa的分支，并且切换到aaa分支<br>　　（git branch aaa //创建名为aaa的分支<br>　　git checkout aaa // 切换到aaa分支<br>　　）能和git branch -b aaa 得到同样的效果</p>
+<p>　　git checkout - //切换到上一分支</p>
+<h4 id="合并分支"><a href="#合并分支" class="headerlink" title="合并分支"></a>合并分支</h4><p>　　git checkout master //切换到master分支</p>
+<p>　　git merge –no–ff aaa // 加–no–ff 参数可以在历史记录中明确地记录本次分支的合并</p>
+<p>　　git log –graph //以图表形式查看分支</p>
+<h4 id="更改提交的操作"><a href="#更改提交的操作" class="headerlink" title="更改提交的操作"></a>更改提交的操作</h4><p>　　git reset //回溯历史版本</p>
+<p>　　git reset –hard //回溯到指定状态，只要提供目标时间点的哈希值</p>
+<h4 id="推进历史"><a href="#推进历史" class="headerlink" title="推进历史"></a>推进历史</h4><p>　　git reflog //查看仓库的操作日志，找到要推历史的哈希值</p>
+<p>　　git checkout master</p>
+<p>　　git reset –hrad ddd //ddd为要推进历史的哈希值</p>
+<h4 id="修改提交信息-git-commit-–amend"><a href="#修改提交信息-git-commit-–amend" class="headerlink" title="修改提交信息 git commit –amend"></a>修改提交信息 git commit –amend</h4><p>　　压缩历史 git rebase -i 错字漏字等失误称作typo</p>
+<p>　　根据以前的步骤在GitHub上创建仓库，应于本地的仓库名相同 GitHub上面创建的仓库的路径为git@github.com: 用户名/仓库名.git</p>
+<p>　　git remote add eee git@github.com: 用户名/仓库名.git //添加远程仓库，并将git@github.com: 用户名/仓库名.git远程仓库的名称改为eee</p>
+<p>　　git push -u eee master //推送至远程仓库 master分支下 -u 参数可以在推送的同时，将eee仓库的master分支设置为本地仓库的当前分支的的upstream（上游）。添加这个参数，将来运行git pull命令从远程仓库获取内容时，本地仓库的这个分支就可以直接从eee的master<br>分支中获取内容</p>
+<p>　　git checkout -b feature d eee/feature d //获取远程的feature d分支到本地仓库，-b参数后面是本地仓库中新建的仓库的名称</p>
+<p>　　git pull eee feature d //将本地的feature d分支更新为最新状态</p>
+<p>　　在GitHub上面查看两个分支之间的差别，只需要在地址栏中输入<a href="http://github.com/用户名/仓库名/分支1...分支2" target="_blank" rel="external">http://github.com/用户名/仓库名/分支1...分支2</a></p>
+<h4 id="查看master分支在最近七天内的差别"><a href="#查看master分支在最近七天内的差别" class="headerlink" title="查看master分支在最近七天内的差别"></a>查看master分支在最近七天内的差别</h4><p>　　<a href="http://github.com/用户名/仓库名/master@{7.day.ago}...master" target="_blank" rel="external">http://github.com/用户名/仓库名/master@{7.day.ago}...master</a> （同样，day，week，month，year都是可以哒）</p>
+<h4 id="查看与指定日期之间的差别"><a href="#查看与指定日期之间的差别" class="headerlink" title="查看与指定日期之间的差别"></a>查看与指定日期之间的差别</h4><p>　　<a href="http://github.com/用户名/仓库名/master@{xxxx-xx-xx}...master" target="_blank" rel="external">http://github.com/用户名/仓库名/master@{xxxx-xx-xx}...master</a> （xxxx-xx-xx代表年月日）</p>
 
         </div>
 
@@ -284,7 +320,7 @@ var _hmt = _hmt || [];
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-03-12T00:24:04.138Z" itemprop="dateUpdated">2018-03-12 08:24:04</time>
+    最后更新时间：<time datetime="2019-08-18T01:13:08.344Z" itemprop="dateUpdated">2019-08-18 09:13:08</time>
 </span><br>
 
 
@@ -309,7 +345,7 @@ var _hmt = _hmt || [];
 
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git推送失败/">Git推送失败</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git更新/">Git更新</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git常用命令/">git常用命令</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git推送失败/">git推送失败</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git更新/">git更新</a></li></ul>
 
 
             
@@ -319,7 +355,7 @@ var _hmt = _hmt || [];
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/03/11/git版本更新/&title=《git版本更新》 — Hardy | 小方块&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/03/11/git版本更新/&title=《git版本更新&常用命令》 — Hardy | 小方块&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -329,7 +365,7 @@ var _hmt = _hmt || [];
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/03/11/git版本更新/&title=《git版本更新》 — Hardy | 小方块&source=今晚在推送项目的时候遇到了Git推送失败：HttpRequestException
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/03/11/git版本更新/&title=《git版本更新&常用命令》 — Hardy | 小方块&source=今晚在推送项目的时候遇到了Git推送失败：HttpRequestException
 " data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
@@ -340,7 +376,7 @@ var _hmt = _hmt || [];
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《git版本更新》 — Hardy | 小方块&url=http://yoursite.com/2018/03/11/git版本更新/&via=http://yoursite.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《git版本更新&常用命令》 — Hardy | 小方块&url=http://yoursite.com/2018/03/11/git版本更新/&via=http://yoursite.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
@@ -501,7 +537,7 @@ var _hmt = _hmt || [];
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/03/11/git版本更新/&title=《git版本更新》 — Hardy | 小方块&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/03/11/git版本更新/&title=《git版本更新&常用命令》 — Hardy | 小方块&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -511,7 +547,7 @@ var _hmt = _hmt || [];
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/03/11/git版本更新/&title=《git版本更新》 — Hardy | 小方块&source=今晚在推送项目的时候遇到了Git推送失败：HttpRequestException
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/03/11/git版本更新/&title=《git版本更新&常用命令》 — Hardy | 小方块&source=今晚在推送项目的时候遇到了Git推送失败：HttpRequestException
 " data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
@@ -522,7 +558,7 @@ var _hmt = _hmt || [];
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《git版本更新》 — Hardy | 小方块&url=http://yoursite.com/2018/03/11/git版本更新/&via=http://yoursite.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《git版本更新&常用命令》 — Hardy | 小方块&url=http://yoursite.com/2018/03/11/git版本更新/&via=http://yoursite.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>

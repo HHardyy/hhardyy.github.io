@@ -79,11 +79,11 @@
     </summary>
     
     
+      <category term="proxy" scheme="http://yoursite.com/tags/proxy/"/>
+    
       <category term="React16.6" scheme="http://yoursite.com/tags/React16-6/"/>
     
       <category term="create-react-app" scheme="http://yoursite.com/tags/create-react-app/"/>
-    
-      <category term="proxy" scheme="http://yoursite.com/tags/proxy/"/>
     
       <category term="scoped" scheme="http://yoursite.com/tags/scoped/"/>
     
@@ -432,9 +432,9 @@
     </summary>
     
     
-      <category term="React" scheme="http://yoursite.com/tags/React/"/>
-    
       <category term="npm" scheme="http://yoursite.com/tags/npm/"/>
+    
+      <category term="React" scheme="http://yoursite.com/tags/React/"/>
     
       <category term="npm run eject" scheme="http://yoursite.com/tags/npm-run-eject/"/>
     
@@ -519,11 +519,11 @@
     </summary>
     
     
+      <category term="原型" scheme="http://yoursite.com/tags/%E5%8E%9F%E5%9E%8B/"/>
+    
       <category term="js" scheme="http://yoursite.com/tags/js/"/>
     
       <category term="stringify" scheme="http://yoursite.com/tags/stringify/"/>
-    
-      <category term="原型" scheme="http://yoursite.com/tags/%E5%8E%9F%E5%9E%8B/"/>
     
       <category term="面向对象" scheme="http://yoursite.com/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"/>
     
