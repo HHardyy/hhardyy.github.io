@@ -512,9 +512,9 @@
     </summary>
     
     
-      <category term="npm" scheme="http://yoursite.com/tags/npm/"/>
-    
       <category term="React" scheme="http://yoursite.com/tags/React/"/>
+    
+      <category term="npm" scheme="http://yoursite.com/tags/npm/"/>
     
       <category term="npm run eject" scheme="http://yoursite.com/tags/npm-run-eject/"/>
     
