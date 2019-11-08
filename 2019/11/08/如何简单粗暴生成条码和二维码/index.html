@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?d890b1f16fb364253e79c5bb20225c3a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+    
+
+    
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?busuanzi_value_site_uv"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    <meta name="baidu-site-verification" content="FYMCShbUK8" />
+    <meta name="baidu-site-verification" content="ZYRF7OxQRW" />
+    <meta name="baidu-site-verification" content="cHSqtjI0PN" />
+    <meta name="baidu-site-verification" content="cHSqtjI0PN" />
+    <meta name="baidu-site-verification" content="cHSqtjI0PN" />
+    
+    
+    <link rel="canonical" href="https://hhardyy.com/2019/11/08/如何简单粗暴生成条码和二维码/">
+    
+    
+    <title>如何简单粗暴生成条码和二维码 | Hardy | 小方块 | 复杂的坑+归其原理+了解实现规则===解决？解决成功：加油解决成功;</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#958e93">
+    
+    
+    <meta name="keywords" content="react,vue,二维码,条形码,html">
+    <meta name="description" content="有一种情况，你的商品需要带上条形码，就像你在超市买可乐会扫一下，或者带个二维码。">
+<meta name="keywords" content="react,vue,二维码,条形码,html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何简单粗暴生成条码和二维码">
+<meta property="og:url" content="http://yoursite.com/2019/11/08/如何简单粗暴生成条码和二维码/index.html">
+<meta property="og:site_name" content="Hardy | 小方块">
+<meta property="og:description" content="有一种情况，你的商品需要带上条形码，就像你在超市买可乐会扫一下，或者带个二维码。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/images/barqrcode/barcode.png">
+<meta property="og:image" content="http://yoursite.com/images/barqrcode/barcodeoptions.png">
+<meta property="og:image" content="http://yoursite.com/images/barqrcode/qrcode.png">
+<meta property="og:updated_time" content="2019-11-08T16:31:00.422Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="如何简单粗暴生成条码和二维码">
+<meta name="twitter:description" content="有一种情况，你的商品需要带上条形码，就像你在超市买可乐会扫一下，或者带个二维码。">
+<meta name="twitter:image" content="http://yoursite.com/images/barqrcode/barcode.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="Hardy | 小方块" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/hero.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/paulGraham.jpg)">
+      <div class="brand" style="background-color:#4154b2">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">BingZhenhuang</h5>
+          <a href="mailto:huangbingzhen@hhardyy.com" title="huangbingzhen@hhardyy.com" class="mail">huangbingzhen@hhardyy.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                所有文章
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/HHardyy" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://juejin.im/user/59a26f926fb9a02487553b04"  >
+                <i class="icon icon-lg icon-pencil"></i>
+                掘金-圳
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://segmentfault.com/u/hhardyy"  >
+                <i class="icon icon-lg icon-comments"></i>
+                Segmentfault
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://codepen.io/HHardyy/" target="_blank" >
+                <i class="icon icon-lg icon-codepen"></i>
+                Codepen
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/ZhenSolive/find.html" target="_blank" >
+                <i class="icon icon-lg icon-globe"></i>
+                原生直播间
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/hero/judge.html" target="_blank" >
+                <i class="icon icon-lg icon-cloud"></i>
+                原生小悟空
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/airPlay/HHardyy_PC.html" target="_blank" >
+                <i class="icon icon-lg icon-camera"></i>
+                原生飞机大战（PC）
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.freecodecamp.cn/hhardyy" target="_blank" >
+                <i class="icon icon-lg icon-leaf"></i>
+                Freecodecamp
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/友情链接"  >
+                <i class="icon icon-lg icon-link"></i>
+                友链
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">如何简单粗暴生成条码和二维码</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">如何简单粗暴生成条码和二维码</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-11-08T15:11:58.000Z" itemprop="datePublished" class="page-time">
+  2019-11-08
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#条形码"><span class="post-toc-number">1.</span> <span class="post-toc-text">条形码</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#二维码"><span class="post-toc-number">2.</span> <span class="post-toc-text">二维码</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="w-如何简单粗暴生成条码和二维码"
+  class="post-article article-type-w fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">如何简单粗暴生成条码和二维码</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-11-08 23:11:58" datetime="2019-11-08T15:11:58.000Z"  itemprop="datePublished">2019-11-08</time>
+
+            
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>有一种情况，你的商品需要带上条形码，就像你在超市买可乐会扫一下，或者带个二维码。</p>
+<p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=453498650&auto=0&height=66"></iframe><br><a id="more"></a></p>
+<p>今天团队里的一个前端同学遇到了一个问题，就是需要根据接口拿到的数据，生成条形码并且可以点击打印出来（不是console.log的这个打印，是打印条形码的打印机打印出的纸质条码）,因为应用环境是vue，所以举例用vue，因为项目的代码不能外泄，这里用npm包简单写2个一般开发够用的栗子</p>
+<h3 id="条形码"><a href="#条形码" class="headerlink" title="条形码"></a>条形码</h3><p>条形码的长相很普通，比如一般买的书后面带的那个，长相就像这样<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/barqrcode/barcode.png" alt="“barcode”" title="">
+                </div>
+                <div class="image-caption">“barcode”</div>
+            </figure><br>实现起来非常简单，安装and使用<br>一、安装<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install --save jsbarcode</div></pre></td></tr></table></figure></p>
+<p>二、使用<br>vue环境<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">&lt;template&gt;</div><div class="line">  &lt;svg ref=<span class="string">"barcode"</span> /&gt;</div><div class="line">&lt;/template&gt;</div><div class="line"></div><div class="line">&lt;script&gt;</div><div class="line">import JSbarcode from <span class="string">'jsbarcode'</span></div><div class="line">  <span class="built_in">export</span> default&#123;</div><div class="line">    <span class="function"><span class="title">mounted</span></span>() &#123;</div><div class="line">      this._initJsBarcode();</div><div class="line">    &#125;,</div><div class="line">   methods: &#123;</div><div class="line">      <span class="function"><span class="title">_initJsBarcode</span></span>() &#123;</div><div class="line">        <span class="built_in">let</span> dom = this.<span class="variable">$refs</span>.barcode;</div><div class="line">        <span class="built_in">let</span> options = &#123;</div><div class="line">          width: 2,                   //较细处条形码的宽度</div><div class="line">          height: 100,                //条形码的宽度，无高度直接设置项，由位数决定</div><div class="line">          quite: 10,</div><div class="line">          format: <span class="string">"CODE128"</span>,</div><div class="line">          displayValue: <span class="literal">true</span>,         //是否在条码下方显示文字</div><div class="line">          font:<span class="string">"monospace"</span>,   </div><div class="line">          textAlign:<span class="string">"center"</span>,          //对齐</div><div class="line">          fontSize: 12,                //字体大小</div><div class="line">          backgroundColor:<span class="string">""</span>,         //条码背景色</div><div class="line">          lineColor:<span class="string">"#000"</span>            //条码颜色</div><div class="line">          ....</div><div class="line">        &#125;;</div><div class="line">        <span class="built_in">let</span> _jsbarcode = JsBarcode(dom, <span class="string">"my name is hardy"</span>, options);</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
+<p>react 环境<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">import React from <span class="string">'react'</span>;</div><div class="line">import JsBarcode  from <span class="string">'jsbarcode'</span>;</div><div class="line"></div><div class="line">class Barcode extends React.Component &#123;</div><div class="line">  constructor(props) &#123;</div><div class="line">    super(props);</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="title">componentDidMount</span></span>() &#123;</div><div class="line">      this._initJsBarcode();</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="title">_initJsBarcode</span></span>()&#123;</div><div class="line">    <span class="built_in">let</span> _jsbarcode = JsBarcode(this.barcode, <span class="string">"my name is hardy"</span>, &#123;</div><div class="line">      width: 2,                   //较细处条形码的宽度</div><div class="line">      height: 100,                //条形码的宽度，无高度直接设置项，由位数决定</div><div class="line">      quite: 10,</div><div class="line">      format: <span class="string">"CODE128"</span>,</div><div class="line">      displayValue: <span class="literal">true</span>,         //是否在条码下方显示文字</div><div class="line">      font:<span class="string">"monospace"</span>,   </div><div class="line">      textAlign:<span class="string">"center"</span>,          //对齐</div><div class="line">      fontSize: 12,                //字体大小</div><div class="line">      backgroundColor:<span class="string">""</span>,         //条码背景色</div><div class="line">      lineColor:<span class="string">"#000"</span>            //条码颜色</div><div class="line">      ....</div><div class="line">    &#125;);</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="title">render</span></span>() &#123;</div><div class="line">    <span class="built_in">return</span> (</div><div class="line">      &lt;div className=<span class="string">"barcode-container"</span>&gt;</div><div class="line">        &lt;svg</div><div class="line">          ref=&#123;(ref) =&gt; &#123;</div><div class="line">            this.barcode = ref;</div><div class="line">          &#125;&#125;</div><div class="line">       /&gt;</div><div class="line">      &lt;/div&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="built_in">export</span> default Barcode;</div></pre></td></tr></table></figure></p>
+<p>html 环境<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line"> &lt;head&gt; </div><div class="line">  &lt;meta charset=<span class="string">"utf-8"</span> /&gt;</div><div class="line">  &lt;title&gt;&lt;/title&gt; </div><div class="line">  &lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span> src=<span class="string">"js/jquery.min.js"</span>&gt;&lt;/script&gt;</div><div class="line">  &lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span> src=<span class="string">"js/JsBarcode.all.min.js"</span>&gt;&lt;/script&gt; </div><div class="line"> &lt;/head&gt; </div><div class="line"> &lt;body&gt; </div><div class="line">  &lt;svg id=<span class="string">"svgbarcode"</span>&gt;&lt;/svg&gt; </div><div class="line">  &lt;canvas id=<span class="string">"canvascode"</span>&gt;&lt;/canvas&gt; </div><div class="line">  &lt;img id=<span class="string">"imgcode"</span> /&gt; </div><div class="line">  &lt;script&gt;  </div><div class="line">        $(<span class="string">"#svgbarcode"</span>).JsBarcode(<span class="string">'显示文案'</span>);</div><div class="line"></div><div class="line">        $(<span class="string">"#canvascode"</span>).JsBarcode(<span class="string">'显示文案'</span>);</div><div class="line">  </div><div class="line">        $(<span class="string">"#imgcode"</span>).JsBarcode(<span class="string">"显示文案"</span>);</div><div class="line">  &lt;/script&gt; </div><div class="line"> &lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
+<p>这是github上它的配置参数<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/barqrcode/barcodeoptions.png" alt="配置参数''" title="">
+                </div>
+                <div class="image-caption">配置参数''</div>
+            </figure><br><a href="https://github.com/lindell/JsBarcode" target="_blank" rel="external">github地址</a></p>
+<h3 id="二维码"><a href="#二维码" class="headerlink" title="二维码"></a>二维码</h3><p>二维码和条码的实现方式一样，只不过二维码用的npm包是qrcodejs2<br>同样的步骤<br>一、安装<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install --save qrcodejs2</div></pre></td></tr></table></figure></p>
+<p>二、使用<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">&lt;template&gt;</div><div class="line">    &lt;div ref=<span class="string">"qrcode"</span>&gt;&lt;/div&gt;</div><div class="line">&lt;/template&gt;</div><div class="line"></div><div class="line">&lt;script&gt;</div><div class="line">import QRCode from <span class="string">'qrcodejs2'</span></div><div class="line">  <span class="built_in">export</span> default&#123;</div><div class="line">    <span class="function"><span class="title">mounted</span></span>() &#123;</div><div class="line">      this._qrcode();</div><div class="line">    &#125;,</div><div class="line">   methods: &#123;</div><div class="line">      <span class="function"><span class="title">_qrcode</span></span>()&#123;</div><div class="line">        <span class="built_in">let</span> _qrcode = new QRCode(this.<span class="variable">$refs</span>.qrcode, &#123;</div><div class="line">        width: 132,</div><div class="line">        height: 132,</div><div class="line">        text: <span class="string">'my name is hardy'</span>,</div><div class="line">        colorDark : <span class="string">"#000"</span>,</div><div class="line">        colorLight : <span class="string">"#fff"</span>,</div><div class="line">      &#125;)</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/barqrcode/qrcode.png" alt="生成效果''" title="">
+                </div>
+                <div class="image-caption">生成效果''</div>
+            </figure>
+<p>生成二维码也可以使用QRCode.js<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;div id=<span class="string">"qrcode"</span>&gt;&lt;/div&gt;</div><div class="line"></div><div class="line">var qrcode = new QRCode(<span class="string">"test"</span>, &#123;</div><div class="line">    text: <span class="string">"https://hhardyy.com/"</span>,    // 设置要生成二维码的链接</div><div class="line">    width: 128,</div><div class="line">    height: 128,</div><div class="line">    colorDark : <span class="string">"#000000"</span>,</div><div class="line">    colorLight : <span class="string">"#ffffff"</span>,</div><div class="line">    correctLevel : QRCode.CorrectLevel.H</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p><a href="https://github.com/davidshimjs/qrcodejs" target="_blank" rel="external">github地址</a></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-11-08T16:31:00.422Z" itemprop="dateUpdated">2019-11-09 00:31:00</time>
+</span><br>
+
+
+        
+        谢谢浏览，我会继续努力的，示例：<a href="/2019/11/08/如何简单粗暴生成条码和二维码/" target="_blank" rel="external">http://yoursite.com/2019/11/08/如何简单粗暴生成条码和二维码/</a>
+        
+    </div>
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.jpg" alt="BingZhenhuang">
+            BingZhenhuang
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html/">html</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/二维码/">二维码</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/条形码/">条形码</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/11/08/如何简单粗暴生成条码和二维码/&title=《如何简单粗暴生成条码和二维码》 — Hardy | 小方块&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/11/08/如何简单粗暴生成条码和二维码/&title=《如何简单粗暴生成条码和二维码》 — Hardy | 小方块&source=有一种情况，你的商品需要带上条形码，就像你在超市买可乐会扫一下，或者带个二维码。
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/11/08/如何简单粗暴生成条码和二维码/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《如何简单粗暴生成条码和二维码》 — Hardy | 小方块&url=http://yoursite.com/2019/11/08/如何简单粗暴生成条码和二维码/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/11/08/如何简单粗暴生成条码和二维码/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/09/30/webpack4-x/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">webpack4.x</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        🤠 请我喝可乐！
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content" style="width:50%">
+        
+        <div class="reward-code" style="text-align:center">
+            <div style="width:300px;margin:0px auto;">
+               <img id="rewardCode" style="width:50%;height:60%;display:block; margin:0px auto;" src="/img/alipay.jpg" alt="支付宝打赏二维码">
+               <span style="display:inline-block; margin-bottom:20px;">0.88(支付宝 aliPay)</span>
+               <img id="rewardCode" style="width:50%;height:60%;display:block; margin:0px auto;" src="/img/wechat.jpg" alt="微信打赏二维码">
+               <span style="display:inline-block;">0.88(微信 weChat)</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+</div>
+
+        <script>
+!function(e,t,a){function n(){c(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"),o(),r()}function r(){for(var e=0;e<d.length;e++)d[e].alpha<=0?(t.body.removeChild(d[e].el),d.splice(e,1)):(d[e].y--,d[e].scale+=.004,d[e].alpha-=.013,d[e].el.style.cssText="left:"+d[e].x+"px;top:"+d[e].y+"px;opacity:"+d[e].alpha+";transform:scale("+d[e].scale+","+d[e].scale+") rotate(45deg);background:"+d[e].color+";z-index:99999");requestAnimationFrame(r)}function o(){var t="function"==typeof e.onclick&&e.onclick;e.onclick=function(e){t&&t(),i(e)}}function i(e){var a=t.createElement("div");a.className="heart",d.push({el:a,x:e.clientX-5,y:e.clientY-5,scale:1,alpha:1,color:s()}),t.body.appendChild(a)}function c(e){var a=t.createElement("style");a.type="text/css";try{a.appendChild(t.createTextNode(e))}catch(t){a.styleSheet.cssText=e}t.getElementsByTagName("head")[0].appendChild(a)}function s(){return"rgb("+~~(255*Math.random())+","+~~(255*Math.random())+","+~~(255*Math.random())+")"}var d=[];e.requestAnimationFrame=function(){return e.requestAnimationFrame||e.webkitRequestAnimationFrame||e.mozRequestAnimationFrame||e.oRequestAnimationFrame||e.msRequestAnimationFrame||function(e){setTimeout(e,1e3/60)}}(),n()}(window,document);
+</script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script>
+    function secondToDate(second) {
+        if (!second) {
+            return 0;
+        }
+        var time = new Array(0, 0, 0, 0, 0);
+        if (second >= 365 * 24 * 3600) {
+            time[0] = parseInt(second / (365 * 24 * 3600));
+            second %= 365 * 24 * 3600;
+        }
+        if (second >= 24 * 3600) {
+            time[1] = parseInt(second / (24 * 3600));
+            second %= 24 * 3600;
+        }
+        if (second >= 3600) {
+            time[2] = parseInt(second / 3600);
+            second %= 3600;
+        }
+        if (second >= 60) {
+            time[3] = parseInt(second / 60);
+            second %= 60;
+        }
+        if (second > 0) {
+            time[4] = second;
+        }
+        return time;
+    }</script>
+<script type="text/javascript" language="javascript">
+    function setTime() {
+        var create_time = Math.round(new Date(Date.UTC(2017, 08, 18, 11, 42, 23)).getTime() / 1000);
+        var timestamp = Math.round((new Date().getTime() + 8 * 60 * 60 * 1000) / 1000);
+        currentTime = secondToDate((timestamp - create_time));
+        currentTimeHtml = 'Running：' + currentTime[0] + '年 ' + currentTime[1] + '天 '
+                + currentTime[2] + '时 ' + currentTime[3] + '分 ' + currentTime[4]
+                + '秒';
+        document.getElementById("htmer_time").innerHTML = currentTimeHtml;
+    }    setInterval(setTime, 1000);
+</script>
+<footer class="footer">
+    <div class="top">
+        
+
+        <p>
+          <span id="busuanzi_container_page_pv">
+             [&nbsp;浏览量：&nbsp;<span id="busuanzi_value_page_pv"></span>&nbsp;]
+          </span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+        <span>BingZhenhuang &copy; 2017 - 2019</span>
+            <span>
+                
+                Power by <a href="https://hhardyy.github.io/" target="_blank">zhen On August 8</a> 
+            </span>
+            <span id="htmer_time" "></span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/11/08/如何简单粗暴生成条码和二维码/&title=《如何简单粗暴生成条码和二维码》 — Hardy | 小方块&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/11/08/如何简单粗暴生成条码和二维码/&title=《如何简单粗暴生成条码和二维码》 — Hardy | 小方块&source=有一种情况，你的商品需要带上条形码，就像你在超市买可乐会扫一下，或者带个二维码。
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/11/08/如何简单粗暴生成条码和二维码/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《如何简单粗暴生成条码和二维码》 — Hardy | 小方块&url=http://yoursite.com/2019/11/08/如何简单粗暴生成条码和二维码/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/11/08/如何简单粗暴生成条码和二维码/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACvklEQVR42u3aQW4bMRAEQP//0841gbFy9wxpC0HtSZC0KxYPHKqHHx/x9fnlev3+06dP19/f/3rv108PX3h4eHjroeeM13c9/VY+3AT/za/j4eHhXeOdGkrCy0tIWyTw8PDw3pP3eoivB9QWEjw8PLz/g5fcNfu03eLj4eHh/S5vFrDONsHJ95PpPpy14OHh4c13sHWc+vOvr/T38PDw8NZd9bxI5IHFqZg4Gi0eHh7eBd6+uZUHGe0muJ2sx2/i4eHhXeAdWHzLNthsOl5Pa1Rm8PDw8Na8drucHwjIG/9tq6wIbfHw8PAu8NqgNhn0PlfeRBjfVDw8PDy8Q7x8qW0fnUxN8sxkA138S8DDw8Nb8NpwIYktckaLbzf6eHh4eDd47ca6HeJsgvaHFfDw8PBu82bLd761bQd9OATBw8PDO8o7ewQqb33dO5pQ7/rx8PDwSt5sMz37mbblnx9QiMIIPDw8vKO8PJBNWlNJAWgPCuTb+mH1w8PDwzvKaxfiPSM/tlVUPDw8PLxDvDxUnU1HHuwWsUKwEf8nxsXDw8O7xpst+vlRrfabeQjyeBceHh7eNd4mhF0lx/u21ms2Hh4e3gXeJtKdlYdZS6w9UnAgscbDw8OLA9zZ0jwLW/MJSuKPYTXDw8PDm3SRPmaL+6yE5O2u/RTg4eHh3ePlJSEPIzbHAmZhR5FS4OHh4R3izdr8s3B21vRKJuixMODh4eFd4M0KQLItnsUKbRQSbanx8PDw1rzP8podisoPYM0ijNqNh4eHt+C1R5pyTDs1m9fJOPHw8PDO8mab3SS6zZ9/Ks6oqx8eHh7egpc8un3dRsOr2vUkwsPDw3sbXr7QbzAH3sfDw8N7M157TGrW6Go39Hh4eHg/w2uX7zy8mB2cik495IUBDw8P7yiv/XufRKibhln+KysSHh4e3oT3B5KJu2BH3mfsAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = 'Hardy';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '小方块';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
