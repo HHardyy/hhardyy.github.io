@@ -56,23 +56,25 @@ var _hmt = _hmt || [];
     <meta name="theme-color" content="#958e93">
     
     
-    <meta name="keywords" content="react,npm install,vue install,build,map,fsevents">
-    <meta name="description" content="今晚跑一个vue项目，碰到的一个小坑。">
-<meta name="keywords" content="react,npm install,vue install,build,map,fsevents">
+    <meta name="keywords" content="react,npm install,vue install,build,map,fsevents,vue-loader,css-split,webpack,代码抽离">
+    <meta name="description" content="vue探路合集。">
+<meta name="keywords" content="react,npm install,vue install,build,map,fsevents,vue-loader,css-split,webpack,代码抽离">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vue探路合集">
 <meta property="og:url" content="http://yoursite.com/2018/02/21/vue探路合集/index.html">
 <meta property="og:site_name" content="Hardy | 小方块">
-<meta property="og:description" content="今晚跑一个vue项目，碰到的一个小坑。">
+<meta property="og:description" content="vue探路合集。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/images/npmInstall/csscodesplit.JPG">
+<meta property="og:image" content="http://yoursite.com/images/npmInstall/build1bug.JPG">
 <meta property="og:image" content="http://yoursite.com/images/npmInstall/npmbug1.JPG">
 <meta property="og:image" content="http://yoursite.com/images/npmInstall/npmbug2.JPG">
 <meta property="og:image" content="http://yoursite.com/images/npmInstall/buildbug.JPG">
-<meta property="og:updated_time" content="2019-01-18T07:51:19.911Z">
+<meta property="og:updated_time" content="2019-11-10T15:28:00.127Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue探路合集">
-<meta name="twitter:description" content="今晚跑一个vue项目，碰到的一个小坑。">
-<meta name="twitter:image" content="http://yoursite.com/images/npmInstall/npmbug1.JPG">
+<meta name="twitter:description" content="vue探路合集。">
+<meta name="twitter:image" content="http://yoursite.com/images/npmInstall/csscodesplit.JPG">
     
         <link rel="alternate" type="application/atom+xml" title="Hardy | 小方块" href="/atom.xml">
     
@@ -247,7 +249,7 @@ var _hmt = _hmt || [];
     <aside class="post-widget">
         <nav class="post-toc-wrap" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1、假设你美滋滋install一个vue项目"><span class="post-toc-number">1.</span> <span class="post-toc-text">1、假设你美滋滋install一个vue项目</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#解决方案"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">解决方案</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2、vue项目打包之后出现map文件，也就是-m"><span class="post-toc-number">2.</span> <span class="post-toc-text">2、vue项目打包之后出现map文件，也就是.m</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#map文件：打包后的代码经过压缩加密，如果运行报错，输出的错误信息无法准确得知是哪里的代码报错。"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">map文件：打包后的代码经过压缩加密，如果运行报错，输出的错误信息无法准确得知是哪里的代码报错。</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#去掉map的方法"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">去掉map的方法</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3、vue打包之后报错，或者每次install报错（React中也存在）"><span class="post-toc-number">3.</span> <span class="post-toc-text">3、vue打包之后报错，或者每次install报错（React中也存在）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#产生原因"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">产生原因</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#解决方案-1"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">解决方案</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4、vue使用了ES6的promise，IE不支持"><span class="post-toc-number">4.</span> <span class="post-toc-text">4、vue使用了ES6的promise，IE不支持</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#css分离"><span class="post-toc-number">1.</span> <span class="post-toc-text">css分离</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#vue-loader"><span class="post-toc-number">2.</span> <span class="post-toc-text">vue-loader</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1、假设你美滋滋install一个vue项目"><span class="post-toc-number">3.</span> <span class="post-toc-text">1、假设你美滋滋install一个vue项目</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#解决方案"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">解决方案</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2、vue项目打包之后出现map文件，也就是-m"><span class="post-toc-number">4.</span> <span class="post-toc-text">2、vue项目打包之后出现map文件，也就是.m</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#map文件：打包后的代码经过压缩加密，如果运行报错，输出的错误信息无法准确得知是哪里的代码报错。"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">map文件：打包后的代码经过压缩加密，如果运行报错，输出的错误信息无法准确得知是哪里的代码报错。</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#去掉map的方法"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">去掉map的方法</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3、vue打包之后报错，或者每次install报错（React中也存在）"><span class="post-toc-number">5.</span> <span class="post-toc-text">3、vue打包之后报错，或者每次install报错（React中也存在）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#产生原因"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">产生原因</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#解决方案-1"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">解决方案</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4、vue使用了ES6的promise，IE不支持"><span class="post-toc-number">6.</span> <span class="post-toc-text">4、vue使用了ES6的promise，IE不支持</span></a></li></ol>
         </nav>
     </aside>
     
@@ -266,8 +268,26 @@ var _hmt = _hmt || [];
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <p>今晚跑一个vue项目，碰到的一个小坑。</p>
+            <p>vue探路合集。</p>
 <p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=165347&auto=0&height=66"></iframe><br><a id="more"></a></p>
+<h3 id="css分离"><a href="#css分离" class="headerlink" title="css分离"></a>css分离</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/npmInstall/csscodesplit.JPG" alt="css-code-split" title="">
+                </div>
+                <div class="image-caption">css-code-split</div>
+            </figure>
+<p>webpack打包环境优化的一个点：将css样式代码抽离出来。若不抽离，可以在bundle.js中发现css代码被转化成节点样式插入到了body下；这个过程是：style-loader将外部css文件注入到html中，css内容使用css-loader进行解析，转化成js文件；因为webpack只能识别js文件。<br>css分离：<br>使用extract-text-webpack-plugin插件，该插件的主要是为了抽离css样式,防止将样式打包在js中引起页面样式加载错乱的现象。<br>优点:<br>非js文件单独打包，通过js将文件写入，可以用来单独做浏览器缓存。<br>目前工程中大部分用到的还是webpack3+；实际中，在不指定版本的情况下，npm默认安装的4.0.0版本，这时使用上述插件会报错：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Error: Chunk.entrypoints: Use Chunks.groupsIterable and filter by instanceof Entrypoint instead</div></pre></td></tr></table></figure></p>
+<p>原因：<br>extract-text-webpack-plugin还不能支持webpack4.0.0以上的版本。<br>解决办法：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install extract-text-webpack-plugin@next</div></pre></td></tr></table></figure></p>
+<p>会下载到+ extract-text-webpack-plugin@4.0.0-beta.0<br>然后在打包就正常了</p>
+<h3 id="vue-loader"><a href="#vue-loader" class="headerlink" title="vue-loader"></a>vue-loader</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/npmInstall/build1bug.JPG" alt="vue-loader" title="">
+                </div>
+                <div class="image-caption">vue-loader</div>
+            </figure>
+<p>解决方案:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">const VueLoaderPlugin = require(<span class="string">'vue-loader/lib/plugin'</span>);</div><div class="line"></div><div class="line">plugins: [</div><div class="line">    new VueLoaderPlugin()</div><div class="line">]</div></pre></td></tr></table></figure></p>
 <h3 id="1、假设你美滋滋install一个vue项目"><a href="#1、假设你美滋滋install一个vue项目" class="headerlink" title="1、假设你美滋滋install一个vue项目"></a>1、假设你美滋滋install一个vue项目</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">npm install -g vue-cli</div><div class="line">vue init webpack yourproject</div><div class="line">...</div></pre></td></tr></table></figure>
 <p>这些都木有问题，接下来到npm install的时候，突然biu出来几个大写红色的ERR！，like this<br><figure class="image-bubble">
                 <div class="img-lightbox">
@@ -309,7 +329,7 @@ var _hmt = _hmt || [];
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-01-18T07:51:19.911Z" itemprop="dateUpdated">2019-01-18 15:51:19</time>
+    最后更新时间：<time datetime="2019-11-10T15:28:00.127Z" itemprop="dateUpdated">2019-11-10 23:28:00</time>
 </span><br>
 
 
@@ -334,7 +354,7 @@ var _hmt = _hmt || [];
 
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/build/">build</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/fsevents/">fsevents</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/map/">map</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/npm-install/">npm install</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue-install/">vue install</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/build/">build</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css-split/">css-split</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/fsevents/">fsevents</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/map/">map</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/npm-install/">npm install</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue-install/">vue install</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue-loader/">vue-loader</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webpack/">webpack</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/代码抽离/">代码抽离</a></li></ul>
 
 
             
@@ -354,7 +374,7 @@ var _hmt = _hmt || [];
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/02/21/vue探路合集/&title=《vue探路合集》 — Hardy | 小方块&source=今晚跑一个vue项目，碰到的一个小坑。
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/02/21/vue探路合集/&title=《vue探路合集》 — Hardy | 小方块&source=vue探路合集。
 " data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
@@ -536,7 +556,7 @@ var _hmt = _hmt || [];
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/02/21/vue探路合集/&title=《vue探路合集》 — Hardy | 小方块&source=今晚跑一个vue项目，碰到的一个小坑。
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/02/21/vue探路合集/&title=《vue探路合集》 — Hardy | 小方块&source=vue探路合集。
 " data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
