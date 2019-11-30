@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?d890b1f16fb364253e79c5bb20225c3a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+    
+
+    
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?busuanzi_value_site_uv"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    <meta name="baidu-site-verification" content="FYMCShbUK8" />
+    <meta name="baidu-site-verification" content="ZYRF7OxQRW" />
+    <meta name="baidu-site-verification" content="cHSqtjI0PN" />
+    <meta name="baidu-site-verification" content="cHSqtjI0PN" />
+    <meta name="baidu-site-verification" content="cHSqtjI0PN" />
+    
+    
+    <link rel="canonical" href="https://hhardyy.com/2019/11/30/eslint规范代码/">
+    
+    
+    <title>eslint规范代码 | Hardy | 小方块 | 复杂的坑+归其原理+了解实现规则===解决？解决成功：加油解决成功;</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#958e93">
+    
+    
+    <meta name="keywords" content="eslint,代码规范">
+    <meta name="description" content="是该给选手们订一套代码规范套餐了。。。">
+<meta name="keywords" content="eslint,代码规范">
+<meta property="og:type" content="article">
+<meta property="og:title" content="eslint规范代码">
+<meta property="og:url" content="http://yoursite.com/2019/11/30/eslint规范代码/index.html">
+<meta property="og:site_name" content="Hardy | 小方块">
+<meta property="og:description" content="是该给选手们订一套代码规范套餐了。。。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-11-30T04:18:43.864Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="eslint规范代码">
+<meta name="twitter:description" content="是该给选手们订一套代码规范套餐了。。。">
+    
+        <link rel="alternate" type="application/atom+xml" title="Hardy | 小方块" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/hero.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/paulGraham.jpg)">
+      <div class="brand" style="background-color:#4154b2">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">BingZhenhuang</h5>
+          <a href="mailto:huangbingzhen@hhardyy.com" title="huangbingzhen@hhardyy.com" class="mail">huangbingzhen@hhardyy.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                所有文章
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/HHardyy" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://juejin.im/user/59a26f926fb9a02487553b04"  >
+                <i class="icon icon-lg icon-pencil"></i>
+                掘金-圳
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://segmentfault.com/u/hhardyy"  >
+                <i class="icon icon-lg icon-comments"></i>
+                Segmentfault
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://codepen.io/HHardyy/" target="_blank" >
+                <i class="icon icon-lg icon-codepen"></i>
+                Codepen
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/ZhenSolive/find.html" target="_blank" >
+                <i class="icon icon-lg icon-globe"></i>
+                原生直播间
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/hero/judge.html" target="_blank" >
+                <i class="icon icon-lg icon-cloud"></i>
+                原生小悟空
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/airPlay/HHardyy_PC.html" target="_blank" >
+                <i class="icon icon-lg icon-camera"></i>
+                原生飞机大战（PC）
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.freecodecamp.cn/hhardyy" target="_blank" >
+                <i class="icon icon-lg icon-leaf"></i>
+                Freecodecamp
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/友情链接"  >
+                <i class="icon icon-lg icon-link"></i>
+                友链
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">eslint规范代码</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">eslint规范代码</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-11-30T03:30:47.000Z" itemprop="datePublished" class="page-time">
+  2019-11-30
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#局部安装-应用到当前项目"><span class="post-toc-number">1.</span> <span class="post-toc-text">局部安装(应用到当前项目)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#全局安装（应用到所有项目）"><span class="post-toc-number">2.</span> <span class="post-toc-text">全局安装（应用到所有项目）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#配置"><span class="post-toc-number">3.</span> <span class="post-toc-text">配置</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用"><span class="post-toc-number">4.</span> <span class="post-toc-text">使用</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#IDE-配置"><span class="post-toc-number">5.</span> <span class="post-toc-text">IDE 配置</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#错误级别"><span class="post-toc-number">6.</span> <span class="post-toc-text">错误级别</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#常用规则"><span class="post-toc-number">7.</span> <span class="post-toc-text">常用规则</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-eslint规范代码"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">eslint规范代码</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-11-30 11:30:47" datetime="2019-11-30T03:30:47.000Z"  itemprop="datePublished">2019-11-30</time>
+
+            
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>是该给选手们订一套代码规范套餐了。。。</p>
+<p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=1371939273&auto=0&height=66"></iframe><br><a id="more"></a></p>
+<p>在团队开发中，每个人的想法不一样，代码规范就不一样，每个人自由发挥的后果就是这个项目越来越走向重构，后面接手的人甚至无从下手。我自己也比较喜欢业务与plugins分开，plugins里面必须0业务。。。。。。跑偏了。。</p>
+<h3 id="局部安装-应用到当前项目"><a href="#局部安装-应用到当前项目" class="headerlink" title="局部安装(应用到当前项目)"></a>局部安装(应用到当前项目)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install eslint --save-dev</div></pre></td></tr></table></figure>
+<h3 id="全局安装（应用到所有项目）"><a href="#全局安装（应用到所有项目）" class="headerlink" title="全局安装（应用到所有项目）"></a>全局安装（应用到所有项目）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g eslint</div></pre></td></tr></table></figure>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>使用 .eslintrc文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">eslint --init</div></pre></td></tr></table></figure></p>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>举例使用ele团队的规范<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install --save-dev eslint-config-elemefe eslint</div></pre></td></tr></table></figure></p>
+<p>然后在.eslintrc中加上<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	<span class="string">"extends"</span>: <span class="string">"elemefe"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><a href="https://www.npmjs.com/package/eslint-config-elemefe" target="_blank" rel="external">饿了么团队的eslint规范</a></p>
+<h3 id="IDE-配置"><a href="#IDE-配置" class="headerlink" title="IDE 配置"></a>IDE 配置</h3><p>使用facebook的都在用的默认编辑器vscode，然后安装ESLint插件（在商店搜索安装即可），也可以装上根据eslint自动格式化的插件vetur，prettier等，然后在settings.json用户配置中自由设置（下面是我自己的）<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="string">"vetur.format.defaultFormatter.js"</span>: <span class="string">"prettier-eslint"</span>,</div><div class="line">  <span class="string">"vetur.format.defaultFormatter.html"</span>: <span class="string">"js-beautify-html"</span>,</div><div class="line">  <span class="string">"vetur.format.defaultFormatterOptions"</span>: &#123;</div><div class="line">    <span class="string">"wrap_attributes"</span>: <span class="string">"force-aligned"</span></div><div class="line">  &#125;,</div><div class="line">  <span class="string">"editor.detectIndentation"</span>: <span class="literal">true</span>,   // vscode默认启用了根据文件类型自动设置tabsize的选项</div><div class="line">  <span class="string">"editor.tabSize"</span>: 2,  // 重新设定tabsize</div><div class="line">  // <span class="string">"editor.formatOnSave"</span>: <span class="literal">true</span>,  // 保存时自动格式化 --vscode编辑器自带自动格式化会与设置的eslint规范有所冲突导致eslint报错</div><div class="line">  <span class="string">"eslint.autoFixOnSave"</span>: <span class="literal">true</span>, //保存时使用eslint规范自动格式化</div><div class="line">  <span class="string">"workbench.iconTheme"</span>: <span class="string">"vscode-great-icons"</span>,</div><div class="line">  <span class="string">"eslint.enable"</span>: <span class="literal">true</span>,     //<span class="literal">true</span>打开eslint语法检查，<span class="literal">false</span>关闭</div><div class="line">  <span class="string">"eslint.validate"</span>: [       //eslint支持项自定义</div><div class="line">    <span class="string">"javascript"</span>,</div><div class="line">    <span class="string">"javascriptreact"</span>,</div><div class="line">    &#123;</div><div class="line">      <span class="string">"language"</span>: <span class="string">"html"</span>,</div><div class="line">      <span class="string">"autoFix"</span>: <span class="literal">true</span></div><div class="line">    &#125;,</div><div class="line">    &#123;</div><div class="line">      <span class="string">"language"</span>: <span class="string">"vue"</span>,</div><div class="line">      <span class="string">"autoFix"</span>: <span class="literal">true</span></div><div class="line">    &#125;,</div><div class="line">    &#123;</div><div class="line">      <span class="string">"language"</span>: <span class="string">"react"</span>,</div><div class="line">      <span class="string">"autoFix"</span>: <span class="literal">true</span></div><div class="line">    &#125;,</div><div class="line">    &#123;</div><div class="line">      <span class="string">"language"</span>: <span class="string">"webpack"</span>,</div><div class="line">      <span class="string">"autoFix"</span>: <span class="literal">true</span></div><div class="line">    &#125;,</div><div class="line">    &#123;</div><div class="line">       <span class="string">"language"</span>: <span class="string">"typescript"</span>,</div><div class="line">       <span class="string">"autoFix"</span>: <span class="literal">true</span></div><div class="line">    &#125;</div><div class="line">    ....</div><div class="line">  ]</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>配好之后就能感受到写代码实时红线提示，当然再狠一点可以做一下git提交的验证，eslint检查不通过不允许提交,eslint的玩法有超多种，比较急一会要去接手一下一个离职选手的锅，先简单记录一下~，</p>
+<h3 id="错误级别"><a href="#错误级别" class="headerlink" title="错误级别"></a>错误级别</h3><p>“off” or 0 - 关闭(禁用)规则<br>“warn” or 1 - 将规则视为一个警告（并不会导致检查不通过）<br>“error” or 2 - 将规则视为一个错误 (退出码为1，检查不通过) </p>
+<h3 id="常用规则"><a href="#常用规则" class="headerlink" title="常用规则"></a>常用规则</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div></pre></td><td class="code"><pre><div class="line">Possible Errors 可能的错误或逻辑错误 </div><div class="line">no-cond-assign 禁止条件表达式中出现模棱两可的赋值操作符 </div><div class="line">no-console 禁用console </div><div class="line">no-constant-condition 禁止在条件中使用常量表达式 </div><div class="line">no-debugger 禁用 debugger </div><div class="line">no-dupe-args 禁止 <span class="keyword">function</span> 定义中出现重名参数 </div><div class="line">no-dupe-keys 禁止对象字面量中出现重复的 key </div><div class="line">no-duplicate-case 禁止出现重复的 <span class="keyword">case</span> 标签 </div><div class="line">no-empty 禁止出现空语句块 </div><div class="line">no-ex-assign 禁止对 catch 子句的参数重新赋值 </div><div class="line">no-extra-boolean-cast 禁止不必要的布尔转换 </div><div class="line">no-extra-parens 禁止不必要的括号 </div><div class="line">no-extra-semi 禁止不必要的分号 </div><div class="line">no-func-assign 禁止对 <span class="keyword">function</span> 声明重新赋值 </div><div class="line">no-inner-declarations 禁止在嵌套的块中出现变量声明或 <span class="keyword">function</span> 声明 </div><div class="line">no-irregular-whitespace 禁止在字符串和注释之外不规则的空白 </div><div class="line">no-obj-calls 禁止把全局对象作为函数调用 </div><div class="line">no-sparse-arrays 禁用稀疏数组 </div><div class="line">no-prototype-builtins 禁止直接使用Object.prototypes 的内置属性 </div><div class="line">no-unexpected-multiline 禁止出现令人困惑的多行表达式 </div><div class="line">no-unreachable 禁止在<span class="built_in">return</span>、throw、<span class="built_in">continue</span> 和 <span class="built_in">break</span>语句之后出现不可达代码 </div><div class="line">use-isnan 要求使用 isNaN() 检查 NaN </div><div class="line">valid-typeof 强制 typeof 表达式与有效的字符串进行比较 </div><div class="line">—– —– </div><div class="line">Best Practices 最佳实践 </div><div class="line">array-callback-return 强制数组方法的回调函数中有 <span class="built_in">return</span> 语句 </div><div class="line">block-scoped-var 强制把变量的使用限制在其定义的作用域范围内 </div><div class="line">complexity 指定程序中允许的最大环路复杂度 </div><div class="line">consistent-return 要求 <span class="built_in">return</span> 语句要么总是指定返回的值，要么不指定 </div><div class="line">curly 强制所有控制语句使用一致的括号风格 </div><div class="line">default-case 要求 switch 语句中有 default 分支 </div><div class="line">dot-location 强制在点号之前和之后一致的换行 </div><div class="line">dot-notation 强制在任何允许的时候使用点号 </div><div class="line">eqeqeq 要求使用 === 和 !== </div><div class="line">guard-for-in 要求 <span class="keyword">for</span>-in 循环中有一个 <span class="keyword">if</span> 语句 </div><div class="line">no-alert 禁用 alert、confirm 和 prompt </div><div class="line">no-case-declarations 不允许在 <span class="keyword">case</span> 子句中使用词法声明 </div><div class="line">no-else-return 禁止 <span class="keyword">if</span> 语句中有 <span class="built_in">return</span> 之后有 <span class="keyword">else</span> </div><div class="line">no-empty-function 禁止出现空函数 </div><div class="line">no<span class="_">-eq</span>-null 禁止在没有类型检查操作符的情况下与 null 进行比较 </div><div class="line">no-eval 禁用 <span class="built_in">eval</span>() </div><div class="line">no-extra-bind 禁止不必要的 .<span class="built_in">bind</span>() 调用 </div><div class="line">no-fallthrough 禁止 <span class="keyword">case</span> 语句落空 </div><div class="line">no-floating-decimal 禁止数字字面量中使用前导和末尾小数点 </div><div class="line">no-implicit-coercion 禁止使用短符号进行类型转换 </div><div class="line">no-implicit-globals 禁止在全局范围内使用 var 和命名的 <span class="keyword">function</span> 声明 </div><div class="line">no-invalid-this: 禁止 this 关键字出现在类和类对象之外 </div><div class="line">no-lone-blocks 禁用不必要的嵌套块 </div><div class="line">no-loop-func 禁止在循环中出现 <span class="keyword">function</span> 声明和表达式 </div><div class="line">no-magic-numbers 禁用魔术数字 </div><div class="line">no-multi-spaces 禁止使用多个空格 </div><div class="line">no-multi-str 禁止使用多行字符串 </div><div class="line">no-new 禁止在非赋值或条件语句中使用 new 操作符 </div><div class="line">no-new-func 禁止对 Function 对象使用 new 操作符 </div><div class="line">no-new-wrappers 禁止对 String，Number 和 Boolean 使用 new 操作符 </div><div class="line">no-param-reassign 不允许对 <span class="keyword">function</span> 的参数进行重新赋值 </div><div class="line">no-redeclare 禁止使用 var 多次声明同一变量 </div><div class="line">no-return-assign 禁止在 <span class="built_in">return</span> 语句中使用赋值语句 </div><div class="line">no-script-url 禁止使用 javascript: url </div><div class="line">no-self-assign 禁止自我赋值 </div><div class="line">no-self-compare 禁止自身比较 </div><div class="line">no-sequences 禁用逗号操作符 </div><div class="line">no-unmodified-loop-condition 禁用一成不变的循环条件 </div><div class="line">no-unused-expressions 禁止出现未使用过的表达式 </div><div class="line">no-useless-call 禁止不必要的 .call() 和 .apply() </div><div class="line">no-useless-concat 禁止不必要的字符串字面量或模板字面量的连接 </div><div class="line">vars-on-top 要求所有的 var 声明出现在它们所在的作用域顶部 </div><div class="line">—– —– </div><div class="line">Strict Mode 使用严格模式和严格模式指 </div><div class="line">strict 要求或禁止使用严格模式指令 </div><div class="line">—– —– </div><div class="line">Variables 变量声明 </div><div class="line">init-declarations 要求或禁止 var 声明中的初始化 </div><div class="line">no-catch-shadow 不允许 catch 子句的参数与外层作用域中的变量同名 </div><div class="line">no-restricted-globals 禁用特定的全局变量 </div><div class="line">no-shadow 禁止 var 声明 与外层作用域的变量同名 </div><div class="line">no-undef 禁用未声明的变量，除非它们在 /global / 注释中被提到 </div><div class="line">no-undef-init 禁止将变量初始化为 undefined </div><div class="line">no-unused-vars 禁止出现未使用过的变量 </div><div class="line">no-use-before-define 不允许在变量定义之前使用它们 </div><div class="line">—– —– </div><div class="line">Nodejs and CommonJS Node.js,CommonJS </div><div class="line">global-require 要求 require() 出现在顶层模块作用域中 </div><div class="line">handle-callback-err 要求回调函数中有容错处理 </div><div class="line">no-mixed-requires 禁止混合常规 var 声明和 require 调用 </div><div class="line">no-new-require 禁止调用 require 时使用 new 操作符 </div><div class="line">no-path-concat 禁止对 dirname 和 filename进行字符串连接 </div><div class="line">no-restricted-modules 禁用指定的通过 require 加载的模块 </div><div class="line">—– —– </div><div class="line">Stylistic Issues 风格指南 </div><div class="line">array-bracket-spacing 强制数组方括号中使用一致的空格 </div><div class="line">block-spacing 强制在单行代码块中使用一致的空格 </div><div class="line">brace-style 强制在代码块中使用一致的大括号风格 </div><div class="line">camelcase 强制使用骆驼拼写法命名约定 </div><div class="line">comma-spacing 强制在逗号前后使用一致的空格 </div><div class="line">comma-style 强制使用一致的逗号风格 </div><div class="line">computed-property-spacing 强制在计算的属性的方括号中使用一致的空格 </div><div class="line">eol-last 强制文件末尾至少保留一行空行 </div><div class="line">func-names 强制使用命名的 <span class="keyword">function</span> 表达式 </div><div class="line">func-style 强制一致地使用函数声明或函数表达式 </div><div class="line">indent 强制使用一致的缩进 </div><div class="line">jsx-quotes 强制在 JSX 属性中一致地使用双引号或单引号 </div><div class="line">key-spacing 强制在对象字面量的属性中键和值之间使用一致的间距 </div><div class="line">keyword-spacing 强制在关键字前后使用一致的空格 </div><div class="line">linebreak-style 强制使用一致的换行风格 </div><div class="line">lines-around-comment 要求在注释周围有空行 </div><div class="line">max-depth 强制可嵌套的块的最大深度 </div><div class="line">max-len 强制一行的最大长度 </div><div class="line">max-lines 强制最大行数 </div><div class="line">max-nested-callbacks 强制回调函数最大嵌套深度 </div><div class="line">max-params 强制 <span class="keyword">function</span> 定义中最多允许的参数数量 </div><div class="line">max-statements 强制 <span class="keyword">function</span> 块最多允许的的语句数量 </div><div class="line">max-statements-per-line 强制每一行中所允许的最大语句数量 </div><div class="line">new-cap 要求构造函数首字母大写 </div><div class="line">new-parens 要求调用无参构造函数时有圆括号 </div><div class="line">newline-after-var 要求或禁止 var 声明语句后有一行空行 </div><div class="line">newline-before-return 要求 <span class="built_in">return</span> 语句之前有一空行 </div><div class="line">newline-per-chained-call 要求方法链中每个调用都有一个换行符 </div><div class="line">no-array-constructor 禁止使用 Array 构造函数 </div><div class="line">no-continue 禁用 <span class="built_in">continue</span> 语句 </div><div class="line">no-inline-comments 禁止在代码行后使用内联注释 </div><div class="line">no-lonely-if 禁止 <span class="keyword">if</span> 作为唯一的语句出现在 <span class="keyword">else</span> 语句中 </div><div class="line">no-mixed-spaces-and-tabs 不允许空格和 tab 混合缩进 </div><div class="line">no-multiple-empty-lines 不允许多个空行 </div><div class="line">no-negated-condition 不允许否定的表达式 </div><div class="line">no-plusplus 禁止使用一元操作符 ++ 和 – </div><div class="line">no-spaced-func 禁止 <span class="keyword">function</span> 标识符和括号之间出现空格 </div><div class="line">no-ternary 不允许使用三元操作符 </div><div class="line">no-trailing-spaces 禁用行尾空格 </div><div class="line">no-whitespace-before-property 禁止属性前有空白 </div><div class="line">object-curly-newline 强制花括号内换行符的一致性 </div><div class="line">object-curly-spacing 强制在花括号中使用一致的空格 </div><div class="line">object-property-newline 强制将对象的属性放在不同的行上 </div><div class="line">one-var 强制函数中的变量要么一起声明要么分开声明 </div><div class="line">one-var-declaration-per-line 要求或禁止在 var 声明周围换行 </div><div class="line">operator-assignment 要求或禁止在可能的情况下要求使用简化的赋值操作符 </div><div class="line">operator-linebreak 强制操作符使用一致的换行符 </div><div class="line">quote-props 要求对象字面量属性名称用引号括起来 </div><div class="line">quotes 强制使用一致的反勾号、双引号或单引号 </div><div class="line">require-jsdoc 要求使用 JSDoc 注释 </div><div class="line">semi 要求或禁止使用分号而不是 ASI </div><div class="line">semi-spacing 强制分号之前和之后使用一致的空格 </div><div class="line">sort-vars 要求同一个声明块中的变量按顺序排列 </div><div class="line">space-before-blocks 强制在块之前使用一致的空格 </div><div class="line">space-before-function-paren 强制在 <span class="keyword">function</span>的左括号之前使用一致的空格 </div><div class="line">space-in-parens 强制在圆括号内使用一致的空格 </div><div class="line">space-infix-ops 要求操作符周围有空格 </div><div class="line">space-unary-ops 强制在一元操作符前后使用一致的空格 </div><div class="line">spaced-comment 强制在注释中 // 或 /* 使用一致的空格</div></pre></td></tr></table></figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-11-30T04:18:43.864Z" itemprop="dateUpdated">2019-11-30 12:18:43</time>
+</span><br>
+
+
+        
+        谢谢浏览，我会继续努力的，示例：<a href="/2019/11/30/eslint规范代码/" target="_blank" rel="external">http://yoursite.com/2019/11/30/eslint规范代码/</a>
+        
+    </div>
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.jpg" alt="BingZhenhuang">
+            BingZhenhuang
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/eslint/">eslint</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/代码规范/">代码规范</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/11/30/eslint规范代码/&title=《eslint规范代码》 — Hardy | 小方块&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/11/30/eslint规范代码/&title=《eslint规范代码》 — Hardy | 小方块&source=是该给选手们订一套代码规范套餐了。。。
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/11/30/eslint规范代码/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《eslint规范代码》 — Hardy | 小方块&url=http://yoursite.com/2019/11/30/eslint规范代码/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/11/30/eslint规范代码/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/11/16/vue3基本玩法/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">vue3基本玩法</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        🤠 请我喝可乐！
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content" style="width:50%">
+        
+        <div class="reward-code" style="text-align:center">
+            <div style="width:300px;margin:0px auto;">
+               <img id="rewardCode" style="width:50%;height:60%;display:block; margin:0px auto;" src="/img/alipay.jpg" alt="支付宝打赏二维码">
+               <span style="display:inline-block; margin-bottom:20px;">0.88(支付宝 aliPay)</span>
+               <img id="rewardCode" style="width:50%;height:60%;display:block; margin:0px auto;" src="/img/wechat.jpg" alt="微信打赏二维码">
+               <span style="display:inline-block;">0.88(微信 weChat)</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+</div>
+
+        <script>
+!function(e,t,a){function n(){c(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"),o(),r()}function r(){for(var e=0;e<d.length;e++)d[e].alpha<=0?(t.body.removeChild(d[e].el),d.splice(e,1)):(d[e].y--,d[e].scale+=.004,d[e].alpha-=.013,d[e].el.style.cssText="left:"+d[e].x+"px;top:"+d[e].y+"px;opacity:"+d[e].alpha+";transform:scale("+d[e].scale+","+d[e].scale+") rotate(45deg);background:"+d[e].color+";z-index:99999");requestAnimationFrame(r)}function o(){var t="function"==typeof e.onclick&&e.onclick;e.onclick=function(e){t&&t(),i(e)}}function i(e){var a=t.createElement("div");a.className="heart",d.push({el:a,x:e.clientX-5,y:e.clientY-5,scale:1,alpha:1,color:s()}),t.body.appendChild(a)}function c(e){var a=t.createElement("style");a.type="text/css";try{a.appendChild(t.createTextNode(e))}catch(t){a.styleSheet.cssText=e}t.getElementsByTagName("head")[0].appendChild(a)}function s(){return"rgb("+~~(255*Math.random())+","+~~(255*Math.random())+","+~~(255*Math.random())+")"}var d=[];e.requestAnimationFrame=function(){return e.requestAnimationFrame||e.webkitRequestAnimationFrame||e.mozRequestAnimationFrame||e.oRequestAnimationFrame||e.msRequestAnimationFrame||function(e){setTimeout(e,1e3/60)}}(),n()}(window,document);
+</script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script>
+    function secondToDate(second) {
+        if (!second) {
+            return 0;
+        }
+        var time = new Array(0, 0, 0, 0, 0);
+        if (second >= 365 * 24 * 3600) {
+            time[0] = parseInt(second / (365 * 24 * 3600));
+            second %= 365 * 24 * 3600;
+        }
+        if (second >= 24 * 3600) {
+            time[1] = parseInt(second / (24 * 3600));
+            second %= 24 * 3600;
+        }
+        if (second >= 3600) {
+            time[2] = parseInt(second / 3600);
+            second %= 3600;
+        }
+        if (second >= 60) {
+            time[3] = parseInt(second / 60);
+            second %= 60;
+        }
+        if (second > 0) {
+            time[4] = second;
+        }
+        return time;
+    }</script>
+<script type="text/javascript" language="javascript">
+    function setTime() {
+        var create_time = Math.round(new Date(Date.UTC(2017, 08, 18, 11, 42, 23)).getTime() / 1000);
+        var timestamp = Math.round((new Date().getTime() + 8 * 60 * 60 * 1000) / 1000);
+        currentTime = secondToDate((timestamp - create_time));
+        currentTimeHtml = 'Running：' + currentTime[0] + '年 ' + currentTime[1] + '天 '
+                + currentTime[2] + '时 ' + currentTime[3] + '分 ' + currentTime[4]
+                + '秒';
+        document.getElementById("htmer_time").innerHTML = currentTimeHtml;
+    }    setInterval(setTime, 1000);
+</script>
+<footer class="footer">
+    <div class="top">
+        
+
+        <p>
+          <span id="busuanzi_container_page_pv">
+             [&nbsp;浏览量：&nbsp;<span id="busuanzi_value_page_pv"></span>&nbsp;]
+          </span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+        <span>BingZhenhuang &copy; 2017 - 2019</span>
+            <span>
+                
+                Power by <a href="https://hhardyy.github.io/" target="_blank">zhen On August 8</a> 
+            </span>
+            <span id="htmer_time" "></span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/11/30/eslint规范代码/&title=《eslint规范代码》 — Hardy | 小方块&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/11/30/eslint规范代码/&title=《eslint规范代码》 — Hardy | 小方块&source=是该给选手们订一套代码规范套餐了。。。
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/11/30/eslint规范代码/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《eslint规范代码》 — Hardy | 小方块&url=http://yoursite.com/2019/11/30/eslint规范代码/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/11/30/eslint规范代码/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKklEQVR42u3aS27DMAxF0ex/0y7QUYEk9n2kXMDU1ShIHUUnA5YfvV54Hb+LvPP3/ffX758632HxkiFDxmMZx+k6f4b89Ru7s/OH3WTIkLEB4zzInofC8yfJ4UjIvjizDBkyZIQHJQll+lqGDBkyagye8PGSVYYMGTI6RWytZCWNOZJoLqvFZciQ8UBGOhj4z9c3zjdkyJDxEMYRrn5LLh1kolPJkCFjNIO06dNYRz7LB5zBhQwZMmSMZtxy9SHcrfajfMXIkCFjECNt2ZNN08FnJ5TLkCFjH8Z5437VodNwzJ+RIUPGDoxOs6xDJWUtKndlyJAxmrH2KKQ0TYvV4J+BDBkyNmCkR6kleauK2w9PypAhYyiDhzwyHogHjWFbDd0ZkSFDxjhGrYBML0akqV4xNMuQIWM0Y1U6SNI4fqxiQJchQ8Y4RmolpWntoJxRvGwhQ4aMhzPSFvyq0Hw0lgwZMnZm8AKVTx7SXDXObWXIkDGaQdpeacOLFLedNDRot8mQIWMEg1+PuK+tz9kyZMiQUQu7hNpZ6HtlyJAxmsGLw7vf56SLHWTIkDGOUWvH1xptPB0kieZFhitDhoxBjH6KxsMrD+j86DJkyNiH0S9ca0PQzshzwfBShgwZD2R0Er7056gNO1HvUIYMGdsz+Igxvf7Fc1gZMmTI4OPDtMVWC+LBkECGDBkbMHgRSwrXNOz2k04ZMmTMZnQGA8XtcKuO/0AyZMgYyvgBohaEmlJRQNQAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = 'Hardy';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '小方块';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
