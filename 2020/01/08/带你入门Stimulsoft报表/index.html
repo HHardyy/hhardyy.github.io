@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?d890b1f16fb364253e79c5bb20225c3a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+    
+
+    
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?busuanzi_value_site_uv"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    <meta name="baidu-site-verification" content="FYMCShbUK8" />
+    <meta name="baidu-site-verification" content="ZYRF7OxQRW" />
+    <meta name="baidu-site-verification" content="cHSqtjI0PN" />
+    <meta name="baidu-site-verification" content="cHSqtjI0PN" />
+    <meta name="baidu-site-verification" content="cHSqtjI0PN" />
+    
+    
+    <link rel="canonical" href="https://hhardyy.com/2020/01/08/带你入门Stimulsoft报表/">
+    
+    
+    <title>Stimulsoft in web | 小方块 - hhardyy.com | 复杂的坑+归其原理+了解实现规则===解决？解决成功：加油解决成功;</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#958e93">
+    
+    
+    <meta name="keywords" content="Stimulsoft,office,报表,web">
+    <meta name="description" content="我们在开发一些web应用或者后台管理系统的时候，可能会遇到做报表的需求，同时支持在线设计。">
+<meta name="keywords" content="Stimulsoft,office,报表,web">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Stimulsoft in web">
+<meta property="og:url" content="http://yoursite.com/2020/01/08/带你入门Stimulsoft报表/index.html">
+<meta property="og:site_name" content="小方块 - hhardyy.com">
+<meta property="og:description" content="我们在开发一些web应用或者后台管理系统的时候，可能会遇到做报表的需求，同时支持在线设计。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/images/stimulsoft/1.png">
+<meta property="og:image" content="http://yoursite.com/images/stimulsoft/viewer.png">
+<meta property="og:image" content="http://yoursite.com/images/stimulsoft/desight1.png">
+<meta property="og:image" content="http://yoursite.com/images/stimulsoft/desight2.png">
+<meta property="og:updated_time" content="2020-01-11T18:09:12.402Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Stimulsoft in web">
+<meta name="twitter:description" content="我们在开发一些web应用或者后台管理系统的时候，可能会遇到做报表的需求，同时支持在线设计。">
+<meta name="twitter:image" content="http://yoursite.com/images/stimulsoft/1.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="小方块 - hhardyy.com" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/hardyfavicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/paulGraham.jpg)">
+      <div class="brand" style="background-color:#4154b2">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">BingZhenhuang</h5>
+          <a href="mailto:huangbingzhen@hhardyy.com" title="huangbingzhen@hhardyy.com" class="mail">huangbingzhen@hhardyy.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                所有文章
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/HHardyy" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://juejin.im/user/59a26f926fb9a02487553b04"  >
+                <i class="icon icon-lg icon-pencil"></i>
+                掘金-圳
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://segmentfault.com/u/hhardyy"  >
+                <i class="icon icon-lg icon-comments"></i>
+                Segmentfault
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://codepen.io/HHardyy/" target="_blank" >
+                <i class="icon icon-lg icon-codepen"></i>
+                Codepen
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/ZhenSolive/find.html" target="_blank" >
+                <i class="icon icon-lg icon-globe"></i>
+                原生直播间
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/hero/judge.html" target="_blank" >
+                <i class="icon icon-lg icon-cloud"></i>
+                原生小悟空
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/airPlay/HHardyy_PC.html" target="_blank" >
+                <i class="icon icon-lg icon-camera"></i>
+                原生飞机大战（PC）
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.freecodecamp.cn/hhardyy" target="_blank" >
+                <i class="icon icon-lg icon-leaf"></i>
+                Freecodecamp
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/友情链接"  >
+                <i class="icon icon-lg icon-link"></i>
+                友链
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Stimulsoft in web</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Stimulsoft in web</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-01-07T16:11:47.000Z" itemprop="datePublished" class="page-time">
+  2020-01-08
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#加载资源"><span class="post-toc-number">1.</span> <span class="post-toc-text">加载资源</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#基础配置"><span class="post-toc-number">2.</span> <span class="post-toc-text">基础配置</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#viewer配置"><span class="post-toc-number">3.</span> <span class="post-toc-text">viewer配置</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#使用报表模板"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">使用报表模板</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#加载数据源"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">加载数据源</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#desight配置"><span class="post-toc-number">4.</span> <span class="post-toc-text">desight配置</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#实例化一个报表对象"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">实例化一个报表对象</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#加载模板"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">加载模板</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#加载数据源-为了在设计的时候可以拖拽数据源到相应的比如二维码，条码，产品码等或者组合成快递面单上面，直接设计成一个模板，供多处使用"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">加载数据源,为了在设计的时候可以拖拽数据源到相应的比如二维码，条码，产品码等或者组合成快递面单上面，直接设计成一个模板，供多处使用</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#设计模板相关配置"><span class="post-toc-number">4.4.</span> <span class="post-toc-text">设计模板相关配置</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#保存和另存为"><span class="post-toc-number">4.5.</span> <span class="post-toc-text">保存和另存为</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-带你入门Stimulsoft报表"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Stimulsoft in web</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-01-08 00:11:47" datetime="2020-01-07T16:11:47.000Z"  itemprop="datePublished">2020-01-08</time>
+
+            
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>我们在开发一些web应用或者后台管理系统的时候，可能会遇到做报表的需求，同时支持在线设计。</p>
+<p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=426341675&auto=0&height=66"></iframe><br><a id="more"></a></p>
+<blockquote>
+<p>Stimulsoft是什么？         为您的应用程序添加高性能报表和分析功能！（Stimulsoft的官网是这么介绍的）</p>
+</blockquote>
+<p>直接上手，我这里是用cli create了一个绿色纯天然无污染的vue demo，当然h5,react,ng以及…所有web应用中的用法应该都是大同小异</p>
+<h3 id="加载资源"><a href="#加载资源" class="headerlink" title="加载资源"></a>加载资源</h3><p>通常来说，我们在web中使用外部资源，或者第三方工具库的时候都要先加载资源，所以先把Stimulsoft需要的资源先引入(这几个类库资源还是比较大，为了避免加载时间可以选择cdn加速，或者按需，或者你希望的姿势进行加载，只要顺序在使用里面对象属性之前即可)<br>这里是直接在public目录下新建的2个资源文件夹<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/stimulsoft/1.png" alt="资源结构" title="">
+                </div>
+                <div class="image-caption">资源结构</div>
+            </figure><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;!-- css资源 --&gt;</div><div class="line">&lt;link rel=<span class="string">"stylesheet"</span> href=<span class="string">"./reportcss/stimulsoft.designer.office2013.whiteblue.css"</span>/&gt;</div><div class="line">&lt;link rel=<span class="string">"stylesheet"</span> href=<span class="string">"./reportcss/stimulsoft.viewer.office2013.whiteblue.css"</span>/&gt;</div><div class="line"></div><div class="line">&lt;!-- js资源 --&gt;</div><div class="line">&lt;script src=<span class="string">"./reportjs/stimulsoft.reports.pack.js"</span>&gt;&lt;/script&gt;</div><div class="line">&lt;script src=<span class="string">"./reportjs/stimulsoft.reports.maps.pack.js"</span>&gt;&lt;/script&gt;</div><div class="line">&lt;script src=<span class="string">"./reportjs/stimulsoft.viewer.pack.js"</span>&gt;&lt;/script&gt;</div><div class="line">&lt;script src=<span class="string">"./reportjs/stimulsoft.designer.pack.js"</span>&gt;&lt;/script&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="基础配置"><a href="#基础配置" class="headerlink" title="基础配置"></a>基础配置</h3><p>设置key，如果拿到授权之后就可以有key，有了key使用报表就没有默认水印<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Stimulsoft.Base.StiLicense.key = <span class="string">'获取授权的key'</span></div></pre></td></tr></table></figure></p>
+<p>设置报表的语言，语言包在<a href="">这个demo的public文件夹下的localization</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Stimulsoft.Base.Localization.StiLocalization.setLocalizationFile(<span class="string">'./localization/zh-CHS.xml'</span>, <span class="literal">true</span>)</div></pre></td></tr></table></figure></p>
+<h3 id="viewer配置"><a href="#viewer配置" class="headerlink" title="viewer配置"></a>viewer配置</h3><p>页面上写一个容器，也就是报表的容器,创建完容器之后再写下面的js<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div id=<span class="string">"viewer"</span>&gt;&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<p>实例化报表的可选项，比如工具栏toobar，工具栏上需要有什么，比如我需要显示设计按钮，可以在这个页面点开设计页<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"> //实例化报表的可选项</div><div class="line"> const options = new Stimulsoft.Viewer.StiViewerOptions()</div><div class="line"> //显示设计按钮，设置<span class="literal">false</span>或者不写则隐藏</div><div class="line"> options.toolbar.showDesignButton = <span class="literal">true</span></div><div class="line"></div><div class="line"> //demo里面的options配置</div><div class="line">options.appearance.scrollbarsMode = <span class="literal">false</span></div><div class="line">options.toolbar.showDesignButton = <span class="literal">true</span></div><div class="line">options.toolbar.printDestination = Stimulsoft.Viewer.StiPrintDestination.Direct</div><div class="line">options.appearance.htmlRenderMode = Stimulsoft.Report.Export.StiHtmlExportMode.Table</div></pre></td></tr></table></figure></p>
+<p><a href="https://admin.stimulsoft.com/documentation/classreference-js/classes/stimulsoft.viewer.stivieweroptions.html" target="_blank" rel="external">关于options的配置说明在这里，根据需要配就好了</a></p>
+<h4 id="使用报表模板"><a href="#使用报表模板" class="headerlink" title="使用报表模板"></a>使用报表模板</h4><blockquote>
+<p>就是打开这个页面的时候，如果想加载已经有的报表模板，直接可以加载进来，因为同样的报表模板可以应用在不同的场景;</p>
+</blockquote>
+<p>实例化一个预览对象viewer，将上面创建的可选项对象options传入预览的报表,然后实例化一个空报表对象，用这个空报表对象去加载引入的报表模板（报表模板实际是一个可以序列化的json对象，但是默认是.mrt文件。所以可以选择loadFile,也可以load，具体取决于你自己的保存格式，后面会介绍如何生成这个模板json，可以直接发给后端帮你保存，我是把它裁剪成json代码段然后保存成一个json文件，每个json文件对应一个模板）<a href="https://admin.stimulsoft.com/documentation/classreference-js/classes/stimulsoft.report.stireport.html" target="_blank" rel="external">说明可以看这里</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">let</span> viewer = new Stimulsoft.Viewer.StiViewer(options, <span class="string">'StiViewer'</span>, <span class="literal">false</span>)</div><div class="line"><span class="built_in">let</span> report = new Stimulsoft.Report.StiReport()</div><div class="line">report.load(<span class="string">'json格式的代码'</span>)    //举例这段json直接从后端接口返回，直接给这里赋值即可</div></pre></td></tr></table></figure></p>
+<h4 id="加载数据源"><a href="#加载数据源" class="headerlink" title="加载数据源"></a>加载数据源</h4><blockquote>
+<p>加载数据源的目的是为了在设计报表的时候可以通过赋值的数据源拖拽设计想要的报表格式,如果数据源不同，模板上的动态数据将展示不出来;</p>
+</blockquote>
+<p>实例化一个数据源，然后往里面传入数据，数据结构可以根据需要自定义,<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">let</span> data = &#123;</div><div class="line">	name:<span class="string">'小方块'</span>,</div><div class="line">	age:18</div><div class="line">&#125;</div><div class="line"><span class="built_in">let</span> strDataSorce = JSON.stringify(data)</div><div class="line"><span class="built_in">let</span> dataSet = new Stimulsoft.System.Data.DataSet(<span class="string">'hardy'</span>)    //数据源名称</div><div class="line">dataSet.readJson(strDataSorce)</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>注册数据源</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">report.regData(<span class="string">'hardy'</span>, <span class="string">'hardy'</span>, dataSet)</div></pre></td></tr></table></figure>
+<blockquote>
+<p>刷新数据源字典</p>
+</blockquote>
+<p>刷新之后才能在数据源的菜单看到新数据<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">report.dictionary.synchronize()  </div><div class="line">`</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>创建完毕之后把它渲染到一个dom就好了</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">viewer.report = report</div><div class="line">viewer.renderHtml(<span class="string">'viewer'</span>)</div></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/stimulsoft/viewer.png" alt="运行效果" title="">
+                </div>
+                <div class="image-caption">运行效果</div>
+            </figure>
+<p>viewer上面有很多toobar相对应的事件处理函数，具体<a href="https://admin.stimulsoft.com/documentation/classreference-js/classes/stimulsoft.viewer.stiviewer.html" target="_blank" rel="external">可以看这里</a>，然后找到自己需要的。<br>刚才在上面开启了设计按钮，那么点击设计按钮的时候会触发viewer上面的onDesignReport方法，如果不需要直接开启设计功能则把options.toolbar.showDesignButton = true去掉或者改成=false，如果需要这个功能就再创建一个容器用来渲染设计功能的界面。就像这样<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">// 进入设计面板</div><div class="line">viewer.onDesignReport = <span class="keyword">function</span> (e) &#123;</div><div class="line">	<span class="keyword">if</span> (designer == null) &#123;                 //这里可以声明一个设计和预览两个方法都能访问到的desight初始化null值，避免对象重复实例化</div><div class="line">	    _createDesightModel(e.report)       //_createDesightModel和单独做设计功能一样，只是渲染的容器改成相对应的容器就好了        </div><div class="line">	&#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="desight配置"><a href="#desight配置" class="headerlink" title="desight配置"></a>desight配置</h3><p>创建一个容器<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div class=<span class="string">"desight"</span>&gt;&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<h4 id="实例化一个报表对象"><a href="#实例化一个报表对象" class="headerlink" title="实例化一个报表对象"></a>实例化一个报表对象</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">let</span> report = new Stimulsoft.Report.StiReport()</div></pre></td></tr></table></figure>
+<h4 id="加载模板"><a href="#加载模板" class="headerlink" title="加载模板"></a>加载模板</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">report.load(<span class="string">'你的jsonfile模板'</span>)</div></pre></td></tr></table></figure>
+<h4 id="加载数据源-为了在设计的时候可以拖拽数据源到相应的比如二维码，条码，产品码等或者组合成快递面单上面，直接设计成一个模板，供多处使用"><a href="#加载数据源-为了在设计的时候可以拖拽数据源到相应的比如二维码，条码，产品码等或者组合成快递面单上面，直接设计成一个模板，供多处使用" class="headerlink" title="加载数据源,为了在设计的时候可以拖拽数据源到相应的比如二维码，条码，产品码等或者组合成快递面单上面，直接设计成一个模板，供多处使用"></a>加载数据源,为了在设计的时候可以拖拽数据源到相应的比如二维码，条码，产品码等或者组合成快递面单上面，直接设计成一个模板，供多处使用</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">let</span> data = &#123;</div><div class="line">	name:<span class="string">'小方块'</span>,</div><div class="line">	age:18</div><div class="line">&#125;</div><div class="line"><span class="built_in">let</span> strDataSorce = JSON.stringify(data)                      //实例化一个数据源</div><div class="line">var dataSet = new Stimulsoft.System.Data.DataSet(<span class="string">'hardy'</span>)    //设置数据源</div><div class="line">dataSet.readJson(strDataSorce)                               //给数据源赋值</div><div class="line">report.regData(<span class="string">'hardy'</span>, <span class="string">'hardy'</span>, dataSet)                    //注册数据源</div><div class="line">report.dictionary.synchronize()                              //更新字典</div></pre></td></tr></table></figure>
+<h4 id="设计模板相关配置"><a href="#设计模板相关配置" class="headerlink" title="设计模板相关配置"></a>设计模板相关配置</h4><p>实例化可选项，关于设计模板的可选项可以在<a href="https://admin.stimulsoft.com/documentation/classreference-js/classes/stimulsoft.designer.stidesigneroptions.html" target="_blank" rel="external">这里查看</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">let</span> options = new Stimulsoft.Designer.StiDesignerOptions()</div><div class="line"></div><div class="line">//我的demo中配置</div><div class="line">options.appearance.fullScreenMode = <span class="literal">true</span>      //是否全屏</div><div class="line">options.toolbar.showFileMenuExit = <span class="literal">true</span>       //显示文件菜单的退出</div><div class="line">options.toolbar.showFileMenuClose = <span class="literal">false</span>     //不显示关闭按钮</div><div class="line">options.toolbar.showFileMenuSaveAs = <span class="literal">true</span>     //文件菜单显示另存为</div></pre></td></tr></table></figure></p>
+<p>实例化一个设计模版对象，将配置的可选项传入<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">let</span> designer = new Stimulsoft.Designer.StiDesigner(options, <span class="string">'StiDesigner'</span>, <span class="literal">false</span>)</div></pre></td></tr></table></figure></p>
+<h4 id="保存和另存为"><a href="#保存和另存为" class="headerlink" title="保存和另存为"></a>保存和另存为</h4><blockquote>
+<p>设计和预览不同，设计之后你可能需要保存，或者另存为新的文件 </p>
+</blockquote>
+<p>designer原型上自带了很多操作函数，具体可以<a href="https://admin.stimulsoft.com/documentation/classreference-js/classes/stimulsoft.designer.stidesigner.html" target="_blank" rel="external">查看这里</a>,通过designer直接调用即可，比如保存和另存为<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">//保存     点文件菜单的保存触发</div><div class="line">designer.onSaveReport = <span class="keyword">function</span> (args) &#123;</div><div class="line">    <span class="built_in">let</span> jsonReport = args.report.saveToJsonString()     //拿到当前设计的这个模板的jsonfile</div><div class="line">    //拿到之后你可以自定义要怎么做,可以发送到后端去保存</div><div class="line">&#125;</div><div class="line"></div><div class="line">//另存为    点文件菜单的另存为触发,同时触发一个可以重命名文件进行下载的窗口</div><div class="line">designer.onSaveAsReport = <span class="keyword">function</span>(args)&#123;</div><div class="line">	<span class="built_in">let</span> jsonReport = args.report.saveToJsonString()     //拿到当前设计的这个模板的jsonfile</div><div class="line">	//和保存一样可以做喜欢做的事</div><div class="line">&#125;</div><div class="line"></div><div class="line">//退出       点文件菜单的退出触发</div><div class="line">designer.onExit = <span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">   //做喜欢的事</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>渲染报表<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">designer.report = report</div><div class="line">designer.renderHtml(<span class="string">'desight'</span>)</div></pre></td></tr></table></figure></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/stimulsoft/desight1.png" alt="运行效果1" title="">
+                </div>
+                <div class="image-caption">运行效果1</div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/stimulsoft/desight2.png" alt="运行效果2" title="">
+                </div>
+                <div class="image-caption">运行效果2</div>
+            </figure>
+<p><a href="https://github.com/HHardyy/Stimulsoft-in-web" target="_blank" rel="external">写这篇文章的时候简单写的demo：https://github.com/HHardyy/Stimulsoft-in-web</a></p>
+<p>2020第一篇，最近比较忙，框架升级，轮子维护&amp;&amp;开发，最近在搞web异常监控，就是针对web做的代码监控，回头看看能不能写一个，2019年比较幸运，入职6个月试用期，然后1个月提前转正，然后感谢大家把优秀员工的名额给了我，然后19年学的东西全在码云的提交记录了，等有时间再整理一下，20年给自己定了新的flag，继续奔跑吧年轻人！！！睡是什么，我不知道！！！！。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-01-11T18:09:12.402Z" itemprop="dateUpdated">2020-01-12 02:09:12</time>
+</span><br>
+
+
+        
+        谢谢浏览，我会继续努力的，示例：<a href="/2020/01/08/带你入门Stimulsoft报表/" target="_blank" rel="external">http://yoursite.com/2020/01/08/带你入门Stimulsoft报表/</a>
+        
+    </div>
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.jpg" alt="BingZhenhuang">
+            BingZhenhuang
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Stimulsoft/">Stimulsoft</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/office/">office</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web/">web</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/报表/">报表</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2020/01/08/带你入门Stimulsoft报表/&title=《Stimulsoft in web》 — 小方块 - hhardyy.com&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2020/01/08/带你入门Stimulsoft报表/&title=《Stimulsoft in web》 — 小方块 - hhardyy.com&source=我们在开发一些web应用或者后台管理系统的时候，可能会遇到做报表的需求，同时支持在线设计。
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2020/01/08/带你入门Stimulsoft报表/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Stimulsoft in web》 — 小方块 - hhardyy.com&url=http://yoursite.com/2020/01/08/带你入门Stimulsoft报表/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2020/01/08/带你入门Stimulsoft报表/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/11/30/eslint规范代码/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">eslint规范代码</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        🤠 请我喝可乐！
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content" style="width:50%">
+        
+        <div class="reward-code" style="text-align:center">
+            <div style="width:300px;margin:0px auto;">
+               <img id="rewardCode" style="width:50%;height:60%;display:block; margin:0px auto;" src="/img/alipay.jpg" alt="支付宝打赏二维码">
+               <span style="display:inline-block; margin-bottom:20px;">0.88(支付宝 aliPay)</span>
+               <img id="rewardCode" style="width:50%;height:60%;display:block; margin:0px auto;" src="/img/wechat.jpg" alt="微信打赏二维码">
+               <span style="display:inline-block;">0.88(微信 weChat)</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+</div>
+
+        <script>
+!function(e,t,a){function n(){c(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"),o(),r()}function r(){for(var e=0;e<d.length;e++)d[e].alpha<=0?(t.body.removeChild(d[e].el),d.splice(e,1)):(d[e].y--,d[e].scale+=.004,d[e].alpha-=.013,d[e].el.style.cssText="left:"+d[e].x+"px;top:"+d[e].y+"px;opacity:"+d[e].alpha+";transform:scale("+d[e].scale+","+d[e].scale+") rotate(45deg);background:"+d[e].color+";z-index:99999");requestAnimationFrame(r)}function o(){var t="function"==typeof e.onclick&&e.onclick;e.onclick=function(e){t&&t(),i(e)}}function i(e){var a=t.createElement("div");a.className="heart",d.push({el:a,x:e.clientX-5,y:e.clientY-5,scale:1,alpha:1,color:s()}),t.body.appendChild(a)}function c(e){var a=t.createElement("style");a.type="text/css";try{a.appendChild(t.createTextNode(e))}catch(t){a.styleSheet.cssText=e}t.getElementsByTagName("head")[0].appendChild(a)}function s(){return"rgb("+~~(255*Math.random())+","+~~(255*Math.random())+","+~~(255*Math.random())+")"}var d=[];e.requestAnimationFrame=function(){return e.requestAnimationFrame||e.webkitRequestAnimationFrame||e.mozRequestAnimationFrame||e.oRequestAnimationFrame||e.msRequestAnimationFrame||function(e){setTimeout(e,1e3/60)}}(),n()}(window,document);
+</script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script>
+    function secondToDate(second) {
+        if (!second) {
+            return 0;
+        }
+        var time = new Array(0, 0, 0, 0, 0);
+        if (second >= 365 * 24 * 3600) {
+            time[0] = parseInt(second / (365 * 24 * 3600));
+            second %= 365 * 24 * 3600;
+        }
+        if (second >= 24 * 3600) {
+            time[1] = parseInt(second / (24 * 3600));
+            second %= 24 * 3600;
+        }
+        if (second >= 3600) {
+            time[2] = parseInt(second / 3600);
+            second %= 3600;
+        }
+        if (second >= 60) {
+            time[3] = parseInt(second / 60);
+            second %= 60;
+        }
+        if (second > 0) {
+            time[4] = second;
+        }
+        return time;
+    }</script>
+<script type="text/javascript" language="javascript">
+    function setTime() {
+        var create_time = Math.round(new Date(Date.UTC(2017, 08, 18, 11, 42, 23)).getTime() / 1000);
+        var timestamp = Math.round((new Date().getTime() + 8 * 60 * 60 * 1000) / 1000);
+        currentTime = secondToDate((timestamp - create_time));
+        currentTimeHtml = 'Running：' + currentTime[0] + '年 ' + currentTime[1] + '天 '
+                + currentTime[2] + '时 ' + currentTime[3] + '分 ' + currentTime[4]
+                + '秒';
+        document.getElementById("htmer_time").innerHTML = currentTimeHtml;
+    }    setInterval(setTime, 1000);
+</script>
+<footer class="footer">
+    <div class="top">
+        
+
+        <p>
+          <span id="busuanzi_container_page_pv">
+             [&nbsp;浏览量：&nbsp;<span id="busuanzi_value_page_pv"></span>&nbsp;]
+          </span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+        <span>BingZhenhuang &copy; 2017 - 2020</span>
+            <span>
+                
+                Power by <a href="https://hhardyy.github.io/" target="_blank">zhen On August 8</a> 
+            </span>
+            <span id="htmer_time" "></span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2020/01/08/带你入门Stimulsoft报表/&title=《Stimulsoft in web》 — 小方块 - hhardyy.com&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2020/01/08/带你入门Stimulsoft报表/&title=《Stimulsoft in web》 — 小方块 - hhardyy.com&source=我们在开发一些web应用或者后台管理系统的时候，可能会遇到做报表的需求，同时支持在线设计。
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2020/01/08/带你入门Stimulsoft报表/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Stimulsoft in web》 — 小方块 - hhardyy.com&url=http://yoursite.com/2020/01/08/带你入门Stimulsoft报表/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2020/01/08/带你入门Stimulsoft报表/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACHUlEQVR42u3aQW7DMAwEwPz/0+m1h9bZFZMWlkanAHUsDQKwJMXHI17Py5U///2v1996fGJhYGDclpEccX6sa3y77w87YmBgHMD47RDJ5+TJ6zdP3oCBgYFx/cx1SpcfN38GAwMDIw+4a+F4EnwxMDAw8jI1KTjzg/5DLY6BgXFDRt51//vPH7nfwMDAuBXjWa4kjObpXVLKRqfCwMDYmpEHuDwdTIYw5gEXAwPjNEbSmm/L2nZ0I78qiKgYGBjbMdZaafmW80ZbFJQxMDAOYLQXlpPCte2hFRkuBgbG1ox8PGKtP7+WgBYnxMDA2JSRB9O8rZ8cK8GPYjMGBsZ2jDaZW7sGSNiLl6MYGBhbM9rQ2aaP7ZNtGw4DA+MERtt8z8Nl3ixrd1/sF2JgYNyWkbe62kK3Hc4YTYhgYGBszXhv8Zls2b4nCscYGBhbM9Y2no+OzYctit8EAwPj5oxnsJID5WE0Bxf3lRgYGFszJsVqO0Kxlia238XAwNiVkRSKLa99ZxugX2S4GBgYmzLmDa+1Rn8eXl9cSGBgYBzAmJDaBtm7itho4gMDA+PmjGe52jSuvqOIqb/+x8DAwNiOka+kGTcnrSWOGBgYJzDmV5iTa863pY8YGBgHMNrAN2+lfbAWx8DAOJ4xQa7tjoGBgfE3jLyR17bkMDAwzmG0w15rLf55CI5mRjAwMLZjtKXj/IqxHXvNn8HAwNiO8QViOOTz1WSmHQAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '(•‾̑⌣‾̑•)✧˖°回来看我';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(゜-゜)つロ欢迎回来';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
