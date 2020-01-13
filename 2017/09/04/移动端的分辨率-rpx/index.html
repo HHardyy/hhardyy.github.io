@@ -66,7 +66,7 @@ var _hmt = _hmt || [];
 <meta property="og:description" content="为什么小程序模拟器下面Iphone6的分辨率是375，而设计图一般给750？？会不会是设计师搞事情？so？分析一下再决定打不打设计师。。。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/images/miniApps/DPI.JPG">
-<meta property="og:updated_time" content="2017-10-30T10:11:32.829Z">
+<meta property="og:updated_time" content="2020-01-13T15:37:59.938Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="移动端的分辨率与rpx">
 <meta name="twitter:description" content="为什么小程序模拟器下面Iphone6的分辨率是375，而设计图一般给750？？会不会是设计师搞事情？so？分析一下再决定打不打设计师。。。">
@@ -280,9 +280,9 @@ var _hmt = _hmt || [];
 <p>–其实就是同一个单位长度下面谁的物理像素点越多谁就越细腻越清晰。</p>
 <h3 id="so-那么问题又来了-Plus版本的iphone和iphone-举例iphone6-6sPlus版本比iphone6-6s版本的手机会比普通的iphone版本更清晰一些），why"><a href="#so-那么问题又来了-Plus版本的iphone和iphone-举例iphone6-6sPlus版本比iphone6-6s版本的手机会比普通的iphone版本更清晰一些），why" class="headerlink" title="so?那么问题又来了~Plus版本的iphone和iphone(举例iphone6/6sPlus版本比iphone6/6s版本的手机会比普通的iphone版本更清晰一些），why??"></a>so?那么问题又来了~Plus版本的iphone和iphone(举例iphone6/6sPlus版本比iphone6/6s版本的手机会比普通的iphone版本更清晰一些），why??</h3><p>理论上iphone6/6sPlus版本的手机Reader是3倍的关系（@3x），iphone6/6s版本的手机Reader是2倍的关系（@2x），也就是说每单位pt下面iphone6/6sPlus比iphone6/6s是多出一个px像素点的。</p>
 <p>理论虽然分析的很厉害，但是实际上来说并不会更加清晰？<br>理由是在这个单位的密度上面，视网膜屏所承担的个数(@2x)已经达到了人类的眼睛所能分辨出的极限了，如果再增加物理像素点的话，比如iphone6/6sPlus是3个（@3x）或者iphone1000000/1000000sPlus增加到1000000个（@1000000x）的时候，它并不会更加清楚（视网膜屏：我最多只接受两个（@2x），随便你增加，能更清晰算我输）。</p>
-<h3 id="小程序为什么要用iphone6的物理分辨率来做设计图？"><a href="#小程序为什么要用iphone6的物理分辨率来做设计图？" class="headerlink" title="小程序为什么要用iphone6的物理分辨率来做设计图？"></a>小程序为什么要用iphone6的物理分辨率来做设计图？</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Ip6下1px=1rpx;</div><div class="line">Ip6 Plus下1px=0.6rpx</div></pre></td></tr></table></figure>
+<h3 id="小程序为什么要用iphone6的物理分辨率来做设计图？"><a href="#小程序为什么要用iphone6的物理分辨率来做设计图？" class="headerlink" title="小程序为什么要用iphone6的物理分辨率来做设计图？"></a>小程序为什么要用iphone6的物理分辨率来做设计图？</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Ip6下<span class="number">1</span>px=<span class="number">1</span>rpx;</div><div class="line">Ip6 Plus下<span class="number">1</span>px=<span class="number">0.6</span>rpx</div></pre></td></tr></table></figure>
 <p>不是所有的单位都适合用rpx写；而是看情况的，有时候文字不需要用rpx，因为如果是小屏幕设备，等比例缩小之后会看不清</p>
-<h3 id="如何做不同分辨率设备的自适应？"><a href="#如何做不同分辨率设备的自适应？" class="headerlink" title="如何做不同分辨率设备的自适应？"></a>如何做不同分辨率设备的自适应？</h3><p>以I6的物理分辨率750x1334为视觉稿进行设计，而在小程序中使用rpx为单位<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Ip6下1px=1rpx=0.5pt</div></pre></td></tr></table></figure></p>
+<h3 id="如何做不同分辨率设备的自适应？"><a href="#如何做不同分辨率设备的自适应？" class="headerlink" title="如何做不同分辨率设备的自适应？"></a>如何做不同分辨率设备的自适应？</h3><p>以I6的物理分辨率750x1334为视觉稿进行设计，而在小程序中使用rpx为单位<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Ip6下<span class="number">1</span>px=<span class="number">1</span>rpx=<span class="number">0.5</span>pt</div></pre></td></tr></table></figure></p>
 <p>使用rpx，小程序会自动在不同的分辨率下进行转换，而使用px为单位不会</p>
 <h3 id="PPI又是什么呢？？"><a href="#PPI又是什么呢？？" class="headerlink" title="PPI又是什么呢？？"></a>PPI又是什么呢？？</h3><p>其实与Reader是差不多的，Reader是每个pt下面包含多少个px，PPI是每一寸包含多少个物理像素点，例如iphone 3GS的屏幕尺寸是3.5寸（不是宽也不是高，而是屏幕的对角线），那PPI为啥是163呢？？</p>
 <p>其实就是勾股定理，用320x480的平方开分号再除以3.5寸，就得到了163。<br>DPI和PPI的概念是一样的，DPI是指打印行业里面每个单位长度下面每个打印机所能喷墨的点数，借鉴这个东西产生了PPI。</p>
@@ -294,7 +294,7 @@ var _hmt = _hmt || [];
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2017-10-30T10:11:32.829Z" itemprop="dateUpdated">2017-10-30 18:11:32</time>
+    最后更新时间：<time datetime="2020-01-13T15:37:59.938Z" itemprop="dateUpdated">2020-01-13 23:37:59</time>
 </span><br>
 
 

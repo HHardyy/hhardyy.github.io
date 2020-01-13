@@ -74,7 +74,7 @@ var _hmt = _hmt || [];
 <meta property="og:image" content="http://yoursite.com/images/rn/code3.png">
 <meta property="og:image" content="http://yoursite.com/images/rn/reset.png">
 <meta property="og:image" content="http://yoursite.com/images/rn/end.png">
-<meta property="og:updated_time" content="2019-08-22T17:06:59.144Z">
+<meta property="og:updated_time" content="2020-01-13T15:29:13.895Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="react-native">
 <meta name="twitter:description" content="因为最近老大突然提到了原生app开发，所以我。。。">
@@ -280,18 +280,18 @@ var _hmt = _hmt || [];
 <h3 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h3><p>搭建之前温馨提示几点：<br>1、需要全程保持“科学上网”，否则能ERROR或者跳网址到你怀疑人生<br>2、因为环境需要，npm的镜像可以设置成淘宝的镜像，否则还是要依赖“科学上网工具”<br>3、不要使用 cnpm！cnpm 安装的模块路径比较奇怪，packager 不能正常识别！<br>4、Node的版本必须大于等于10<br>5、Python的版本必须为 2.x（不支持 3.x）<br>6、JDK的版本必须是1.8（我用的1.7，目前不支持 1.9 及更高版本）。</p>
 <h4 id="必须安装的依赖"><a href="#必须安装的依赖" class="headerlink" title="必须安装的依赖"></a>必须安装的依赖</h4><p>有：Node、React Native命令行工具、Python2 以及JDK和Android Studio（虽然你可以使用任何编辑器来开发应用，但你仍然必须安装 Android Studio来获得编译 Android 应用所需的工具和环境。）</p>
 <p>Node安装是每个前端的标配（略），安装完成后用node -v查看版本号</p>
-<p>Yarn是Facebook提供的替代npm的工具，可以加速node模块的下载。React Native的命令行工具用于执行创建、初始化、更新项目、运行打包服务（packager）等任务。安装命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g yarn react-native-cli</div></pre></td></tr></table></figure></p>
-<p>yarn的镜像也可以设置成淘宝镜像<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">yarn config <span class="built_in">set</span> registry https://registry.npm.taobao.org --global</div><div class="line">yarn config <span class="built_in">set</span> disturl https://npm.taobao.org/dist --global</div></pre></td></tr></table></figure></p>
+<p>Yarn是Facebook提供的替代npm的工具，可以加速node模块的下载。React Native的命令行工具用于执行创建、初始化、更新项目、运行打包服务（packager）等任务。安装命令：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g yarn react-native-cli</div></pre></td></tr></table></figure></p>
+<p>yarn的镜像也可以设置成淘宝镜像<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">yarn config set registry https:<span class="comment">//registry.npm.taobao.org --global</span></div><div class="line">yarn config set disturl https:<span class="comment">//npm.taobao.org/dist --global</span></div></pre></td></tr></table></figure></p>
 <h4 id="Android开发环境"><a href="#Android开发环境" class="headerlink" title="Android开发环境"></a>Android开发环境</h4><blockquote>
 <p>请注意！！！国内用户必须必须必须有稳定的翻墙工具，否则在下载、安装、配置过程中会不断遭遇链接超时或断开，无法进行开发工作。某些翻墙工具可能只提供浏览器的代理功能，或只针对特定网站代理等等，请自行研究配置或更换其他软件。总之如果报错中出现有网址，那么 99% 就是无法正常翻墙。</p>
 </blockquote>
-<p><a href="https://developer.android.com/studio/index.html" target="_blank" rel="external">安装Android Studio</a>,如果科学上网不了的话，即使有安装包安装过程也极大概率出问题，所以这一步先科学上网再继续<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">安装界面中选择<span class="string">"Custom"</span>选项，确保选中了以下几项：</div><div class="line">Android SDK</div><div class="line">Android SDK Platform</div><div class="line">Performance (Intel ® HAXM) </div><div class="line">Android Virtual Device</div></pre></td></tr></table></figure></p>
+<p><a href="https://developer.android.com/studio/index.html" target="_blank" rel="external">安装Android Studio</a>,如果科学上网不了的话，即使有安装包安装过程也极大概率出问题，所以这一步先科学上网再继续<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">安装界面中选择<span class="string">"Custom"</span>选项，确保选中了以下几项：</div><div class="line">Android SDK</div><div class="line">Android SDK Platform</div><div class="line">Performance (Intel ® HAXM) </div><div class="line">Android Virtual Device</div></pre></td></tr></table></figure></p>
 <p>然后点击”Next”来安装选中的组件。(如果选择框是灰的，你也可以先跳过，稍后再来安装这些组件。),看到欢迎界面就是安装完成了，然后继续下一步</p>
 <h4 id="安装-Android-SDK"><a href="#安装-Android-SDK" class="headerlink" title="安装 Android SDK"></a>安装 Android SDK</h4><blockquote>
 <p>Android Studio默认会安装最新版本的Android SDK。目前编译React Native应用需要的是Android 9(Pie)版本的SDK（注意 SDK 版本不等于终端系统版本，RN目前支持android4.1 以上设备）。你可以在Android Studio的 SDK Manager中选择安装各版本的SDK。</p>
 </blockquote>
 <p>在上面那一步安裝完成的Android Studio的欢迎界面中找到SDK Manager。点击”Configure”，然后就能看到”SDK Manager”。（SDK Manager还可以在Android Studio 的”Preferences”菜单中找到。具体路径是Appearance &amp; Behavior → System Settings → Android SDK。）</p>
-<p>在SDK Manager中选择”SDK Platforms”选项卡，然后在右下角勾选”Show Package Details”。展开Android 9 (Pie)选项，确保勾选了下面这些组件（再次提醒你需要科学上网工具，否则看不到接下来的界面）：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Android SDK Platform 28</div><div class="line">Intel x86 Atom_64 System Image（官方模拟器镜像文件，使用非官方模拟器不需要安装此组件）</div></pre></td></tr></table></figure></p>
+<p>在SDK Manager中选择”SDK Platforms”选项卡，然后在右下角勾选”Show Package Details”。展开Android 9 (Pie)选项，确保勾选了下面这些组件（再次提醒你需要科学上网工具，否则看不到接下来的界面）：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Android SDK Platform <span class="number">28</span></div><div class="line">Intel x86 Atom_64 System Image（官方模拟器镜像文件，使用非官方模拟器不需要安装此组件）</div></pre></td></tr></table></figure></p>
 <p>然后点击”SDK Tools”选项卡，同样勾中右下角的”Show Package Details”。展开”Android SDK Build-Tools”选项，确保选中了React Native 所必须的28.0.3版本。你可以同时安装多个其他版本。</p>
 <p>最后点击”Apply”来下载和安装这些组件。</p>
 <h4 id="配置系统环境变量"><a href="#配置系统环境变量" class="headerlink" title="配置系统环境变量"></a>配置系统环境变量</h4><blockquote>
@@ -299,7 +299,7 @@ var _hmt = _hmt || [];
 </blockquote>
 <p>在系统的环境变量创建一个名为ANDROID_HOME的环境变量（用户变量也可以），指向你的Android SDK所在的目录，也就是C:\你的电脑用户名\AppData\Local\Android\Sdk，这是Android Sdk默认的安装目录（不信的话可以在Android Studio的”Preferences”菜单中查看SDK的路径，具体是Appearance &amp; Behavior → System Settings → Android SDK。弄好之后关闭当前的命令行工具重新打开，新配置的环境变量才生效</p>
 <h4 id="platform-tools目录添加到环境变量Path中"><a href="#platform-tools目录添加到环境变量Path中" class="headerlink" title="platform-tools目录添加到环境变量Path中"></a>platform-tools目录添加到环境变量Path中</h4><p>这个目录默认的路径是c:\Users\你的用户名\AppData\Local\Android\Sdk\platform-tools</p>
-<p>做好了上面这些，接下来就可以开始你想做的了，就是建个项目跑一跑，其实只要上面的那些环境建好了，接下来的步骤都比较顺畅<br>创建一个react-native的项目<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">react-native init AwesomeProject</div></pre></td></tr></table></figure></p>
+<p>做好了上面这些，接下来就可以开始你想做的了，就是建个项目跑一跑，其实只要上面的那些环境建好了，接下来的步骤都比较顺畅<br>创建一个react-native的项目<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">react-native init AwesomeProject</div></pre></td></tr></table></figure></p>
 <blockquote>
 <p>可以使用–version参数（注意是两个杠）创建指定版本的项目。例如react-native init MyApp –version 0.44.3。注意版本号必须精确到两个小数点。Windows 用户请注意，请不要在某些权限敏感的目录例如 System32 目录中 init 项目！会有各种权限限制导致不能运行！</p>
 </blockquote>
@@ -316,7 +316,7 @@ var _hmt = _hmt || [];
                     <img src="/images/rn/1.png" alt="Android Studio" title="">
                 </div>
                 <div class="image-caption">Android Studio</div>
-            </figure><br>2、打开了安卓虚拟设备之后启动项目<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> AwesomeProject</div><div class="line">react-native run-android</div></pre></td></tr></table></figure></p>
+            </figure><br>2、打开了安卓虚拟设备之后启动项目<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd AwesomeProject</div><div class="line">react-<span class="keyword">native</span> run-android</div></pre></td></tr></table></figure></p>
 <p>如果配置没有问题，你应该可以看到应用自动安装到设备上并开始运行。第一次运行时需要下载大量编译依赖，耗时比较久。此过程严重依赖稳定的翻墙工具，否则将频繁遭遇链接超时和断开，导致无法运行。</p>
 <p>如果运行之后安卓设备打开的界面是爆红的错误，请执行一个npm install将缺失的一些依赖安装上，然后执行react-native start启动项目<br><figure class="image-bubble">
                 <div class="img-lightbox">
@@ -349,7 +349,7 @@ var _hmt = _hmt || [];
                     <img src="/images/rn/code3.png" alt="code3" title="">
                 </div>
                 <div class="image-caption">code3</div>
-            </figure><br>代码改动之后，重新编译然后启动发现app界面的内容没有变化的话，你可能会运行react-native run-android，让它重新打包，接着再react-native start启动，然后发现，App界面还是没有更新。这时候可以执行一下这个命令再启动项目<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">react-native bundle --platform android --dev <span class="literal">false</span> --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res/</div></pre></td></tr></table></figure></p>
+            </figure><br>代码改动之后，重新编译然后启动发现app界面的内容没有变化的话，你可能会运行react-native run-android，让它重新打包，接着再react-native start启动，然后发现，App界面还是没有更新。这时候可以执行一下这个命令再启动项目<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">react-native bundle --platform android --dev <span class="literal">false</span> --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res/</div></pre></td></tr></table></figure></p>
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
@@ -357,7 +357,7 @@ var _hmt = _hmt || [];
                 </div>
                 <div class="image-caption">也就是这样</div>
             </figure>
-<p>如果有index.android.js，那么可以这样做：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">react-native bundle --platform android --dev <span class="literal">false</span> --entry-file index.android.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res/</div></pre></td></tr></table></figure></p>
+<p>如果有index.android.js，那么可以这样做：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">react-native bundle --platform android --dev <span class="literal">false</span> --entry-file index.android.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res/</div></pre></td></tr></table></figure></p>
 <p>之后再运行react-native start，修改的内容就更新了<br><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
@@ -438,7 +438,7 @@ var _hmt = _hmt || [];
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-08-22T17:06:59.144Z" itemprop="dateUpdated">2019-08-23 01:06:59</time>
+    最后更新时间：<time datetime="2020-01-13T15:29:13.895Z" itemprop="dateUpdated">2020-01-13 23:29:13</time>
 </span><br>
 
 
