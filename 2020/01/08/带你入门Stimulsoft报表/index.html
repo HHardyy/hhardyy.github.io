@@ -69,7 +69,7 @@ var _hmt = _hmt || [];
 <meta property="og:image" content="http://yoursite.com/images/stimulsoft/viewer.png">
 <meta property="og:image" content="http://yoursite.com/images/stimulsoft/desight1.png">
 <meta property="og:image" content="http://yoursite.com/images/stimulsoft/desight2.png">
-<meta property="og:updated_time" content="2020-01-13T15:30:06.885Z">
+<meta property="og:updated_time" content="2020-01-22T06:40:02.414Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Stimulsoft in web">
 <meta name="twitter:description" content="我们在开发一些web应用或者后台管理系统的时候，可能会遇到做报表的需求，同时支持在线设计。">
@@ -338,6 +338,11 @@ var _hmt = _hmt || [];
                 </div>
                 <div class="image-caption">运行效果2</div>
             </figure>
+<p>如果要将jsonfile下载至本地的话，可以使用这样的downloadJjsonFile方法,downloadJjsonFile(要下载的代码片段，下载的文件命名，下载的文件类别),这个方法需要依赖一个a标签，写在页面上哪里都行，只是要使用它的download方法</p>
+<blockquote>
+<p>这里的type指的是Content-Type,根据这个可以规定下载的文件类型,例如下载json,type就是‘application/json’,<a href="https://www.runoob.com/http/http-content-type.html" target="_blank" rel="external">Content-Type对照表：</a></p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> downloadJjsonFile = <span class="function">(<span class="params">ctx,name,type</span>) =&gt;</span> &#123;</div><div class="line">	<span class="keyword">let</span> _a = <span class="built_in">document</span>.querySelector(<span class="string">'#a'</span>);</div><div class="line">	<span class="keyword">let</span> _file = <span class="keyword">new</span> Blob([ctx],&#123; type &#125;);</div><div class="line">	_a.href = URL.createObjectURL(file);</div><div class="line">	_a.download = name;</div><div class="line">	_a.dispatchEvent(<span class="keyword">new</span> MouseEvent(<span class="string">'click'</span>, &#123;<span class="string">'bubbles'</span>: <span class="literal">false</span>, <span class="string">'cancelable'</span>: <span class="literal">true</span>&#125;));</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/** html */</span></div><div class="line">&lt;a id=<span class="string">"a"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></div><div class="line"></div><div class="line"><span class="comment">/** 触发这个方法，传入参数就可以将代码片段下载成一个文件了 */</span></div><div class="line">&lt;button οnclick=<span class="string">"downloadJjsonFile('hwllo word', 'downloadJjsonFile.json', 'application/json')"</span>&gt;Test Download&lt;<span class="regexp">/button&gt;</span></div></pre></td></tr></table></figure>
 <p><a href="https://github.com/HHardyy/Stimulsoft-in-web" target="_blank" rel="external">写这篇文章的时候简单写的demo：https://github.com/HHardyy/Stimulsoft-in-web</a></p>
 <p>2020第一篇，最近比较忙，框架升级，轮子维护&amp;&amp;开发，最近在搞web异常监控，就是针对web做的代码监控，回头看看能不能写一个，2019年比较幸运，入职6个月试用期，然后1个月提前转正，然后感谢大家把优秀员工的名额给了我，然后19年学的东西全在码云的提交记录了，等有时间再整理一下，20年给自己定了新的flag，继续奔跑吧年轻人！！！睡是什么，我不知道！！！！。</p>
 
@@ -347,7 +352,7 @@ var _hmt = _hmt || [];
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-01-13T15:30:06.885Z" itemprop="dateUpdated">2020-01-13 23:30:06</time>
+    最后更新时间：<time datetime="2020-01-22T06:40:02.414Z" itemprop="dateUpdated">2020-01-22 14:40:02</time>
 </span><br>
 
 
