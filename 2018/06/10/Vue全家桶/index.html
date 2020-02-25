@@ -56,9 +56,9 @@ var _hmt = _hmt || [];
     <meta name="theme-color" content="#958e93">
     
     
-    <meta name="keywords" content="vue-cli,vue-router,vuex,axios,刷新404,store分模块,路由,store">
+    <meta name="keywords" content="vue-router,vue-cli,vuex,axios,刷新404,store分模块,路由,store">
     <meta name="description" content="vue全家桶也就是1.脚手架、2.路由、3.状态管理、4.请求工具~。">
-<meta name="keywords" content="vue-cli,vue-router,vuex,axios,刷新404,store分模块,路由,store">
+<meta name="keywords" content="vue-router,vue-cli,vuex,axios,刷新404,store分模块,路由,store">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vue全家桶">
 <meta property="og:url" content="http://yoursite.com/2018/06/10/Vue全家桶/index.html">
@@ -135,6 +135,13 @@ var _hmt = _hmt || [];
             </li>
         
             <li class="waves-block waves-effect">
+              <a href="https://gitee.com/hhardyy" target="_blank" >
+                <i class="icon icon-lg icon-cloud"></i>
+                Gitee
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
               <a href="https://juejin.im/user/59a26f926fb9a02487553b04"  >
                 <i class="icon icon-lg icon-pencil"></i>
                 掘金-圳
@@ -152,27 +159,6 @@ var _hmt = _hmt || [];
               <a href="https://codepen.io/HHardyy/" target="_blank" >
                 <i class="icon icon-lg icon-codepen"></i>
                 Codepen
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/ZhenSolive/find.html" target="_blank" >
-                <i class="icon icon-lg icon-globe"></i>
-                原生直播间
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/hero/judge.html" target="_blank" >
-                <i class="icon icon-lg icon-cloud"></i>
-                原生小悟空
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/airPlay/HHardyy_PC.html" target="_blank" >
-                <i class="icon icon-lg icon-camera"></i>
-                原生飞机大战（PC）
               </a>
             </li>
         
@@ -287,7 +273,7 @@ var _hmt = _hmt || [];
 <h3 id="router-link"><a href="#router-link" class="headerlink" title="router-link"></a>router-link</h3><p>router-link是一个组件，它默认会被渲染成一个带有链接的a标签，通过to属性指定链接地址，被选中的router-link将自动添加一个class属性值.router-link-active。<br>router-link的一些配置项，用法可以看上面简单的例子</p>
 <h4 id="to-””"><a href="#to-””" class="headerlink" title=":to=””"></a>:to=””</h4><p>使用路由必须设置的属性，否则路由无法生效，可以是一个字符串也可以是一个描述目标位置的对象。</p>
 <h4 id="tag-”li”"><a href="#tag-”li”" class="headerlink" title="tag=”li”"></a>tag=”li”</h4><p>一般router-link默认被渲染成a标签，tag属性可以用来设置router-link会被渲染成什么标签</p>
-<h4 id="replace"><a href="#replace" class="headerlink" title="replace"></a>replace</h4><p>是个Boolean值，默认是false。当replace设置为true，那么导航不会留下history记录，点击浏览器回退按钮不会再回到这个路由。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;router-link to=<span class="string">"xxx"</span> replace&gt;&lt;/router-link&gt;</div></pre></td></tr></table></figure></p>
+<h4 id="replace"><a href="#replace" class="headerlink" title="replace"></a>replace</h4><p>是个Boolean值，默认是false。当replace设置为true，那么导航不会留下history记录，点击浏览器回退按钮不会再回到这个路由。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;router-link to=<span class="string">"xxx"</span> replace&gt;<span class="xml"><span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></span></div></pre></td></tr></table></figure></p>
 <h4 id="打包刷新404"><a href="#打包刷新404" class="headerlink" title="打包刷新404"></a>打包刷新404</h4><p>有时候你打包了一个dist放到服务器时访问好好的，突然用户刷新了一下页面，项目就404了，原因是前端项目的路由默认使用的mode是hash，也就是<a href="http://192.168.1.104:8080/#/app这样的类型，当然这也不利于做服务端渲染，hash一般是用来做定位的，而不是用来做路由的记录，而且hash路由不会被搜索引擎解析，所以也不利于seo优化，正常来说显示应该是http://192.168.1.104:8080/app,这个modo就是history，所以原因就是前端使用了historyurl之后是一个完整的资源路径，默认情况下服务端要进行匹配然后进行处理才能真正完成一个请求的操作，但是这在前端是没有问题的，如果手动刷新了浏览器，这个请求就会发送到服务端，服务端如果没有做任何处理，就会出现找不到资源或者404错误。" target="_blank" rel="external">http://192.168.1.104:8080/#/app这样的类型，当然这也不利于做服务端渲染，hash一般是用来做定位的，而不是用来做路由的记录，而且hash路由不会被搜索引擎解析，所以也不利于seo优化，正常来说显示应该是http://192.168.1.104:8080/app,这个modo就是history，所以原因就是前端使用了historyurl之后是一个完整的资源路径，默认情况下服务端要进行匹配然后进行处理才能真正完成一个请求的操作，但是这在前端是没有问题的，如果手动刷新了浏览器，这个请求就会发送到服务端，服务端如果没有做任何处理，就会出现找不到资源或者404错误。</a><br>开发环境解决方案：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> devServer = &#123;</div><div class="line">    historyApiFallback:&#123;</div><div class="line">        index:<span class="string">'/index.html'</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>生产环境解决方案：<br>在服务端做匹配相关资源的配置，因为history模式下<a href="http://192.168.1.104:8080/app，会默认访问http://192.168.1.104:8080下面的资源" target="_blank" rel="external">http://192.168.1.104:8080/app，会默认访问http://192.168.1.104:8080下面的资源</a></p>
 <h4 id="new一个Router的时候里面的一些参数"><a href="#new一个Router的时候里面的一些参数" class="headerlink" title="new一个Router的时候里面的一些参数"></a>new一个Router的时候里面的一些参数</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">mode:<span class="string">'hash'</span>                     <span class="comment">//默认hash，hash||history</span></div><div class="line">linkActiveClass:<span class="string">'active-link'</span>              <span class="comment">//路由被点击</span></div><div class="line">linkExactActiveClass:<span class="string">'exact-active-link'</span>   <span class="comment">//完整匹配路由被点击</span></div><div class="line">scrollBehavior(to,form,savedPosition)&#123;</div><div class="line">    <span class="keyword">if</span>(savePosition)&#123;</div><div class="line">        <span class="keyword">return</span> savePosition</div><div class="line">    &#125;<span class="keyword">else</span>&#123;</div><div class="line">        <span class="keyword">return</span> &#123;<span class="attr">x</span>:<span class="number">0</span>,<span class="attr">y</span>:<span class="number">0</span>&#125;</div><div class="line">    &#125;</div><div class="line">&#125;                                <span class="comment">//跳到另一个路由的时候记录当前路由的滚动条的位置，跳回来的时候回到原位</span></div><div class="line">fallback:<span class="literal">true</span>       <span class="comment">//有些浏览器不支持history模式的时候是否自动转换成hash</span></div><div class="line">parseQuery(query)&#123;&#125;   <span class="comment">//将路由后面跟着的query比如?aa=xx,bb=yy转成对象</span></div><div class="line">stringifyQuery(obj)&#123;&#125;  <span class="comment">//将路由后面跟着的query比如?aa=xx,bb=yy转成字符串</span></div></pre></td></tr></table></figure>
