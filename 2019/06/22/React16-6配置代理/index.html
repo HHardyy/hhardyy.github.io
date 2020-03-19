@@ -73,9 +73,10 @@ var _hmt = _hmt || [];
 <meta property="og:image" content="http://yoursite.com/images/react166/install.JPG">
 <meta property="og:image" content="http://yoursite.com/images/react166/thiscode.JPG">
 <meta property="og:image" content="http://yoursite.com/images/react166/success.JPG">
+<meta property="og:image" content="http://yoursite.com/images/react166/createProxyMiddleware.jpg">
 <meta property="og:image" content="http://yoursite.com/images/react166/styled-components.JPG">
 <meta property="og:image" content="http://yoursite.com/images/react166/red.JPG">
-<meta property="og:updated_time" content="2020-01-13T15:21:46.766Z">
+<meta property="og:updated_time" content="2020-03-19T07:38:05.453Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="React16.6配置代理&amp;style私有">
 <meta name="twitter:description" content="你或许想知道的新代理">
@@ -313,6 +314,13 @@ var _hmt = _hmt || [];
                 </div>
                 <div class="image-caption">install</div>
             </figure><br><a href="https://facebook.github.io/create-react-app/docs/proxying-api-requests-in-development#docsNav" target="_blank" rel="external">更加详细戳这里</a>   </p>
+<p>@2020-3-19更新<br>现在你使用上面的那种写法可能会报错:proxy is not a function，这是因为版本升级导致的，现在的用法应该是这样<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/react166/createProxyMiddleware.jpg" alt="createProxyMiddleware" title="">
+                </div>
+                <div class="image-caption">createProxyMiddleware</div>
+            </figure></p>
 <h3 id="scoped-amp-amp-styled-components"><a href="#scoped-amp-amp-styled-components" class="headerlink" title="scoped&amp;&amp;styled-components"></a>scoped&amp;&amp;styled-components</h3><p>在index.js引入index.css的时候假如index.css里面有个.hardy,那么在APP组件里面的div使用ClassName=’hardy’也会生效。</p>
 <blockquote>
 <p>在vue组件中，在style标签上添加scoped属性，以表示它的样式作用于当下的模块，很好的实现了样式私有化的目的，这是一个非常好的机制。但是在实际业务中我们往往会对公共组件样式做细微的<br>调整，如果添加了scoped属性，那么样式将会变得不易修改。</p>
@@ -342,7 +350,7 @@ var _hmt = _hmt || [];
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-01-13T15:21:46.766Z" itemprop="dateUpdated">2020-01-13 23:21:46</time>
+    最后更新时间：<time datetime="2020-03-19T07:38:05.453Z" itemprop="dateUpdated">2020-03-19 15:38:05</time>
 </span><br>
 
 
