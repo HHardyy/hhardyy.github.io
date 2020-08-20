@@ -33,9 +33,9 @@
     </summary>
     
     
-      <category term="vite" scheme="http://yoursite.com/tags/vite/"/>
-    
       <category term="vue3" scheme="http://yoursite.com/tags/vue3/"/>
+    
+      <category term="vite" scheme="http://yoursite.com/tags/vite/"/>
     
   </entry>
   
