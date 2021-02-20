@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?d890b1f16fb364253e79c5bb20225c3a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+    
+
+    
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?busuanzi_value_site_uv"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    <meta name="baidu-site-verification" content="FYMCShbUK8">
+    <meta name="baidu-site-verification" content="ZYRF7OxQRW">
+    <meta name="baidu-site-verification" content="cHSqtjI0PN">
+    <meta name="baidu-site-verification" content="cHSqtjI0PN">
+    <meta name="baidu-site-verification" content="cHSqtjI0PN">
+    
+    
+    <link rel="canonical" href="https://hhardyy.com/2018/01/18/H5的艺术/">
+    
+    
+    <title>H5的艺术 | 小方块 - hhardyy.com | 复杂的坑+归其原理+了解实现规则===解决？解决成功：加油解决成功;</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#958e93">
+    
+    
+    <meta name="keywords" content="html5">
+    <meta name="description" content="跳进html5天坑。。">
+<meta name="keywords" content="html5">
+<meta property="og:type" content="article">
+<meta property="og:title" content="H5的艺术">
+<meta property="og:url" content="http://yoursite.com/2018/01/18/H5的艺术/index.html">
+<meta property="og:site_name" content="小方块 - hhardyy.com">
+<meta property="og:description" content="跳进html5天坑。。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-01-13T15:18:08.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="H5的艺术">
+<meta name="twitter:description" content="跳进html5天坑。。">
+    
+        <link rel="alternate" type="application/atom+xml" title="小方块 - hhardyy.com" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/hardyfavicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/paulGraham.jpg)">
+      <div class="brand" style="background-color:#4154b2">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">BingZhenhuang</h5>
+          <a href="mailto:huangbingzhen@hhardyy.com" title="huangbingzhen@hhardyy.com" class="mail">huangbingzhen@hhardyy.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                所有文章
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/HHardyy" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://gitee.com/hhardyy" target="_blank" >
+                <i class="icon icon-lg icon-cloud"></i>
+                Gitee
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://juejin.im/user/59a26f926fb9a02487553b04"  >
+                <i class="icon icon-lg icon-pencil"></i>
+                掘金-圳
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://segmentfault.com/u/hhardyy"  >
+                <i class="icon icon-lg icon-comments"></i>
+                Segmentfault
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://codepen.io/HHardyy/" target="_blank" >
+                <i class="icon icon-lg icon-codepen"></i>
+                Codepen
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.freecodecamp.cn/hhardyy" target="_blank" >
+                <i class="icon icon-lg icon-leaf"></i>
+                Freecodecamp
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/友情链接"  >
+                <i class="icon icon-lg icon-link"></i>
+                友链
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">H5的艺术</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">H5的艺术</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-01-18T05:00:36.000Z" itemprop="datePublished" class="page-time">
+  2018-01-18
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#html5"><span class="post-toc-number">1.</span> <span class="post-toc-text">html5</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#html5是如何起步的"><span class="post-toc-number">2.</span> <span class="post-toc-text">html5是如何起步的</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#为-HTML5-建立的一些规则："><span class="post-toc-number">3.</span> <span class="post-toc-text">为 HTML5 建立的一些规则：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#新特性"><span class="post-toc-number">4.</span> <span class="post-toc-text">新特性</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#对浏览器的支持"><span class="post-toc-number">5.</span> <span class="post-toc-text">对浏览器的支持</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#获取class列表属性"><span class="post-toc-number">6.</span> <span class="post-toc-text">获取class列表属性</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#classList"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">classList</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#JSON的新方法"><span class="post-toc-number">7.</span> <span class="post-toc-text">JSON的新方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#新方法与eval的区别"><span class="post-toc-number">7.1.</span> <span class="post-toc-text">新方法与eval的区别</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#深度克隆新对象"><span class="post-toc-number">8.</span> <span class="post-toc-text">深度克隆新对象</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#data自定义数据"><span class="post-toc-number">9.</span> <span class="post-toc-text">data自定义数据</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#延迟加载JS"><span class="post-toc-number">10.</span> <span class="post-toc-text">延迟加载JS</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#历史管理"><span class="post-toc-number">11.</span> <span class="post-toc-text">历史管理</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#拖放事件"><span class="post-toc-number">12.</span> <span class="post-toc-text">拖放事件</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#拖拽元素事件-事件对象为被拖拽元素"><span class="post-toc-number">12.1.</span> <span class="post-toc-text">拖拽元素事件 :  事件对象为被拖拽元素</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#目标元素事件-事件对象为目标元素"><span class="post-toc-number">12.2.</span> <span class="post-toc-text">目标元素事件 :  事件对象为目标元素</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#事件执行顺序"><span class="post-toc-number">13.</span> <span class="post-toc-text">事件执行顺序</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#dataTransfer对象"><span class="post-toc-number">13.1.</span> <span class="post-toc-text">dataTransfer对象:</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#FileReader-读取文件信息"><span class="post-toc-number">13.2.</span> <span class="post-toc-text">FileReader(读取文件信息)</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#地理信息与本地存储"><span class="post-toc-number">14.</span> <span class="post-toc-text">地理信息与本地存储</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#地理位置"><span class="post-toc-number">14.1.</span> <span class="post-toc-text">地理位置</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#位置信息从何而来"><span class="post-toc-number">14.2.</span> <span class="post-toc-text">位置信息从何而来</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#地理位置对象-：navigator-geolocation"><span class="post-toc-number">14.3.</span> <span class="post-toc-text">地理位置对象 ：navigator.geolocation</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Storage"><span class="post-toc-number">15.</span> <span class="post-toc-text">Storage</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#sessionStorage"><span class="post-toc-number">15.1.</span> <span class="post-toc-text">sessionStorage</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#localStorage"><span class="post-toc-number">15.2.</span> <span class="post-toc-text">localStorage</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Storage-API"><span class="post-toc-number">16.</span> <span class="post-toc-text">Storage API</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#存储事件"><span class="post-toc-number">16.1.</span> <span class="post-toc-text">存储事件</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#例子："><span class="post-toc-number">17.</span> <span class="post-toc-text">例子：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#应用程序缓存（applicationCache）"><span class="post-toc-number">18.</span> <span class="post-toc-text">应用程序缓存（applicationCache）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#搭建离线应用程序"><span class="post-toc-number">19.</span> <span class="post-toc-text">搭建离线应用程序</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#什么是worker"><span class="post-toc-number">20.</span> <span class="post-toc-text">什么是worker?</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Worker-API"><span class="post-toc-number">20.1.</span> <span class="post-toc-text">Worker API</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Worker运行环境"><span class="post-toc-number">20.2.</span> <span class="post-toc-text">Worker运行环境</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#h5其他路人"><span class="post-toc-number">21.</span> <span class="post-toc-text">h5其他路人</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#内容编辑："><span class="post-toc-number">21.1.</span> <span class="post-toc-text">内容编辑：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#语音输入（可以强制输入框里面的语音的语言种类）"><span class="post-toc-number">21.2.</span> <span class="post-toc-text">语音输入（可以强制输入框里面的语音的语言种类）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#桌面提醒"><span class="post-toc-number">21.3.</span> <span class="post-toc-text">桌面提醒</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#音频和视频"><span class="post-toc-number">22.</span> <span class="post-toc-text">音频和视频</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#编解码器"><span class="post-toc-number">22.1.</span> <span class="post-toc-text">编解码器</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#媒体元素"><span class="post-toc-number">22.2.</span> <span class="post-toc-text">媒体元素</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Video额外特性"><span class="post-toc-number">22.3.</span> <span class="post-toc-text">Video额外特性</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-H5的艺术"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">H5的艺术</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-01-18 13:00:36" datetime="2018-01-18T05:00:36.000Z"  itemprop="datePublished">2018-01-18</time>
+
+            
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>跳进html5天坑。。</p>
+<p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=559926003&auto=0&height=66"></iframe><br><a id="more"></a></p>
+<h3 id="html5"><a href="#html5" class="headerlink" title="html5"></a>html5</h3><p>HTML5 将成为 HTML、XHTML 以及 HTML DOM 的新标准。<br>HTML 的上一个版本诞生于 1999 年。自从那以后，Web世界已经经历了巨变。<br>HTML5 仍处于完善之中。然而，大部分现代浏览器已经具备了某些 HTML5 支持。</p>
+<h3 id="html5是如何起步的"><a href="#html5是如何起步的" class="headerlink" title="html5是如何起步的"></a>html5是如何起步的</h3><p>HTML5 是 W3C 与 WHATWG 合作的结果。<br>编者注：W3C 指 World Wide Web Consortium，万维网联盟。<br>编者注：WHATWG 指 Web Hypertext Application Technology Working Group。<br>WHATWG 致力于 web 表单和应用程序，而 W3C 专注于 XHTML 2.0。在 2006 年，双方决定进行合作，来创建一个新版本的 HTML。</p>
+<h3 id="为-HTML5-建立的一些规则："><a href="#为-HTML5-建立的一些规则：" class="headerlink" title="为 HTML5 建立的一些规则："></a>为 HTML5 建立的一些规则：</h3><p>新特性应该基于HTML、CSS、DOM 以及 JavaScript。<br>减少对外部插件的需求（比如 Flash）<br>更优秀的错误处理<br>更多取代脚本的标记<br>HTML5 应该独立于设备<br>开发进程应对公众透明</p>
+<h3 id="新特性"><a href="#新特性" class="headerlink" title="新特性"></a>新特性</h3><p>用于绘画的 canvas 元素<br>用于媒介回放的 video 和 audio 元素<br>对本地离线存储的更好的支持<br>新的特殊内容元素，比如 article、footer、header、nav、section<br>新的表单控件，比如 calendar、date、time、email、url、search</p>
+<h3 id="对浏览器的支持"><a href="#对浏览器的支持" class="headerlink" title="对浏览器的支持"></a>对浏览器的支持</h3><p>最新版本的 Safari、Chrome、Firefox 以及 Opera 支持某些 HTML5 特性。Internet Explorer 9 将支持某些 HTML5 特性。</p>
+<h3 id="获取class列表属性"><a href="#获取class列表属性" class="headerlink" title="获取class列表属性"></a>获取class列表属性</h3><h4 id="classList"><a href="#classList" class="headerlink" title="classList"></a>classList</h4><p>length :  class的长度<br>add() :  添加class方法<br>remove()  :  删除class方法<br>toggle() :  切换class方法<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> oDiv = <span class="built_in">document</span>.getElementById(<span class="string">'div1'</span>);</span><br><span class="line">	<span class="comment">//alert( oDiv.classList );  //类似数组的对象</span></span><br><span class="line">	<span class="comment">//alert( oDiv.classList.length );  //3</span></span><br><span class="line">	<span class="comment">//oDiv.classList.add('box4');</span></span><br><span class="line">	<span class="comment">//oDiv.classList.remove('box2');</span></span><br><span class="line">	oDiv.classList.toggle(<span class="string">'box2'</span>);</span><br></pre></td></tr></table></figure></p>
+<h3 id="JSON的新方法"><a href="#JSON的新方法" class="headerlink" title="JSON的新方法"></a>JSON的新方法</h3><p>parse() : 把字符串转成json（字符串中的属性要严格的加上引号）<br>stringify() : 把json转化成字符串（会自动的把双引号加上）</p>
+<h4 id="新方法与eval的区别"><a href="#新方法与eval的区别" class="headerlink" title="新方法与eval的区别"></a>新方法与eval的区别</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//eval : 可以解析任何字符串变成JS</span></span><br><span class="line"><span class="comment">//parse : 只能解析JSON形式的字符串变成JS  (安全性要高一些)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*var str = 'function show()&#123;alert(123)&#125;';</span></span><br><span class="line"><span class="comment">eval(str);</span></span><br><span class="line"><span class="comment">show();*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*var str = 'function show()&#123;alert(123)&#125;';</span></span><br><span class="line"><span class="comment">JSON.parse(str);</span></span><br><span class="line"><span class="comment">show();*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*var str = '&#123;"name":"hello"&#125;';   //一定是严格的JSON形式</span></span><br><span class="line"><span class="comment">var json = JSON.parse(str);</span></span><br><span class="line"><span class="comment">alert( json.name );*/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> json = &#123;<span class="attr">name</span> : <span class="string">"hello"</span>&#125;;</span><br><span class="line"><span class="keyword">var</span> str = <span class="built_in">JSON</span>.stringify(json);</span><br><span class="line">alert( str );</span><br></pre></td></tr></table></figure>
+<h3 id="深度克隆新对象"><a href="#深度克隆新对象" class="headerlink" title="深度克隆新对象"></a>深度克隆新对象</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = &#123;</span><br><span class="line">	name : &#123; <span class="attr">age</span> : <span class="number">100</span> &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> str = <span class="built_in">JSON</span>.stringify(a);</span><br><span class="line"><span class="keyword">var</span> b = <span class="built_in">JSON</span>.parse(str);</span><br><span class="line">b.name.age = <span class="number">200</span>;</span><br><span class="line">alert( a.name.age );</span><br></pre></td></tr></table></figure>
+<p>兼容其他浏览器：<a href="http://www.json.org/下载json2.js" target="_blank" rel="noopener">http://www.json.org/下载json2.js</a></p>
+<h3 id="data自定义数据"><a href="#data自定义数据" class="headerlink" title="data自定义数据"></a>data自定义数据</h3><p>dataset<br>data-name :  dataset.name<br>data-name-first  :  dataset.nameFirst<br>Data数据在jquery mobile中有着重要作用<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=<span class="string">"div1"</span> data-hhardyy=<span class="string">"hhardyy"</span> data-hhardyy-all=<span class="string">"hhardyy"</span>&gt;div&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">var oDiv = document.getElementById('div1');</span></span><br><span class="line"><span class="regexp">alert( oDiv.dataset.hhardyy );</span></span><br><span class="line"><span class="regexp">alert( oDiv.dataset.hhardyyAll );</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="延迟加载JS"><a href="#延迟加载JS" class="headerlink" title="延迟加载JS"></a>延迟加载JS</h3><p>JS的加载会影响后面的内容加载<br>很多浏览器都采用了并行加载JS，但还是会影响其他内容<br>这就要用到Html5的defer和async或者Labjs库<br>defer : 延迟加载，会按顺序执行，在onload执行前被触发<br>async : 异步加载，加载完就触发，有顺序问题</p>
+<h3 id="历史管理"><a href="#历史管理" class="headerlink" title="历史管理"></a>历史管理</h3><p>onhashchange  ：改变hash值来管理<br>history  ：（服务器下运行）<br>  pushState :  三个参数 ：数据  标题 地址(可选)<br>  popstate事件 :  读取数据   event.state<br>注意：网址是虚假的，需在服务器指定对应页面，不然刷新找不到页面<br><a href="https://codepen.io/HHardyy/pen/zLBbLg" target="_blank" rel="noopener">例子：摇七个号</a></p>
+<h3 id="拖放事件"><a href="#拖放事件" class="headerlink" title="拖放事件"></a>拖放事件</h3><p>draggable ：设置为true，元素就可以拖拽了</p>
+<h4 id="拖拽元素事件-事件对象为被拖拽元素"><a href="#拖拽元素事件-事件对象为被拖拽元素" class="headerlink" title="拖拽元素事件 :  事件对象为被拖拽元素"></a>拖拽元素事件 :  事件对象为被拖拽元素</h4><p>dragstart ,  拖拽前触发<br>drag ,拖拽前、拖拽结束之间，连续触发<br>dragend  , 拖拽结束触发</p>
+<h4 id="目标元素事件-事件对象为目标元素"><a href="#目标元素事件-事件对象为目标元素" class="headerlink" title="目标元素事件 :  事件对象为目标元素"></a>目标元素事件 :  事件对象为目标元素</h4><p>dragenter ,  进入目标元素触发，相当于mouseover<br>dragover  ,进入目标、离开目标之间，连续触发<br>dragleave ,  离开目标元素触发，相当于mouseout<br>drop  ,  在目标元素上释放鼠标触发</p>
+<h3 id="事件执行顺序"><a href="#事件执行顺序" class="headerlink" title="事件执行顺序"></a>事件执行顺序</h3><p>事件的执行顺序 ：drop不触发的时候<br>dragstart  &gt;  drag &gt;  dragenter &gt;  dragover &gt;  dragleave &gt; dragend </p>
+<p>事件的执行顺序 ：drop触发的时候(dragover的时候阻止默认事件)<br>dragstart  &gt;  drag &gt;  dragenter &gt;  dragover &gt;  drop &gt; dragend</p>
+<p>解决火狐下的问题:必须设置dataTransfer对象才可以拖拽除图片外的其他标签<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ev = ev || <span class="built_in">window</span>.event;</span><br><span class="line">ev.dataTransfer.setData(<span class="string">'name'</span>,<span class="string">'hhardyy'</span>);</span><br></pre></td></tr></table></figure></p>
+<h4 id="dataTransfer对象"><a href="#dataTransfer对象" class="headerlink" title="dataTransfer对象:"></a>dataTransfer对象:</h4><p>setData() : 设置数据 key和value(必须是字符串)<br>getData() : 获取数据，根据key值，获取对应的value</p>
+<p>effectAllowed:<br>设置光标样式(none, copy, copyLink, copyMove, link, linkMove, move, all 和 uninitialized)=(ev.dataTransfer.effectAllowed = ‘link’);<br>setDragImage:<br>三个参数(指定的元素，坐标X，坐标Y):ev.dataTransfer.setDragImage(oImg,0,0);</p>
+<p>files:获取外部拖拽的文件，返回一个filesList列表,filesList下有个type属性，返回文件的类型</p>
+<h4 id="FileReader-读取文件信息"><a href="#FileReader-读取文件信息" class="headerlink" title="FileReader(读取文件信息)"></a>FileReader(读取文件信息)</h4><p>readAsDataURL：参数为要读取的文件对象，将文件读取为DataUrl<br>onload：当读取文件成功完成的时候触发此事件，this. result来获取读取的文件数据，如果是图片，将返回base64格式的图片数据。<br><a href="https://codepen.io/HHardyy/pen/LBYLWX" target="_blank" rel="noopener">拖拽上传预览图片</a></p>
+<h3 id="地理信息与本地存储"><a href="#地理信息与本地存储" class="headerlink" title="地理信息与本地存储"></a>地理信息与本地存储</h3><h4 id="地理位置"><a href="#地理位置" class="headerlink" title="地理位置"></a>地理位置</h4><p>经度  :   南北极的连接线<br>纬度  :   东西连接的线</p>
+<h4 id="位置信息从何而来"><a href="#位置信息从何而来" class="headerlink" title="位置信息从何而来"></a>位置信息从何而来</h4><p>IP地址<br>GPS全球定位系统<br>Wi-Fi无线网络<br>基站</p>
+<h4 id="地理位置对象-：navigator-geolocation"><a href="#地理位置对象-：navigator-geolocation" class="headerlink" title="地理位置对象 ：navigator.geolocation"></a>地理位置对象 ：navigator.geolocation</h4><p>单次定位请求  ：getCurrentPosition(请求成功，请求失败，数据收集方式)<br>请求成功函数 ：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">经度 :  coords.longitude</span><br><span class="line">纬度 :  coords.latitude</span><br><span class="line">准确度 :  coords.accuracy</span><br><span class="line">海拔 :  coords.altitude</span><br><span class="line">海拔准确度 :  coords.altitudeAcuracy</span><br><span class="line">行进方向 :  coords.heading</span><br><span class="line">地面速度 :  coords.speed</span><br><span class="line">时间戳 : <span class="keyword">new</span> <span class="built_in">Date</span>(position.timestamp)</span><br></pre></td></tr></table></figure></p>
+<p>请求失败函数：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">失败编号  ：code</span><br><span class="line"><span class="number">0</span>  :  不包括其他错误编号中的错误</span><br><span class="line"><span class="number">1</span>  :  用户拒绝浏览器获取位置信息</span><br><span class="line"><span class="number">2</span>  :  尝试获取用户信息，但失败了</span><br><span class="line"><span class="number">3</span>  :  设置了timeout值，获取位置超时了</span><br></pre></td></tr></table></figure></p>
+<p>数据收集方式 :  json的形式<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">enableHighAcuracy  :  更精确的查找，默认<span class="literal">false</span></span><br><span class="line">timeout  :  获取位置允许最长时间，默认infinity</span><br><span class="line">maximumAge :  位置可以缓存的最大时间，默认<span class="number">0</span></span><br></pre></td></tr></table></figure></p>
+<p>多次定位请求  :  watchPosition(像setInterval)，移动设备有用，位置改变才会触发，配置参数：frequency 更新的频率<br>关闭更新请求  :  clearWatch(像clearInterval)<br>Cookie：数据存储到计算机中，通过浏览器控制添加与删除数据，域名100个cookie,每组值大小4KB</p>
+<h3 id="Storage"><a href="#Storage" class="headerlink" title="Storage"></a>Storage</h3><p>存储量限制 ( 5M )<br>客户端完成，不会请求服务器处理<br>sessionStorage数据是不共享、 localStorage共享</p>
+<h4 id="sessionStorage"><a href="#sessionStorage" class="headerlink" title="sessionStorage"></a>sessionStorage</h4><p>session临时回话，从页面打开到页面关闭的时间段，窗口的临时存储，页面关闭，本地存储消失</p>
+<h4 id="localStorage"><a href="#localStorage" class="headerlink" title="localStorage"></a>localStorage</h4><p>永久存储（可以手动删除数据）</p>
+<h3 id="Storage-API"><a href="#Storage-API" class="headerlink" title="Storage API"></a>Storage API</h3><p>setItem():设置数据，key\value类型，类型都是字符串，可以用获取属性的形式操作<br>getItem():获取数据，通过key来获取到相应的value<br>removeItem():删除数据，通过key来删除相应的value<br>clear():删除全部存储的值<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.localStorage.setItem(<span class="string">'sel'</span>,value);</span><br></pre></td></tr></table></figure></p>
+<h4 id="存储事件"><a href="#存储事件" class="headerlink" title="存储事件"></a>存储事件</h4><p>当数据有修改或删除的情况下，就会触发storage事件<br>在对数据进行改变的窗口对象上是不会触发的<br>Key : 修改或删除的key值，如果调用clear(),key为null<br>newValue  :  新设置的值，如果调用removeStorage(),key为null<br>oldValue :  调用改变前的value值<br>storageArea : 当前的storage对象<br>url :  触发该脚本变化的文档的url<br>注：session同窗口才可以,比如iframe操作</p>
+<h3 id="例子："><a href="#例子：" class="headerlink" title="例子："></a>例子：</h3><p><a href="https://codepen.io/HHardyy/pen/EejLQV" target="_blank" rel="noopener">行走日记</a></p>
+<h3 id="应用程序缓存（applicationCache）"><a href="#应用程序缓存（applicationCache）" class="headerlink" title="应用程序缓存（applicationCache）"></a>应用程序缓存（applicationCache）</h3><p>离线应用=没网的时候，可以正常访问，快速响应页面，不必用多个HTTP占用资源带宽，缓存的可以是任何文件</p>
+<h3 id="搭建离线应用程序"><a href="#搭建离线应用程序" class="headerlink" title="搭建离线应用程序"></a>搭建离线应用程序</h3><p>1、服务器设置头信息 :<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AddType text/cache-manifest .manifest</span><br></pre></td></tr></table></figure></p>
+<p>2、html标签加 :<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">manifest=“xxxxx.manifest”</span><br></pre></td></tr></table></figure></p>
+<p>3、写manifest文件 :  离线的清单列表<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">先写 :  CACHE MANIFEST</span><br><span class="line">FALLBACK :  第一个网络地址没获取到，就走第二个缓存的</span><br><span class="line">NETWORK ：无论缓存中存在与否，均从网络获取</span><br></pre></td></tr></table></figure></p>
+<p>例如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE HTML&gt;</span><br><span class="line">&lt;html manifest=<span class="string">"cache.manifest"</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta http-equiv=<span class="string">"Content-Type"</span> content=<span class="string">"text/html; charset=utf-8"</span>&gt;</span><br><span class="line">&lt;title&gt;无标题文档&lt;<span class="regexp">/title&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;img src=<span class="string">"2.png"</span>&gt;</span><br><span class="line">&lt;<span class="regexp">/body&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>html&gt;</span><br></pre></td></tr></table></figure></p>
+<h3 id="什么是worker"><a href="#什么是worker" class="headerlink" title="什么是worker?"></a>什么是worker?</h3><p>JS的单线程（放入UI队列的个数，利用定时器解决），可以让web应用程序具备后台处理能力，对多线程的支持非常好。</p>
+<h4 id="Worker-API"><a href="#Worker-API" class="headerlink" title="Worker API"></a>Worker API</h4><p>new Worker(‘后台处理的JS地址’)<br>利用postMessage传输数据<br>importScripts(‘导入其他JS文件’)</p>
+<h4 id="Worker运行环境"><a href="#Worker运行环境" class="headerlink" title="Worker运行环境"></a>Worker运行环境</h4><p>navgator  :  appName、appVersion、userAgent、platform<br>location  :   所有属性都是只读的<br>self  :  指向全局 worker 对象<br>所有的ECMA对象，Object、Array、Date等<br>XMLHttpRequest构造器<br>setTimeout和setInterval方法<br>close()方法，立刻停止worker运行<br>importScripts方法<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta http-equiv=<span class="string">"Content-Type"</span> content=<span class="string">"text/html; charset=utf-8"</span>&gt;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> w1 = <span class="keyword">new</span> Worker(<span class="string">'test.js'</span>);</span><br><span class="line">w1.postMessage(<span class="string">'hi'</span>);</span><br><span class="line">w1.onmessage = <span class="function"><span class="keyword">function</span>(<span class="params">ev</span>)</span>&#123;</span><br><span class="line">	alert( ev.data );</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<h3 id="h5其他路人"><a href="#h5其他路人" class="headerlink" title="h5其他路人"></a>h5其他路人</h3><h4 id="内容编辑："><a href="#内容编辑：" class="headerlink" title="内容编辑："></a>内容编辑：</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">contenteditable=<span class="string">"true“</span></span><br></pre></td></tr></table></figure>
+<h4 id="语音输入（可以强制输入框里面的语音的语言种类）"><a href="#语音输入（可以强制输入框里面的语音的语言种类）" class="headerlink" title="语音输入（可以强制输入框里面的语音的语言种类）"></a>语音输入（可以强制输入框里面的语音的语言种类）</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=<span class="string">"text"</span> x-webkit-speech lang=<span class="string">"zh-CN"</span>/&gt;</span><br></pre></td></tr></table></figure>
+<p>x-webkit-speech是webkit内核浏览器的私有属性，现在只能在google的chrome 11以上才能使用，支持的标签是input<br>检测浏览器是否支持<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="built_in">document</span>.createElement(<span class="string">"input"</span>).webkitSpeech === <span class="literal">undefined</span>) &#123; </span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"不支持"</span>); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>监听输入，用onwebkitspeechchange属性添加处理函数。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=<span class="string">"search"</span> x-webkit-speech onwebkitspeechchange=<span class="string">"onChange()"</span>/&gt;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">onChange</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"change"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>注意：如果原input中value不为空，输入会直接添加在原有文字后面。建议使用placeholder</p>
+<h4 id="桌面提醒"><a href="#桌面提醒" class="headerlink" title="桌面提醒"></a>桌面提醒</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.webkitNotifications.requestPermission();</span><br><span class="line">statue = <span class="built_in">window</span>.webkitNotifications.checkPermission();</span><br><span class="line"><span class="keyword">var</span> notification =<span class="built_in">window</span>.webkitNotifications.createNotification(<span class="string">"[imgurl]"</span>,<span class="string">"Title"</span>,<span class="string">"Body"</span>);</span><br><span class="line">notification.show();</span><br></pre></td></tr></table></figure>
+<h3 id="音频和视频"><a href="#音频和视频" class="headerlink" title="音频和视频"></a>音频和视频</h3><h4 id="编解码器"><a href="#编解码器" class="headerlink" title="编解码器"></a>编解码器</h4><p>原始的视频容器非常大，添加需编码，播放需解码<br>音频编解码器<br>AAC、MPEG-3、Ogg Vorbis<br>视频编解码器<br>H.264、VP8、Ogg Theora</p>
+<h4 id="媒体元素"><a href="#媒体元素" class="headerlink" title="媒体元素"></a>媒体元素</h4><p>controls  :   显示或隐藏用户控制界面<br>autoplay  :  媒体是否自动播放<br>loop  : 媒体是否循环播放<br>currentTime  :  开始到播放现在所用的时间<br>duration  :  媒体总时间(只读)<br>volume  :   0.0-1.0的音量相对值<br>muted  :   是否静音<br>autobuffer  :   开始的时候是否缓冲加载，autoplay的时候，忽略此属性<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> oA = <span class="built_in">document</span>.getElementById(<span class="string">'a1'</span>);</span><br><span class="line">	setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(oA.currentTime);</span><br><span class="line">	&#125;,<span class="number">1000</span>);</span><br><span class="line"><span class="comment">//oA.currentTime = 60;</span></span><br><span class="line"><span class="built_in">console</span>.log( oA.duration );</span><br><span class="line"><span class="built_in">console</span>.log( oA.volume );</span><br><span class="line"><span class="built_in">console</span>.log( oA.muted );</span><br><span class="line"><span class="built_in">console</span>.log( oA.paused );</span><br><span class="line"><span class="built_in">console</span>.log( oA.ended );</span><br><span class="line"><span class="built_in">console</span>.log( oA.error );</span><br><span class="line"><span class="built_in">console</span>.log( oA.currentSrc );</span><br></pre></td></tr></table></figure></p>
+<p>paused  :   媒体是否暂停(只读)<br>ended   :   媒体是否播放完毕(只读)<br>error   :  媒体发生错误的时候，返回错误代码 (只读)<br>currentSrc  :   以字符串的形式返回媒体地址(只读)</p>
+<p>play()  :  媒体播放<br>pause()  :  媒体暂停<br>load()  :  重新加载媒体</p>
+<h4 id="Video额外特性"><a href="#Video额外特性" class="headerlink" title="Video额外特性"></a>Video额外特性</h4><p>poster  :   视频播放前的预览图片<br>width、height  :   设置视频的尺寸<br>videoWidth、 videoHeight  :   视频的实际尺寸(只读)</p>
+<p><a href="https://codepen.io/HHardyy/pen/LJVrBB" target="_blank" rel="noopener">视频播放器</a></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-01-13T15:18:08.000Z" itemprop="dateUpdated">2020-01-13 23:18:08</time>
+</span><br>
+
+
+        
+        谢谢浏览，我会继续努力的，示例：<a href="/2018/01/18/H5的艺术/" target="_blank" rel="external">http://yoursite.com/2018/01/18/H5的艺术/</a>
+        
+    </div>
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.jpg" alt="BingZhenhuang">
+            BingZhenhuang
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html5/">html5</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/01/18/H5的艺术/&title=《H5的艺术》 — 小方块 - hhardyy.com&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/01/18/H5的艺术/&title=《H5的艺术》 — 小方块 - hhardyy.com&source=跳进html5天坑。。
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/01/18/H5的艺术/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《H5的艺术》 — 小方块 - hhardyy.com&url=http://yoursite.com/2018/01/18/H5的艺术/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/01/18/H5的艺术/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/01/19/post、get和ajax跨域/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">post、get和ajax跨域</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/01/07/cookies-sessionStorage和localStorage的区别/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">cookies,sessionStorage和localStorage的区别</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        🤠 请我喝可乐！
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content" style="width:50%">
+        
+        <div class="reward-code" style="text-align:center">
+            <div style="width:300px;margin:0px auto;">
+               <img id="rewardCode" style="width:50%;height:60%;display:block; margin:0px auto;" src="/img/alipay.jpg" alt="支付宝打赏二维码">
+               <span style="display:inline-block; margin-bottom:20px;">0.88(支付宝 aliPay)</span>
+               <img id="rewardCode" style="width:50%;height:60%;display:block; margin:0px auto;" src="/img/wechat.jpg" alt="微信打赏二维码">
+               <span style="display:inline-block;">0.88(微信 weChat)</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+</div>
+
+        <script>
+!function(e,t,a){function n(){c(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"),o(),r()}function r(){for(var e=0;e<d.length;e++)d[e].alpha<=0?(t.body.removeChild(d[e].el),d.splice(e,1)):(d[e].y--,d[e].scale+=.004,d[e].alpha-=.013,d[e].el.style.cssText="left:"+d[e].x+"px;top:"+d[e].y+"px;opacity:"+d[e].alpha+";transform:scale("+d[e].scale+","+d[e].scale+") rotate(45deg);background:"+d[e].color+";z-index:99999");requestAnimationFrame(r)}function o(){var t="function"==typeof e.onclick&&e.onclick;e.onclick=function(e){t&&t(),i(e)}}function i(e){var a=t.createElement("div");a.className="heart",d.push({el:a,x:e.clientX-5,y:e.clientY-5,scale:1,alpha:1,color:s()}),t.body.appendChild(a)}function c(e){var a=t.createElement("style");a.type="text/css";try{a.appendChild(t.createTextNode(e))}catch(t){a.styleSheet.cssText=e}t.getElementsByTagName("head")[0].appendChild(a)}function s(){return"rgb("+~~(255*Math.random())+","+~~(255*Math.random())+","+~~(255*Math.random())+")"}var d=[];e.requestAnimationFrame=function(){return e.requestAnimationFrame||e.webkitRequestAnimationFrame||e.mozRequestAnimationFrame||e.oRequestAnimationFrame||e.msRequestAnimationFrame||function(e){setTimeout(e,1e3/60)}}(),n()}(window,document);
+</script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script>
+    function secondToDate(second) {
+        if (!second) {
+            return 0;
+        }
+        var time = new Array(0, 0, 0, 0, 0);
+        if (second >= 365 * 24 * 3600) {
+            time[0] = parseInt(second / (365 * 24 * 3600));
+            second %= 365 * 24 * 3600;
+        }
+        if (second >= 24 * 3600) {
+            time[1] = parseInt(second / (24 * 3600));
+            second %= 24 * 3600;
+        }
+        if (second >= 3600) {
+            time[2] = parseInt(second / 3600);
+            second %= 3600;
+        }
+        if (second >= 60) {
+            time[3] = parseInt(second / 60);
+            second %= 60;
+        }
+        if (second > 0) {
+            time[4] = second;
+        }
+        return time;
+    }</script>
+<script type="text/javascript" language="javascript">
+    function setTime() {
+        var create_time = Math.round(new Date(Date.UTC(2017, 08, 18, 11, 42, 23)).getTime() / 1000);
+        var timestamp = Math.round((new Date().getTime() + 8 * 60 * 60 * 1000) / 1000);
+        currentTime = secondToDate((timestamp - create_time));
+        currentTimeHtml = 'Running：' + currentTime[0] + '年 ' + currentTime[1] + '天 '
+                + currentTime[2] + '时 ' + currentTime[3] + '分 ' + currentTime[4]
+                + '秒';
+        document.getElementById("htmer_time").innerHTML = currentTimeHtml;
+    }    setInterval(setTime, 1000);
+</script>
+<footer class="footer">
+    <div class="top">
+        
+
+        <p>
+          <span id="busuanzi_container_page_pv">
+             [&nbsp;浏览量：&nbsp;<span id="busuanzi_value_page_pv"></span>&nbsp;]
+          </span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+        <span>BingZhenhuang &copy; 2017 - 2021</span>
+            <span>
+                
+                Power by <a href="https://hhardyy.github.io/" target="_blank">zhen On August 8</a> 
+            </span>
+            <span id="htmer_time" "></span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/01/18/H5的艺术/&title=《H5的艺术》 — 小方块 - hhardyy.com&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/01/18/H5的艺术/&title=《H5的艺术》 — 小方块 - hhardyy.com&source=跳进html5天坑。。
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/01/18/H5的艺术/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《H5的艺术》 — 小方块 - hhardyy.com&url=http://yoursite.com/2018/01/18/H5的艺术/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/01/18/H5的艺术/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACMElEQVR42u3aQW7DMAwF0dz/0u42QGtlPqkUMDVaBbYh+XnBUBRfLzyut3F3/f3udTPe7/JVtg0ZMmQ8lnEtR+2Z3/PfPdNfV4YMGecw7iLY+vd6Hh5w+2vJkCFDBnlFEoI7JBkyZMioMdYzrMNuLTTLkCHjZEa/QMY3nIT9xb24DBkyHsjgVff///2V8w0ZMmQ8inGFIw2Oe8Pr7VvJkCFjNIMHuLTEz+fk1z+sIkOGjAMYvPFrjdn1DG/gkCFDxmwGT7xIuS0NkTV8cRMrQ4aMxzJ4I0WaLBbTu9LhqAwZMmYzag0T63BJ7nY2tH+sIkOGjGMYabGeY2pXiuerMmTIGMeopYP8eZ7q8UTzw2wyZMgYx6i1NexqnkjBm3tGZMiQ8UBGWu7nB5DoVfr1QhkyZBzDWF9Jg3L6ukGHCPmiMmTIGMFIN5lpU1ea8HWOImTIkDGVkbY7pMkc3752ynMyZMg4gZFuSvkRI/9MfDOM/jFkyJAxiMGDZi0pTMtzaalOhgwZpzFQUAtDarpBrbViyJAh4xwGP4Yky3SaM9JPJkOGjHMYvGGrVnrrbIbR/DJkyBjK6DRS8Bl2pZXoCFOGDBnjGGmw4w1ktQMAcoCapq0yZMiYwUiDbOfKroAb7KRlyJAxiJEGPtJIwdO4tIFDhgwZMjqMTpEuDdYyZMiQwZtZa8W1TkvHh25cGTJkDGWQTSxfks/cIcmQIeMcRq3RIQ24pJRWa3uVIUPGaMYPrdoi4OU7mkAAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '(•‾̑⌣‾̑•)✧˖°回来看我';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(゜-゜)つロ欢迎回来';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
