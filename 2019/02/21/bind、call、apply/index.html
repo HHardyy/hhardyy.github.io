@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?d890b1f16fb364253e79c5bb20225c3a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+    
+
+    
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?busuanzi_value_site_uv"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    <meta name="baidu-site-verification" content="FYMCShbUK8">
+    <meta name="baidu-site-verification" content="ZYRF7OxQRW">
+    <meta name="baidu-site-verification" content="cHSqtjI0PN">
+    <meta name="baidu-site-verification" content="cHSqtjI0PN">
+    <meta name="baidu-site-verification" content="cHSqtjI0PN">
+    
+    
+    <link rel="canonical" href="https://hhardyy.com/2019/02/21/bind、call、apply/">
+    
+    
+    <title>bind、call、apply | 小方块 - hhardyy.com | 复杂的坑+归其原理+了解实现规则===解决？解决成功：加油解决成功;</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#958e93">
+    
+    
+    <meta name="keywords" content="bind,apply,call,原型">
+    <meta name="description" content="改变this指向的三位选手，bind,call,apply。">
+<meta name="keywords" content="bind,apply,call,原型">
+<meta property="og:type" content="article">
+<meta property="og:title" content="bind、call、apply">
+<meta property="og:url" content="http://yoursite.com/2019/02/21/bind、call、apply/index.html">
+<meta property="og:site_name" content="小方块 - hhardyy.com">
+<meta property="og:description" content="改变this指向的三位选手，bind,call,apply。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-01-13T15:15:50.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="bind、call、apply">
+<meta name="twitter:description" content="改变this指向的三位选手，bind,call,apply。">
+    
+        <link rel="alternate" type="application/atom+xml" title="小方块 - hhardyy.com" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/hardyfavicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/paulGraham.jpg)">
+      <div class="brand" style="background-color:#4154b2">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">BingZhenhuang</h5>
+          <a href="mailto:huangbingzhen@hhardyy.com" title="huangbingzhen@hhardyy.com" class="mail">huangbingzhen@hhardyy.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                所有文章
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/HHardyy" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://gitee.com/hhardyy" target="_blank" >
+                <i class="icon icon-lg icon-cloud"></i>
+                Gitee
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://juejin.im/user/59a26f926fb9a02487553b04"  >
+                <i class="icon icon-lg icon-pencil"></i>
+                掘金-圳
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://segmentfault.com/u/hhardyy"  >
+                <i class="icon icon-lg icon-comments"></i>
+                Segmentfault
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://codepen.io/HHardyy/" target="_blank" >
+                <i class="icon icon-lg icon-codepen"></i>
+                Codepen
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.freecodecamp.cn/hhardyy" target="_blank" >
+                <i class="icon icon-lg icon-leaf"></i>
+                Freecodecamp
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/友情链接"  >
+                <i class="icon icon-lg icon-link"></i>
+                友链
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">bind、call、apply</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">bind、call、apply</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-02-20T16:00:00.000Z" itemprop="datePublished" class="page-time">
+  2019-02-21
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#三位选手一般会这么用，例如有两个对象a和b"><span class="post-toc-number">1.</span> <span class="post-toc-text">三位选手一般会这么用，例如有两个对象a和b</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#手动实现"><span class="post-toc-number">2.</span> <span class="post-toc-text">手动实现</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#bind"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">bind</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#call"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">call</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#apply"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">apply</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-bind、call、apply"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">bind、call、apply</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-02-21 00:00:00" datetime="2019-02-20T16:00:00.000Z"  itemprop="datePublished">2019-02-21</time>
+
+            
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>改变this指向的三位选手，bind,call,apply。</p>
+<p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=475475570&auto=0&height=66"></iframe><br><a id="more"></a></p>
+<blockquote>
+<p>bind,call,apply这三位选手都是原型Function下面的方法，函数原型对象是Function.prototype。比如使用了.push方法，它会去Array的prototype查找是否存在该方法，如果它会顺着原<br>型链<strong>_proto</strong>继续找，直到找到null，也就是原型链prototype<br>chain的最终链接。。。。。有点飞出地球表面。。。。,这三位选手中call、apply是立即调用函数，都是在特定的作用域中调用函数，等于设置函数体内this对象的值，以扩充函数赖以运行的作用域<br>，bind则是返回一个绑定this的函数。</p>
+</blockquote>
+<h3 id="三位选手一般会这么用，例如有两个对象a和b"><a href="#三位选手一般会这么用，例如有两个对象a和b" class="headerlink" title="三位选手一般会这么用，例如有两个对象a和b"></a>三位选手一般会这么用，例如有两个对象a和b</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a=&#123;</span><br><span class="line">	name:<span class="string">'a'</span>,</span><br><span class="line">	getName:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="keyword">this</span>.name)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> b=&#123;</span><br><span class="line">	name:<span class="string">'b'</span>,</span><br><span class="line">	getName:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="keyword">this</span>.name)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> bFunc=a.getName.bind(b)    <span class="comment">//bind将a的this指向了b，所以a里面的getName打印的this.name就是  b</span></span><br><span class="line">bFunc()</span><br><span class="line">a.getName.call(b)              <span class="comment">//call将a的this指向b，所以getName打印出b</span></span><br><span class="line">b.getName.apply(a)             <span class="comment">//apply将b的this指向a，所以getName打印出a</span></span><br></pre></td></tr></table></figure>
+<p>bind可以传入两次参数，可以let bFunc=a.getName.bind(b,arg1,arg2….)也可以bFunc(arg1,arg2…)；call方法接收两个参数，第一个参数和apply的一样，然后传入的参数必须是列举<br>出来，可以将一个函数的对象上下文从初始的上下文改变为第一个参数指定的新对象，如果没有提供，那么this指向Global；apply接收两个参数，第一个参数是函数运行的作用域，第二个参数<br>是数组（一整个数组），如果第二个参数不是一个有效数组或者arguments对象，会导致TypeError，如果两个参没有传入的话，那么this指向Global；apply和call和bind就是传参不一样,app<br>ly和call都是会在调用的时候同时执行调用的函数,但是bind则会返回一个绑定了this的函数.</p>
+<h3 id="手动实现"><a href="#手动实现" class="headerlink" title="手动实现"></a>手动实现</h3><h4 id="bind"><a href="#bind" class="headerlink" title="bind"></a>bind</h4><p>需求：返回一个可以new并且与被调函数具有相同函数体的新函数，调用bind的时候传入参数长度不定<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Function</span>.prototype.hBind=<span class="function"><span class="keyword">function</span>(<span class="params">context</span>)</span>&#123;    <span class="comment">//在Function的原型上增加一个hBind方法</span></span><br><span class="line">   	<span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="keyword">this</span>!==<span class="string">'function'</span>) &#123;</span><br><span class="line">   		<span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">'is not a Function'</span>)</span><br><span class="line">   		<span class="keyword">return</span></span><br><span class="line">   	&#125;</span><br><span class="line">   	<span class="keyword">let</span> this_=<span class="keyword">this</span>,</span><br><span class="line">   	    aArgs=[].slice.call(<span class="built_in">arguments</span>,<span class="number">1</span>),    <span class="comment">//arguments是类数组，[]=new Array，利用Array.prototype的slice从arguments里面拿到第一次传入的参数</span></span><br><span class="line">   	    F=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;,                      <span class="comment">//为避免出现引用类型的原型对象出现相互影响创建一个用于中专的函数F</span></span><br><span class="line">   	    Fb=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;                       <span class="comment">//返回的函数，也就是例如let func=obj.bind(obj)的func</span></span><br><span class="line">   	    	<span class="keyword">return</span> this_.apply(              </span><br><span class="line">   	    		<span class="keyword">this</span> <span class="keyword">instanceof</span> F &amp;&amp; context?<span class="keyword">this</span>:context||<span class="built_in">window</span>, </span><br><span class="line">   	    		aArgs.concat([].slice.call(<span class="built_in">arguments</span>))             </span><br><span class="line">   	    	)</span><br><span class="line">   	    &#125;</span><br><span class="line">   	F.prototype=<span class="keyword">this</span>.prototype     <span class="comment">//函数F的原型对象复制this的原型对象</span></span><br><span class="line">   	Fb.prototype=<span class="keyword">new</span> F()           <span class="comment">//Fb的原型对象再复制F的原型对象，，实现中专</span></span><br><span class="line">   	<span class="keyword">return</span> Fb</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="call"><a href="#call" class="headerlink" title="call"></a>call</h4><p>需求：改变this指向和传参不定长度，可以将目标函数作为这个对象的属性，不能增加对象的属性。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Function</span>.prototype.hCall=<span class="function"><span class="keyword">function</span>(<span class="params">context,...args</span>)</span>&#123;</span><br><span class="line">   	<span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="keyword">this</span>!==<span class="string">'function'</span>) &#123;</span><br><span class="line">   		<span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">'is not a Function'</span>)</span><br><span class="line">   		<span class="keyword">return</span></span><br><span class="line">   	&#125;</span><br><span class="line">   	<span class="keyword">let</span> cont=context||<span class="built_in">window</span></span><br><span class="line">   	<span class="keyword">let</span> arrs=args?args:[]</span><br><span class="line">   	<span class="keyword">let</span> func=<span class="built_in">Symbol</span>()</span><br><span class="line">   	cont[func]=<span class="keyword">this</span></span><br><span class="line">   	cont[func](...arrs)</span><br><span class="line">   	<span class="keyword">delete</span> cont[func]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="apply"><a href="#apply" class="headerlink" title="apply"></a>apply</h4><p>与call一样，只是第二个参数是数组<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Function</span>.prototype.hApply=<span class="function"><span class="keyword">function</span>(<span class="params">context,args</span>)</span>&#123;</span><br><span class="line">  	<span class="keyword">if</span> (<span class="keyword">this</span>&amp;&amp;<span class="keyword">this</span>.constructor!==<span class="built_in">Function</span>) &#123;</span><br><span class="line">  		<span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">'is not a function'</span>)</span><br><span class="line">  	&#125;</span><br><span class="line">  	context=context||<span class="built_in">window</span></span><br><span class="line">  	args=args?args:[]</span><br><span class="line">  	<span class="keyword">let</span> func=<span class="built_in">Symbol</span>()</span><br><span class="line">  	context[func]=<span class="keyword">this</span></span><br><span class="line">  	<span class="keyword">if</span> (args&amp;&amp;args.constructor===<span class="built_in">Array</span>) &#123;</span><br><span class="line">  		context[func](...args)</span><br><span class="line">  	&#125;<span class="keyword">else</span> <span class="keyword">if</span> (!args) &#123;</span><br><span class="line">  		<span class="keyword">delete</span> context[func]</span><br><span class="line">  	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">  		<span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">'CreateListFromArrayLike called on non-object'</span>)</span><br><span class="line">  	&#125;</span><br><span class="line">  elete context[func]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-01-13T15:15:50.000Z" itemprop="dateUpdated">2020-01-13 23:15:50</time>
+</span><br>
+
+
+        
+        谢谢浏览，我会继续努力的，示例：<a href="/2019/02/21/bind、call、apply/" target="_blank" rel="external">http://yoursite.com/2019/02/21/bind、call、apply/</a>
+        
+    </div>
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.jpg" alt="BingZhenhuang">
+            BingZhenhuang
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/apply/">apply</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bind/">bind</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/call/">call</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/原型/">原型</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/02/21/bind、call、apply/&title=《bind、call、apply》 — 小方块 - hhardyy.com&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/02/21/bind、call、apply/&title=《bind、call、apply》 — 小方块 - hhardyy.com&source=改变this指向的三位选手，bind,call,apply。
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/02/21/bind、call、apply/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《bind、call、apply》 — 小方块 - hhardyy.com&url=http://yoursite.com/2019/02/21/bind、call、apply/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/02/21/bind、call、apply/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/04/06/了解React/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">读React源码</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/01/20/React-echars做的图表组件/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">react+echars做的图表轮子</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        🤠 请我喝可乐！
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content" style="width:50%">
+        
+        <div class="reward-code" style="text-align:center">
+            <div style="width:300px;margin:0px auto;">
+               <img id="rewardCode" style="width:50%;height:60%;display:block; margin:0px auto;" src="/img/alipay.jpg" alt="支付宝打赏二维码">
+               <span style="display:inline-block; margin-bottom:20px;">0.88(支付宝 aliPay)</span>
+               <img id="rewardCode" style="width:50%;height:60%;display:block; margin:0px auto;" src="/img/wechat.jpg" alt="微信打赏二维码">
+               <span style="display:inline-block;">0.88(微信 weChat)</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+</div>
+
+        <script>
+!function(e,t,a){function n(){c(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"),o(),r()}function r(){for(var e=0;e<d.length;e++)d[e].alpha<=0?(t.body.removeChild(d[e].el),d.splice(e,1)):(d[e].y--,d[e].scale+=.004,d[e].alpha-=.013,d[e].el.style.cssText="left:"+d[e].x+"px;top:"+d[e].y+"px;opacity:"+d[e].alpha+";transform:scale("+d[e].scale+","+d[e].scale+") rotate(45deg);background:"+d[e].color+";z-index:99999");requestAnimationFrame(r)}function o(){var t="function"==typeof e.onclick&&e.onclick;e.onclick=function(e){t&&t(),i(e)}}function i(e){var a=t.createElement("div");a.className="heart",d.push({el:a,x:e.clientX-5,y:e.clientY-5,scale:1,alpha:1,color:s()}),t.body.appendChild(a)}function c(e){var a=t.createElement("style");a.type="text/css";try{a.appendChild(t.createTextNode(e))}catch(t){a.styleSheet.cssText=e}t.getElementsByTagName("head")[0].appendChild(a)}function s(){return"rgb("+~~(255*Math.random())+","+~~(255*Math.random())+","+~~(255*Math.random())+")"}var d=[];e.requestAnimationFrame=function(){return e.requestAnimationFrame||e.webkitRequestAnimationFrame||e.mozRequestAnimationFrame||e.oRequestAnimationFrame||e.msRequestAnimationFrame||function(e){setTimeout(e,1e3/60)}}(),n()}(window,document);
+</script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script>
+    function secondToDate(second) {
+        if (!second) {
+            return 0;
+        }
+        var time = new Array(0, 0, 0, 0, 0);
+        if (second >= 365 * 24 * 3600) {
+            time[0] = parseInt(second / (365 * 24 * 3600));
+            second %= 365 * 24 * 3600;
+        }
+        if (second >= 24 * 3600) {
+            time[1] = parseInt(second / (24 * 3600));
+            second %= 24 * 3600;
+        }
+        if (second >= 3600) {
+            time[2] = parseInt(second / 3600);
+            second %= 3600;
+        }
+        if (second >= 60) {
+            time[3] = parseInt(second / 60);
+            second %= 60;
+        }
+        if (second > 0) {
+            time[4] = second;
+        }
+        return time;
+    }</script>
+<script type="text/javascript" language="javascript">
+    function setTime() {
+        var create_time = Math.round(new Date(Date.UTC(2017, 08, 18, 11, 42, 23)).getTime() / 1000);
+        var timestamp = Math.round((new Date().getTime() + 8 * 60 * 60 * 1000) / 1000);
+        currentTime = secondToDate((timestamp - create_time));
+        currentTimeHtml = 'Running：' + currentTime[0] + '年 ' + currentTime[1] + '天 '
+                + currentTime[2] + '时 ' + currentTime[3] + '分 ' + currentTime[4]
+                + '秒';
+        document.getElementById("htmer_time").innerHTML = currentTimeHtml;
+    }    setInterval(setTime, 1000);
+</script>
+<footer class="footer">
+    <div class="top">
+        
+
+        <p>
+          <span id="busuanzi_container_page_pv">
+             [&nbsp;浏览量：&nbsp;<span id="busuanzi_value_page_pv"></span>&nbsp;]
+          </span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+        <span>BingZhenhuang &copy; 2017 - 2021</span>
+            <span>
+                
+                Power by <a href="https://hhardyy.github.io/" target="_blank">zhen On August 8</a> 
+            </span>
+            <span id="htmer_time" "></span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/02/21/bind、call、apply/&title=《bind、call、apply》 — 小方块 - hhardyy.com&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/02/21/bind、call、apply/&title=《bind、call、apply》 — 小方块 - hhardyy.com&source=改变this指向的三位选手，bind,call,apply。
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/02/21/bind、call、apply/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《bind、call、apply》 — 小方块 - hhardyy.com&url=http://yoursite.com/2019/02/21/bind、call、apply/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/02/21/bind、call、apply/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLUlEQVR42u3awY6DMAxF0f7/TzPSbKfAfXYYCedmVbUpcFhYduzPB6/jd/Gdf/eT78/2LFsyZMh4LeO4XGcM8uv1Y/H7IqoMGTI2YFwH2etLk/+SByUv6PR7GTJkyFj0KNeBW4YMGTJWBdy0fL0O0zJkyJDBGbVikieL/Ijt8VpchgwZL2SkjYH//Pxgf0OGDBkvYRyl1SlT+82AL/+SIUPGaAYpPvn4BUngeEJJyt2ghpYhQ8ZrGbUCsvYKVrUEvtxXhgwZGzDIY6U36B+uBQWtDBkyNmM8MVqRNjV58noacGXIkDGIwZM2PjCR4nnKeBOOZciQsRmDNy874xdpO+HmyjJkyBjKQIGsNNvAD+P67U8ZMmTswCCXTpO/2hXSk7RgkwwZMgYx+LBX3GgMZyR4uJchQ8YOjPT4ng9+rQriN69VhgwZ2zBqR/88+HZ2oualDBkyhjI6Q13pkAQvYhe8DhkyZIxj1I7y01EJ8lJ46StDhow9GenYFmk9pgd2aaksQ4aMPRm1I3t0G1wk87YE6jPIkCFjKKNfvvJgWksrZciQsRujNh6RsglsWVNBhgwZgxhHuPqNxrRARemjDBkyRjP44jdbNWBBPsuQIWMfRj+lS0NhLQENZtxkyJAxlFELfDyY9qP+DUyGDBkywnStNmbRST1lyJAhgx/A8aP/tM5GnVgZMmSMZpAilpSdhM33F2dGZMiQMY7RP6xf28IkIXhBf0OGDBnvYPwADt1Bz6ZrSewAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '(•‾̑⌣‾̑•)✧˖°回来看我';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(゜-゜)つロ欢迎回来';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

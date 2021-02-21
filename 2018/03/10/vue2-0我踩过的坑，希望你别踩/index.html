@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?d890b1f16fb364253e79c5bb20225c3a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+    
+
+    
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?busuanzi_value_site_uv"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    <meta name="baidu-site-verification" content="FYMCShbUK8">
+    <meta name="baidu-site-verification" content="ZYRF7OxQRW">
+    <meta name="baidu-site-verification" content="cHSqtjI0PN">
+    <meta name="baidu-site-verification" content="cHSqtjI0PN">
+    <meta name="baidu-site-verification" content="cHSqtjI0PN">
+    
+    
+    <link rel="canonical" href="https://hhardyy.com/2018/03/10/vue2-0我踩过的坑，希望你别踩/">
+    
+    
+    <title>vue2.0我踩过的坑，希望你别踩 | 小方块 - hhardyy.com | 复杂的坑+归其原理+了解实现规则===解决？解决成功：加油解决成功;</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#958e93">
+    
+    
+    <meta name="keywords" content="vue-router,better-scroll,express,vue--resource,props,2.0弃用的方法,组件状态保留">
+    <meta name="description" content="这是一个伤心的故事，vue2.0做1.0的东西踩过的坑…">
+<meta name="keywords" content="vue-router,better-scroll,express,vue--resource,props,2.0弃用的方法,组件状态保留">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue2.0我踩过的坑，希望你别踩">
+<meta property="og:url" content="http://yoursite.com/2018/03/10/vue2-0我踩过的坑，希望你别踩/index.html">
+<meta property="og:site_name" content="小方块 - hhardyy.com">
+<meta property="og:description" content="这是一个伤心的故事，vue2.0做1.0的东西踩过的坑…">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/images/vue2.0keng/1.gif">
+<meta property="og:image" content="http://yoursite.com/images/vue2.0keng/1.JPG">
+<meta property="og:image" content="http://yoursite.com/images/vue2.0keng/2.JPG">
+<meta property="og:image" content="http://yoursite.com/images/vue2.0keng/3.JPG">
+<meta property="og:updated_time" content="2020-01-13T15:23:12.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="vue2.0我踩过的坑，希望你别踩">
+<meta name="twitter:description" content="这是一个伤心的故事，vue2.0做1.0的东西踩过的坑…">
+<meta name="twitter:image" content="http://yoursite.com/images/vue2.0keng/1.gif">
+    
+        <link rel="alternate" type="application/atom+xml" title="小方块 - hhardyy.com" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/hardyfavicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/paulGraham.jpg)">
+      <div class="brand" style="background-color:#4154b2">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">BingZhenhuang</h5>
+          <a href="mailto:huangbingzhen@hhardyy.com" title="huangbingzhen@hhardyy.com" class="mail">huangbingzhen@hhardyy.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                所有文章
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/HHardyy" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://gitee.com/hhardyy" target="_blank" >
+                <i class="icon icon-lg icon-cloud"></i>
+                Gitee
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://juejin.im/user/59a26f926fb9a02487553b04"  >
+                <i class="icon icon-lg icon-pencil"></i>
+                掘金-圳
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://segmentfault.com/u/hhardyy"  >
+                <i class="icon icon-lg icon-comments"></i>
+                Segmentfault
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://codepen.io/HHardyy/" target="_blank" >
+                <i class="icon icon-lg icon-codepen"></i>
+                Codepen
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.freecodecamp.cn/hhardyy" target="_blank" >
+                <i class="icon icon-lg icon-leaf"></i>
+                Freecodecamp
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/友情链接"  >
+                <i class="icon icon-lg icon-link"></i>
+                友链
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">vue2.0我踩过的坑，希望你别踩</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">vue2.0我踩过的坑，希望你别踩</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-03-10T10:01:12.000Z" itemprop="datePublished" class="page-time">
+  2018-03-10
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#express"><span class="post-toc-number">1.</span> <span class="post-toc-text">express</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#vue路由（vue-router）"><span class="post-toc-number">2.</span> <span class="post-toc-text">vue路由（vue-router）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#处理前后端数据交互vue–resource"><span class="post-toc-number">3.</span> <span class="post-toc-text">处理前后端数据交互vue–resource</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#better-scroll操作dom的时候的坑"><span class="post-toc-number">4.</span> <span class="post-toc-text">better-scroll操作dom的时候的坑</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#dispatch"><span class="post-toc-number">5.</span> <span class="post-toc-text">$dispatch</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#props的问题"><span class="post-toc-number">6.</span> <span class="post-toc-text">props的问题</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#拓展"><span class="post-toc-number">7.</span> <span class="post-toc-text">拓展</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-vue2-0我踩过的坑，希望你别踩"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">vue2.0我踩过的坑，希望你别踩</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-03-10 18:01:12" datetime="2018-03-10T10:01:12.000Z"  itemprop="datePublished">2018-03-10</time>
+
+            
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>这是一个伤心的故事，vue2.0做1.0的东西踩过的坑…</p>
+<p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=5273093&auto=0&height=66"></iframe><br><a id="more"></a></p>
+<h3 id="express"><a href="#express" class="headerlink" title="express"></a>express</h3><p>（还有许多依赖包也是如此比如css-loader等）<br>这东西在1.0的时候只需要在package.json里面声明一下然后<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure></p>
+<p>express的依赖就安装完毕了，但是在2.0这样玩的时候报出express is not defind<br>解决方案就是安装一下express，安装命令：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install express --save</span><br></pre></td></tr></table></figure></p>
+<p>假如是暂时安装而不将其添加到依赖项列表中，则忽略–save，安装完之后直接跑起来如果还是报错，到依赖包package.json里面定义一下，然后npm install，<br>webpack配置文件再定义一下，就可以跑了<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</span><br></pre></td></tr></table></figure></p>
+<p>。。。也许你都装了那些配置，然后只是忘了var express = require(‘express’）,非常尴尬的说我就是如此hhhhh，装完一切才发现我是没var就用，这个例子很简单，但是2.0的很多依赖都是这么整的，所以碰到坑的时候不妨一试</p>
+<h3 id="vue路由（vue-router）"><a href="#vue路由（vue-router）" class="headerlink" title="vue路由（vue-router）"></a>vue路由（vue-router）</h3><p>在用脚手架构建项目的时候会提示时候安装vue-router，如果选了它就直接帮忙安装好，路由的东西写在脚手架生成的router文件下的index.js下面，假如选择了否之后，就需要自己装路由<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install vue-router</span><br></pre></td></tr></table></figure></p>
+<p>package.json里（dependencies）加上”vue-router”: “^0.7.13（这个版本号是看你自己要装什么版本）”</p>
+<p>它的坑：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Cannot read property <span class="string">'component'</span> <span class="keyword">of</span> <span class="literal">undefined</span></span><br></pre></td></tr></table></figure></p>
+<p>解决方案：<br>1.打开package.json将”dependencies”中的   “vue-router”版本改为：”^2.2.0”<br>2.npm install<br>3.在App.vue中<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">将</span><br><span class="line">&lt;a v-link=<span class="string">"&#123;path:'/xxx'&#125;"</span>&gt;xxx&lt;<span class="regexp">/a&gt;</span></span><br><span class="line"><span class="regexp">改成</span></span><br><span class="line"><span class="regexp">&lt;router-link to="/</span>xxx<span class="string">"&gt;xxx&lt;/router-link&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>4.然后在main.js中import<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> VueRouter <span class="keyword">from</span> <span class="string">'vue-router'</span>;</span><br></pre></td></tr></table></figure></p>
+<p>否则如图<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/vue2.0keng/1.gif" alt="“。。。”" title>
+                </div>
+                <div class="image-caption">“。。。”</div>
+            </figure><br>使用模块化机制编程，導入Vue和VueRouter，要调用 Vue.use(VueRouter)<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义路由</span></span><br><span class="line"><span class="keyword">var</span> routes=[</span><br><span class="line">&#123;<span class="attr">path</span>:<span class="string">'/'</span>,<span class="attr">redirect</span>: <span class="string">'/xxx'</span>&#125;, </span><br><span class="line">&#123;<span class="attr">path</span>:<span class="string">'/xxx'</span>,<span class="attr">component</span>:xxx&#125;,</span><br><span class="line">&#123;<span class="attr">path</span>:<span class="string">'/yyy'</span>,<span class="attr">component</span>:yyy&#125;,</span><br><span class="line">&#123;<span class="attr">path</span>:<span class="string">'/zzz'</span>,<span class="attr">component</span>:zzz&#125;</span><br><span class="line">]</span><br><span class="line"><span class="comment">//创建 router 实例，然后传 `routes` 配置</span></span><br><span class="line"><span class="keyword">var</span> router=<span class="keyword">new</span> VueRouter(&#123;</span><br><span class="line">linkActiveClass: <span class="string">'active'</span>,</span><br><span class="line">  routes</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//=&gt;是ES6的箭头语法</span></span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">el:<span class="string">'#app'</span>,</span><br><span class="line">router,</span><br><span class="line">render:<span class="function"><span class="params">h</span>=&gt;</span>h(App)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<h3 id="处理前后端数据交互vue–resource"><a href="#处理前后端数据交互vue–resource" class="headerlink" title="处理前后端数据交互vue–resource"></a>处理前后端数据交互vue–resource</h3><p>安装<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install vue-resource</span><br></pre></td></tr></table></figure></p>
+<p>交互也可以用axios</p>
+<h3 id="better-scroll操作dom的时候的坑"><a href="#better-scroll操作dom的时候的坑" class="headerlink" title="better-scroll操作dom的时候的坑"></a>better-scroll操作dom的时候的坑</h3><p>这里先装一下better-scroll<br>1、package.json写上”better-scroll”: “^1.8.1”<br>2、执行命令<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure></p>
+<p>（用这个的时候的坑）<br>在vue1.0的时候两个外部dom获取写成<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"menu-wrapper"</span> v-el:menu-wrapper&gt;</span><br><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"foods-wrapper"</span> v-el:foods-wrapper&gt;、</span><br><span class="line"></span><br><span class="line"><span class="comment">//挂载到els的时候</span></span><br><span class="line"><span class="keyword">this</span>.meunScroll = <span class="keyword">new</span> BScroll(<span class="keyword">this</span>.$els.menuWrapper, &#123;&#125;);</span><br><span class="line"><span class="keyword">this</span>.foodsScroll = <span class="keyword">new</span> BScroll(<span class="keyword">this</span>.$els.foodsWrapper, &#123;&#125;);</span><br><span class="line">created() &#123;</span><br><span class="line">      <span class="keyword">this</span>.$http.get(<span class="string">'/api/goods'</span>).then(<span class="function">(<span class="params">response</span>) =&gt;</span> &#123;</span><br><span class="line">        response = response.body;</span><br><span class="line">        <span class="keyword">if</span> (response.errno === ERR_OK) &#123;</span><br><span class="line">          <span class="keyword">this</span>.goods = response.data;</span><br><span class="line">          <span class="keyword">this</span>.$nextTick(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">this</span>._initScroll();</span><br><span class="line">            <span class="keyword">this</span>._calculateHeight();</span><br><span class="line">          &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;,</span><br><span class="line">methods: &#123;</span><br><span class="line">      _initScroll() &#123;</span><br><span class="line">        <span class="keyword">this</span>.meunScroll = <span class="keyword">new</span> BScroll(<span class="keyword">this</span>.$els.menuWrapper, &#123;&#125;);</span><br><span class="line">        <span class="keyword">this</span>.foodsScroll = <span class="keyword">new</span> BScroll(<span class="keyword">this</span>.$els.foodsWrapper, &#123;&#125;);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<p>在1.0里面这样写没问题，但是到了2.0版本就爆炸了，所以在2.0里面要换一种写法<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//两个外部dom获取写成ref</span></span><br><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"menu-wrapper"</span> ref=<span class="string">"menuWrapper"</span>&gt;</span><br><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"foods-wrapper"</span> ref=<span class="string">"foodsWrapper"</span>&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">//挂载的时候挂在到refs</span></span><br><span class="line">created() &#123;</span><br><span class="line">      <span class="keyword">this</span>.$http.get(<span class="string">'/api/goods'</span>).then(<span class="function">(<span class="params">response</span>) =&gt;</span> &#123;</span><br><span class="line">        response = response.body</span><br><span class="line">        <span class="keyword">if</span> (response.errno === ERR_OK) &#123;</span><br><span class="line">          <span class="keyword">this</span>.goods = response.data</span><br><span class="line">          <span class="keyword">this</span>.$nextTick(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">this</span>._initScroll()</span><br><span class="line">          &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;,</span><br><span class="line">methods: &#123;</span><br><span class="line">      _initScroll() &#123;</span><br><span class="line">        <span class="keyword">this</span>.meunScroll = <span class="keyword">new</span> BScroll(<span class="keyword">this</span>.$refs.menuWrapper, &#123;&#125;)</span><br><span class="line">        <span class="keyword">this</span>.foodsScroll = <span class="keyword">new</span> BScroll(<span class="keyword">this</span>.$refs.foodsWrapper, &#123;&#125;)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="dispatch"><a href="#dispatch" class="headerlink" title="$dispatch"></a>$dispatch</h3><p>这个的坑比较简单，因为在2.0版本的时候这东西被废弃了，用它肯定Uncaught TypeError: this.$dispatch is not a function啊<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/vue2.0keng/1.JPG" alt="“你好，我叫报错”" title>
+                </div>
+                <div class="image-caption">“你好，我叫报错”</div>
+            </figure><br>这是因为在vue2.0的时候$dispatch和$broadcast已经被弃用了<br>解决方案：<br>可以改成用#$emit方法，$on也可以试试</p>
+<h3 id="props的问题"><a href="#props的问题" class="headerlink" title="props的问题"></a>props的问题</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/vue2.0keng/2.JPG" alt="“你好，我叫props的问题”" title>
+                </div>
+                <div class="image-caption">“你好，我叫props的问题”</div>
+            </figure>
+<p>解决方案：<br>在Vue2中组件的props的数据流动改为了只能单向流动，即只能由组件外（调用组件方）通过组件的DOM属性attribute传递props给组件内，组件内只能被动接收组件外传递过来的数据，不能修改由外层传来的props数据。可以把product-list.vue中的products放到data中。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/vue2.0keng/3.JPG" alt="“你好，我叫弄好了”" title>
+                </div>
+                <div class="image-caption">“你好，我叫弄好了”</div>
+            </figure><br>另外Vue1.0中可以使用的双向props，2.0中不再支持双向props，且规定组件自身修改props是反模式的。可以使用computed和data来代替props的操作。</p>
+<h3 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h3><p>切换组件时，组件当前的状态能被保留，vue.js给我们提供了一个非常方便的api，组件状态保留功能<br>用法：在APP.vue路由标签加上keep-alive<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;router-view :seller=<span class="string">"seller"</span> keep-alive&gt;&lt;<span class="regexp">/router-view&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>当然这是vue1.0版本的用法，vue2.0提供了一个keep-alive组件用来缓存组件,避免多次加载相应的组件,减少性能消耗<br>用法（同APP.vue）：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">  &lt;!--组件缓存--&gt;</span><br><span class="line">&lt;keep-alive&gt;</span><br><span class="line"></span><br><span class="line">&lt;component&gt;</span><br><span class="line">  &lt;!-- 组件将被缓存 --&gt;</span><br><span class="line">&lt;<span class="regexp">/component&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>keep-alive&gt;</span><br><span class="line">有时候可能需要缓存整个站点的所有页面,而页面一般一进去都要触发请求的</span><br><span class="line">在使用keep-alive的情况下</span><br><span class="line">&lt;keep-alive&gt;</span><br><span class="line">    &lt;router-view :seller=<span class="string">"seller"</span> keep-alive&gt;&lt;<span class="regexp">/router-view&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>keep-alive&gt;</span><br></pre></td></tr></table></figure></p>
+<p>2.0中的transition用法也有所改变不再是以前写在标签内，而是用transition组件包住需要写动画的地方<br>具体可以瞄一眼api</p>
+<p>来一个题外话<br>1W是多少度电？？（这和it木有关系，只因我比较喜欢养鱼，因为仔细观察鱼很神奇）<br>这个问题相信很多喜欢养鱼的朋友都在想，毕竟增氧泵24小时都在工作，担心耗电的话来算一算，度是用电器耗电量的单位千瓦时,1度=1千瓦时,1W的电器工作1000小时耗1度电,1000瓦的用电器工作1小时耗1度电,500瓦的用电器工作2小时耗1度电。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-01-13T15:23:12.000Z" itemprop="dateUpdated">2020-01-13 23:23:12</time>
+</span><br>
+
+
+        
+        谢谢浏览，我会继续努力的，示例：<a href="/2018/03/10/vue2-0我踩过的坑，希望你别踩/" target="_blank" rel="external">http://yoursite.com/2018/03/10/vue2-0我踩过的坑，希望你别踩/</a>
+        
+    </div>
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.jpg" alt="BingZhenhuang">
+            BingZhenhuang
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/2-0弃用的方法/">2.0弃用的方法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/better-scroll/">better-scroll</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/express/">express</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/props/">props</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue-resource/">vue--resource</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue-router/">vue-router</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/组件状态保留/">组件状态保留</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/03/10/vue2-0我踩过的坑，希望你别踩/&title=《vue2.0我踩过的坑，希望你别踩》 — 小方块 - hhardyy.com&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/03/10/vue2-0我踩过的坑，希望你别踩/&title=《vue2.0我踩过的坑，希望你别踩》 — 小方块 - hhardyy.com&source=这是一个伤心的故事，vue2.0做1.0的东西踩过的坑…
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/03/10/vue2-0我踩过的坑，希望你别踩/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《vue2.0我踩过的坑，希望你别踩》 — 小方块 - hhardyy.com&url=http://yoursite.com/2018/03/10/vue2-0我踩过的坑，希望你别踩/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/03/10/vue2-0我踩过的坑，希望你别踩/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/03/11/git版本更新/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">git版本更新&amp;常用命令</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/02/21/vue探路合集/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">vue探路合集</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        🤠 请我喝可乐！
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content" style="width:50%">
+        
+        <div class="reward-code" style="text-align:center">
+            <div style="width:300px;margin:0px auto;">
+               <img id="rewardCode" style="width:50%;height:60%;display:block; margin:0px auto;" src="/img/alipay.jpg" alt="支付宝打赏二维码">
+               <span style="display:inline-block; margin-bottom:20px;">0.88(支付宝 aliPay)</span>
+               <img id="rewardCode" style="width:50%;height:60%;display:block; margin:0px auto;" src="/img/wechat.jpg" alt="微信打赏二维码">
+               <span style="display:inline-block;">0.88(微信 weChat)</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+</div>
+
+        <script>
+!function(e,t,a){function n(){c(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"),o(),r()}function r(){for(var e=0;e<d.length;e++)d[e].alpha<=0?(t.body.removeChild(d[e].el),d.splice(e,1)):(d[e].y--,d[e].scale+=.004,d[e].alpha-=.013,d[e].el.style.cssText="left:"+d[e].x+"px;top:"+d[e].y+"px;opacity:"+d[e].alpha+";transform:scale("+d[e].scale+","+d[e].scale+") rotate(45deg);background:"+d[e].color+";z-index:99999");requestAnimationFrame(r)}function o(){var t="function"==typeof e.onclick&&e.onclick;e.onclick=function(e){t&&t(),i(e)}}function i(e){var a=t.createElement("div");a.className="heart",d.push({el:a,x:e.clientX-5,y:e.clientY-5,scale:1,alpha:1,color:s()}),t.body.appendChild(a)}function c(e){var a=t.createElement("style");a.type="text/css";try{a.appendChild(t.createTextNode(e))}catch(t){a.styleSheet.cssText=e}t.getElementsByTagName("head")[0].appendChild(a)}function s(){return"rgb("+~~(255*Math.random())+","+~~(255*Math.random())+","+~~(255*Math.random())+")"}var d=[];e.requestAnimationFrame=function(){return e.requestAnimationFrame||e.webkitRequestAnimationFrame||e.mozRequestAnimationFrame||e.oRequestAnimationFrame||e.msRequestAnimationFrame||function(e){setTimeout(e,1e3/60)}}(),n()}(window,document);
+</script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script>
+    function secondToDate(second) {
+        if (!second) {
+            return 0;
+        }
+        var time = new Array(0, 0, 0, 0, 0);
+        if (second >= 365 * 24 * 3600) {
+            time[0] = parseInt(second / (365 * 24 * 3600));
+            second %= 365 * 24 * 3600;
+        }
+        if (second >= 24 * 3600) {
+            time[1] = parseInt(second / (24 * 3600));
+            second %= 24 * 3600;
+        }
+        if (second >= 3600) {
+            time[2] = parseInt(second / 3600);
+            second %= 3600;
+        }
+        if (second >= 60) {
+            time[3] = parseInt(second / 60);
+            second %= 60;
+        }
+        if (second > 0) {
+            time[4] = second;
+        }
+        return time;
+    }</script>
+<script type="text/javascript" language="javascript">
+    function setTime() {
+        var create_time = Math.round(new Date(Date.UTC(2017, 08, 18, 11, 42, 23)).getTime() / 1000);
+        var timestamp = Math.round((new Date().getTime() + 8 * 60 * 60 * 1000) / 1000);
+        currentTime = secondToDate((timestamp - create_time));
+        currentTimeHtml = 'Running：' + currentTime[0] + '年 ' + currentTime[1] + '天 '
+                + currentTime[2] + '时 ' + currentTime[3] + '分 ' + currentTime[4]
+                + '秒';
+        document.getElementById("htmer_time").innerHTML = currentTimeHtml;
+    }    setInterval(setTime, 1000);
+</script>
+<footer class="footer">
+    <div class="top">
+        
+
+        <p>
+          <span id="busuanzi_container_page_pv">
+             [&nbsp;浏览量：&nbsp;<span id="busuanzi_value_page_pv"></span>&nbsp;]
+          </span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+        <span>BingZhenhuang &copy; 2017 - 2021</span>
+            <span>
+                
+                Power by <a href="https://hhardyy.github.io/" target="_blank">zhen On August 8</a> 
+            </span>
+            <span id="htmer_time" "></span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/03/10/vue2-0我踩过的坑，希望你别踩/&title=《vue2.0我踩过的坑，希望你别踩》 — 小方块 - hhardyy.com&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/03/10/vue2-0我踩过的坑，希望你别踩/&title=《vue2.0我踩过的坑，希望你别踩》 — 小方块 - hhardyy.com&source=这是一个伤心的故事，vue2.0做1.0的东西踩过的坑…
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/03/10/vue2-0我踩过的坑，希望你别踩/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《vue2.0我踩过的坑，希望你别踩》 — 小方块 - hhardyy.com&url=http://yoursite.com/2018/03/10/vue2-0我踩过的坑，希望你别踩/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/03/10/vue2-0我踩过的坑，希望你别踩/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACuUlEQVR42u3a0Y6CQAwFUP//p91XExe4banrJocngwpzMJmpt/N4xMfz5Xg/c3S8fvLode/dmw88PDy8wdDPh/h+vnrNo6EfAfLxHI4NDw8Pb413NMR8ys4HV12EzsdzYcHDw8P7Mt5kEAk7KdPx8PDw/gsvjyTyArpa4uPh4eH9La93uTyQTeKGpNRezFrw8PDwYl4eEHzP65X+Hh4eHt64q54vEnnI2ws1mqPFw8PDW+DlE25StiaNsWrbrFd24+Hh4e3x7mpBJVN8temVnzl8Fw8PD2+Bd9ef/3mhPH+soxwFDw8PL+bNi+A8dOjdsfrQf1kS8PDw8G7lVd/OG//5Rq7exoL8jnh4eHif4eUNsDyK7T3KvNkWLR54eHh4Y14eHERN+tZGgeo1C1Q8PDy8NV6SfOZLSG/q73334jp4eHh4H+dNlorqJ/O2ViEUxsPDw1vj5eXvfHKvxha9x4GHh4e3x6sW0/n0ne99yu+YR72FQeDh4eEVeXl5Wp6Ib11gmj8JHh4e3gKvVyJXB13dAfUYHNFSgYeHhzfgzePUSSybX/+8Ti7sjMDDw8Mb83oTen6z89c5o3oeDw8Pb4+X3zjfnjVppFUf4sUV8PDw8BZ4vT/5k8C3Gt3mJXu544eHh4c34PVC2zyErcYW1VL7YiR4eHh4y7y7bpxfJymgJ8U6Hh4e3jYvL3yr4UWvrdXbYhWte3h4eHgLvHzLVBKqPuOjmppcfBIPDw/vVt6zeFS3OlWXh2o4cvFdPDw8vAXepAE230aQhBS9IAMPDw9vm9dbDKqbpeaFcvUR4+Hh4W3zkkZUL4zohQ7ltet8YcDDw8P7Al7SlMrbZvnSUj6Ph4eH9wW8yZQ9iRjyMBcPDw/vM7y88M2n/vxB5I208kKCh4eHt8CrTuvzTQC9R7MCw8PDw6vxfgBBapxxHT7vhQAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '(•‾̑⌣‾̑•)✧˖°回来看我';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(゜-゜)つロ欢迎回来';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

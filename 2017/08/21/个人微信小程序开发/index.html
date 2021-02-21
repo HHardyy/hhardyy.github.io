@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?d890b1f16fb364253e79c5bb20225c3a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+    
+
+    
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?busuanzi_value_site_uv"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    <meta name="baidu-site-verification" content="FYMCShbUK8">
+    <meta name="baidu-site-verification" content="ZYRF7OxQRW">
+    <meta name="baidu-site-verification" content="cHSqtjI0PN">
+    <meta name="baidu-site-verification" content="cHSqtjI0PN">
+    <meta name="baidu-site-verification" content="cHSqtjI0PN">
+    
+    
+    <link rel="canonical" href="https://hhardyy.com/2017/08/21/个人微信小程序开发/">
+    
+    
+    <title>微信小程序 | 小方块 - hhardyy.com | 复杂的坑+归其原理+了解实现规则===解决？解决成功：加油解决成功;</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#958e93">
+    
+    
+    <meta name="keywords" content="微信小程序,小程序的开发">
+    <meta name="description" content="很久没玩小程序了，刚刚一打开提示安装最新版1.5.0，因为小程序更新速度快，我会在底部加上更新日志~">
+<meta name="keywords" content="微信小程序,小程序的开发">
+<meta property="og:type" content="article">
+<meta property="og:title" content="微信小程序">
+<meta property="og:url" content="http://yoursite.com/2017/08/21/个人微信小程序开发/index.html">
+<meta property="og:site_name" content="小方块 - hhardyy.com">
+<meta property="og:description" content="很久没玩小程序了，刚刚一打开提示安装最新版1.5.0，因为小程序更新速度快，我会在底部加上更新日志~">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/images/miniApps/1.png">
+<meta property="og:image" content="http://yoursite.com/images/miniApps/2.png">
+<meta property="og:image" content="http://yoursite.com/images/miniApps/3.png">
+<meta property="og:image" content="http://yoursite.com/images/miniApps/4.png">
+<meta property="og:image" content="http://yoursite.com/images/miniApps/my.jpg">
+<meta property="og:updated_time" content="2020-01-13T15:31:08.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="微信小程序">
+<meta name="twitter:description" content="很久没玩小程序了，刚刚一打开提示安装最新版1.5.0，因为小程序更新速度快，我会在底部加上更新日志~">
+<meta name="twitter:image" content="http://yoursite.com/images/miniApps/1.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="小方块 - hhardyy.com" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/hardyfavicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/paulGraham.jpg)">
+      <div class="brand" style="background-color:#4154b2">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">BingZhenhuang</h5>
+          <a href="mailto:huangbingzhen@hhardyy.com" title="huangbingzhen@hhardyy.com" class="mail">huangbingzhen@hhardyy.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                所有文章
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/HHardyy" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://gitee.com/hhardyy" target="_blank" >
+                <i class="icon icon-lg icon-cloud"></i>
+                Gitee
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://juejin.im/user/59a26f926fb9a02487553b04"  >
+                <i class="icon icon-lg icon-pencil"></i>
+                掘金-圳
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://segmentfault.com/u/hhardyy"  >
+                <i class="icon icon-lg icon-comments"></i>
+                Segmentfault
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://codepen.io/HHardyy/" target="_blank" >
+                <i class="icon icon-lg icon-codepen"></i>
+                Codepen
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.freecodecamp.cn/hhardyy" target="_blank" >
+                <i class="icon icon-lg icon-leaf"></i>
+                Freecodecamp
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/友情链接"  >
+                <i class="icon icon-lg icon-link"></i>
+                友链
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">微信小程序</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">微信小程序</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-08-21T07:23:51.000Z" itemprop="datePublished" class="page-time">
+  2017-08-21
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#小程序的特点"><span class="post-toc-number">1.</span> <span class="post-toc-text">小程序的特点:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#小程序的不足"><span class="post-toc-number">2.</span> <span class="post-toc-text">小程序的不足:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#小程序的用途"><span class="post-toc-number">3.</span> <span class="post-toc-text">小程序的用途:</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#null"><span class="post-toc-number"></span> <span class="post-toc-text">小程序的构成</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#null"><span class="post-toc-number"></span> <span class="post-toc-text">小程序的开发</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#wxml页面中："><span class="post-toc-number">1.</span> <span class="post-toc-text">wxml页面中：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#js页面中："><span class="post-toc-number">2.</span> <span class="post-toc-text">js页面中：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#小程序代码包的大小"><span class="post-toc-number">3.</span> <span class="post-toc-text">小程序代码包的大小</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#个人申请小程序账号流程"><span class="post-toc-number">4.</span> <span class="post-toc-text">个人申请小程序账号流程</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#没有小程序账号的影响？？？"><span class="post-toc-number">5.</span> <span class="post-toc-text">没有小程序账号的影响？？？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#小程序的更新日志"><span class="post-toc-number">6.</span> <span class="post-toc-text">小程序的更新日志</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="w-个人微信小程序开发"
+  class="post-article article-type-w fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">微信小程序</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-08-21 15:23:51" datetime="2017-08-21T07:23:51.000Z"  itemprop="datePublished">2017-08-21</time>
+
+            
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>很久没玩小程序了，刚刚一打开提示安装最新版1.5.0，因为小程序更新速度快，我会在底部加上更新日志~</p>
+<p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=407459301&auto=0&height=66"></iframe><br><a id="more"></a></p>
+<h3 id="小程序的特点"><a href="#小程序的特点" class="headerlink" title="小程序的特点:"></a>小程序的特点:</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">用完即走</span><br></pre></td></tr></table></figure>
+<h3 id="小程序的不足"><a href="#小程序的不足" class="headerlink" title="小程序的不足:"></a>小程序的不足:</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">不适合开发大型应用</span><br><span class="line">性能不高</span><br><span class="line">举例：如果用来开发直播平台，小程序是hold不住的，因为每分钟无数个用户在线，并且产生大量的弹幕，小程序的性能目前还达不到</span><br></pre></td></tr></table></figure>
+<h3 id="小程序的用途"><a href="#小程序的用途" class="headerlink" title="小程序的用途:"></a>小程序的用途:</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">小程序的优点是即用即走，就是方便快捷使用不用下载到本地的意思，例如：支付宝的话费充值功能，如果是小程序的话，它没法做成整个支付宝，但是它可以做功能分支，用户不需要下载就可以直接打开使用。</span><br></pre></td></tr></table></figure>
+<p></p><h2>小程序的构成</h2><br>小程序的构成分成整体文件（images,app.js,app.json,app.wxss）和组成文件(index.js,index.json,index.wxml,wxss)<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/miniApps/1.png" alt="“小程序組成文件”" title>
+                </div>
+                <div class="image-caption">“小程序組成文件”</div>
+            </figure><br>其中红色是配置文件，蓝色是界面文件。<br><br><br><br>    <h2>小程序的开发</h2><br>1.到<a href="https://mp.weixin.qq.com/debug/wxadoc/dev/devtools/beta.html" target="_blank" rel="noopener">这里下载</a>小程序的开发工具<br><br>2.打开开发工具，第一次打开是需要用微信扫一扫进入的，可以看到有两个选项，本地小程序项目和公众号网页开发（微信公众号和服务号）<br>3.选择本地小程序项目==&gt;添加项目==&gt;选择无app ID,然后填写项目名称，接着选择目录（可以是桌面的文件夹）<br>4.项目目录下有个在当前目录中选择quick start项目（quick start是官方给的小程序示例项目建议勾上）<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/miniApps/2.png" alt="“开发工具主页”" title>
+                </div>
+                <div class="image-caption">“开发工具主页”</div>
+            </figure><br>5.选好之后添加项目就可以看到小程序的组成结构了<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/miniApps/3.png" alt="“小程序的组成结构”" title>
+                </div>
+                <div class="image-caption">“小程序的组成结构”</div>
+            </figure><br>其中：界面代码index.wxml（类似于网页开发的html）<br><br>js代码写在index.js(类似于网页开发的js文件，这里不需要引入)<br><br>css代码写在index.wxss文件(类似于网页开发中的css，这里不需要引入)<br><br><span style="color:red;font-weight:600px;">注意：</span>这里的<strong><em>.js、</em></strong>.wxml、***.wxss需是<br><br>同一个名字，项目自带的app.js,app.json,app.wxss三个配置文件也可以修改小程序,<br><br>还需要注意的是小程序不能添加外部链接，如a标签的href，Window.location.href，window.open都是无效的（小程序是无法使用Windows对象的）。<br><br>其跳转的方式有两种：<p></p>
+<h3 id="wxml页面中："><a href="#wxml页面中：" class="headerlink" title="wxml页面中："></a>wxml页面中：</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">navigator</span> <span class="attr">url</span>=<span class="string">"页面路径"</span>&gt;</span>跳转到新页面<span class="tag">&lt;/<span class="name">navigator</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">navigator</span> <span class="attr">url</span>=<span class="string">"页面路径"</span> <span class="attr">open-type</span>=<span class="string">"redirect"</span>&gt;</span>在当前页打开<span class="tag">&lt;/<span class="name">navigator</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">navigator</span> <span class="attr">url</span>=<span class="string">"页面路径"</span> <span class="attr">open-type</span>=<span class="string">"switchTab"</span>&gt;</span>切换到首页Tab<span class="tag">&lt;/<span class="name">navigator</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="js页面中："><a href="#js页面中：" class="headerlink" title="js页面中："></a>js页面中：</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">事件处理</span><br><span class="line">bindViewTap:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	--保留当前页面，跳转到应用内的某个页面</span><br><span class="line">	wx.navigateTo(&#123;</span><br><span class="line">	url:<span class="string">'页面路径'</span></span><br><span class="line">	&#125;)</span><br><span class="line">	--关闭当前页，跳转到应用内的某个页面</span><br><span class="line">	wx.redirectTo(&#123;</span><br><span class="line">	url:<span class="string">'路径'</span></span><br><span class="line">	&#125;)</span><br><span class="line">	--跳转到tabBar页面，并关闭其他所有tabBar页面</span><br><span class="line">	wx.switchTab(&#123;</span><br><span class="line">	url:<span class="string">''</span></span><br><span class="line">	&#125;)</span><br><span class="line">	--返回上一页或多级页面</span><br><span class="line">	wx.navigateBack(&#123;</span><br><span class="line">	delta:<span class="number">1</span></span><br><span class="line">	&#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>app.json中tabBar注册过的tab页，就是“tabBar页面”，不是tabBar中注册占用的页面就是“应用内的页面” 。<br><br>了解了以上步骤之后就可以开始你的小程序之旅了<br><br>这是我自己开发好的小程序<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/miniApps/4.png" alt="“这是我自己开发过的简单小程序”" title>
+                </div>
+                <div class="image-caption">“这是我自己开发过的简单小程序”</div>
+            </figure>  </p>
+<h3 id="小程序代码包的大小"><a href="#小程序代码包的大小" class="headerlink" title="小程序代码包的大小"></a>小程序代码包的大小</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">小程序原来的代码包限制大小为1M，但是最近听说为了增加小程序开发的灵活性，</span><br><span class="line">小程序代码包的大小限制由1M扩到了2M。</span><br></pre></td></tr></table></figure>
+<p>目前个人用户已经可以申请小程序账号了，步骤在这里：</p>
+<h3 id="个人申请小程序账号流程"><a href="#个人申请小程序账号流程" class="headerlink" title="个人申请小程序账号流程"></a>个人申请小程序账号流程</h3><p>1、在<a href="https://mp.weixin.qq.com/" target="_blank" rel="noopener">微信公众平台官网</a>首页点击右上角的“立即注册”按钮。<br>2、选择注册的帐号类型:选择“小程序”。<br>3、填写自己的邮箱和密码：（作为登录帐号，请填写未被微信公众平台注册，未被微信开放平台注册，未被个人微信号绑定的邮箱）。<br>4、填写主体信息:点击激活链接后，继续下一步的注册流程。请选择主体类型选择，完善主体信息和管理员信息。（个人注册选择个人就可以）<br>5、这时候跳出主题类型信息提交后就不可修改了，点击确定完成注册流程，接着就可以美滋滋玩小程序了<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/miniApps/my.jpg" alt="“自己注册的小程序”" title>
+                </div>
+                <div class="image-caption">“自己注册的小程序”</div>
+            </figure></p>
+<h3 id="没有小程序账号的影响？？？"><a href="#没有小程序账号的影响？？？" class="headerlink" title="没有小程序账号的影响？？？"></a>没有小程序账号的影响？？？</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">不能上传和发布小程序</span><br><span class="line">不能真机运行，只可以在PC的模拟器运行</span><br><span class="line">录音、网络状态、罗盘、拨打电话等功能无法使用</span><br><span class="line">获取用户信息的流程是模拟的而不是真实的</span><br><span class="line">（微信里面有获取用户信息的一个接口，但是如果没有小程序号，获取的信息是就是模拟的,但是真实获取的是一个非常复杂的流程，涉及到加密等一些东西）</span><br><span class="line">如果用APP ID创建项目的话，需要访问外部数据的时候需要用https</span><br></pre></td></tr></table></figure>
+<p><span style="color:red">但是没有小程序账号也可以丝毫不惧，不会影响开发的</span></p>
+<h3 id="小程序的更新日志"><a href="#小程序的更新日志" class="headerlink" title="小程序的更新日志"></a>小程序的更新日志</h3><p>小程序的更新速度是很快的，离上一次写的版本没过多久，9月1日又推出了新版本，本来打算用最新版本再写一篇博客但是它的开发流程，原理等特点都是大同小异，就没再写一篇,后续的更新我会加在这个的后面~~~<br></p>
+<p><a href="https://mp.weixin.qq.com/debug/wxadoc/dev/devtools/new.html" target="_blank" rel="noopener">更新日志。小程序—-2017-09-02</a></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-01-13T15:31:08.000Z" itemprop="dateUpdated">2020-01-13 23:31:08</time>
+</span><br>
+
+
+        
+        谢谢浏览，我会继续努力的，示例：<a href="/2017/08/21/个人微信小程序开发/" target="_blank" rel="external">http://yoursite.com/2017/08/21/个人微信小程序开发/</a>
+        
+    </div>
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.jpg" alt="BingZhenhuang">
+            BingZhenhuang
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/小程序的开发/">小程序的开发</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/微信小程序/">微信小程序</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2017/08/21/个人微信小程序开发/&title=《微信小程序》 — 小方块 - hhardyy.com&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2017/08/21/个人微信小程序开发/&title=《微信小程序》 — 小方块 - hhardyy.com&source=很久没玩小程序了，刚刚一打开提示安装最新版1.5.0，因为小程序更新速度快，我会在底部加上更新日志~
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/08/21/个人微信小程序开发/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《微信小程序》 — 小方块 - hhardyy.com&url=http://yoursite.com/2017/08/21/个人微信小程序开发/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2017/08/21/个人微信小程序开发/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/08/25/安卓下的bug/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">安卓下的bug</h4>
+      </a>
+    </div>
+  
+
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        🤠 请我喝可乐！
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content" style="width:50%">
+        
+        <div class="reward-code" style="text-align:center">
+            <div style="width:300px;margin:0px auto;">
+               <img id="rewardCode" style="width:50%;height:60%;display:block; margin:0px auto;" src="/img/alipay.jpg" alt="支付宝打赏二维码">
+               <span style="display:inline-block; margin-bottom:20px;">0.88(支付宝 aliPay)</span>
+               <img id="rewardCode" style="width:50%;height:60%;display:block; margin:0px auto;" src="/img/wechat.jpg" alt="微信打赏二维码">
+               <span style="display:inline-block;">0.88(微信 weChat)</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+</div>
+
+        <script>
+!function(e,t,a){function n(){c(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"),o(),r()}function r(){for(var e=0;e<d.length;e++)d[e].alpha<=0?(t.body.removeChild(d[e].el),d.splice(e,1)):(d[e].y--,d[e].scale+=.004,d[e].alpha-=.013,d[e].el.style.cssText="left:"+d[e].x+"px;top:"+d[e].y+"px;opacity:"+d[e].alpha+";transform:scale("+d[e].scale+","+d[e].scale+") rotate(45deg);background:"+d[e].color+";z-index:99999");requestAnimationFrame(r)}function o(){var t="function"==typeof e.onclick&&e.onclick;e.onclick=function(e){t&&t(),i(e)}}function i(e){var a=t.createElement("div");a.className="heart",d.push({el:a,x:e.clientX-5,y:e.clientY-5,scale:1,alpha:1,color:s()}),t.body.appendChild(a)}function c(e){var a=t.createElement("style");a.type="text/css";try{a.appendChild(t.createTextNode(e))}catch(t){a.styleSheet.cssText=e}t.getElementsByTagName("head")[0].appendChild(a)}function s(){return"rgb("+~~(255*Math.random())+","+~~(255*Math.random())+","+~~(255*Math.random())+")"}var d=[];e.requestAnimationFrame=function(){return e.requestAnimationFrame||e.webkitRequestAnimationFrame||e.mozRequestAnimationFrame||e.oRequestAnimationFrame||e.msRequestAnimationFrame||function(e){setTimeout(e,1e3/60)}}(),n()}(window,document);
+</script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script>
+    function secondToDate(second) {
+        if (!second) {
+            return 0;
+        }
+        var time = new Array(0, 0, 0, 0, 0);
+        if (second >= 365 * 24 * 3600) {
+            time[0] = parseInt(second / (365 * 24 * 3600));
+            second %= 365 * 24 * 3600;
+        }
+        if (second >= 24 * 3600) {
+            time[1] = parseInt(second / (24 * 3600));
+            second %= 24 * 3600;
+        }
+        if (second >= 3600) {
+            time[2] = parseInt(second / 3600);
+            second %= 3600;
+        }
+        if (second >= 60) {
+            time[3] = parseInt(second / 60);
+            second %= 60;
+        }
+        if (second > 0) {
+            time[4] = second;
+        }
+        return time;
+    }</script>
+<script type="text/javascript" language="javascript">
+    function setTime() {
+        var create_time = Math.round(new Date(Date.UTC(2017, 08, 18, 11, 42, 23)).getTime() / 1000);
+        var timestamp = Math.round((new Date().getTime() + 8 * 60 * 60 * 1000) / 1000);
+        currentTime = secondToDate((timestamp - create_time));
+        currentTimeHtml = 'Running：' + currentTime[0] + '年 ' + currentTime[1] + '天 '
+                + currentTime[2] + '时 ' + currentTime[3] + '分 ' + currentTime[4]
+                + '秒';
+        document.getElementById("htmer_time").innerHTML = currentTimeHtml;
+    }    setInterval(setTime, 1000);
+</script>
+<footer class="footer">
+    <div class="top">
+        
+
+        <p>
+          <span id="busuanzi_container_page_pv">
+             [&nbsp;浏览量：&nbsp;<span id="busuanzi_value_page_pv"></span>&nbsp;]
+          </span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+        <span>BingZhenhuang &copy; 2017 - 2021</span>
+            <span>
+                
+                Power by <a href="https://hhardyy.github.io/" target="_blank">zhen On August 8</a> 
+            </span>
+            <span id="htmer_time" "></span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2017/08/21/个人微信小程序开发/&title=《微信小程序》 — 小方块 - hhardyy.com&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2017/08/21/个人微信小程序开发/&title=《微信小程序》 — 小方块 - hhardyy.com&source=很久没玩小程序了，刚刚一打开提示安装最新版1.5.0，因为小程序更新速度快，我会在底部加上更新日志~
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/08/21/个人微信小程序开发/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《微信小程序》 — 小方块 - hhardyy.com&url=http://yoursite.com/2017/08/21/个人微信小程序开发/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2017/08/21/个人微信小程序开发/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACOElEQVR42u3awW6DQAxFUf7/p6nUXRfAffakypjLKopSwkkla+zn48DX+Xtdvb5/h79/9ZlllwwZMrZlnLcXf9z0Pvef4Z+XIUPGexi8yHZK8P09yfdevi9DhgwZ4OjWL7UyZMiQ8QlGrRCnfyVDhgwZaWNJ5l3po/Ofb0EvLkOGjA0Z/WDgc6//Nd+QIUPGVzLO9nUfT6bhZe2pZMiQMZvRaTXTR+GrFTwuLU4HZciQsRWjUwpXDct4e3z5DDJkyBjN4EP/dHmrFhKkw7XL/4kMGTKGMvi4f9kiV+O7HppYGTJkDGLwI2C6bJHGk+m0/8/dZMiQMZpRCylJE1sc7vejTRkyZIxj8HLWGfH3o4WHgi5DhowXMIJ+t30crIWUD3eQIUPGaAZ5aN6C1uIBvkD2cAcZMmQMZdSCSV6g02WONDo9OvmqDBkyNmGkASRfg+BRJUHGyxYyZMgYxKgBagO4tHDHyxYyZMgYylh1Oz5K42U0DSFkyJAxlZEuUtQGbekALv75ZMiQMZpB4sZgsyxsfcnFlzZkyJAxlVE7qNUevVNeUSQgQ4aMoYy1X5+O2NLeOk5lZciQMYJRO6jVijU/dKYtsQwZMmYz0naUD9HSQx4ZxnUOrDJkyNidwQdea0f8nYIbz/ZkyJAxgsGLLI8841yiMUmTIUOGjHQNgseQvGQvSF9lyJDxAgYZe/XXKdLxnAwZMt7D4E1srSlNZ34xVYYMGaMZnWCAF9nO4Y9EqjJkyBjK+AFRGgo/F22WawAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '(•‾̑⌣‾̑•)✧˖°回来看我';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(゜-゜)つロ欢迎回来';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

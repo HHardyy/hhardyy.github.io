@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?d890b1f16fb364253e79c5bb20225c3a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+    
+
+    
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?busuanzi_value_site_uv"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    <meta name="baidu-site-verification" content="FYMCShbUK8">
+    <meta name="baidu-site-verification" content="ZYRF7OxQRW">
+    <meta name="baidu-site-verification" content="cHSqtjI0PN">
+    <meta name="baidu-site-verification" content="cHSqtjI0PN">
+    <meta name="baidu-site-verification" content="cHSqtjI0PN">
+    
+    
+    <link rel="canonical" href="https://hhardyy.com/2017/09/04/移动端的分辨率-rpx/">
+    
+    
+    <title>移动端的分辨率与rpx | 小方块 - hhardyy.com | 复杂的坑+归其原理+了解实现规则===解决？解决成功：加油解决成功;</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#958e93">
+    
+    
+    <meta name="keywords" content="微信小程序,移动端分辨率,px,pt,rpx">
+    <meta name="description" content="为什么小程序模拟器下面Iphone6的分辨率是375，而设计图一般给750？？会不会是设计师搞事情？so？分析一下再决定打不打设计师。。。">
+<meta name="keywords" content="微信小程序,移动端分辨率,px,pt,rpx">
+<meta property="og:type" content="article">
+<meta property="og:title" content="移动端的分辨率与rpx">
+<meta property="og:url" content="http://yoursite.com/2017/09/04/移动端的分辨率-rpx/index.html">
+<meta property="og:site_name" content="小方块 - hhardyy.com">
+<meta property="og:description" content="为什么小程序模拟器下面Iphone6的分辨率是375，而设计图一般给750？？会不会是设计师搞事情？so？分析一下再决定打不打设计师。。。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/images/miniApps/DPI.JPG">
+<meta property="og:updated_time" content="2020-01-13T15:38:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="移动端的分辨率与rpx">
+<meta name="twitter:description" content="为什么小程序模拟器下面Iphone6的分辨率是375，而设计图一般给750？？会不会是设计师搞事情？so？分析一下再决定打不打设计师。。。">
+<meta name="twitter:image" content="http://yoursite.com/images/miniApps/DPI.JPG">
+    
+        <link rel="alternate" type="application/atom+xml" title="小方块 - hhardyy.com" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/hardyfavicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/paulGraham.jpg)">
+      <div class="brand" style="background-color:#4154b2">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">BingZhenhuang</h5>
+          <a href="mailto:huangbingzhen@hhardyy.com" title="huangbingzhen@hhardyy.com" class="mail">huangbingzhen@hhardyy.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                所有文章
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/HHardyy" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://gitee.com/hhardyy" target="_blank" >
+                <i class="icon icon-lg icon-cloud"></i>
+                Gitee
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://juejin.im/user/59a26f926fb9a02487553b04"  >
+                <i class="icon icon-lg icon-pencil"></i>
+                掘金-圳
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://segmentfault.com/u/hhardyy"  >
+                <i class="icon icon-lg icon-comments"></i>
+                Segmentfault
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://codepen.io/HHardyy/" target="_blank" >
+                <i class="icon icon-lg icon-codepen"></i>
+                Codepen
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.freecodecamp.cn/hhardyy" target="_blank" >
+                <i class="icon icon-lg icon-leaf"></i>
+                Freecodecamp
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/友情链接"  >
+                <i class="icon icon-lg icon-link"></i>
+                友链
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">移动端的分辨率与rpx</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">移动端的分辨率与rpx</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-09-04T09:03:17.000Z" itemprop="datePublished" class="page-time">
+  2017-09-04
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#先来张图"><span class="post-toc-number">1.</span> <span class="post-toc-text">先来张图</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#PT是什么？"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">PT是什么？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#PX是什么？"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">PX是什么？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#so-那么问题来了，为什么iphone-4-4s要比iphone-3GS在屏幕显示效果上面要好呢？？？"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">so???那么问题来了，为什么iphone 4/4s要比iphone 3GS在屏幕显示效果上面要好呢？？？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#so-那么问题又来了-Plus版本的iphone和iphone-举例iphone6-6sPlus版本比iphone6-6s版本的手机会比普通的iphone版本更清晰一些），why"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">so?那么问题又来了~Plus版本的iphone和iphone(举例iphone6/6sPlus版本比iphone6/6s版本的手机会比普通的iphone版本更清晰一些），why??</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#小程序为什么要用iphone6的物理分辨率来做设计图？"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">小程序为什么要用iphone6的物理分辨率来做设计图？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#如何做不同分辨率设备的自适应？"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">如何做不同分辨率设备的自适应？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#PPI又是什么呢？？"><span class="post-toc-number">1.7.</span> <span class="post-toc-text">PPI又是什么呢？？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#so？？万剑归宗，万佛朝宗，回到问题为什么微信小程序模拟器下面iphone6的分辨率是375，而设计图一般给750？？？"><span class="post-toc-number">1.8.</span> <span class="post-toc-text">so？？万剑归宗，万佛朝宗，回到问题为什么微信小程序模拟器下面iphone6的分辨率是375，而设计图一般给750？？？</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-移动端的分辨率-rpx"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">移动端的分辨率与rpx</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-09-04 17:03:17" datetime="2017-09-04T09:03:17.000Z"  itemprop="datePublished">2017-09-04</time>
+
+            
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>为什么小程序模拟器下面Iphone6的分辨率是375，而设计图一般给750？？会不会是设计师搞事情？so？分析一下再决定打不打设计师。。。</p>
+<p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=178523&auto=0&height=66"></iframe><br><a id="more"></a></p>
+<h2 id="先来张图"><a href="#先来张图" class="headerlink" title="先来张图"></a>先来张图</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/miniApps/DPI.JPG" alt="“移动设备分辨图解”" title>
+                </div>
+                <div class="image-caption">“移动设备分辨图解”</div>
+            </figure>
+<h3 id="PT是什么？"><a href="#PT是什么？" class="headerlink" title="PT是什么？"></a>PT是什么？</h3><p>逻辑分辨率，长度单位，视觉看到的，比如iphone 3GS和iphone 4/4S，屏幕都是3.5寸，所以逻辑分辨率都是320X480，iphone 5/5s因为高度更大一点所以是320X568，</p>
+<p>所以逻辑分辨率简单的理解是与屏幕的物理尺寸有关系，但是其实是与移动设备的三个渲染有关系，这要更深入了解，所以可以理解为是一个长度单位就可以了。</p>
+<h3 id="PX是什么？"><a href="#PX是什么？" class="headerlink" title="PX是什么？"></a>PX是什么？</h3><p>物理分辨率，和屏幕尺寸没有关系，也不是视觉单位，而是可以理解为一个像素点，例如我们看到的图片是由无数像素点组成，为什么不能说是长度单位呢，这个问题很厉害，就像在在问一个点的大小？？？so，这是不可以的，因此只能描述有多少个点，不能说多大的点，这里其实有一种关系，就是1个PT=N个PX。</p>
+<h3 id="so-那么问题来了，为什么iphone-4-4s要比iphone-3GS在屏幕显示效果上面要好呢？？？"><a href="#so-那么问题来了，为什么iphone-4-4s要比iphone-3GS在屏幕显示效果上面要好呢？？？" class="headerlink" title="so???那么问题来了，为什么iphone 4/4s要比iphone 3GS在屏幕显示效果上面要好呢？？？"></a>so???那么问题来了，为什么iphone 4/4s要比iphone 3GS在屏幕显示效果上面要好呢？？？</h3><p>原因在于跟他的每一个逻辑分辨率下面包含的物理像素点个数有关系，比如说在iphone 4/4s下面的逻辑分辨率和iphone 3GS都是320X480，关键在于它们对应的物理分辨率不一样，iphone 4/4s对应的是640x960，而iphone 3Gs下面对应的只有320x480，同样的一个单位长度下，iphone 3GS比i4/4s少一半像素点，所以其Reader的@1x与@2x（一倍与二倍关系），这表示同一个pt下面包含有多少个px。</p>
+<p>–其实就是同一个单位长度下面谁的物理像素点越多谁就越细腻越清晰。</p>
+<h3 id="so-那么问题又来了-Plus版本的iphone和iphone-举例iphone6-6sPlus版本比iphone6-6s版本的手机会比普通的iphone版本更清晰一些），why"><a href="#so-那么问题又来了-Plus版本的iphone和iphone-举例iphone6-6sPlus版本比iphone6-6s版本的手机会比普通的iphone版本更清晰一些），why" class="headerlink" title="so?那么问题又来了~Plus版本的iphone和iphone(举例iphone6/6sPlus版本比iphone6/6s版本的手机会比普通的iphone版本更清晰一些），why??"></a>so?那么问题又来了~Plus版本的iphone和iphone(举例iphone6/6sPlus版本比iphone6/6s版本的手机会比普通的iphone版本更清晰一些），why??</h3><p>理论上iphone6/6sPlus版本的手机Reader是3倍的关系（@3x），iphone6/6s版本的手机Reader是2倍的关系（@2x），也就是说每单位pt下面iphone6/6sPlus比iphone6/6s是多出一个px像素点的。</p>
+<p>理论虽然分析的很厉害，但是实际上来说并不会更加清晰？<br>理由是在这个单位的密度上面，视网膜屏所承担的个数(@2x)已经达到了人类的眼睛所能分辨出的极限了，如果再增加物理像素点的话，比如iphone6/6sPlus是3个（@3x）或者iphone1000000/1000000sPlus增加到1000000个（@1000000x）的时候，它并不会更加清楚（视网膜屏：我最多只接受两个（@2x），随便你增加，能更清晰算我输）。</p>
+<h3 id="小程序为什么要用iphone6的物理分辨率来做设计图？"><a href="#小程序为什么要用iphone6的物理分辨率来做设计图？" class="headerlink" title="小程序为什么要用iphone6的物理分辨率来做设计图？"></a>小程序为什么要用iphone6的物理分辨率来做设计图？</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ip6下<span class="number">1</span>px=<span class="number">1</span>rpx;</span><br><span class="line">Ip6 Plus下<span class="number">1</span>px=<span class="number">0.6</span>rpx</span><br></pre></td></tr></table></figure>
+<p>不是所有的单位都适合用rpx写；而是看情况的，有时候文字不需要用rpx，因为如果是小屏幕设备，等比例缩小之后会看不清</p>
+<h3 id="如何做不同分辨率设备的自适应？"><a href="#如何做不同分辨率设备的自适应？" class="headerlink" title="如何做不同分辨率设备的自适应？"></a>如何做不同分辨率设备的自适应？</h3><p>以I6的物理分辨率750x1334为视觉稿进行设计，而在小程序中使用rpx为单位<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ip6下<span class="number">1</span>px=<span class="number">1</span>rpx=<span class="number">0.5</span>pt</span><br></pre></td></tr></table></figure></p>
+<p>使用rpx，小程序会自动在不同的分辨率下进行转换，而使用px为单位不会</p>
+<h3 id="PPI又是什么呢？？"><a href="#PPI又是什么呢？？" class="headerlink" title="PPI又是什么呢？？"></a>PPI又是什么呢？？</h3><p>其实与Reader是差不多的，Reader是每个pt下面包含多少个px，PPI是每一寸包含多少个物理像素点，例如iphone 3GS的屏幕尺寸是3.5寸（不是宽也不是高，而是屏幕的对角线），那PPI为啥是163呢？？</p>
+<p>其实就是勾股定理，用320x480的平方开分号再除以3.5寸，就得到了163。<br>DPI和PPI的概念是一样的，DPI是指打印行业里面每个单位长度下面每个打印机所能喷墨的点数，借鉴这个东西产生了PPI。</p>
+<h3 id="so？？万剑归宗，万佛朝宗，回到问题为什么微信小程序模拟器下面iphone6的分辨率是375，而设计图一般给750？？？"><a href="#so？？万剑归宗，万佛朝宗，回到问题为什么微信小程序模拟器下面iphone6的分辨率是375，而设计图一般给750？？？" class="headerlink" title="so？？万剑归宗，万佛朝宗，回到问题为什么微信小程序模拟器下面iphone6的分辨率是375，而设计图一般给750？？？"></a>so？？万剑归宗，万佛朝宗，回到问题为什么微信小程序模拟器下面iphone6的分辨率是375，而设计图一般给750？？？</h3><p>原因是微信小程序的模拟器上给出的是逻辑分辨率（375），而不是物理分辨率，然后设计师一般给的图是根据物理分辨率来给的，所以是750px，但是小程序显示的是pt逻辑分辨率，而iphone6的Reader是二倍的关系（@2x），iphone6的pt分辨率是375x667,px分辨率是750x1334,所以如果打不过设计师的话还是得先分析一下~~~~</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-01-13T15:38:00.000Z" itemprop="dateUpdated">2020-01-13 23:38:00</time>
+</span><br>
+
+
+        
+        谢谢浏览，我会继续努力的，示例：<a href="/2017/09/04/移动端的分辨率-rpx/" target="_blank" rel="external">http://yoursite.com/2017/09/04/移动端的分辨率-rpx/</a>
+        
+    </div>
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.jpg" alt="BingZhenhuang">
+            BingZhenhuang
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pt/">pt</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/px/">px</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rpx/">rpx</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/微信小程序/">微信小程序</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/移动端分辨率/">移动端分辨率</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2017/09/04/移动端的分辨率-rpx/&title=《移动端的分辨率与rpx》 — 小方块 - hhardyy.com&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2017/09/04/移动端的分辨率-rpx/&title=《移动端的分辨率与rpx》 — 小方块 - hhardyy.com&source=为什么小程序模拟器下面Iphone6的分辨率是375，而设计图一般给750？？会不会是设计师搞事情？so？分析一下再决定打不打设计师。。。
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/09/04/移动端的分辨率-rpx/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《移动端的分辨率与rpx》 — 小方块 - hhardyy.com&url=http://yoursite.com/2017/09/04/移动端的分辨率-rpx/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2017/09/04/移动端的分辨率-rpx/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/09/07/清除浮动全家桶clear等。。/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">清除浮动全家桶clear等。。</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/09/03/js数组的遍历for与for-in/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">js数组的遍历for与for in</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        🤠 请我喝可乐！
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content" style="width:50%">
+        
+        <div class="reward-code" style="text-align:center">
+            <div style="width:300px;margin:0px auto;">
+               <img id="rewardCode" style="width:50%;height:60%;display:block; margin:0px auto;" src="/img/alipay.jpg" alt="支付宝打赏二维码">
+               <span style="display:inline-block; margin-bottom:20px;">0.88(支付宝 aliPay)</span>
+               <img id="rewardCode" style="width:50%;height:60%;display:block; margin:0px auto;" src="/img/wechat.jpg" alt="微信打赏二维码">
+               <span style="display:inline-block;">0.88(微信 weChat)</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+</div>
+
+        <script>
+!function(e,t,a){function n(){c(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"),o(),r()}function r(){for(var e=0;e<d.length;e++)d[e].alpha<=0?(t.body.removeChild(d[e].el),d.splice(e,1)):(d[e].y--,d[e].scale+=.004,d[e].alpha-=.013,d[e].el.style.cssText="left:"+d[e].x+"px;top:"+d[e].y+"px;opacity:"+d[e].alpha+";transform:scale("+d[e].scale+","+d[e].scale+") rotate(45deg);background:"+d[e].color+";z-index:99999");requestAnimationFrame(r)}function o(){var t="function"==typeof e.onclick&&e.onclick;e.onclick=function(e){t&&t(),i(e)}}function i(e){var a=t.createElement("div");a.className="heart",d.push({el:a,x:e.clientX-5,y:e.clientY-5,scale:1,alpha:1,color:s()}),t.body.appendChild(a)}function c(e){var a=t.createElement("style");a.type="text/css";try{a.appendChild(t.createTextNode(e))}catch(t){a.styleSheet.cssText=e}t.getElementsByTagName("head")[0].appendChild(a)}function s(){return"rgb("+~~(255*Math.random())+","+~~(255*Math.random())+","+~~(255*Math.random())+")"}var d=[];e.requestAnimationFrame=function(){return e.requestAnimationFrame||e.webkitRequestAnimationFrame||e.mozRequestAnimationFrame||e.oRequestAnimationFrame||e.msRequestAnimationFrame||function(e){setTimeout(e,1e3/60)}}(),n()}(window,document);
+</script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script>
+    function secondToDate(second) {
+        if (!second) {
+            return 0;
+        }
+        var time = new Array(0, 0, 0, 0, 0);
+        if (second >= 365 * 24 * 3600) {
+            time[0] = parseInt(second / (365 * 24 * 3600));
+            second %= 365 * 24 * 3600;
+        }
+        if (second >= 24 * 3600) {
+            time[1] = parseInt(second / (24 * 3600));
+            second %= 24 * 3600;
+        }
+        if (second >= 3600) {
+            time[2] = parseInt(second / 3600);
+            second %= 3600;
+        }
+        if (second >= 60) {
+            time[3] = parseInt(second / 60);
+            second %= 60;
+        }
+        if (second > 0) {
+            time[4] = second;
+        }
+        return time;
+    }</script>
+<script type="text/javascript" language="javascript">
+    function setTime() {
+        var create_time = Math.round(new Date(Date.UTC(2017, 08, 18, 11, 42, 23)).getTime() / 1000);
+        var timestamp = Math.round((new Date().getTime() + 8 * 60 * 60 * 1000) / 1000);
+        currentTime = secondToDate((timestamp - create_time));
+        currentTimeHtml = 'Running：' + currentTime[0] + '年 ' + currentTime[1] + '天 '
+                + currentTime[2] + '时 ' + currentTime[3] + '分 ' + currentTime[4]
+                + '秒';
+        document.getElementById("htmer_time").innerHTML = currentTimeHtml;
+    }    setInterval(setTime, 1000);
+</script>
+<footer class="footer">
+    <div class="top">
+        
+
+        <p>
+          <span id="busuanzi_container_page_pv">
+             [&nbsp;浏览量：&nbsp;<span id="busuanzi_value_page_pv"></span>&nbsp;]
+          </span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+        <span>BingZhenhuang &copy; 2017 - 2021</span>
+            <span>
+                
+                Power by <a href="https://hhardyy.github.io/" target="_blank">zhen On August 8</a> 
+            </span>
+            <span id="htmer_time" "></span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2017/09/04/移动端的分辨率-rpx/&title=《移动端的分辨率与rpx》 — 小方块 - hhardyy.com&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2017/09/04/移动端的分辨率-rpx/&title=《移动端的分辨率与rpx》 — 小方块 - hhardyy.com&source=为什么小程序模拟器下面Iphone6的分辨率是375，而设计图一般给750？？会不会是设计师搞事情？so？分析一下再决定打不打设计师。。。
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/09/04/移动端的分辨率-rpx/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《移动端的分辨率与rpx》 — 小方块 - hhardyy.com&url=http://yoursite.com/2017/09/04/移动端的分辨率-rpx/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2017/09/04/移动端的分辨率-rpx/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACPElEQVR42u3awW7EIAxF0fn/n06lrirNQO+zk1bAZVWRlnCycLHN64XH9T1G8z/H+/z7Cu9P5/O3DRkyZCzLuKZjxOhstPY7o73JkCHjHMY8yM5DIdkKD7XzzzeclyFDhoxpEExDMAnlMmTIkNEJuIRBEtH0Q8iQIUPGvVskRbR/y8VlyJCxICNtDPzlzw/2N2TIkLEI4wpH5/U8fMe7kiFDxtYMUvAiL+DltnvXDLoTMmTIWJaRJpC8nXlXyEYpqwwZMrZm8IDbeXFaLEs/kwwZMs5k8GSSh+YOAIV7GTJkbMrgDUL+ND109st2MmTIOIeRHuzIVvpJMiLJkCHjAEYtjSRJbKc5SpJqGTJknMnoHwr536ZFuuG8DBkytmZ0EsjandJ0zeBfggwZMrZm8GMZP8zF3YnGDQoZMmScwEi3xQtqtcsZtUseMmTI2JXBS128Sdm/kMHBH3JxGTJkbMrgLUlSGuuEab7yh6qhDBkyNmWkJbP0+EiamvFJNt2DDBkyFmek4SwtvaWJLr+OFkdxGTJkLM7gpXwSKDm1hhmecGXIkLEpI20xdlqP822la6L+hgwZMrZgXOHgW+RpcHBFdfRUhgwZWzNqwa5/ZKxdzmgBZMiQsTijU7jvNBpr7cxH+g8yZMhYhMGLbukWn0uMh+U2GTJkHMwgITst+vPQH1QNZciQcTyDp528LUpC7S9BXIYMGQcwSIDj17zSNmS6cqvcJkOGjAUZtdeTNLV2wat4LUyGDBl7Mr4Ak4sZBhZ4o00AAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '(•‾̑⌣‾̑•)✧˖°回来看我';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(゜-゜)つロ欢迎回来';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

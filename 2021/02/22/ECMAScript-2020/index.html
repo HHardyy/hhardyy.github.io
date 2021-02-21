@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?d890b1f16fb364253e79c5bb20225c3a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+    
+
+    
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?busuanzi_value_site_uv"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    <meta name="baidu-site-verification" content="FYMCShbUK8">
+    <meta name="baidu-site-verification" content="ZYRF7OxQRW">
+    <meta name="baidu-site-verification" content="cHSqtjI0PN">
+    <meta name="baidu-site-verification" content="cHSqtjI0PN">
+    <meta name="baidu-site-verification" content="cHSqtjI0PN">
+    
+    
+    <link rel="canonical" href="https://hhardyy.com/2021/02/22/ECMAScript-2020/">
+    
+    
+    <title>ECMAScript 2020 | 小方块 - hhardyy.com | 复杂的坑+归其原理+了解实现规则===解决？解决成功：加油解决成功;</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#958e93">
+    
+    
+    <meta name="keywords" content="js,ECMASCRIPT,es2020,static,私有字段,await,Promise.allSettled,Import,matchAll,globalThis,this,BigInt,逻辑操作">
+    <meta name="description" content="也就是 ES11, 补充 article">
+<meta name="keywords" content="js,ECMASCRIPT,es2020,static,私有字段,await,Promise.allSettled,Import,matchAll,globalThis,this,BigInt,逻辑操作">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ECMAScript 2020">
+<meta property="og:url" content="http://yoursite.com/2021/02/22/ECMAScript-2020/index.html">
+<meta property="og:site_name" content="小方块 - hhardyy.com">
+<meta property="og:description" content="也就是 ES11, 补充 article">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/images/es2020/1.png">
+<meta property="og:image" content="http://yoursite.com/images/es2020/22.png">
+<meta property="og:image" content="http://yoursite.com/images/es2020/2.png">
+<meta property="og:updated_time" content="2021-02-21T21:43:57.551Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ECMAScript 2020">
+<meta name="twitter:description" content="也就是 ES11, 补充 article">
+<meta name="twitter:image" content="http://yoursite.com/images/es2020/1.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="小方块 - hhardyy.com" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/hardyfavicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/paulGraham.jpg)">
+      <div class="brand" style="background-color:#4154b2">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">BingZhenhuang</h5>
+          <a href="mailto:huangbingzhen@hhardyy.com" title="huangbingzhen@hhardyy.com" class="mail">huangbingzhen@hhardyy.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                所有文章
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/HHardyy" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://gitee.com/hhardyy" target="_blank" >
+                <i class="icon icon-lg icon-cloud"></i>
+                Gitee
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://juejin.im/user/59a26f926fb9a02487553b04"  >
+                <i class="icon icon-lg icon-pencil"></i>
+                掘金-圳
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://segmentfault.com/u/hhardyy"  >
+                <i class="icon icon-lg icon-comments"></i>
+                Segmentfault
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://codepen.io/HHardyy/" target="_blank" >
+                <i class="icon icon-lg icon-codepen"></i>
+                Codepen
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.freecodecamp.cn/hhardyy" target="_blank" >
+                <i class="icon icon-lg icon-leaf"></i>
+                Freecodecamp
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/友情链接"  >
+                <i class="icon icon-lg icon-link"></i>
+                友链
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">ECMAScript 2020</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">ECMAScript 2020</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2021-02-21T19:24:58.000Z" itemprop="datePublished" class="page-time">
+  2021-02-22
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#目录"><span class="post-toc-number">1.</span> <span class="post-toc-text">目录</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Optional-Chaining-可选链式调用"><span class="post-toc-number">2.</span> <span class="post-toc-text">Optional Chaining 可选链式调用</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Nullish-Coalescing-空值合并"><span class="post-toc-number">3.</span> <span class="post-toc-text">Nullish Coalescing 空值合并</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Private-Fields-私有字段"><span class="post-toc-number">4.</span> <span class="post-toc-text">Private Fields 私有字段</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Static-Fields-静态字段"><span class="post-toc-number">5.</span> <span class="post-toc-text">Static Fields 静态字段</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Top-Level-Await-顶级-Await"><span class="post-toc-number">6.</span> <span class="post-toc-text">Top Level Await 顶级 Await</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Promise-allSettled-方法"><span class="post-toc-number">7.</span> <span class="post-toc-text">Promise.allSettled 方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Dynamic-Import-动态引入"><span class="post-toc-number">8.</span> <span class="post-toc-text">Dynamic Import 动态引入</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#MatchAll-匹配所有项"><span class="post-toc-number">9.</span> <span class="post-toc-text">MatchAll 匹配所有项</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#globalThis-全局对象"><span class="post-toc-number">10.</span> <span class="post-toc-text">globalThis 全局对象</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#BigInt"><span class="post-toc-number">11.</span> <span class="post-toc-text">BigInt</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-ECMAScript-2020"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">ECMAScript 2020</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2021-02-22 03:24:58" datetime="2021-02-21T19:24:58.000Z"  itemprop="datePublished">2021-02-22</time>
+
+            
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>也就是 ES11, 补充 article</p>
+<p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=1448906633&auto=0&height=66"></iframe><br><a id="more"></a></p>
+<h3 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h3><ul>
+<li>Optional Chaining 可选链式调用</li>
+<li>Nullish Coalescing 空值合并</li>
+<li>Private Fields 私有字段</li>
+<li>Static Fields 静态字段</li>
+<li>Top Level Await 顶级 Await</li>
+<li>Promise.allSettled 方法</li>
+<li>Dynamic Import 动态引入</li>
+<li>MatchAll 匹配所有项</li>
+<li>globalThis 全局对象</li>
+<li>BigInt</li>
+</ul>
+<h3 id="Optional-Chaining-可选链式调用"><a href="#Optional-Chaining-可选链式调用" class="headerlink" title="Optional Chaining 可选链式调用"></a>Optional Chaining 可选链式调用</h3><p>几乎所有前端开发者都曾经遇到过这样的问题<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/es2020/1.png" alt="访问一个对象中不存在的属性下的不存在的属性''" title>
+                </div>
+                <div class="image-caption">访问一个对象中不存在的属性下的不存在的属性''</div>
+            </figure><br>但是我们只需要知道存不存在, 而不需要直接报错, 这时候可以使用可选链式调用</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(persons.person2?.name); <span class="comment">// undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(arr?.[<span class="number">1</span>]); <span class="comment">// undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(fn?.()); <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
+<h3 id="Nullish-Coalescing-空值合并"><a href="#Nullish-Coalescing-空值合并" class="headerlink" title="Nullish Coalescing 空值合并"></a>Nullish Coalescing 空值合并</h3><p>为变量提供回退值,逻辑操作符 || 还是必须的。它适用于很多情况,但不能应用在一些特殊的场景。例如,初始值是布尔值或数字的情况。举例说明,我们要把数字赋值给一个变量,当变量的初始值不是数字时,就默认其为 666</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> num = <span class="number">111</span>;</span><br><span class="line"><span class="keyword">const</span> newNum = num || <span class="number">666</span>; <span class="comment">// newNum = 111</span></span><br></pre></td></tr></table></figure>
+<p>假如 num 是 0 就导致了左边 num 为假, newNum = 666<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/es2020/22.png" alt="test''" title>
+                </div>
+                <div class="image-caption">test''</div>
+            </figure><br>所以即便 num 是数字 0, 最后 newNum 也是 666; 并不是我们需要的效果, 那么我们可以这么写</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> num = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">const</span> newNum = num ?? <span class="number">666</span>; <span class="comment">// 0</span></span><br></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/es2020/2.png" alt="test''" title>
+                </div>
+                <div class="image-caption">test''</div>
+            </figure>
+<h3 id="Private-Fields-私有字段"><a href="#Private-Fields-私有字段" class="headerlink" title="Private Fields 私有字段"></a>Private Fields 私有字段</h3><p>许多具有 classes 的编程语言允许定义类作为公共的,比如 java, c++,受保护的或私有的属性。Public 属性可以从类的外部或者子类访问,protected 属性只能被子类访问,private 属性只能被类内部访问。JavaScript 从 ES6 开始支持类语法,但直到现在才引入了私有字段。要定义私有属性,必须在其前面加上散列符号#。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">  name = <span class="string">"hardy"</span>;</span><br><span class="line">  #age = 18;</span><br><span class="line">  getAge() &#123;</span><br><span class="line">    return this.#age;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> p = <span class="keyword">new</span> Person();</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(p.name); <span class="comment">// hardy</span></span><br><span class="line"><span class="built_in">console</span>.log(p.getAge()); <span class="comment">// 18</span></span><br><span class="line"><span class="comment">// console.log(p.#age)   SyntaxError: Private field '#age' must be declared in an enclosing class</span></span><br></pre></td></tr></table></figure>
+<p>console.log(p.#age)会报错是因为从外部访问了 Person 的私有属性 age, 所以 SyntaxError: Private field ‘#age’ must be declared in an enclosing class</p>
+<h3 id="Static-Fields-静态字段"><a href="#Static-Fields-静态字段" class="headerlink" title="Static Fields 静态字段"></a>Static Fields 静态字段</h3><p>假如声明了 class Person, 然后试图直接访问没有实例化的 Person 的 getAge 方法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">  getAge() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">18</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// console.log(Person.getAge())  Person.getAge is not a function</span></span><br></pre></td></tr></table></figure>
+<p>用上 static 关键字之后</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">  <span class="keyword">static</span> getAge() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">18</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(Person.getAge()); <span class="comment">// 18</span></span><br></pre></td></tr></table></figure>
+<p>由此得到: 类方法可以被 static 关键词声明然后从外部调用。</p>
+<h3 id="Top-Level-Await-顶级-Await"><a href="#Top-Level-Await-顶级-Await" class="headerlink" title="Top Level Await 顶级 Await"></a>Top Level Await 顶级 Await</h3><p>大多数想要采用同步的方式书写异步代码的前端玩家, 说到 await 就会想到 async, 因为如果想要使用 await 函数必须用 async 关键字定义, 就像这样:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fn = <span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> res = <span class="keyword">await</span> fetch(url);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>那么在全局作用域中去等待某些结果就可能要使用立即调用的函数表达式（IIFE）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(<span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> res = <span class="keyword">await</span> fetch(url);</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+<p>但引入了 顶级 Await 后，不需要再把代码包裹在一个 async 函数中了, 而是可以直接这样</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> res = <span class="keyword">await</span> fetch(url);</span><br></pre></td></tr></table></figure>
+<p>这个特性对于解决模块依赖或当初始源无法使用而需要备用源的时候是非常有用的.比如</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="built_in">module</span></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  <span class="built_in">module</span> = <span class="keyword">await</span> <span class="keyword">import</span>(<span class="string">'module url'</span>)</span><br><span class="line">&#125; <span class="keyword">catch</span> () &#123;</span><br><span class="line">  <span class="built_in">module</span> = <span class="keyword">await</span> <span class="keyword">import</span>(<span class="string">'module url1'</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Promise-allSettled-方法"><a href="#Promise-allSettled-方法" class="headerlink" title="Promise.allSettled 方法"></a>Promise.allSettled 方法</h3><p>等待多个 promise 返回结果时，我们通常使用 Promise.all([p1, p2])。那么保不准有些请求失败之后抛错, 然后我们希望的是某个请求失败不影响其他请求正常返回。针对这种情况 ES11 引入了 Promise.allSettled.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> p1 = <span class="built_in">Promise</span>.resolve(<span class="string">"hello"</span>);</span><br><span class="line"><span class="keyword">const</span> p2 = <span class="built_in">Promise</span>.reject(<span class="string">"not word"</span>);</span><br><span class="line"><span class="keyword">const</span> p3 = <span class="built_in">Promise</span>.resolve(<span class="string">"i word"</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">Promise</span>.all([p1, p2, p3]).then(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(res);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// [UnhandledPromiseRejection: This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). The promise rejected with the reason "not word".] &#123;</span></span><br><span class="line"><span class="comment">//   code: 'ERR_UNHANDLED_REJECTION'</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure>
+<p>由普通 Promise.all 改成 Promise.allSettled</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Promise</span>.allSettled([p1, p2, p3]).then(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(res);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// [</span></span><br><span class="line"><span class="comment">//   &#123; status: 'fulfilled', value: 'hello' &#125;,</span></span><br><span class="line"><span class="comment">//   &#123; status: 'rejected', reason: 'not word' &#125;,</span></span><br><span class="line"><span class="comment">//   &#123; status: 'fulfilled', value: 'i word' &#125;</span></span><br><span class="line"><span class="comment">// ]</span></span><br></pre></td></tr></table></figure>
+<h3 id="Dynamic-Import-动态引入"><a href="#Dynamic-Import-动态引入" class="headerlink" title="Dynamic Import 动态引入"></a>Dynamic Import 动态引入</h3><p>你也许在 webpack 的模块绑定中已经使用过动态引入。但对于该特性的原生支持已经到来(尤大的新框架 vite 也是利用了 import 时会跑异步的特性直接加载运行时资源文件, 省略了 compiler 的过程)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// js1.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  getName () &#123; <span class="built_in">console</span>.log(<span class="string">'hardy) &#125;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">// js2.js</span></span><br><span class="line"><span class="string">import('</span>js1.js<span class="string">').then(Person =&gt; &#123;</span></span><br><span class="line"><span class="string">    Person.getName()</span></span><br><span class="line"><span class="string">&#125;)</span></span><br></pre></td></tr></table></figure>
+<h3 id="MatchAll-匹配所有项"><a href="#MatchAll-匹配所有项" class="headerlink" title="MatchAll 匹配所有项"></a>MatchAll 匹配所有项</h3><p>想要查找字符串中所有正则表达式的匹配项和它们的位置，MatchAll 非常有用。<br>forEach single match demo….(省略)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> fruits = <span class="string">"pear, apple, banana, apple, orange, apple"</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">const</span> match <span class="keyword">of</span> fruits.matchAll(<span class="regexp">/apple/g</span>)) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(match);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// [</span></span><br><span class="line"><span class="comment">//   'apple',</span></span><br><span class="line"><span class="comment">//   index: 6,</span></span><br><span class="line"><span class="comment">//   input: 'pear, apple, banana, apple, orange, apple',</span></span><br><span class="line"><span class="comment">//   groups: undefined</span></span><br><span class="line"><span class="comment">// ]</span></span><br><span class="line"><span class="comment">// [</span></span><br><span class="line"><span class="comment">//   'apple',</span></span><br><span class="line"><span class="comment">//   index: 21,</span></span><br><span class="line"><span class="comment">//   input: 'pear, apple, banana, apple, orange, apple',</span></span><br><span class="line"><span class="comment">//   groups: undefined</span></span><br><span class="line"><span class="comment">// ]</span></span><br><span class="line"><span class="comment">// [</span></span><br><span class="line"><span class="comment">//   'apple',</span></span><br><span class="line"><span class="comment">//   index: 36,</span></span><br><span class="line"><span class="comment">//   input: 'pear, apple, banana, apple, orange, apple',</span></span><br><span class="line"><span class="comment">//   groups: undefined</span></span><br><span class="line"><span class="comment">// ]</span></span><br></pre></td></tr></table></figure>
+<p>⚠️ 需要注意的是 fruits.matchAll 的正则需要完整匹配也就是 g, 否则就会 TypeError: String.prototype.matchAll called with a non-global RegExp argument</p>
+<h3 id="globalThis-全局对象"><a href="#globalThis-全局对象" class="headerlink" title="globalThis 全局对象"></a>globalThis 全局对象</h3><p>为了在 node 和 window 中可以找到统一的全局对象</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// window下</span></span><br><span class="line"><span class="built_in">window</span> === globalThis; <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// node环境</span></span><br><span class="line">global === globalThis;</span><br></pre></td></tr></table></figure>
+<h3 id="BigInt"><a href="#BigInt" class="headerlink" title="BigInt"></a>BigInt</h3><p>JavaScript 中能够精确表达的最大数字是 2^53 - 1。而 BigInt 可以用来创建更大的数字。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> theBiggerNumber = <span class="number">9007199254740991n</span>;</span><br><span class="line"><span class="keyword">const</span> evenBiggerNumber = BigInt(<span class="number">9007199254740991</span>);</span><br></pre></td></tr></table></figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2021-02-21T21:43:57.551Z" itemprop="dateUpdated">2021-02-22 05:43:57</time>
+</span><br>
+
+
+        
+        谢谢浏览，我会继续努力的，示例：<a href="/2021/02/22/ECMAScript-2020/" target="_blank" rel="external">http://yoursite.com/2021/02/22/ECMAScript-2020/</a>
+        
+    </div>
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.jpg" alt="BingZhenhuang">
+            BingZhenhuang
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BigInt/">BigInt</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ECMASCRIPT/">ECMASCRIPT</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Import/">Import</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Promise-allSettled/">Promise.allSettled</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/await/">await</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/es2020/">es2020</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/globalThis/">globalThis</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/matchAll/">matchAll</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/static/">static</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/this/">this</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/私有字段/">私有字段</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/逻辑操作/">逻辑操作</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2021/02/22/ECMAScript-2020/&title=《ECMAScript 2020》 — 小方块 - hhardyy.com&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2021/02/22/ECMAScript-2020/&title=《ECMAScript 2020》 — 小方块 - hhardyy.com&source=也就是 ES11, 补充 article
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2021/02/22/ECMAScript-2020/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《ECMAScript 2020》 — 小方块 - hhardyy.com&url=http://yoursite.com/2021/02/22/ECMAScript-2020/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2021/02/22/ECMAScript-2020/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2021/02/22/ECMAScript-2021/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">ECMAScript 2021</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2021/02/12/java基础/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">java 基础</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        🤠 请我喝可乐！
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content" style="width:50%">
+        
+        <div class="reward-code" style="text-align:center">
+            <div style="width:300px;margin:0px auto;">
+               <img id="rewardCode" style="width:50%;height:60%;display:block; margin:0px auto;" src="/img/alipay.jpg" alt="支付宝打赏二维码">
+               <span style="display:inline-block; margin-bottom:20px;">0.88(支付宝 aliPay)</span>
+               <img id="rewardCode" style="width:50%;height:60%;display:block; margin:0px auto;" src="/img/wechat.jpg" alt="微信打赏二维码">
+               <span style="display:inline-block;">0.88(微信 weChat)</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+</div>
+
+        <script>
+!function(e,t,a){function n(){c(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"),o(),r()}function r(){for(var e=0;e<d.length;e++)d[e].alpha<=0?(t.body.removeChild(d[e].el),d.splice(e,1)):(d[e].y--,d[e].scale+=.004,d[e].alpha-=.013,d[e].el.style.cssText="left:"+d[e].x+"px;top:"+d[e].y+"px;opacity:"+d[e].alpha+";transform:scale("+d[e].scale+","+d[e].scale+") rotate(45deg);background:"+d[e].color+";z-index:99999");requestAnimationFrame(r)}function o(){var t="function"==typeof e.onclick&&e.onclick;e.onclick=function(e){t&&t(),i(e)}}function i(e){var a=t.createElement("div");a.className="heart",d.push({el:a,x:e.clientX-5,y:e.clientY-5,scale:1,alpha:1,color:s()}),t.body.appendChild(a)}function c(e){var a=t.createElement("style");a.type="text/css";try{a.appendChild(t.createTextNode(e))}catch(t){a.styleSheet.cssText=e}t.getElementsByTagName("head")[0].appendChild(a)}function s(){return"rgb("+~~(255*Math.random())+","+~~(255*Math.random())+","+~~(255*Math.random())+")"}var d=[];e.requestAnimationFrame=function(){return e.requestAnimationFrame||e.webkitRequestAnimationFrame||e.mozRequestAnimationFrame||e.oRequestAnimationFrame||e.msRequestAnimationFrame||function(e){setTimeout(e,1e3/60)}}(),n()}(window,document);
+</script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script>
+    function secondToDate(second) {
+        if (!second) {
+            return 0;
+        }
+        var time = new Array(0, 0, 0, 0, 0);
+        if (second >= 365 * 24 * 3600) {
+            time[0] = parseInt(second / (365 * 24 * 3600));
+            second %= 365 * 24 * 3600;
+        }
+        if (second >= 24 * 3600) {
+            time[1] = parseInt(second / (24 * 3600));
+            second %= 24 * 3600;
+        }
+        if (second >= 3600) {
+            time[2] = parseInt(second / 3600);
+            second %= 3600;
+        }
+        if (second >= 60) {
+            time[3] = parseInt(second / 60);
+            second %= 60;
+        }
+        if (second > 0) {
+            time[4] = second;
+        }
+        return time;
+    }</script>
+<script type="text/javascript" language="javascript">
+    function setTime() {
+        var create_time = Math.round(new Date(Date.UTC(2017, 08, 18, 11, 42, 23)).getTime() / 1000);
+        var timestamp = Math.round((new Date().getTime() + 8 * 60 * 60 * 1000) / 1000);
+        currentTime = secondToDate((timestamp - create_time));
+        currentTimeHtml = 'Running：' + currentTime[0] + '年 ' + currentTime[1] + '天 '
+                + currentTime[2] + '时 ' + currentTime[3] + '分 ' + currentTime[4]
+                + '秒';
+        document.getElementById("htmer_time").innerHTML = currentTimeHtml;
+    }    setInterval(setTime, 1000);
+</script>
+<footer class="footer">
+    <div class="top">
+        
+
+        <p>
+          <span id="busuanzi_container_page_pv">
+             [&nbsp;浏览量：&nbsp;<span id="busuanzi_value_page_pv"></span>&nbsp;]
+          </span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+        <span>BingZhenhuang &copy; 2017 - 2021</span>
+            <span>
+                
+                Power by <a href="https://hhardyy.github.io/" target="_blank">zhen On August 8</a> 
+            </span>
+            <span id="htmer_time" "></span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2021/02/22/ECMAScript-2020/&title=《ECMAScript 2020》 — 小方块 - hhardyy.com&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2021/02/22/ECMAScript-2020/&title=《ECMAScript 2020》 — 小方块 - hhardyy.com&source=也就是 ES11, 补充 article
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2021/02/22/ECMAScript-2020/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《ECMAScript 2020》 — 小方块 - hhardyy.com&url=http://yoursite.com/2021/02/22/ECMAScript-2020/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2021/02/22/ECMAScript-2020/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACOElEQVR42u3ayY7CMBBF0fz/T6elXiHRce6rAhrbNyvEkNTxwriG48DX+Xs9vn68nr9Ze//qOy+7ZMiQMS3jHF7PjFpw6dN5bDJkyNiHQTbZq9CvGHxLHT9rHJsMGTJkjEMnjydh8QWSIUOGjHTDHcP4YfGf/zdkyJAxCSNNJklhjieu6bFShgwZuzFqjYHPvH57f0OGDBlfzzhfetXan2kz4I9fyZAhY2kGST75wa7WAODDGTcRypAhY1EGb0am4ZLklhfdbu4mQ4aMpRmkVdkplhF2f4FkyJCxM4OPU9QWpTZYJkOGjN0Ycb77kRSXbNkyZMjYh0GGJMjmm5bSeNDxnWXIkLEco9aYfN+IWFqqkyFDxg6MtASfDkaQ8a/aQgT/GDJkyJic0blFOk6Rfhps0zJkyNiA0XlYbTyCF9RQVDJkyFiakTYj0wS1Nq7BS3LxKVKGDBkTMtJ0tFYmG6e+nYWQIUPGngyeXvZbm+O78aENGTJkrM3oDz2kofCtNl4OGTJkbMngyWTt8NdpKhz9s6oMGTImZNQ2WV6kIwU7ApMhQ8aejPHBLg0xHRGrHRYvfyVDhozlGJ20k2yFaWKcFvJekD3LkCHj6xnFliEOsfb94liYDBkylmbwxmHaEuCL0m+OypAhYwdGp3DGg+sc8m5gMmTIkBGGnpbYeCp7+VwZMmTICAdM01GMdMj16KyoDBkypmWQ4Mj7ndZCqxkgQ4aMpRlpY6A2HtEf7EiLejJkyFiC8QM8gJNh9n+zpQAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '(•‾̑⌣‾̑•)✧˖°回来看我';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(゜-゜)つロ欢迎回来';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
