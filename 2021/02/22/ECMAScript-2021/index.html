@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?d890b1f16fb364253e79c5bb20225c3a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+    
+
+    
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?busuanzi_value_site_uv"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    <meta name="baidu-site-verification" content="FYMCShbUK8">
+    <meta name="baidu-site-verification" content="ZYRF7OxQRW">
+    <meta name="baidu-site-verification" content="cHSqtjI0PN">
+    <meta name="baidu-site-verification" content="cHSqtjI0PN">
+    <meta name="baidu-site-verification" content="cHSqtjI0PN">
+    
+    
+    <link rel="canonical" href="https://hhardyy.com/2021/02/22/ECMAScript-2021/">
+    
+    
+    <title>ECMAScript 2021 | 小方块 - hhardyy.com | 复杂的坑+归其原理+了解实现规则===解决？解决成功：加油解决成功;</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#958e93">
+    
+    
+    <meta name="keywords" content="js,ECMASCRIPT,逻辑操作,es2021,replaceAll,Promise.any,Promise,数值分隔符,Intl.ListFormat,Intl.DateTimeFormat 的 dateStyle 和 timeStyle">
+    <meta name="description" content="也就是 ES12">
+<meta name="keywords" content="js,ECMASCRIPT,逻辑操作,es2021,replaceAll,Promise.any,Promise,数值分隔符,Intl.ListFormat,Intl.DateTimeFormat 的 dateStyle 和 timeStyle">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ECMAScript 2021">
+<meta property="og:url" content="http://yoursite.com/2021/02/22/ECMAScript-2021/index.html">
+<meta property="og:site_name" content="小方块 - hhardyy.com">
+<meta property="og:description" content="也就是 ES12">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/images/es2021/1.png">
+<meta property="og:image" content="http://yoursite.com/images/es2021/2.png">
+<meta property="og:updated_time" content="2021-02-21T21:48:04.950Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ECMAScript 2021">
+<meta name="twitter:description" content="也就是 ES12">
+<meta name="twitter:image" content="http://yoursite.com/images/es2021/1.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="小方块 - hhardyy.com" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/hardyfavicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/paulGraham.jpg)">
+      <div class="brand" style="background-color:#4154b2">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">BingZhenhuang</h5>
+          <a href="mailto:huangbingzhen@hhardyy.com" title="huangbingzhen@hhardyy.com" class="mail">huangbingzhen@hhardyy.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                所有文章
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/HHardyy" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://gitee.com/hhardyy" target="_blank" >
+                <i class="icon icon-lg icon-cloud"></i>
+                Gitee
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://juejin.im/user/59a26f926fb9a02487553b04"  >
+                <i class="icon icon-lg icon-pencil"></i>
+                掘金-圳
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://segmentfault.com/u/hhardyy"  >
+                <i class="icon icon-lg icon-comments"></i>
+                Segmentfault
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://codepen.io/HHardyy/" target="_blank" >
+                <i class="icon icon-lg icon-codepen"></i>
+                Codepen
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.freecodecamp.cn/hhardyy" target="_blank" >
+                <i class="icon icon-lg icon-leaf"></i>
+                Freecodecamp
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/友情链接"  >
+                <i class="icon icon-lg icon-link"></i>
+                友链
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">ECMAScript 2021</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">ECMAScript 2021</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2021-02-21T20:49:41.000Z" itemprop="datePublished" class="page-time">
+  2021-02-22
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#目录"><span class="post-toc-number">1.</span> <span class="post-toc-text">目录</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#String-prototype-replaceAll"><span class="post-toc-number">2.</span> <span class="post-toc-text">String.prototype.replaceAll</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Promise-any"><span class="post-toc-number">3.</span> <span class="post-toc-text">Promise.any</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#逻辑操作符和赋值表达式"><span class="post-toc-number">4.</span> <span class="post-toc-text">逻辑操作符和赋值表达式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#amp-amp-逻辑赋值操作符"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">&amp;&amp; 逻辑赋值操作符</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#逻辑赋值操作符"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">|| 逻辑赋值操作符</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#逻辑赋值操作符-1"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">?? 逻辑赋值操作符</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#数值分隔符"><span class="post-toc-number">5.</span> <span class="post-toc-text">数值分隔符</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Intl-ListFormat"><span class="post-toc-number">6.</span> <span class="post-toc-text">Intl.ListFormat</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Intl-DateTimeFormat-的-dateStyle-和-timeStyle-选项"><span class="post-toc-number">7.</span> <span class="post-toc-text">Intl.DateTimeFormat 的 dateStyle 和 timeStyle 选项</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-ECMAScript-2021"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">ECMAScript 2021</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2021-02-22 04:49:41" datetime="2021-02-21T20:49:41.000Z"  itemprop="datePublished">2021-02-22</time>
+
+            
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>也就是 ES12</p>
+<p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=27676908&auto=0&height=66"></iframe><br><a id="more"></a></p>
+<h3 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h3><ul>
+<li>String.prototype.replaceAll</li>
+<li>Promise.any</li>
+<li>逻辑操作符和赋值表达式</li>
+<li>数值分隔符</li>
+<li>Intl.ListFormat</li>
+<li>Intl.DateTimeFormat 的 dateStyle 和 timeStyle 选项</li>
+</ul>
+<h3 id="String-prototype-replaceAll"><a href="#String-prototype-replaceAll" class="headerlink" title="String.prototype.replaceAll"></a>String.prototype.replaceAll</h3><p>前端 or node 玩家通常会遇到一些需求, 匹配更换掉字符串中的一些字段, 如果仅替换一个字符串中某模式（pattern）的首个实例, 直接 str.replace(reg, ‘xx’); 但是如果需要匹配符合规则的所有项, 唯一的方式就是使用全局匹配 g;</p>
+<p>拟议的方法 replaceAll() 会返回一个新字符串,该字符串中用一个替换项替换了原字符串中所有匹配了某模式的部分。模式可以是一个字符串或一个正则表达式,而替换项可以是一个字符串或一个应用于每个匹配项的函数。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/es2021/1.png" alt="test''" title>
+                </div>
+                <div class="image-caption">test''</div>
+            </figure></p>
+<h3 id="Promise-any"><a href="#Promise-any" class="headerlink" title="Promise.any"></a>Promise.any</h3><p>ES2021 将引入 Promise.any() 方法,如果 promise 列表或数组中首个 resolve 的 promise(尽管某个 promise 的 reject 早于另一个 promise 的 resolve, Promise.any() 仍将返回那个首先 resolve 的 promise), ,这样就会短路并返回一个值。如果所有 promise 都被 reject ,该方法则将抛出一个聚合的错误信息 （AggregateError: All promises were rejected）。</p>
+<p>⚠️ 和 Promise.race()的区别是 之处在于,Promise.race()在某个 promise 率先 resolve 或 reject 后都会短路。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> p1 = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">  setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    reject(<span class="string">"p1"</span>);</span><br><span class="line">  &#125;, <span class="number">200</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">const</span> p2 = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">  setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    resolve(<span class="string">"p2"</span>);</span><br><span class="line">  &#125;, <span class="number">300</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">const</span> p3 = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">  setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    resolve(<span class="string">"p3"</span>);</span><br><span class="line">  &#125;, <span class="number">100</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">Promise</span>.any([p1, p2, p3]).then(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(res); <span class="comment">// p3</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="逻辑操作符和赋值表达式"><a href="#逻辑操作符和赋值表达式" class="headerlink" title="逻辑操作符和赋值表达式"></a>逻辑操作符和赋值表达式</h3><p>在新提案里，将有能力结合逻辑操作符和赋值表达式。&amp;&amp;、 || 和 ?? 的一些 demo</p>
+<h4 id="amp-amp-逻辑赋值操作符"><a href="#amp-amp-逻辑赋值操作符" class="headerlink" title="&amp;&amp; 逻辑赋值操作符"></a>&amp;&amp; 逻辑赋值操作符</h4><p>该操作符用来在仅当左侧（译注：原文为 LHS，即 Left-hand Side）变量为真值（truthy）时，才将右侧（RHS）变量赋值给左侧变量。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> num1 = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">let</span> num2 = <span class="number">2</span>;</span><br><span class="line">num1 &amp;&amp;= num2; <span class="comment">// 或者num1 &amp;&amp; (num1 = num2) if(num1) num1 = num2</span></span><br><span class="line"><span class="built_in">console</span>.log(num1); <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+<h4 id="逻辑赋值操作符"><a href="#逻辑赋值操作符" class="headerlink" title="|| 逻辑赋值操作符"></a>|| 逻辑赋值操作符</h4><p>该操作符用来在仅当左侧变量为虚值（falsy）时，才将右侧变量赋值给左侧变量。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> num1;</span><br><span class="line"><span class="keyword">let</span> num2 = <span class="number">2</span>;</span><br><span class="line">num1 ||= num2;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(num1); <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+<h4 id="逻辑赋值操作符-1"><a href="#逻辑赋值操作符-1" class="headerlink" title="?? 逻辑赋值操作符"></a>?? 逻辑赋值操作符</h4><p>ES2020 已经引入了空值合并操作符（Nullish Coalescing operator，即 ??），该操作符亦可与赋值表达式结合。在仅当左侧变量为 undefined 或 null 时，该操作符才将右侧变量赋值给左侧变量。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> num1;</span><br><span class="line"><span class="keyword">let</span> num2 = <span class="number">2</span>;</span><br><span class="line">num1 ??= num2;</span><br><span class="line"><span class="built_in">console</span>.log(num1); <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+<h3 id="数值分隔符"><a href="#数值分隔符" class="headerlink" title="数值分隔符"></a>数值分隔符</h3><p>数字分隔符（Numeric Separators）的引入将通过使用 _（下划线）符号在数字分组间提供一个隔离以便于阅读数值。例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> num = <span class="number">100</span>_000;</span><br><span class="line"><span class="built_in">console</span>.log(num); <span class="comment">// 100000</span></span><br></pre></td></tr></table></figure>
+<h3 id="Intl-ListFormat"><a href="#Intl-ListFormat" class="headerlink" title="Intl.ListFormat"></a>Intl.ListFormat</h3><p>ListFormat 对象的构造方法有两个参数，皆为可选。首个参数是一个语言标识（locale），而第二个参数是一个包含了 style 和 type 两个属性的对象。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Intl</span>.ListFormat([locales[, options]])</span><br></pre></td></tr></table></figure>
+<p>Intl.ListFormat 有一个叫做 format() 的方法，接受一个数组作为参数，并因 locale 和选项而异以相应的方式格式化该参数数组。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="string">"Pen"</span>, <span class="string">"Pencil"</span>, <span class="string">"Paper"</span>];</span><br><span class="line"><span class="keyword">let</span> obj = <span class="keyword">new</span> <span class="built_in">Intl</span>.ListFormat(<span class="string">"en"</span>, &#123; <span class="attr">style</span>: <span class="string">"short"</span>, <span class="attr">type</span>: <span class="string">"conjunction"</span> &#125;);</span><br><span class="line"><span class="built_in">console</span>.log(obj.format(arr));</span><br><span class="line"></span><br><span class="line">obj = <span class="keyword">new</span> <span class="built_in">Intl</span>.ListFormat(<span class="string">"en"</span>, &#123; <span class="attr">style</span>: <span class="string">"long"</span>, <span class="attr">type</span>: <span class="string">"conjunction"</span> &#125;);</span><br><span class="line"><span class="built_in">console</span>.log(obj.format(arr));</span><br><span class="line"></span><br><span class="line">obj = <span class="keyword">new</span> <span class="built_in">Intl</span>.ListFormat(<span class="string">"en"</span>, &#123; <span class="attr">style</span>: <span class="string">"narrow"</span>, <span class="attr">type</span>: <span class="string">"conjunction"</span> &#125;);</span><br><span class="line"><span class="built_in">console</span>.log(obj.format(arr));</span><br><span class="line"></span><br><span class="line"><span class="comment">// 传入意大利语标识</span></span><br><span class="line">obj = <span class="keyword">new</span> <span class="built_in">Intl</span>.ListFormat(<span class="string">"it"</span>, &#123; <span class="attr">style</span>: <span class="string">"short"</span>, <span class="attr">type</span>: <span class="string">"conjunction"</span> &#125;);</span><br><span class="line"><span class="built_in">console</span>.log(obj.format(arr));</span><br><span class="line"></span><br><span class="line"><span class="comment">// 传入德语标识</span></span><br><span class="line">obj = <span class="keyword">new</span> <span class="built_in">Intl</span>.ListFormat(<span class="string">"de"</span>, &#123; <span class="attr">style</span>: <span class="string">"long"</span>, <span class="attr">type</span>: <span class="string">"conjunction"</span> &#125;);</span><br><span class="line"><span class="built_in">console</span>.log(obj.format(arr));</span><br></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/es2021/2.png" alt="test''" title>
+                </div>
+                <div class="image-caption">test''</div>
+            </figure>
+<h3 id="Intl-DateTimeFormat-的-dateStyle-和-timeStyle-选项"><a href="#Intl-DateTimeFormat-的-dateStyle-和-timeStyle-选项" class="headerlink" title="Intl.DateTimeFormat 的 dateStyle 和 timeStyle 选项"></a>Intl.DateTimeFormat 的 dateStyle 和 timeStyle 选项</h3><p>Intl.DateTimeFormat 对象是一个支持语言敏感日期和时间格式化的构造器。拟议的 dateStyle 和 timeStyle 选项可被用于获取一个 locale 特有的日期和给定长度的时间。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 短格式的时间</span></span><br><span class="line"><span class="keyword">let</span> o = <span class="keyword">new</span> <span class="built_in">Intl</span>.DateTimeFormat(<span class="string">"en"</span>, &#123; <span class="attr">timeStyle</span>: <span class="string">"short"</span> &#125;);</span><br><span class="line"><span class="built_in">console</span>.log(o.format(<span class="built_in">Date</span>.now()));</span><br><span class="line"><span class="comment">// 11:27 PM</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 中等格式的时间</span></span><br><span class="line">o = <span class="keyword">new</span> <span class="built_in">Intl</span>.DateTimeFormat(<span class="string">"en"</span>, &#123; <span class="attr">timeStyle</span>: <span class="string">"medium"</span> &#125;);</span><br><span class="line"><span class="built_in">console</span>.log(o.format(<span class="built_in">Date</span>.now()));</span><br><span class="line"><span class="comment">// 11:27:57 PM</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 长格式的时间</span></span><br><span class="line">o = <span class="keyword">new</span> <span class="built_in">Intl</span>.DateTimeFormat(<span class="string">"en"</span>, &#123; <span class="attr">timeStyle</span>: <span class="string">"long"</span> &#125;);</span><br><span class="line"><span class="built_in">console</span>.log(o.format(<span class="built_in">Date</span>.now()));</span><br><span class="line"><span class="comment">// 11:27:57 PM GMT+11</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 短格式的日期</span></span><br><span class="line">o = <span class="keyword">new</span> <span class="built_in">Intl</span>.DateTimeFormat(<span class="string">"en"</span>, &#123; <span class="attr">dateStyle</span>: <span class="string">"short"</span> &#125;);</span><br><span class="line"><span class="built_in">console</span>.log(o.format(<span class="built_in">Date</span>.now()));</span><br><span class="line"><span class="comment">// 10/6/20</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 中等格式的日期</span></span><br><span class="line">o = <span class="keyword">new</span> <span class="built_in">Intl</span>.DateTimeFormat(<span class="string">"en"</span>, &#123; <span class="attr">dateStyle</span>: <span class="string">"medium"</span> &#125;);</span><br><span class="line"><span class="built_in">console</span>.log(o.format(<span class="built_in">Date</span>.now()));</span><br><span class="line"><span class="comment">// Oct 6, 2020</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 长格式的日期</span></span><br><span class="line">o = <span class="keyword">new</span> <span class="built_in">Intl</span>.DateTimeFormat(<span class="string">"en"</span>, &#123; <span class="attr">dateStyle</span>: <span class="string">"long"</span> &#125;);</span><br><span class="line"><span class="built_in">console</span>.log(o.format(<span class="built_in">Date</span>.now()));</span><br><span class="line"><span class="comment">// October 6, 2020</span></span><br></pre></td></tr></table></figure>
+<p>dateStyle 和 timeStyle 选项共用并结合不同语言标识的例子</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> abc;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 英语</span></span><br><span class="line">abc = <span class="keyword">new</span> <span class="built_in">Intl</span>.DateTimeFormat(<span class="string">"en"</span>, &#123; <span class="attr">timeStyle</span>: <span class="string">"short"</span>, <span class="attr">dateStyle</span>: <span class="string">"long"</span> &#125;);</span><br><span class="line"><span class="built_in">console</span>.log(abc.format(<span class="built_in">Date</span>.now()));</span><br><span class="line"><span class="comment">// October 6, 2020 at 11:40 PM</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 意大利语</span></span><br><span class="line">abc = <span class="keyword">new</span> <span class="built_in">Intl</span>.DateTimeFormat(<span class="string">"it"</span>, &#123; <span class="attr">timeStyle</span>: <span class="string">"short"</span>, <span class="attr">dateStyle</span>: <span class="string">"long"</span> &#125;);</span><br><span class="line"><span class="built_in">console</span>.log(abc.format(<span class="built_in">Date</span>.now()));</span><br><span class="line"><span class="comment">// 6 ottobre 2020 23:40</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 德语</span></span><br><span class="line">abc = <span class="keyword">new</span> <span class="built_in">Intl</span>.DateTimeFormat(<span class="string">"de"</span>, &#123; <span class="attr">timeStyle</span>: <span class="string">"short"</span>, <span class="attr">dateStyle</span>: <span class="string">"long"</span> &#125;);</span><br><span class="line"><span class="built_in">console</span>.log(abc.format(<span class="built_in">Date</span>.now()));</span><br><span class="line"><span class="comment">// 6. Oktober 2020 um 23:40</span></span><br></pre></td></tr></table></figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2021-02-21T21:48:04.950Z" itemprop="dateUpdated">2021-02-22 05:48:04</time>
+</span><br>
+
+
+        
+        谢谢浏览，我会继续努力的，示例：<a href="/2021/02/22/ECMAScript-2021/" target="_blank" rel="external">http://yoursite.com/2021/02/22/ECMAScript-2021/</a>
+        
+    </div>
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.jpg" alt="BingZhenhuang">
+            BingZhenhuang
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ECMASCRIPT/">ECMASCRIPT</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Intl-DateTimeFormat-的-dateStyle-和-timeStyle/">Intl.DateTimeFormat 的 dateStyle 和 timeStyle</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Intl-ListFormat/">Intl.ListFormat</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Promise/">Promise</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Promise-any/">Promise.any</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/es2021/">es2021</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/replaceAll/">replaceAll</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数值分隔符/">数值分隔符</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/逻辑操作/">逻辑操作</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2021/02/22/ECMAScript-2021/&title=《ECMAScript 2021》 — 小方块 - hhardyy.com&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2021/02/22/ECMAScript-2021/&title=《ECMAScript 2021》 — 小方块 - hhardyy.com&source=也就是 ES12
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2021/02/22/ECMAScript-2021/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《ECMAScript 2021》 — 小方块 - hhardyy.com&url=http://yoursite.com/2021/02/22/ECMAScript-2021/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2021/02/22/ECMAScript-2021/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2021/02/22/ECMAScript-2020/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">ECMAScript 2020</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        🤠 请我喝可乐！
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content" style="width:50%">
+        
+        <div class="reward-code" style="text-align:center">
+            <div style="width:300px;margin:0px auto;">
+               <img id="rewardCode" style="width:50%;height:60%;display:block; margin:0px auto;" src="/img/alipay.jpg" alt="支付宝打赏二维码">
+               <span style="display:inline-block; margin-bottom:20px;">0.88(支付宝 aliPay)</span>
+               <img id="rewardCode" style="width:50%;height:60%;display:block; margin:0px auto;" src="/img/wechat.jpg" alt="微信打赏二维码">
+               <span style="display:inline-block;">0.88(微信 weChat)</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+</div>
+
+        <script>
+!function(e,t,a){function n(){c(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"),o(),r()}function r(){for(var e=0;e<d.length;e++)d[e].alpha<=0?(t.body.removeChild(d[e].el),d.splice(e,1)):(d[e].y--,d[e].scale+=.004,d[e].alpha-=.013,d[e].el.style.cssText="left:"+d[e].x+"px;top:"+d[e].y+"px;opacity:"+d[e].alpha+";transform:scale("+d[e].scale+","+d[e].scale+") rotate(45deg);background:"+d[e].color+";z-index:99999");requestAnimationFrame(r)}function o(){var t="function"==typeof e.onclick&&e.onclick;e.onclick=function(e){t&&t(),i(e)}}function i(e){var a=t.createElement("div");a.className="heart",d.push({el:a,x:e.clientX-5,y:e.clientY-5,scale:1,alpha:1,color:s()}),t.body.appendChild(a)}function c(e){var a=t.createElement("style");a.type="text/css";try{a.appendChild(t.createTextNode(e))}catch(t){a.styleSheet.cssText=e}t.getElementsByTagName("head")[0].appendChild(a)}function s(){return"rgb("+~~(255*Math.random())+","+~~(255*Math.random())+","+~~(255*Math.random())+")"}var d=[];e.requestAnimationFrame=function(){return e.requestAnimationFrame||e.webkitRequestAnimationFrame||e.mozRequestAnimationFrame||e.oRequestAnimationFrame||e.msRequestAnimationFrame||function(e){setTimeout(e,1e3/60)}}(),n()}(window,document);
+</script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script>
+    function secondToDate(second) {
+        if (!second) {
+            return 0;
+        }
+        var time = new Array(0, 0, 0, 0, 0);
+        if (second >= 365 * 24 * 3600) {
+            time[0] = parseInt(second / (365 * 24 * 3600));
+            second %= 365 * 24 * 3600;
+        }
+        if (second >= 24 * 3600) {
+            time[1] = parseInt(second / (24 * 3600));
+            second %= 24 * 3600;
+        }
+        if (second >= 3600) {
+            time[2] = parseInt(second / 3600);
+            second %= 3600;
+        }
+        if (second >= 60) {
+            time[3] = parseInt(second / 60);
+            second %= 60;
+        }
+        if (second > 0) {
+            time[4] = second;
+        }
+        return time;
+    }</script>
+<script type="text/javascript" language="javascript">
+    function setTime() {
+        var create_time = Math.round(new Date(Date.UTC(2017, 08, 18, 11, 42, 23)).getTime() / 1000);
+        var timestamp = Math.round((new Date().getTime() + 8 * 60 * 60 * 1000) / 1000);
+        currentTime = secondToDate((timestamp - create_time));
+        currentTimeHtml = 'Running：' + currentTime[0] + '年 ' + currentTime[1] + '天 '
+                + currentTime[2] + '时 ' + currentTime[3] + '分 ' + currentTime[4]
+                + '秒';
+        document.getElementById("htmer_time").innerHTML = currentTimeHtml;
+    }    setInterval(setTime, 1000);
+</script>
+<footer class="footer">
+    <div class="top">
+        
+
+        <p>
+          <span id="busuanzi_container_page_pv">
+             [&nbsp;浏览量：&nbsp;<span id="busuanzi_value_page_pv"></span>&nbsp;]
+          </span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+        <span>BingZhenhuang &copy; 2017 - 2021</span>
+            <span>
+                
+                Power by <a href="https://hhardyy.github.io/" target="_blank">zhen On August 8</a> 
+            </span>
+            <span id="htmer_time" "></span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2021/02/22/ECMAScript-2021/&title=《ECMAScript 2021》 — 小方块 - hhardyy.com&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2021/02/22/ECMAScript-2021/&title=《ECMAScript 2021》 — 小方块 - hhardyy.com&source=也就是 ES12
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2021/02/22/ECMAScript-2021/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《ECMAScript 2021》 — 小方块 - hhardyy.com&url=http://yoursite.com/2021/02/22/ECMAScript-2021/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2021/02/22/ECMAScript-2021/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACNklEQVR42u3aQW6DQAwF0Nz/0lTqqlILfNukCsObVYQgzMvCscd+veK1fa+fn3+u33f2ru/dc9nCwMC4LWM7XAkj2Vz17fneMDAwnsNIguze/cdXcnbyrt3rGBgYGHEg7m1rL33EwMDAuDbgHieCt/nfwMDA+GBGtZishsgJ6eJaHAMD44aMXmPgfz6/vb+BgYHx8YztojVpf1abAX88hYGBsTTjeAwiPxSbNADy4YyTHWJgYDyAkRylTQa5eo3P/NswMDBWZeTHatWwmwfi+Q+EgYGxNiMvOKuH/knS2UsiMTAwMJIRh15pmpe4vWEODAyMtRn5pvPCsjoolr/3pDGAgYGxHKMa+HqFbq/NkBfGGBgYazPyMFoNoPn4V++HOOlvYGBgLMRImpe9IYlqkpcH6N3/DQwMjEUZ1UQwKVzzEvfiYI2BgbEoo3fQlo9Z5OnmaKQDAwNjaUZSrL67nflqLQwMjOcwqkVsUnb2Bry2YJ20MDEwMBZl5MdnVUC+rWrbMqrFMTAwlmZMisl5e3LUNsDAwHgA4/jhXntgkkRWGw8YGBhrM46TuclRWt5gqCaLu09hYGAsx9iKqxoKj0viyeBFoaeBgYFxc8YFnc/4zoRUTTTLMAwMjNsy8sbh+w7a5q0IDAyMJzDyQ7RJa2GS5J3AMDAwMMbNyF4wTdJHDAwMjDx97DUP8uTyJKxjYGA8gJEUscnIxTvA5cwRAwNjOUb1uL83HnHtYMcF/Q0MDIx7ML4As0h0coT6Nv0AAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '(•‾̑⌣‾̑•)✧˖°回来看我';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(゜-゜)つロ欢迎回来';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

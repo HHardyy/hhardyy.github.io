@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?d890b1f16fb364253e79c5bb20225c3a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+    
+
+    
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?busuanzi_value_site_uv"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    <meta name="baidu-site-verification" content="FYMCShbUK8">
+    <meta name="baidu-site-verification" content="ZYRF7OxQRW">
+    <meta name="baidu-site-verification" content="cHSqtjI0PN">
+    <meta name="baidu-site-verification" content="cHSqtjI0PN">
+    <meta name="baidu-site-verification" content="cHSqtjI0PN">
+    
+    
+    <link rel="canonical" href="https://hhardyy.com/2018/12/05/二叉树算法原理/">
+    
+    
+    <title>二叉树算法原理 | 小方块 - hhardyy.com | 复杂的坑+归其原理+了解实现规则===解决？解决成功：加油解决成功;</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#958e93">
+    
+    
+    <meta name="keywords" content="二叉树,中序遍历,前序遍历,后序遍历,二叉树节点查找,二叉树节点删除">
+    <meta name="description" content="二叉树原理手记。">
+<meta name="keywords" content="二叉树,中序遍历,前序遍历,后序遍历,二叉树节点查找,二叉树节点删除">
+<meta property="og:type" content="article">
+<meta property="og:title" content="二叉树算法原理">
+<meta property="og:url" content="http://yoursite.com/2018/12/05/二叉树算法原理/index.html">
+<meta property="og:site_name" content="小方块 - hhardyy.com">
+<meta property="og:description" content="二叉树原理手记。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/images/binarytree/1.JPG">
+<meta property="og:image" content="http://yoursite.com/images/binarytree/2.JPG">
+<meta property="og:image" content="http://yoursite.com/images/binarytree/3.JPG">
+<meta property="og:image" content="http://yoursite.com/images/binarytree/4.JPG">
+<meta property="og:image" content="http://yoursite.com/images/binarytree/5.JPG">
+<meta property="og:image" content="http://yoursite.com/images/binarytree/6.JPG">
+<meta property="og:image" content="http://yoursite.com/images/binarytree/7.JPG">
+<meta property="og:image" content="http://yoursite.com/images/binarytree/8.JPG">
+<meta property="og:image" content="http://yoursite.com/images/binarytree/9.JPG">
+<meta property="og:image" content="http://yoursite.com/images/binarytree/10.JPG">
+<meta property="og:image" content="http://yoursite.com/images/binarytree/11.JPG">
+<meta property="og:image" content="http://yoursite.com/images/binarytree/12.JPG">
+<meta property="og:image" content="http://yoursite.com/images/binarytree/13.JPG">
+<meta property="og:image" content="http://yoursite.com/images/binarytree/14.JPG">
+<meta property="og:image" content="http://yoursite.com/images/binarytree/15.JPG">
+<meta property="og:image" content="http://yoursite.com/images/binarytree/16.JPG">
+<meta property="og:image" content="http://yoursite.com/images/binarytree/a.gif">
+<meta property="og:image" content="http://yoursite.com/images/binarytree/b.gif">
+<meta property="og:image" content="http://yoursite.com/images/binarytree/c.gif">
+<meta property="og:image" content="http://yoursite.com/images/binarytree/d.gif">
+<meta property="og:image" content="http://yoursite.com/images/binarytree/e.gif">
+<meta property="og:image" content="http://yoursite.com/images/binarytree/f.gif">
+<meta property="og:image" content="http://yoursite.com/images/binarytree/666.jpg">
+<meta property="og:updated_time" content="2020-01-13T15:30:38.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="二叉树算法原理">
+<meta name="twitter:description" content="二叉树原理手记。">
+<meta name="twitter:image" content="http://yoursite.com/images/binarytree/1.JPG">
+    
+        <link rel="alternate" type="application/atom+xml" title="小方块 - hhardyy.com" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/hardyfavicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/paulGraham.jpg)">
+      <div class="brand" style="background-color:#4154b2">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">BingZhenhuang</h5>
+          <a href="mailto:huangbingzhen@hhardyy.com" title="huangbingzhen@hhardyy.com" class="mail">huangbingzhen@hhardyy.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                所有文章
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/HHardyy" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://gitee.com/hhardyy" target="_blank" >
+                <i class="icon icon-lg icon-cloud"></i>
+                Gitee
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://juejin.im/user/59a26f926fb9a02487553b04"  >
+                <i class="icon icon-lg icon-pencil"></i>
+                掘金-圳
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://segmentfault.com/u/hhardyy"  >
+                <i class="icon icon-lg icon-comments"></i>
+                Segmentfault
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://codepen.io/HHardyy/" target="_blank" >
+                <i class="icon icon-lg icon-codepen"></i>
+                Codepen
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.freecodecamp.cn/hhardyy" target="_blank" >
+                <i class="icon icon-lg icon-leaf"></i>
+                Freecodecamp
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/友情链接"  >
+                <i class="icon icon-lg icon-link"></i>
+                友链
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">二叉树算法原理</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">二叉树算法原理</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-12-04T16:08:31.000Z" itemprop="datePublished" class="page-time">
+  2018-12-05
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#设计二叉树逻辑"><span class="post-toc-number">1.</span> <span class="post-toc-text">设计二叉树逻辑</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#树逻辑设计完成之后，构造一系列节点，来调用这个二叉树的接口，进行节点插入的过程"><span class="post-toc-number">2.</span> <span class="post-toc-text">树逻辑设计完成之后，构造一系列节点，来调用这个二叉树的接口，进行节点插入的过程</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#中序遍历"><span class="post-toc-number">3.</span> <span class="post-toc-text">中序遍历</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#给BinaryTree增加一个中序遍历的接口"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">给BinaryTree增加一个中序遍历的接口</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#前序遍历"><span class="post-toc-number">4.</span> <span class="post-toc-text">前序遍历</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#给BinaryTree增加一个前序遍历的接口"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">给BinaryTree增加一个前序遍历的接口</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#后序遍历"><span class="post-toc-number">5.</span> <span class="post-toc-text">后序遍历</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#给BinaryTree增加一个后序遍历的接口"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">给BinaryTree增加一个后序遍历的接口</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#二叉树节点查找"><span class="post-toc-number">6.</span> <span class="post-toc-text">二叉树节点查找</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#二叉树的节点查找分三种"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">二叉树的节点查找分三种</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#二叉树节点删除"><span class="post-toc-number">7.</span> <span class="post-toc-text">二叉树节点删除</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#删除只有一个子树的节点"><span class="post-toc-number">7.1.</span> <span class="post-toc-text">删除只有一个子树的节点</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-二叉树算法原理"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">二叉树算法原理</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-12-05 00:08:31" datetime="2018-12-04T16:08:31.000Z"  itemprop="datePublished">2018-12-05</time>
+
+            
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>二叉树原理手记。</p>
+<p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=865014922&auto=0&height=66"></iframe><br><a id="more"></a></p>
+<blockquote>
+<p>二叉树是一个连通的无环图，并且每一个顶点的度不大于3。有根二叉树还要满足根结点的度不大于2。有了根结点之后，每个顶点定义了唯一的父结点，和最多2个子结<br>点。然而，没有足够的信息来区分左结点和右结点。如果不考虑连通性，允许图中有多个连通分量，这样的结构叫做森林。二叉树是由n（n&gt;=0）个结点组成的有序集合<br>集合或者为空，或者是由一个根节点加上两棵分别称为左子树和右子树的、互不相交的二叉树组成。</p>
+</blockquote>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/binarytree/1.JPG" alt="“二叉树”" title>
+                </div>
+                <div class="image-caption">“二叉树”</div>
+            </figure>  
+<h3 id="设计二叉树逻辑"><a href="#设计二叉树逻辑" class="headerlink" title="设计二叉树逻辑"></a>设计二叉树逻辑</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">BinaryTree</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="comment">//定义节点</span></span><br><span class="line">	<span class="keyword">var</span> Node=<span class="function"><span class="keyword">function</span>(<span class="params">key</span>)</span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.key=key;</span><br><span class="line">		<span class="keyword">this</span>.left=<span class="literal">null</span>;</span><br><span class="line">		<span class="keyword">this</span>.right=<span class="literal">null</span>;</span><br><span class="line">	&#125;;</span><br><span class="line">	<span class="comment">//定义一个根节点</span></span><br><span class="line">	<span class="keyword">var</span> root=<span class="literal">null</span>;</span><br><span class="line">	<span class="comment">//node老节点,newNode新节点（要插入一个新节点的时候，如果新节点比当前的老节点的值要小，那么就可以把新节点放到老节点的左边）</span></span><br><span class="line">	<span class="keyword">var</span> insertNode=<span class="function"><span class="keyword">function</span>(<span class="params">node,newNode</span>)</span>&#123;  </span><br><span class="line">	<span class="keyword">if</span> (node.key&gt;newNode.key) &#123;   <span class="comment">//如果新节点小于老节点或者</span></span><br><span class="line">			<span class="keyword">if</span> (node.left===<span class="literal">null</span>) &#123;    <span class="comment">//如果新节点还没有左节点的话</span></span><br><span class="line">				node.left=newNode;     <span class="comment">//可以把新节点当作老节点的左孩子</span></span><br><span class="line">			&#125;<span class="keyword">else</span>&#123;   <span class="comment">//如果已经有左孩子了，就将这个新节点插入到左节点的左边部分</span></span><br><span class="line">				insertNode(node.left,newNode);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;    <span class="comment">//如果新节点大于老节点、，就插入老节点右边部分</span></span><br><span class="line">			<span class="keyword">if</span>(node.right===<span class="literal">null</span>)&#123;   <span class="comment">//看老节点右边部分是不是为空</span></span><br><span class="line">				node.right=newNode;   <span class="comment">//如果老节点右边为空，就把这个新节点作为老节点的右孩子</span></span><br><span class="line">			&#125;<span class="keyword">else</span>&#123;    <span class="comment">//如果右孩子不为空的话，继续往右边添加</span></span><br><span class="line">				insertNode(node.right,newNode);                                         <span class="comment">//到此为止，整个树的插入逻辑就设计完成了</span></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">this</span>.insert=<span class="function"><span class="keyword">function</span>(<span class="params">key</span>)</span>&#123;   <span class="comment">//专门用来插入节点</span></span><br><span class="line">		<span class="keyword">var</span> newNode=<span class="keyword">new</span> Node(key)  <span class="comment">//根据传进来的节点数值，构造一个节点对象</span></span><br><span class="line">		<span class="keyword">if</span> (root===<span class="literal">null</span>) &#123;       <span class="comment">//如果此时根节点是空</span></span><br><span class="line">			root=newNode;        <span class="comment">//新插入的节点就是根节点</span></span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;                  <span class="comment">//否则根据排序二叉树的特性插入新的节点</span></span><br><span class="line">			insertNode(root,newNode)    <span class="comment">//插入新节点的方法</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="树逻辑设计完成之后，构造一系列节点，来调用这个二叉树的接口，进行节点插入的过程"><a href="#树逻辑设计完成之后，构造一系列节点，来调用这个二叉树的接口，进行节点插入的过程" class="headerlink" title="树逻辑设计完成之后，构造一系列节点，来调用这个二叉树的接口，进行节点插入的过程"></a>树逻辑设计完成之后，构造一系列节点，来调用这个二叉树的接口，进行节点插入的过程</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ndoes=[<span class="number">8</span>,<span class="number">3</span>,<span class="number">10</span>,<span class="number">1</span>,<span class="number">6</span>,<span class="number">14</span>,<span class="number">4</span>,<span class="number">7</span>,<span class="number">13</span>];   <span class="comment">//构造一个数组定义插入节点的数值</span></span><br><span class="line"><span class="keyword">var</span> binaryTree=<span class="keyword">new</span> BinaryTree();    <span class="comment">//实例化一个BinaryTree</span></span><br><span class="line"><span class="comment">//然后依次把数组中的数值插入二叉树，插入完之后，完整的二叉树就构成了</span></span><br><span class="line">ndoes.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">key</span>)</span>&#123;</span><br><span class="line">    binaryTree.insert(key)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>一开始二叉树是空的，所以第一次插入节点的时候节点8就成了根节点，也就是起始二叉树的根节点<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/binarytree/2.JPG" alt="“进入的第一个节点”" title>
+                </div>
+                <div class="image-caption">“进入的第一个节点”</div>
+            </figure><br>用chrome调试可以看到二叉树生成的过程<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/binarytree/3.JPG" alt="“根节点8”" title>
+                </div>
+                <div class="image-caption">“根节点8”</div>
+            </figure><br>第二个节点3进来的时候会和根节点比较，然后成为节点8的左孩子<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/binarytree/4.JPG" alt="“左孩子3”" title>
+                </div>
+                <div class="image-caption">“左孩子3”</div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/binarytree/5.JPG" alt="“左孩子3”" title>
+                </div>
+                <div class="image-caption">“左孩子3”</div>
+            </figure><br>第三次进来的时候是节点10，节点10会和8比对，发现比8大并且节点8的右孩子节点为空，所以节点10就成了节点8的右孩子<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/binarytree/6.JPG" alt="“左孩子3”" title>
+                </div>
+                <div class="image-caption">“左孩子3”</div>
+            </figure><br>第四次进来的是节点1，此时二叉树已经有了根节点8以及左孩子3，右孩子10，然后进来的1比8小，而且此时已经有了左孩子3,左孩子3此时是没有左右孩子节点的，所以进来的1成了3的左孩子<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/binarytree/7.JPG" alt="“左孩子1”" title>
+                </div>
+                <div class="image-caption">“左孩子1”</div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/binarytree/8.JPG" alt="“左孩子1进来的时候和8比对”" title>
+                </div>
+                <div class="image-caption">“左孩子1进来的时候和8比对”</div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/binarytree/9.JPG" alt="“左孩子1和8比对之后和3比对”" title>
+                </div>
+                <div class="image-caption">“左孩子1和8比对之后和3比对”</div>
+            </figure><br>第五次加入的是节点6，由于节点6是小于节点8的并且大于此时节点8的左孩子节点3，所以就成了此时空着的节点3的右节点<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/binarytree/10.JPG" alt="“根节点8的左子树3的右孩子”" title>
+                </div>
+                <div class="image-caption">“根节点8的左子树3的右孩子”</div>
+            </figure><br>它的过程是6进来的时候和8比对，然后8此时有了左孩子3，然后6和3比对，6&gt;3而且此时3没有右孩子，所以就成了3的右孩子<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/binarytree/11.JPG" alt="“6和8比对”" title>
+                </div>
+                <div class="image-caption">“6和8比对”</div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/binarytree/12.JPG" alt="“6和3比对”" title>
+                </div>
+                <div class="image-caption">“6和3比对”</div>
+            </figure><br>第六次进来的是节点14，由于节点14大于节点8所以走右边，因为节点8的右孩子此时是10,14大于10而且节点10此时没有右孩子，所以就成了节点10的右孩子<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/binarytree/13.JPG" alt="“此时的二叉树”" title>
+                </div>
+                <div class="image-caption">“此时的二叉树”</div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/binarytree/14.JPG" alt="“14和8比对”" title>
+                </div>
+                <div class="image-caption">“14和8比对”</div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/binarytree/15.JPG" alt="“14和10比对”" title>
+                </div>
+                <div class="image-caption">“14和10比对”</div>
+            </figure><br>以此类推，最后根据给的数组生成了一颗二叉树<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/binarytree/16.JPG" alt="“生成的排序二叉树”" title>
+                </div>
+                <div class="image-caption">“生成的排序二叉树”</div>
+            </figure><br>有了一棵构建好的排序二叉树之后，可以用遍历获取二叉树中每个节点的信息，遍历分三种方法，中序遍历、前序遍历、后序遍历</p>
+<h3 id="中序遍历"><a href="#中序遍历" class="headerlink" title="中序遍历"></a>中序遍历</h3><p>中序遍历（LDR）是二叉树遍历的一种，也叫做中根遍历、中序周游。在二叉树中，中序遍历首先遍历左子树，然后访问根结点，最后遍历右子树。<br>假如此时我处于某一个节点，处于这个节点的时候，我先看左孩子有没有，如果有的话，遍历整棵左子树，遍历完整棵左子树之后再返回来输出当前节点，输出完之后<br>再去遍历整棵右子树，遍历完之后，一个节点的左子树和右子树以及它本身就都被遍历完了，然后它沿着箭头向它的父节点遍历，依赖这个中序遍历的话实际上是以升<br>序的方式访问整个二叉树的节点</p>
+<h4 id="给BinaryTree增加一个中序遍历的接口"><a href="#给BinaryTree增加一个中序遍历的接口" class="headerlink" title="给BinaryTree增加一个中序遍历的接口"></a>给BinaryTree增加一个中序遍历的接口</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> inOrderTraverseNode=<span class="function"><span class="keyword">function</span>(<span class="params">node,callback</span>)</span>&#123;    <span class="comment">//node=二叉树的节点对象,callback=普通回调函数</span></span><br><span class="line"><span class="keyword">if</span>(node!==<span class="literal">null</span>)&#123;   <span class="comment">//如果节点不为空的话</span></span><br><span class="line">    inOrderTraverseNode(node.left,callback)  <span class="comment">//访问它的左子树</span></span><br><span class="line">    callback(node.key)   <span class="comment">//访问完左子树之后访问当前节点，然后把当前节点的值传入回调函数中</span></span><br><span class="line">    inOrderTraverseNode(node.right,callback)  <span class="comment">//继续访问当前节点的右子树</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//callback=待会要输出某个节点的值得时候，把这个节点的值传入到这个回调函数中，让这个回调函数决定如何输出</span></span><br><span class="line"><span class="keyword">this</span>.inOrderTraverse=<span class="function"><span class="keyword">function</span>(<span class="params">callback</span>)</span>&#123;        </span><br><span class="line">	inOrderTraverseNode(root,callback)   <span class="comment">//从根节点开始遍历</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> callback=<span class="function"><span class="keyword">function</span>(<span class="params">key</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(key)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//调BinaryTree的中序接口</span></span><br><span class="line">binaryTree.inOrderTraverse(callback)</span><br></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/binarytree/a.gif" alt="“打断点调试”" title>
+                </div>
+                <div class="image-caption">“打断点调试”</div>
+            </figure>
+<h3 id="前序遍历"><a href="#前序遍历" class="headerlink" title="前序遍历"></a>前序遍历</h3><p>前序遍历（DLR），是二叉树遍历的一种，也叫做先根遍历、先序遍历、前序周游，可记做根左右。前序遍历首先访问根结点然后遍历左子树，最后遍历右子树。</p>
+<h4 id="给BinaryTree增加一个前序遍历的接口"><a href="#给BinaryTree增加一个前序遍历的接口" class="headerlink" title="给BinaryTree增加一个前序遍历的接口"></a>给BinaryTree增加一个前序遍历的接口</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> preOrderTraverseNode=<span class="function"><span class="keyword">function</span>(<span class="params">node,callback</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(node!==<span class="literal">null</span>)&#123;</span><br><span class="line">		callback(node.key)</span><br><span class="line">		preOrderTraverseNode(node.left,callback)   <span class="comment">//遍历该节点左子树</span></span><br><span class="line">		preOrderTraverseNode(node.right,callback)  <span class="comment">//遍历该节点的右子树</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">this</span>.preOrderTraverse=<span class="function"><span class="keyword">function</span>(<span class="params">callback</span>)</span>&#123;</span><br><span class="line">	preOrderTraverseNode(root,callback)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//调BinaryTree的前序接口</span></span><br><span class="line">binaryTree.preOrderTraverse(callback)</span><br></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/binarytree/b.gif" alt="“打断点调试”" title>
+                </div>
+                <div class="image-caption">“打断点调试”</div>
+            </figure>
+<h3 id="后序遍历"><a href="#后序遍历" class="headerlink" title="后序遍历"></a>后序遍历</h3><p>后序遍历（LRD）是二叉树遍历的一种，也叫做后根遍历、后序周游，可记做左右根。后序遍历有递归算法和非递归算法两种。在二叉树中，先左后右再根，即首先遍历<br>左子树，然后遍历右子树，最后访问根结点。</p>
+<h4 id="给BinaryTree增加一个后序遍历的接口"><a href="#给BinaryTree增加一个后序遍历的接口" class="headerlink" title="给BinaryTree增加一个后序遍历的接口"></a>给BinaryTree增加一个后序遍历的接口</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> postOrderTraverseNode=<span class="function"><span class="keyword">function</span>(<span class="params">node,callback</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (node!==<span class="literal">null</span>) &#123;</span><br><span class="line">		postOrderTraverseNode(node.left,callback) <span class="comment">//先遍历当前节点的左子树</span></span><br><span class="line">		postOrderTraverseNode(node.right,callback) <span class="comment">//遍历完左子树之后遍历右子树</span></span><br><span class="line">		callback(node.key)   <span class="comment">//遍历完之后输出节点的值</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">this</span>.postOrderTraverse=<span class="function"><span class="keyword">function</span>(<span class="params">callback</span>)</span>&#123;</span><br><span class="line">	postOrderTraverseNode(root,callback)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//调BinaryTree的前序接口</span></span><br><span class="line">binaryTree.postOrderTraverse(callback)</span><br></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/binarytree/c.gif" alt="“打断点调试”" title>
+                </div>
+                <div class="image-caption">“打断点调试”</div>
+            </figure>
+<h3 id="二叉树节点查找"><a href="#二叉树节点查找" class="headerlink" title="二叉树节点查找"></a>二叉树节点查找</h3><p>主要是看某个给定数值的节点是否在二叉树中存在，设想开发作战游戏，飞机发出导弹的运行轨迹在不断改变，那它能否击中外星人了，这样就把外星人的坐标当成<br>一个二叉树，导弹前进的时候坐标也在变化，导弹每前进一次，坐标变化之后就在外星人坐标的二叉树中查找，如果导弹的坐标和外星人在二叉树中的坐标重合的话<br>，也就是说，在二叉树中找到了一个数值和导弹的数值是一样的，也就是击中了，要是找不到的话，就说明导弹击不中外星人</p>
+<h4 id="二叉树的节点查找分三种"><a href="#二叉树的节点查找分三种" class="headerlink" title="二叉树的节点查找分三种"></a>二叉树的节点查找分三种</h4><p>1、查找二叉树最小节点，从当前节点出发查找节点左子树<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//查找二叉树最小节点接口</span></span><br><span class="line"><span class="keyword">var</span> minNode=<span class="function"><span class="keyword">function</span>(<span class="params">node</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(node)&#123;</span><br><span class="line">		<span class="keyword">while</span>(node&amp;&amp;node.left!==<span class="literal">null</span>)&#123;</span><br><span class="line">			node=node.left</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> node.key</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">null</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">this</span>.min=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> minNode(root)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`二叉树的最小节点是<span class="subst">$&#123;binaryTree.min()&#125;</span>`</span>)</span><br></pre></td></tr></table></figure></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/binarytree/d.gif" alt="“打断点调试”" title>
+                </div>
+                <div class="image-caption">“打断点调试”</div>
+            </figure>
+<p>2、查找二叉树最大节点，从当前节点出发查找节点右子树<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//查找二叉树最大节点接口</span></span><br><span class="line"><span class="keyword">var</span> maxNode=<span class="function"><span class="keyword">function</span>(<span class="params">node</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (node) &#123;</span><br><span class="line">		<span class="keyword">while</span>(node&amp;&amp;node.right!==<span class="literal">null</span>)&#123;</span><br><span class="line">			node=node.right</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> node.key</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">null</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">this</span>.max=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> maxNode(root)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`二叉树的最小节点是<span class="subst">$&#123;binaryTree.max()&#125;</span>`</span>)</span><br></pre></td></tr></table></figure></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/binarytree/e.gif" alt="“打断点调试”" title>
+                </div>
+                <div class="image-caption">“打断点调试”</div>
+            </figure>
+<p>3、给定某个节点数值，然后和根节点进行比对大小，大的话从右子树继续比对，小的话就是左子树，如果是一样的话，直接返回当前节点的值，如果没找到可以认为是查找失败<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//查找给定的节点</span></span><br><span class="line"><span class="keyword">var</span> searchNode=<span class="function"><span class="keyword">function</span>(<span class="params">node,key</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (node===<span class="literal">null</span>) &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (node.key&gt;key) &#123;</span><br><span class="line">		<span class="keyword">return</span> searchNode(node.left,key)</span><br><span class="line">	&#125;<span class="keyword">else</span> <span class="keyword">if</span> (node.key&lt;key) &#123;</span><br><span class="line">		<span class="keyword">return</span> searchNode(node.right,key)</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">this</span>.search=<span class="function"><span class="keyword">function</span>(<span class="params">key</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> searchNode(root,key)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(binaryTree.search(<span class="number">6</span>)?<span class="string">`key is 6`</span>:<span class="string">`not found`</span>)   <span class="comment">//6是二叉树中有的节点</span></span><br><span class="line"><span class="built_in">console</span>.log(binaryTree.search(<span class="number">16</span>)?<span class="string">`key is 16`</span>:<span class="string">`not found`</span>)   <span class="comment">//16是二叉树中没有的节点</span></span><br></pre></td></tr></table></figure></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/binarytree/f.gif" alt="“打断点调试”" title>
+                </div>
+                <div class="image-caption">“打断点调试”</div>
+            </figure>
+<h3 id="二叉树节点删除"><a href="#二叉树节点删除" class="headerlink" title="二叉树节点删除"></a>二叉树节点删除</h3><h4 id="删除只有一个子树的节点"><a href="#删除只有一个子树的节点" class="headerlink" title="删除只有一个子树的节点"></a>删除只有一个子树的节点</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//接口</span></span><br><span class="line"><span class="keyword">var</span> removeNode=<span class="function"><span class="keyword">function</span>(<span class="params">node,key</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (node===<span class="literal">null</span>) &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">null</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (key&lt;node.key) &#123;</span><br><span class="line">		node.left=removeNode(node.left,key)</span><br><span class="line">		<span class="keyword">return</span> node</span><br><span class="line">	&#125;<span class="keyword">else</span> <span class="keyword">if</span> (key&gt;node.key) &#123;</span><br><span class="line">		node.right=removeNode(node.right,key)</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (node.left===<span class="literal">null</span>&amp;&amp;node.right===<span class="literal">null</span>) &#123;</span><br><span class="line">			node=<span class="literal">null</span></span><br><span class="line">			<span class="keyword">return</span> node</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (node.left===<span class="literal">null</span>) &#123;</span><br><span class="line">			node=node.right</span><br><span class="line">			<span class="keyword">return</span> node</span><br><span class="line">		&#125;<span class="keyword">else</span> <span class="keyword">if</span> (node.right===<span class="literal">null</span>) &#123;</span><br><span class="line">			node=node.left</span><br><span class="line">			<span class="keyword">return</span> node</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">this</span>.remove=<span class="function"><span class="keyword">function</span>(<span class="params">key</span>)</span>&#123;</span><br><span class="line">	removeNode(root,key)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//调接口</span></span><br><span class="line">binaryTree.remove(<span class="number">10</span>)    <span class="comment">//删除节点10</span></span><br></pre></td></tr></table></figure>
+<p>假如删除的节点含有左右子树的话，就要从被删除节点的右子树中找到最小的子节点，然后将要删除的节点的值换成找到的最小的子节点的值，这样二叉树里面就有<br>两个相同的节点，这时候就要把最小子节点去掉，做完这些步骤之后二叉树仍然是保持平衡性质的，这时候接口可以改成<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> findMinNode=<span class="function"><span class="keyword">function</span>(<span class="params">node</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (node) &#123;</span><br><span class="line">		<span class="keyword">while</span>(node&amp;&amp;node.left!==<span class="literal">null</span>)&#123;</span><br><span class="line">			node=node.left</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> node</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> node</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> removeNode=<span class="function"><span class="keyword">function</span>(<span class="params">node,key</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (node===<span class="literal">null</span>) &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">null</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (key&lt;node.key) &#123;</span><br><span class="line">		node.left=removeNode(node.left,key)</span><br><span class="line">		<span class="keyword">return</span> node</span><br><span class="line">	&#125;<span class="keyword">else</span> <span class="keyword">if</span> (key&gt;node.key) &#123;</span><br><span class="line">		node.right=removeNode(node.right,key)</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (node.left===<span class="literal">null</span>&amp;&amp;node.right===<span class="literal">null</span>) &#123;</span><br><span class="line">			node=<span class="literal">null</span></span><br><span class="line">			<span class="keyword">return</span> node</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (node.left===<span class="literal">null</span>) &#123;</span><br><span class="line">			node=node.right</span><br><span class="line">			<span class="keyword">return</span> node</span><br><span class="line">		&#125;<span class="keyword">else</span> <span class="keyword">if</span> (node.right===<span class="literal">null</span>) &#123;</span><br><span class="line">			node=node.left</span><br><span class="line">			<span class="keyword">return</span> node</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//执行到这里就说明这是有两个子树的节点</span></span><br><span class="line">		<span class="keyword">var</span> aux=findMinNode(node.right)  <span class="comment">//找到这个节点，在节点右子树中找到最小的子节点</span></span><br><span class="line">		node.key=aux.key    <span class="comment">//找到之后把这个节点的值更新成这个子节点的值</span></span><br><span class="line">		node.right=removeNode(node.right,aux.key)   <span class="comment">//从右子树中把这个最小子节点删除</span></span><br><span class="line">		<span class="keyword">return</span> node     <span class="comment">//删除之后得到平衡的二叉树</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">this</span>.remove=<span class="function"><span class="keyword">function</span>(<span class="params">key</span>)</span>&#123;</span><br><span class="line">	removeNode(root,key)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>应用场景：前序遍历用于复制二叉树，因为即使你想重新根据节点生成，如果节点多的话，算法的空间复杂度是很大的，前序遍历复制的效率要比重新生成的效率高出10倍左右<br>，中序遍历可用于排序，后序遍历可以用在系统文件检索。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/binarytree/666.jpg" alt="最后放上我偶像" title>
+                </div>
+                <div class="image-caption">最后放上我偶像</div>
+            </figure></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-01-13T15:30:38.000Z" itemprop="dateUpdated">2020-01-13 23:30:38</time>
+</span><br>
+
+
+        
+        谢谢浏览，我会继续努力的，示例：<a href="/2018/12/05/二叉树算法原理/" target="_blank" rel="external">http://yoursite.com/2018/12/05/二叉树算法原理/</a>
+        
+    </div>
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.jpg" alt="BingZhenhuang">
+            BingZhenhuang
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/中序遍历/">中序遍历</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/二叉树/">二叉树</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/二叉树节点删除/">二叉树节点删除</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/二叉树节点查找/">二叉树节点查找</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前序遍历/">前序遍历</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/后序遍历/">后序遍历</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/12/05/二叉树算法原理/&title=《二叉树算法原理》 — 小方块 - hhardyy.com&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/12/05/二叉树算法原理/&title=《二叉树算法原理》 — 小方块 - hhardyy.com&source=二叉树原理手记。
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/12/05/二叉树算法原理/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《二叉树算法原理》 — 小方块 - hhardyy.com&url=http://yoursite.com/2018/12/05/二叉树算法原理/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/12/05/二叉树算法原理/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/12/20/数据结构与算法之美手记/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">数据结构与算法之美手记</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/11/16/react造了一个PC城市选择的轮子/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">react造了一个PC城市选择的轮子</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        🤠 请我喝可乐！
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content" style="width:50%">
+        
+        <div class="reward-code" style="text-align:center">
+            <div style="width:300px;margin:0px auto;">
+               <img id="rewardCode" style="width:50%;height:60%;display:block; margin:0px auto;" src="/img/alipay.jpg" alt="支付宝打赏二维码">
+               <span style="display:inline-block; margin-bottom:20px;">0.88(支付宝 aliPay)</span>
+               <img id="rewardCode" style="width:50%;height:60%;display:block; margin:0px auto;" src="/img/wechat.jpg" alt="微信打赏二维码">
+               <span style="display:inline-block;">0.88(微信 weChat)</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+</div>
+
+        <script>
+!function(e,t,a){function n(){c(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"),o(),r()}function r(){for(var e=0;e<d.length;e++)d[e].alpha<=0?(t.body.removeChild(d[e].el),d.splice(e,1)):(d[e].y--,d[e].scale+=.004,d[e].alpha-=.013,d[e].el.style.cssText="left:"+d[e].x+"px;top:"+d[e].y+"px;opacity:"+d[e].alpha+";transform:scale("+d[e].scale+","+d[e].scale+") rotate(45deg);background:"+d[e].color+";z-index:99999");requestAnimationFrame(r)}function o(){var t="function"==typeof e.onclick&&e.onclick;e.onclick=function(e){t&&t(),i(e)}}function i(e){var a=t.createElement("div");a.className="heart",d.push({el:a,x:e.clientX-5,y:e.clientY-5,scale:1,alpha:1,color:s()}),t.body.appendChild(a)}function c(e){var a=t.createElement("style");a.type="text/css";try{a.appendChild(t.createTextNode(e))}catch(t){a.styleSheet.cssText=e}t.getElementsByTagName("head")[0].appendChild(a)}function s(){return"rgb("+~~(255*Math.random())+","+~~(255*Math.random())+","+~~(255*Math.random())+")"}var d=[];e.requestAnimationFrame=function(){return e.requestAnimationFrame||e.webkitRequestAnimationFrame||e.mozRequestAnimationFrame||e.oRequestAnimationFrame||e.msRequestAnimationFrame||function(e){setTimeout(e,1e3/60)}}(),n()}(window,document);
+</script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script>
+    function secondToDate(second) {
+        if (!second) {
+            return 0;
+        }
+        var time = new Array(0, 0, 0, 0, 0);
+        if (second >= 365 * 24 * 3600) {
+            time[0] = parseInt(second / (365 * 24 * 3600));
+            second %= 365 * 24 * 3600;
+        }
+        if (second >= 24 * 3600) {
+            time[1] = parseInt(second / (24 * 3600));
+            second %= 24 * 3600;
+        }
+        if (second >= 3600) {
+            time[2] = parseInt(second / 3600);
+            second %= 3600;
+        }
+        if (second >= 60) {
+            time[3] = parseInt(second / 60);
+            second %= 60;
+        }
+        if (second > 0) {
+            time[4] = second;
+        }
+        return time;
+    }</script>
+<script type="text/javascript" language="javascript">
+    function setTime() {
+        var create_time = Math.round(new Date(Date.UTC(2017, 08, 18, 11, 42, 23)).getTime() / 1000);
+        var timestamp = Math.round((new Date().getTime() + 8 * 60 * 60 * 1000) / 1000);
+        currentTime = secondToDate((timestamp - create_time));
+        currentTimeHtml = 'Running：' + currentTime[0] + '年 ' + currentTime[1] + '天 '
+                + currentTime[2] + '时 ' + currentTime[3] + '分 ' + currentTime[4]
+                + '秒';
+        document.getElementById("htmer_time").innerHTML = currentTimeHtml;
+    }    setInterval(setTime, 1000);
+</script>
+<footer class="footer">
+    <div class="top">
+        
+
+        <p>
+          <span id="busuanzi_container_page_pv">
+             [&nbsp;浏览量：&nbsp;<span id="busuanzi_value_page_pv"></span>&nbsp;]
+          </span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+        <span>BingZhenhuang &copy; 2017 - 2021</span>
+            <span>
+                
+                Power by <a href="https://hhardyy.github.io/" target="_blank">zhen On August 8</a> 
+            </span>
+            <span id="htmer_time" "></span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/12/05/二叉树算法原理/&title=《二叉树算法原理》 — 小方块 - hhardyy.com&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/12/05/二叉树算法原理/&title=《二叉树算法原理》 — 小方块 - hhardyy.com&source=二叉树原理手记。
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/12/05/二叉树算法原理/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《二叉树算法原理》 — 小方块 - hhardyy.com&url=http://yoursite.com/2018/12/05/二叉树算法原理/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/12/05/二叉树算法原理/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACMElEQVR42u3aQW7EIAwF0Ln/pVOpq0pt0v8hWUAeq2pGAt4sXBv784nX8b3OPv/57fUnv/c5TtbniYWBgbEs47hcZ4zrw5IdEkZyNwwMjPcwroNsElLHIuH1bsndMDAwMPKrJ1dJdsDAwMC4K+Beh9SZIhkDAwNjpogdS+NmCuZHanEMDIwFGXcFxCf+frC/gYGBsQjjmFh5wyAJoDP3wcDA2Jtx9sg1P3iR7JkPYUSBGAMDY1PGXSVrXr62oTnaDQMDY2vGXS3Mtm2QhOw8uGNgYOzNuL7ofOLYJojtJ8WRGBgYyzKSzGqsPTB2ufyRrk4QMTAwlmXc+yiWHDwWav85EQMD4zWMsTI1H+pqi+ECjIGBsTUjD51PBN+615oUxhgYGNsxZjZqh8Dab4tUFQMDY2tGG9pywFhDdCxxxMDAeAOj6B4MDUa0ITvPZ4sZNwwMjGUZ9RP8rWVtgvzM/yoYGBjbMdoCNTm+ffrPC+PTgIuBgbERY6yUPdvuiSGw5J8BBgbGGxhjz/FtS6AtgJMT64wSAwNjccZYWjZTjibsolWAgYGxNSNPBHNYQh0sR9t2JgYGxuKMo1xtEGwDaNtO+GO6DQMDYzvGvc3OmRZpHtwHARgYGIsz8iCbP5zNF7d1wMXAwHgBIw+XMyXrWFsiSisxMDAwYkaejSYNiaIVgYGBgTGdOLbseqINAwPjBYy2GXBva3OGh4GB8QbG/IxG+0DWlsFjj3oYGBhbML4ANnL6CAxLpKQAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '(•‾̑⌣‾̑•)✧˖°回来看我';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(゜-゜)つロ欢迎回来';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
