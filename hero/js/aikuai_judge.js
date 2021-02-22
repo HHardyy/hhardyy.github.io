@@ -1,1 +1,0 @@
-if(/Android|webOS|iPhone|iPad|BlackBerry/i.test(navigator.userAgent)) {window.location.href = "aikuai_mobil.html";} else {window.location.href = "aikuai_pc.html";}
