@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?d890b1f16fb364253e79c5bb20225c3a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+    
+
+    
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?busuanzi_value_site_uv"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    <meta name="baidu-site-verification" content="FYMCShbUK8">
+    <meta name="baidu-site-verification" content="ZYRF7OxQRW">
+    <meta name="baidu-site-verification" content="cHSqtjI0PN">
+    <meta name="baidu-site-verification" content="cHSqtjI0PN">
+    <meta name="baidu-site-verification" content="cHSqtjI0PN">
+    
+    
+    <link rel="canonical" href="https://hhardyy.com/2017/09/07/清除浮动全家桶clear等。。/">
+    
+    
+    <title>清除浮动全家桶clear等。。 | 小方块 - hhardyy.com | 复杂的坑+归其原理+了解实现规则===解决？解决成功：加油解决成功;</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#958e93">
+    
+    
+    <meta name="keywords" content="清浮动,inline-block,after,zoom缩放,clear">
+    <meta name="description" content="国庆之前的基础特别篇，来一波清除浮动的全家桶~~~">
+<meta name="keywords" content="清浮动,inline-block,after,zoom缩放,clear">
+<meta property="og:type" content="article">
+<meta property="og:title" content="清除浮动全家桶clear等。。">
+<meta property="og:url" content="http://yoursite.com/2017/09/07/清除浮动全家桶clear等。。/index.html">
+<meta property="og:site_name" content="小方块 - hhardyy.com">
+<meta property="og:description" content="国庆之前的基础特别篇，来一波清除浮动的全家桶~~~">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-09-07T15:21:56.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="清除浮动全家桶clear等。。">
+<meta name="twitter:description" content="国庆之前的基础特别篇，来一波清除浮动的全家桶~~~">
+    
+        <link rel="alternate" type="application/atom+xml" title="小方块 - hhardyy.com" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/hardyfavicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/paulGraham.jpg)">
+      <div class="brand" style="background-color:#4154b2">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">BingZhenhuang</h5>
+          <a href="mailto:huangbingzhen@hhardyy.com" title="huangbingzhen@hhardyy.com" class="mail">huangbingzhen@hhardyy.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                所有文章
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/HHardyy" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://gitee.com/hhardyy" target="_blank" >
+                <i class="icon icon-lg icon-cloud"></i>
+                Gitee
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://juejin.im/user/59a26f926fb9a02487553b04"  >
+                <i class="icon icon-lg icon-pencil"></i>
+                掘金-圳
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://segmentfault.com/u/hhardyy"  >
+                <i class="icon icon-lg icon-comments"></i>
+                Segmentfault
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://codepen.io/HHardyy/" target="_blank" >
+                <i class="icon icon-lg icon-codepen"></i>
+                Codepen
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.freecodecamp.cn/hhardyy" target="_blank" >
+                <i class="icon icon-lg icon-leaf"></i>
+                Freecodecamp
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/友情链接"  >
+                <i class="icon icon-lg icon-link"></i>
+                友链
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">清除浮动全家桶clear等。。</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">清除浮动全家桶clear等。。</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-09-07T14:52:20.000Z" itemprop="datePublished" class="page-time">
+  2017-09-07
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1、加高清浮动"><span class="post-toc-number">1.</span> <span class="post-toc-text">1、加高清浮动</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2、父级浮动（让元素它爸也浮动）"><span class="post-toc-number">2.</span> <span class="post-toc-text">2、父级浮动（让元素它爸也浮动）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3、inline-block清除浮动"><span class="post-toc-number">3.</span> <span class="post-toc-text">3、inline-block清除浮动</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4、空标签清浮动"><span class="post-toc-number">4.</span> <span class="post-toc-text">4、空标签清浮动</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5、空br清浮动"><span class="post-toc-number">5.</span> <span class="post-toc-text">5、空br清浮动</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6、after伪类，清除浮动方法（主流方法）"><span class="post-toc-number">6.</span> <span class="post-toc-text">6、after伪类，清除浮动方法（主流方法）</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-清除浮动全家桶clear等。。"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">清除浮动全家桶clear等。。</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-09-07 22:52:20" datetime="2017-09-07T14:52:20.000Z"  itemprop="datePublished">2017-09-07</time>
+
+            
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>国庆之前的基础特别篇，来一波清除浮动的全家桶~~~</p>
+<p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=39443674&auto=0&height=66"></iframe><br><a id="more"></a></p>
+<h2 id="1、加高清浮动"><a href="#1、加高清浮动" class="headerlink" title="1、加高清浮动"></a>1、加高清浮动</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">拓展性不好</span><br></pre></td></tr></table></figure>
+<h2 id="2、父级浮动（让元素它爸也浮动）"><a href="#2、父级浮动（让元素它爸也浮动）" class="headerlink" title="2、父级浮动（让元素它爸也浮动）"></a>2、父级浮动（让元素它爸也浮动）</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">页面中所有元素都加浮动，margin左右自动失效（floats bad!）</span><br></pre></td></tr></table></figure>
+<h2 id="3、inline-block清除浮动"><a href="#3、inline-block清除浮动" class="headerlink" title="3、inline-block清除浮动"></a>3、inline-block清除浮动</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">margin左右auto失效</span><br></pre></td></tr></table></figure>
+<h2 id="4、空标签清浮动"><a href="#4、空标签清浮动" class="headerlink" title="4、空标签清浮动"></a>4、空标签清浮动</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">IE6最小高度19px（解决后IE6下还有2px偏差）</span><br></pre></td></tr></table></figure>
+<h2 id="5、空br清浮动"><a href="#5、空br清浮动" class="headerlink" title="5、空br清浮动"></a>5、空br清浮动</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">不符合工作中：结构，样式，行为，三者分离的要求</span><br></pre></td></tr></table></figure>
+<h2 id="6、after伪类，清除浮动方法（主流方法）"><a href="#6、after伪类，清除浮动方法（主流方法）" class="headerlink" title="6、after伪类，清除浮动方法（主流方法）"></a>6、after伪类，清除浮动方法（主流方法）</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">.clear:after&#123;content:<span class="string">""</span>;display:block;clear:both;&#125;</span><br><span class="line">.clear&#123;zoom:1;&#125;</span><br><span class="line">1、after伪类：元素内部末尾添加内容；</span><br><span class="line">:after&#123;content<span class="string">"添加的内容"</span>;&#125;IE6、7下不兼容</span><br><span class="line">2、zoom缩放</span><br><span class="line">a、触发IE下haslayout，使元素根据自身内容计算宽高。</span><br><span class="line">b、FF不支持</span><br><span class="line">c、BFC（block formatting context）标准浏览器</span><br><span class="line">（1）<span class="built_in">float</span>的值不为none，</span><br><span class="line">（2）overflow的值不为visible，</span><br><span class="line">（3）display的值为table-caption,inline-block中的任何一个,</span><br><span class="line">（4）position的值不为relative和static，</span><br><span class="line">（5）width|height|min-width|min-height:(!aotu)</span><br><span class="line">d、haslayout IE浏览器</span><br><span class="line">（1）writing-mode:tb-rl,</span><br><span class="line">（2）-ms-writing-mode:tb-rl,</span><br><span class="line">（3）zoom：(!normal)</span><br></pre></td></tr></table></figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-09-07T15:21:56.000Z" itemprop="dateUpdated">2017-09-07 23:21:56</time>
+</span><br>
+
+
+        
+        谢谢浏览，我会继续努力的，示例：<a href="/2017/09/07/清除浮动全家桶clear等。。/" target="_blank" rel="external">http://yoursite.com/2017/09/07/清除浮动全家桶clear等。。/</a>
+        
+    </div>
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.jpg" alt="BingZhenhuang">
+            BingZhenhuang
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/after/">after</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/clear/">clear</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/inline-block/">inline-block</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/zoom缩放/">zoom缩放</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/清浮动/">清浮动</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2017/09/07/清除浮动全家桶clear等。。/&title=《清除浮动全家桶clear等。。》 — 小方块 - hhardyy.com&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2017/09/07/清除浮动全家桶clear等。。/&title=《清除浮动全家桶clear等。。》 — 小方块 - hhardyy.com&source=国庆之前的基础特别篇，来一波清除浮动的全家桶~~~
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/09/07/清除浮动全家桶clear等。。/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《清除浮动全家桶clear等。。》 — 小方块 - hhardyy.com&url=http://yoursite.com/2017/09/07/清除浮动全家桶clear等。。/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2017/09/07/清除浮动全家桶clear等。。/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/09/12/各种姿势加载第三方js/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">各种姿势加载第三方js</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/09/04/移动端的分辨率-rpx/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">移动端的分辨率与rpx</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        🤠 请我喝可乐！
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content" style="width:50%">
+        
+        <div class="reward-code" style="text-align:center">
+            <div style="width:300px;margin:0px auto;">
+               <img id="rewardCode" style="width:50%;height:60%;display:block; margin:0px auto;" src="/img/alipay.jpg" alt="支付宝打赏二维码">
+               <span style="display:inline-block; margin-bottom:20px;">0.88(支付宝 aliPay)</span>
+               <img id="rewardCode" style="width:50%;height:60%;display:block; margin:0px auto;" src="/img/wechat.jpg" alt="微信打赏二维码">
+               <span style="display:inline-block;">0.88(微信 weChat)</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+</div>
+
+        <script>
+!function(e,t,a){function n(){c(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"),o(),r()}function r(){for(var e=0;e<d.length;e++)d[e].alpha<=0?(t.body.removeChild(d[e].el),d.splice(e,1)):(d[e].y--,d[e].scale+=.004,d[e].alpha-=.013,d[e].el.style.cssText="left:"+d[e].x+"px;top:"+d[e].y+"px;opacity:"+d[e].alpha+";transform:scale("+d[e].scale+","+d[e].scale+") rotate(45deg);background:"+d[e].color+";z-index:99999");requestAnimationFrame(r)}function o(){var t="function"==typeof e.onclick&&e.onclick;e.onclick=function(e){t&&t(),i(e)}}function i(e){var a=t.createElement("div");a.className="heart",d.push({el:a,x:e.clientX-5,y:e.clientY-5,scale:1,alpha:1,color:s()}),t.body.appendChild(a)}function c(e){var a=t.createElement("style");a.type="text/css";try{a.appendChild(t.createTextNode(e))}catch(t){a.styleSheet.cssText=e}t.getElementsByTagName("head")[0].appendChild(a)}function s(){return"rgb("+~~(255*Math.random())+","+~~(255*Math.random())+","+~~(255*Math.random())+")"}var d=[];e.requestAnimationFrame=function(){return e.requestAnimationFrame||e.webkitRequestAnimationFrame||e.mozRequestAnimationFrame||e.oRequestAnimationFrame||e.msRequestAnimationFrame||function(e){setTimeout(e,1e3/60)}}(),n()}(window,document);
+</script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script>
+    function secondToDate(second) {
+        if (!second) {
+            return 0;
+        }
+        var time = new Array(0, 0, 0, 0, 0);
+        if (second >= 365 * 24 * 3600) {
+            time[0] = parseInt(second / (365 * 24 * 3600));
+            second %= 365 * 24 * 3600;
+        }
+        if (second >= 24 * 3600) {
+            time[1] = parseInt(second / (24 * 3600));
+            second %= 24 * 3600;
+        }
+        if (second >= 3600) {
+            time[2] = parseInt(second / 3600);
+            second %= 3600;
+        }
+        if (second >= 60) {
+            time[3] = parseInt(second / 60);
+            second %= 60;
+        }
+        if (second > 0) {
+            time[4] = second;
+        }
+        return time;
+    }</script>
+<script type="text/javascript" language="javascript">
+    function setTime() {
+        var create_time = Math.round(new Date(Date.UTC(2017, 08, 18, 11, 42, 23)).getTime() / 1000);
+        var timestamp = Math.round((new Date().getTime() + 8 * 60 * 60 * 1000) / 1000);
+        currentTime = secondToDate((timestamp - create_time));
+        currentTimeHtml = 'Running：' + currentTime[0] + '年 ' + currentTime[1] + '天 '
+                + currentTime[2] + '时 ' + currentTime[3] + '分 ' + currentTime[4]
+                + '秒';
+        document.getElementById("htmer_time").innerHTML = currentTimeHtml;
+    }    setInterval(setTime, 1000);
+</script>
+<footer class="footer">
+    <div class="top">
+        
+
+        <p>
+          <span id="busuanzi_container_page_pv">
+             [&nbsp;浏览量：&nbsp;<span id="busuanzi_value_page_pv"></span>&nbsp;]
+          </span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+        <span>BingZhenhuang &copy; 2017 - 2021</span>
+            <span>
+                
+                Power by <a href="https://hhardyy.github.io/" target="_blank">zhen On August 8</a> 
+            </span>
+            <span id="htmer_time" "></span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2017/09/07/清除浮动全家桶clear等。。/&title=《清除浮动全家桶clear等。。》 — 小方块 - hhardyy.com&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2017/09/07/清除浮动全家桶clear等。。/&title=《清除浮动全家桶clear等。。》 — 小方块 - hhardyy.com&source=国庆之前的基础特别篇，来一波清除浮动的全家桶~~~
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/09/07/清除浮动全家桶clear等。。/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《清除浮动全家桶clear等。。》 — 小方块 - hhardyy.com&url=http://yoursite.com/2017/09/07/清除浮动全家桶clear等。。/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2017/09/07/清除浮动全家桶clear等。。/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACuElEQVR42u3aQW4bMRAEQP//0wqQa6xN93Bo61A8BbK0y2IAkuiZr694vP6O589f/4znp+XPfJ7DwsDDw8MbTf3deGa0T2t/lS/l2+fj4eHhXeO1G3SyHMmitG/J54yHh4f3Cbx8sz6/EM+ehoeHh/dpvOdf5TFEO90fPffw8PDwYl57RZ4dJPk1OuEtZy14eHh4XY5aFMA+4d8X63t4eHh4B1X1fLQhbFvWms0WDw8P7wYvvy7Pjo38r0nYkcS7dYcXHh4eXsnLt+A8LGh/m0Sxydy++T4eHh7eNV6yl84OgOQYSKLhZFZvL9N4eHh4q7y2HHWCbIOMWSpbJ9B4eHh4I157qU02+ny7nx1LbbMCHh4e3havLTjNDoDzMKJdGjw8PLx7vLxm1FaUZos1CykKJB4eHt4xL7lf52FEfrGehbN1AIGHh4d3gZds91tnTh4xnDQQvC2A4eHh4a3yZu1NW8WthJeEGsNaHx4eHl7JO78u38O0TQzffIKHh4d3gXeCzBOAdlFmbQR4eHh4P8Nrt+CkKHWSqZ4cAG+v1Hh4eHirvHyLnwW17bbeHlTtDPHw8PC2eLNjYNYQcPL8YeiMh4eHd4HXBgptu0AbZLTH0nCZ8PDw8A54J0WprWt3zsujDTw8PLx7vPxaPJvKFjiZW9RThoeHh7fES7b+JKg9KarNwouF6AEPDw+v5M1en0QDs1rcKxjFMuHh4eFd4500DeTTygOOtYGHh4e3ynuVI1+O589nsUK9THh4eHgXeCeHR1uamr0+KbkttCng4eHhlfOZHQaz9UuqcO1v/xNY4OHh4V3jtQ1Pu01RySdt8oCHh4f3mbz2Ar0Vc+QNCnh4eHi/y2tLYsk38xaE4XUcDw8P7xqvLUq1BapZRDtrusLDw8O7zTsvROUvnn1/9l+Ch4eHd4H3B5i2VLkFl/guAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '(•‾̑⌣‾̑•)✧˖°回来看我';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(゜-゜)つロ欢迎回来';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

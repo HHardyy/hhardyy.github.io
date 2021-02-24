@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?d890b1f16fb364253e79c5bb20225c3a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+    
+
+    
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?busuanzi_value_site_uv"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    <meta name="baidu-site-verification" content="FYMCShbUK8">
+    <meta name="baidu-site-verification" content="ZYRF7OxQRW">
+    <meta name="baidu-site-verification" content="cHSqtjI0PN">
+    <meta name="baidu-site-verification" content="cHSqtjI0PN">
+    <meta name="baidu-site-verification" content="cHSqtjI0PN">
+    
+    
+    <link rel="canonical" href="https://hhardyy.com/2019/11/16/vue3基本玩法/">
+    
+    
+    <title>vue3基本玩法 | 小方块 - hhardyy.com | 复杂的坑+归其原理+了解实现规则===解决？解决成功：加油解决成功;</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#958e93">
+    
+    
+    <meta name="keywords" content="vue3,vue-next,vue-function-api,vue-compisition-api">
+    <meta name="description" content="尤大大在5号凌晨公布了尚处于Pre-Alpha状态的Vue3源码。">
+<meta name="keywords" content="vue3,vue-next,vue-function-api,vue-compisition-api">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue3基本玩法">
+<meta property="og:url" content="http://yoursite.com/2019/11/16/vue3基本玩法/index.html">
+<meta property="og:site_name" content="小方块 - hhardyy.com">
+<meta property="og:description" content="尤大大在5号凌晨公布了尚处于Pre-Alpha状态的Vue3源码。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/images/vue3/update.png">
+<meta property="og:image" content="http://yoursite.com/images/vue3/file.png">
+<meta property="og:image" content="http://yoursite.com/images/vue3/objectdefine.png">
+<meta property="og:image" content="http://yoursite.com/images/vue3/proxy.png">
+<meta property="og:image" content="http://yoursite.com/images/vue3/3.0html.png">
+<meta property="og:image" content="http://yoursite.com/images/vue3/setup.png">
+<meta property="og:image" content="http://yoursite.com/images/vue3/setupconso.png">
+<meta property="og:updated_time" content="2020-01-13T15:24:54.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="vue3基本玩法">
+<meta name="twitter:description" content="尤大大在5号凌晨公布了尚处于Pre-Alpha状态的Vue3源码。">
+<meta name="twitter:image" content="http://yoursite.com/images/vue3/update.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="小方块 - hhardyy.com" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/hardyfavicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/paulGraham.jpg)">
+      <div class="brand" style="background-color:#4154b2">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">BingZhenhuang</h5>
+          <a href="mailto:huangbingzhen@hhardyy.com" title="huangbingzhen@hhardyy.com" class="mail">huangbingzhen@hhardyy.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                所有文章
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/HHardyy" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://gitee.com/hhardyy" target="_blank" >
+                <i class="icon icon-lg icon-cloud"></i>
+                Gitee
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://juejin.im/user/59a26f926fb9a02487553b04"  >
+                <i class="icon icon-lg icon-pencil"></i>
+                掘金-圳
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://segmentfault.com/u/hhardyy"  >
+                <i class="icon icon-lg icon-comments"></i>
+                Segmentfault
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://codepen.io/HHardyy/" target="_blank" >
+                <i class="icon icon-lg icon-codepen"></i>
+                Codepen
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.freecodecamp.cn/hhardyy" target="_blank" >
+                <i class="icon icon-lg icon-leaf"></i>
+                Freecodecamp
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/友情链接"  >
+                <i class="icon icon-lg icon-link"></i>
+                友链
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">vue3基本玩法</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">vue3基本玩法</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-11-16T07:40:56.000Z" itemprop="datePublished" class="page-time">
+  2019-11-16
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#packages目录结构"><span class="post-toc-number">1.</span> <span class="post-toc-text">packages目录结构</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#尝试一个3-0"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">尝试一个3.0</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-0-API"><span class="post-toc-number">2.</span> <span class="post-toc-text">3.0 API</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#cli下使用3-0"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">cli下使用3.0</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#setup"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">setup</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#props"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">props</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#context"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">context</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#reactive"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">reactive</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#ref"><span class="post-toc-number">3.</span> <span class="post-toc-text">ref</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#isRef"><span class="post-toc-number">4.</span> <span class="post-toc-text">isRef</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#toRefs"><span class="post-toc-number">5.</span> <span class="post-toc-text">toRefs</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#computed"><span class="post-toc-number">6.</span> <span class="post-toc-text">computed</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#只读"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">只读</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#可读可写"><span class="post-toc-number">6.2.</span> <span class="post-toc-text">可读可写</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#watch"><span class="post-toc-number">7.</span> <span class="post-toc-text">watch</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#监听reactive类型的数据源"><span class="post-toc-number">7.1.</span> <span class="post-toc-text">监听reactive类型的数据源</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#监视-ref-类型的数据源"><span class="post-toc-number">7.2.</span> <span class="post-toc-text">监视 ref 类型的数据源</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#监视多个数据源"><span class="post-toc-number">7.3.</span> <span class="post-toc-text">监视多个数据源</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#监视多个ref类型的数据源"><span class="post-toc-number">7.4.</span> <span class="post-toc-text">监视多个ref类型的数据源</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#清除监视"><span class="post-toc-number">7.5.</span> <span class="post-toc-text">清除监视</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#在-watch-中清除无效的异步任务"><span class="post-toc-number">7.6.</span> <span class="post-toc-text">在 watch 中清除无效的异步任务</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#LifeCycle-Hooks"><span class="post-toc-number">8.</span> <span class="post-toc-text">LifeCycle Hooks</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#provide-amp-inject"><span class="post-toc-number">9.</span> <span class="post-toc-text">provide &amp; inject</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#共享普通数据"><span class="post-toc-number">9.1.</span> <span class="post-toc-text">共享普通数据</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#共享ref响应数据"><span class="post-toc-number">9.2.</span> <span class="post-toc-text">共享ref响应数据</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#template-refs"><span class="post-toc-number">10.</span> <span class="post-toc-text">template refs</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#元素的引用"><span class="post-toc-number">10.1.</span> <span class="post-toc-text">元素的引用</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#createComponent"><span class="post-toc-number">11.</span> <span class="post-toc-text">createComponent</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-vue3基本玩法"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">vue3基本玩法</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-11-16 15:40:56" datetime="2019-11-16T07:40:56.000Z"  itemprop="datePublished">2019-11-16</time>
+
+            
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>尤大大在5号凌晨公布了尚处于Pre-Alpha状态的Vue3源码。</p>
+<p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=1399664349&auto=0&height=66"></iframe><br><a id="more"></a></p>
+<p>Vue3主要的架构改进、优化和新功能均已完成，剩下的主要任务是完成一些Vue2现有功能的移植。稳定版的具体发布时间尚未提及，不过根据Vue在GitHub repo公开展示的Roadmap，后面应该还会发布Alpha（计划于 Q4 发布）、Beta等版本，所以至少要等到2020年才有可能发布3.0稳定版。</p>
+<p>尤雨溪在去年发表的”Vue 3.0 Updates”主题演讲中曾强调过 Vue3包含的五个关键变化：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/vue3/update.png" alt="update" title>
+                </div>
+                <div class="image-caption">update</div>
+            </figure> </p>
+<p><a href="https://github.com/vuejs/composition-api" target="_blank" rel="noopener">vue-function-api: https://github.com/vuejs/composition-api</a><br><a href="https://github.com/vuejs/composition-api" target="_blank" rel="noopener">composition-api: https://github.com/vuejs/composition-api</a><br><a href="https://github.com/vuejs/vue-next" target="_blank" rel="noopener">vue-next: https://github.com/vuejs/vue-next</a></p>
+<p>vue3相对于之前的版本在目录结构上有很大的改变，主要的代码都在packages中<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/vue3/file.png" alt update"" title>
+                </div>
+                <div class="image-caption">"update"</div>
+            </figure> </p>
+<h2 id="packages目录结构"><a href="#packages目录结构" class="headerlink" title="packages目录结构"></a>packages目录结构</h2><p>1、compiler-core：核心编译器<br>2、compiler-dom：基于compiler-core封装对于浏览器的编译<br>3、reactivity：响应式<br>4、runtime-core:运行时的核心<br>5、runtime-dom:基于runtime-core编译浏览器支持<br>6、runtime-test:测试<br>7、vue：整合compiler和runtime</p>
+<p>vue3和vue2最大的改变就是数据响应的改变<br>2.0的核心是Object.defineProperty<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/vue3/objectdefine.png" alt object.defineproperty"" title>
+                </div>
+                <div class="image-caption">"Object.defineProperty"</div>
+            </figure><br>3.0使用了proxy代理的模式<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/vue3/proxy.png" alt proxy"" title>
+                </div>
+                <div class="image-caption">"proxy"</div>
+            </figure><br>3.0的响应式和2.0的区别<br>2.0会默认递归，2.0数组改变length无效，2.0对象不存在的属性不拦截</p>
+<h3 id="尝试一个3-0"><a href="#尝试一个3-0" class="headerlink" title="尝试一个3.0"></a>尝试一个3.0</h3><p>运行npm run dev，之后在vue目录下生成一个dist目录，里头有个vue.global.js，这个js就是3.0预览版的源代码<br>接着不用cli尝试一个3.0的程序<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/vue3/3.0html.png" alt vue.global.js"" title>
+                </div>
+                <div class="image-caption">"src vue.global.js"</div>
+            </figure></p>
+<h2 id="3-0-API"><a href="#3-0-API" class="headerlink" title="3.0 API"></a>3.0 API</h2><h3 id="cli下使用3-0"><a href="#cli下使用3-0" class="headerlink" title="cli下使用3.0"></a>cli下使用3.0</h3><p>先装一下新版本的cli<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install -g @vue/cli</span><br><span class="line"># OR</span><br><span class="line">yarn global add @vue/cli</span><br></pre></td></tr></table></figure></p>
+<p>然后装一下composition-api(新的特性大都在这个包里面)<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install @vue/composition-api --save</span><br><span class="line"># OR</span><br><span class="line">yarn add @vue/composition-api</span><br></pre></td></tr></table></figure></p>
+<p>装完composition-api之后要像使用vuex或者vue-router一样Vue.use一下<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"><span class="keyword">import</span> VueCompositionApi <span class="keyword">from</span> <span class="string">'@vue/composition-api'</span></span><br><span class="line"></span><br><span class="line">Vue.use(VueCompositionApi)</span><br></pre></td></tr></table></figure></p>
+<h3 id="setup"><a href="#setup" class="headerlink" title="setup"></a>setup</h3><p>vue3中专门为组件提供的新属性，Composition API的统一入口。setup函数会在beforeCreate 之后、created之前执行，不过在3.0中没有beforeCreate和created了</p>
+<h3 id="props"><a href="#props" class="headerlink" title="props"></a>props</h3><p>定义当前组件允许外界传递过来的参数名称：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//home.vue</span></span><br><span class="line">&lt;HelloWorld msg=<span class="string">"Welcome to Your Vue.js App"</span>/&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">//helloword.vue</span></span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"hello"</span>&gt;<span class="keyword">this</span> is hello&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line"><span class="keyword">import</span> &#123;&#125; <span class="keyword">from</span> <span class="string">"@vue/composition-api"</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  setup(props, context) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(props.msg); </span><br><span class="line">  &#125;,</span><br><span class="line">  props: &#123;</span><br><span class="line">    msg: <span class="built_in">String</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="context"><a href="#context" class="headerlink" title="context"></a>context</h3><p>setup函数的第二个形参是一个上下文对象，这个对象相当于2.0时候的this，2.0中通过this.xxx拿到的东西，在3.0中通过context拿，而this是undefined,也就是说setup中无法访问this<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/vue3/setup.png" alt setup"" title>
+                </div>
+                <div class="image-caption">"setup"</div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/vue3/setupconso.png" alt console"" title>
+                </div>
+                <div class="image-caption">"console"</div>
+            </figure></p>
+<h3 id="reactive"><a href="#reactive" class="headerlink" title="reactive"></a>reactive</h3><p>reactive() 函数接收一个普通对象，返回一个响应式的数据对象。<br>等价于vue2.x中的Vue.observable()函数,用来创建响应式对象,像上面写的<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; reactive &#125; <span class="keyword">from</span> <span class="string">'@vue/composition-api'</span></span><br><span class="line"><span class="keyword">const</span> state = reactive(&#123; <span class="attr">name</span>:<span class="string">'hardy'</span> &#125;)     <span class="comment">//类似于data返回一个响应式对象</span></span><br></pre></td></tr></table></figure></p>
+<p>要在template中使用的话要在setup函数中return<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">	setup()&#123;</span><br><span class="line">	    <span class="keyword">const</span> state = reactive(&#123; <span class="attr">name</span>:<span class="string">'hardy'</span> &#125;)     <span class="comment">//类似于data返回一个响应式对象</span></span><br><span class="line">	    <span class="keyword">return</span> &#123;</span><br><span class="line">	        state</span><br><span class="line">	    &#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;template&gt;</span><br><span class="line">   &lt;div&gt;&#123;&#123;name&#125;&#125;&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>template&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="ref"><a href="#ref" class="headerlink" title="ref"></a>ref</h2><p>ref()函数用来根据给定的值创建一个响应式的数据对象，ref()函数调用的返回值是一个对象，这个对象上只包含一个.value属性,当把ref()创建出来的响应式数据对象，挂载到reactive()上时，会自动把响应式数据对象展开为原始的值，不需通过.value 就可以直接被访问</p>
+<p>注意：新的 ref 会覆盖旧的 ref</p>
+<h2 id="isRef"><a href="#isRef" class="headerlink" title="isRef"></a>isRef</h2><p>isRef()用来判断某个值是否为ref()创建出来的对象；<br>应用场景：当需要展开某个可能为ref()创建出来的值的时候</p>
+<h2 id="toRefs"><a href="#toRefs" class="headerlink" title="toRefs"></a>toRefs</h2><p>toRefs()函数可以将reactive()创建出来的响应式对象，转换为普通的对象，只不过，这个对象上的每个属性节点，都是ref()类型的响应式数据</p>
+<h2 id="computed"><a href="#computed" class="headerlink" title="computed"></a>computed</h2><p>computed() 用来创建计算属性，computed()函数的返回值是一个ref的实例</p>
+<h3 id="只读"><a href="#只读" class="headerlink" title="只读"></a>只读</h3><p>在调用computed()函数期间，传入一个function函数，可以得到一个只读的计算属性<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> newName = computed(<span class="function"><span class="params">()</span>=&gt;</span>name=<span class="string">'小方块'</span>)</span><br></pre></td></tr></table></figure></p>
+<h3 id="可读可写"><a href="#可读可写" class="headerlink" title="可读可写"></a>可读可写</h3><p>在调用 computed() 函数期间，传入一个包含 get 和 set 函数的对象，可以得到一个可读可写的计算属性<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> newName = computed(&#123;</span><br><span class="line">	<span class="keyword">get</span>:()=&gt;&#123;&#125;,</span><br><span class="line">	<span class="keyword">set</span>:()=&gt;&#123;&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<h2 id="watch"><a href="#watch" class="headerlink" title="watch"></a>watch</h2><p>watch() 函数用来监视某些数据项的变化，从而触发某些特定的操作</p>
+<h3 id="监听reactive类型的数据源"><a href="#监听reactive类型的数据源" class="headerlink" title="监听reactive类型的数据源"></a>监听reactive类型的数据源</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义数据源</span></span><br><span class="line"><span class="keyword">const</span> state = reactive(&#123; <span class="attr">count</span>: <span class="number">0</span> &#125;)</span><br><span class="line"><span class="comment">// 监视 state.count 这个数据节点的变化</span></span><br><span class="line">watch(</span><br><span class="line">  () =&gt; state.count,</span><br><span class="line">  (count, prevCount) =&gt; &#123;</span><br><span class="line">    <span class="comment">/* ... */</span></span><br><span class="line">  &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<h3 id="监视-ref-类型的数据源"><a href="#监视-ref-类型的数据源" class="headerlink" title="监视 ref 类型的数据源"></a>监视 ref 类型的数据源</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义数据源</span></span><br><span class="line"><span class="keyword">const</span> count = ref(<span class="number">0</span>)</span><br><span class="line"><span class="comment">// 指定要监视的数据源</span></span><br><span class="line">watch(count, (count, prevCount) =&gt; &#123;</span><br><span class="line">  <span class="comment">/* ... */</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="监视多个数据源"><a href="#监视多个数据源" class="headerlink" title="监视多个数据源"></a>监视多个数据源</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> state = reactive(&#123; <span class="attr">count</span>: <span class="number">0</span>, <span class="attr">name</span>: <span class="string">'zs'</span> &#125;)</span><br><span class="line"></span><br><span class="line">watch(</span><br><span class="line">  [<span class="function"><span class="params">()</span> =&gt;</span> state.count, () =&gt; state.name], <span class="comment">// Object.values(toRefs(state)),</span></span><br><span class="line">  ([count, name], [prevCount, prevName]) =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(count) <span class="comment">// 新的 count 值</span></span><br><span class="line">    <span class="built_in">console</span>.log(name) <span class="comment">// 新的 name 值</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'------------'</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(prevCount) <span class="comment">// 旧的 count 值</span></span><br><span class="line">    <span class="built_in">console</span>.log(prevName) <span class="comment">// 新的 name 值</span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    lazy: <span class="literal">true</span> <span class="comment">// 在 watch 被创建的时候，不执行回调函数中的代码</span></span><br><span class="line">  &#125;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  state.count++</span><br><span class="line">  state.name = <span class="string">'ls'</span></span><br><span class="line">&#125;, <span class="number">1000</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="监视多个ref类型的数据源"><a href="#监视多个ref类型的数据源" class="headerlink" title="监视多个ref类型的数据源"></a>监视多个ref类型的数据源</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> count = ref(<span class="number">0</span>)</span><br><span class="line"><span class="keyword">const</span> name = ref(<span class="string">'zs'</span>)</span><br><span class="line"></span><br><span class="line">watch(</span><br><span class="line">  [count, name], <span class="comment">// 需要被监视的多个 ref 数据源</span></span><br><span class="line">  ([count, name], [prevCount, prevName]) =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(count)</span><br><span class="line">    <span class="built_in">console</span>.log(name)</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'-------------'</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(prevCount)</span><br><span class="line">    <span class="built_in">console</span>.log(prevName)</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    lazy: <span class="literal">true</span></span><br><span class="line">  &#125;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  count.value++</span><br><span class="line">  name.value = <span class="string">'xiaomaolv'</span></span><br><span class="line">&#125;, <span class="number">1000</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="清除监视"><a href="#清除监视" class="headerlink" title="清除监视"></a>清除监视</h3><p>在 setup() 函数内创建的 watch 监视，会在当前组件被销毁的时候自动停止。如果想要明确地停止某个监视，可以调用 watch() 函数的返回值即可<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建监视，并得到 停止函数</span></span><br><span class="line"><span class="keyword">const</span> stop = watch(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">/* ... */</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 调用停止函数，清除对应的监视</span></span><br><span class="line">stop()</span><br></pre></td></tr></table></figure></p>
+<h3 id="在-watch-中清除无效的异步任务"><a href="#在-watch-中清除无效的异步任务" class="headerlink" title="在 watch 中清除无效的异步任务"></a>在 watch 中清除无效的异步任务</h3><p>有时候，当被 watch 监视的值发生变化时，或 watch 本身被 stop 之后，我们期望能够清除那些无效的异步任务，此时，watch 回调函数中提供了一个 cleanup registrator function 来执行清除的工作。这个清除函数会在如下情况下被调用：</p>
+<blockquote>
+<p>watch 被重复执行了<br>watch 被强制 stop 了</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=<span class="string">"text"</span> v-model=<span class="string">"keywords"</span> /&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义响应式数据 keywords</span></span><br><span class="line"><span class="keyword">const</span> keywords = ref(<span class="string">''</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 异步任务：打印用户输入的关键词</span></span><br><span class="line"><span class="keyword">const</span> asyncPrint = <span class="function"><span class="params">val</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 延时 1 秒后打印</span></span><br><span class="line">  <span class="keyword">return</span> setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(val)</span><br><span class="line">  &#125;, <span class="number">1000</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义 watch 监听</span></span><br><span class="line">watch(</span><br><span class="line">  keywords,</span><br><span class="line">  (keywords, prevKeywords, onCleanup) =&gt; &#123;</span><br><span class="line">    <span class="comment">// 执行异步任务，并得到关闭异步任务的 timerId</span></span><br><span class="line">    <span class="keyword">const</span> timerId = asyncPrint(keywords)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 如果 watch 监听被重复执行了，则会先清除上次未完成的异步任务</span></span><br><span class="line">    onCleanup(<span class="function"><span class="params">()</span> =&gt;</span> clearTimeout(timerId))</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// watch 刚被创建的时候不执行</span></span><br><span class="line">  &#123; <span class="attr">lazy</span>: <span class="literal">true</span> &#125;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 把 template 中需要的数据 return 出去</span></span><br><span class="line"><span class="keyword">return</span> &#123;</span><br><span class="line">  keywords</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="LifeCycle-Hooks"><a href="#LifeCycle-Hooks" class="headerlink" title="LifeCycle Hooks"></a>LifeCycle Hooks</h2><p>新版的生命周期函数，可以按需导入到组件中，且只能在 setup() 函数中使用<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; onMounted, onUpdated, onUnmounted &#125; <span class="keyword">from</span> <span class="string">'@vue/composition-api'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> MyComponent = &#123;</span><br><span class="line">  setup() &#123;</span><br><span class="line">    onMounted(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'mounted!'</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">    onUpdated(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'updated!'</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">    onUnmounted(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'unmounted!'</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>vue 2.x 的生命周期函数与新版 Composition API 之间的映射关系:</p>
+<blockquote>
+<p>❌ beforeCreate -&gt; use setup()<br>❌ created -&gt; use setup()<br>beforeMount -&gt; onBeforeMount<br>mounted -&gt; onMounted<br>beforeUpdate -&gt; onBeforeUpdate<br>updated -&gt; onUpdated<br>beforeDestroy -&gt; onBeforeUnmount<br>destroyed -&gt; onUnmounted<br>errorCaptured -&gt; onErrorCaptured</p>
+</blockquote>
+<h2 id="provide-amp-inject"><a href="#provide-amp-inject" class="headerlink" title="provide &amp; inject"></a>provide &amp; inject</h2><p>provide() 和 inject() 可以实现嵌套组件之间的数据传递。这两个函数只能在 setup() 函数中使用。父级组件中使用 provide() 函数向下传递数据；子级组件中使用 inject() 获取上层传递过来的数据。</p>
+<p>provide和react的provide很像，在react中需要全局共享数据，使用redux，单一数据源，传入<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;Provider store=&#123;store&#125;&gt;</span><br><span class="line">    &lt;Component1 /&gt;</span><br><span class="line">    &lt;Component2 /&gt;</span><br><span class="line">&lt;<span class="regexp">/Provider&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="共享普通数据"><a href="#共享普通数据" class="headerlink" title="共享普通数据"></a>共享普通数据</h3><p>根组件<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div id=<span class="string">"app"</span>&gt;</span><br><span class="line">    &lt;h1&gt;App 根组件&lt;<span class="regexp">/h1&gt;</span></span><br><span class="line"><span class="regexp">    &lt;hr /</span>&gt;</span><br><span class="line">    &lt;LevelOne /&gt;</span><br><span class="line">  &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line"><span class="keyword">import</span> LevelOne <span class="keyword">from</span> <span class="string">'./components/LevelOne'</span></span><br><span class="line"><span class="comment">// 1. 按需导入 provide</span></span><br><span class="line"><span class="keyword">import</span> &#123; provide &#125; <span class="keyword">from</span> <span class="string">'@vue/composition-api'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  name: <span class="string">'app'</span>,</span><br><span class="line">  setup() &#123;</span><br><span class="line">    <span class="comment">// 2. App 根组件作为父级组件，通过 provide 函数向子级组件共享数据（不限层级）</span></span><br><span class="line">    <span class="comment">//    provide('要共享的数据名称', 被共享的数据)</span></span><br><span class="line">    provide(<span class="string">'globalColor'</span>, <span class="string">'red'</span>)</span><br><span class="line">  &#125;,</span><br><span class="line">  components: &#123;</span><br><span class="line">    LevelOne</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>子组件1<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;!-- <span class="number">4.</span> 通过属性绑定，为标签设置字体颜色 --&gt;</span><br><span class="line">    &lt;h3 :style=<span class="string">"&#123;color: themeColor&#125;"</span>&gt;Level One&lt;<span class="regexp">/h3&gt;</span></span><br><span class="line"><span class="regexp">    &lt;hr /</span>&gt;</span><br><span class="line">    &lt;LevelTwo /&gt;</span><br><span class="line">  &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line"><span class="keyword">import</span> LevelTwo <span class="keyword">from</span> <span class="string">'./LevelTwo'</span></span><br><span class="line"><span class="comment">// 1. 按需导入 inject</span></span><br><span class="line"><span class="keyword">import</span> &#123; inject &#125; <span class="keyword">from</span> <span class="string">'@vue/composition-api'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  setup() &#123;</span><br><span class="line">    <span class="comment">// 2. 调用 inject 函数时，通过指定的数据名称，获取到父级共享的数据</span></span><br><span class="line">    <span class="keyword">const</span> themeColor = inject(<span class="string">'globalColor'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 3. 把接收到的共享数据 return 给 Template 使用</span></span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      themeColor</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  components: &#123;</span><br><span class="line">    LevelTwo</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>子组件2<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;!-- <span class="number">4.</span> 通过属性绑定，为标签设置字体颜色 --&gt;</span><br><span class="line">    &lt;h5 :style=<span class="string">"&#123;color: themeColor&#125;"</span>&gt;Level Two&lt;<span class="regexp">/h5&gt;</span></span><br><span class="line"><span class="regexp">  &lt;/</span>div&gt;</span><br><span class="line">&lt;<span class="regexp">/template&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">&lt;script&gt;</span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/ 1. 按需导入 inject</span></span><br><span class="line"><span class="regexp">import &#123; inject &#125; from '@vue/</span>composition-api<span class="string">'</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">export default &#123;</span></span><br><span class="line"><span class="string">  setup() &#123;</span></span><br><span class="line"><span class="string">    // 2. 调用 inject 函数时，通过指定的数据名称，获取到父级共享的数据</span></span><br><span class="line"><span class="string">    const themeColor = inject('</span>globalColor<span class="string">')</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    // 3. 把接收到的共享数据 return 给 Template 使用</span></span><br><span class="line"><span class="string">    return &#123;</span></span><br><span class="line"><span class="string">      themeColor</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">  &#125;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">&lt;/script&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="共享ref响应数据"><a href="#共享ref响应数据" class="headerlink" title="共享ref响应数据"></a>共享ref响应数据</h3><p>如下代码实现了点按钮切换主题颜色的功能，主要修改了根组件中的代码，子组件1和子组件2中的代码不受任何改变：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div id=<span class="string">"app"</span>&gt;</span><br><span class="line">    &lt;h1&gt;App 根组件&lt;<span class="regexp">/h1&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">    &lt;!-- 点击 App.vue 中的按钮，切换子组件中文字的颜色 --&gt;</span></span><br><span class="line"><span class="regexp">    &lt;button @click="themeColor='red'"&gt;红色&lt;/</span>button&gt;</span><br><span class="line">    &lt;button @click=<span class="string">"themeColor='blue'"</span>&gt;蓝色&lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">    &lt;button @click="themeColor='orange'"&gt;橘黄色&lt;/</span>button&gt;</span><br><span class="line"></span><br><span class="line">    &lt;hr /&gt;</span><br><span class="line">    &lt;LevelOne /&gt;</span><br><span class="line">  &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line"><span class="keyword">import</span> LevelOne <span class="keyword">from</span> <span class="string">'./components/LevelOne'</span></span><br><span class="line"><span class="keyword">import</span> &#123; provide, ref &#125; <span class="keyword">from</span> <span class="string">'@vue/composition-api'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  name: <span class="string">'app'</span>,</span><br><span class="line">  setup() &#123;</span><br><span class="line">    <span class="comment">// 定义 ref 响应式数据</span></span><br><span class="line">    <span class="keyword">const</span> themeColor = ref(<span class="string">'red'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 把 ref 数据通过 provide 提供的子组件使用</span></span><br><span class="line">    provide(<span class="string">'globalColor'</span>, themeColor)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// setup 中 return 数据供当前组件的 Template 使用</span></span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      themeColor</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  components: &#123;</span><br><span class="line">    LevelOne</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="template-refs"><a href="#template-refs" class="headerlink" title="template refs"></a>template refs</h2><p>通过 ref() 可以引用页面上的元素或组件。</p>
+<h3 id="元素的引用"><a href="#元素的引用" class="headerlink" title="元素的引用"></a>元素的引用</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;h3 ref=<span class="string">"h3Ref"</span>&gt;TemplateRefOne&lt;<span class="regexp">/h3&gt;</span></span><br><span class="line"><span class="regexp">  &lt;/</span>div&gt;</span><br><span class="line">&lt;<span class="regexp">/template&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">&lt;script&gt;</span></span><br><span class="line"><span class="regexp">import &#123; ref, onMounted &#125; from '@vue/</span>composition-api<span class="string">'</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">export default &#123;</span></span><br><span class="line"><span class="string">  setup() &#123;</span></span><br><span class="line"><span class="string">    // 创建一个 DOM 引用</span></span><br><span class="line"><span class="string">    const h3Ref = ref(null)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    // 在 DOM 首次加载完毕之后，才能获取到元素的引用</span></span><br><span class="line"><span class="string">    onMounted(() =&gt; &#123;</span></span><br><span class="line"><span class="string">      // 为 dom 元素设置字体颜色</span></span><br><span class="line"><span class="string">      // h3Ref.value 是原生DOM对象</span></span><br><span class="line"><span class="string">      h3Ref.value.style.color = '</span>red<span class="string">'</span></span><br><span class="line"><span class="string">    &#125;)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    // 把创建的引用 return 出去</span></span><br><span class="line"><span class="string">    return &#123;</span></span><br><span class="line"><span class="string">      h3Ref</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">  &#125;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">&lt;/script&gt;</span></span><br></pre></td></tr></table></figure>
+<p>组件1<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;h3&gt;TemplateRefOne&lt;<span class="regexp">/h3&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">    &lt;!-- 4. 点击按钮展示子组件的 count 值 --&gt;</span></span><br><span class="line"><span class="regexp">    &lt;button @click="showNumber"&gt;获取TemplateRefTwo中的count值&lt;/</span>button&gt;</span><br><span class="line"></span><br><span class="line">    &lt;hr /&gt;</span><br><span class="line">    &lt;!-- <span class="number">3.</span> 为组件添加 ref 引用 --&gt;</span><br><span class="line">    &lt;TemplateRefTwo ref=<span class="string">"comRef"</span> /&gt;</span><br><span class="line">  &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line"><span class="keyword">import</span> &#123; ref &#125; <span class="keyword">from</span> <span class="string">'@vue/composition-api'</span></span><br><span class="line"><span class="keyword">import</span> TemplateRefTwo <span class="keyword">from</span> <span class="string">'./TemplateRefTwo'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  setup() &#123;</span><br><span class="line">    <span class="comment">// 1. 创建一个组件的 ref 引用</span></span><br><span class="line">    <span class="keyword">const</span> comRef = ref(<span class="literal">null</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 5. 展示子组件中 count 的值</span></span><br><span class="line">    <span class="keyword">const</span> showNumber = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(comRef.value.count)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2. 把创建的引用 return 出去</span></span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      comRef,</span><br><span class="line">      showNumber</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  components: &#123;</span><br><span class="line">    TemplateRefTwo</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>组件2<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;h5&gt;TemplateRefTwo --- &#123;&#123;count&#125;&#125;&lt;<span class="regexp">/h5&gt;</span></span><br><span class="line"><span class="regexp">    &lt;!-- 3. 点击按钮，让 count 值自增 +1 --&gt;</span></span><br><span class="line"><span class="regexp">    &lt;button @click="count+=1"&gt;+1&lt;/</span>button&gt;</span><br><span class="line">  &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line"><span class="keyword">import</span> &#123; ref &#125; <span class="keyword">from</span> <span class="string">'@vue/composition-api'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  setup() &#123;</span><br><span class="line">    <span class="comment">// 1. 定义响应式的数据</span></span><br><span class="line">    <span class="keyword">const</span> count = ref(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2. 把响应式数据 return 给 Template 使用</span></span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      count</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="createComponent"><a href="#createComponent" class="headerlink" title="createComponent"></a>createComponent</h2><blockquote>
+<p>这个函数不是必须的，除非你想要完美结合 TypeScript 提供的类型推断来进行项目的开发。</p>
+</blockquote>
+<p>这个函数仅仅提供了类型推断，方便在结合 TypeScript 书写代码时，能为 setup() 中的 props 提供完整的类型推断。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createComponent &#125; <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> createComponent(&#123;</span><br><span class="line">  props: &#123;</span><br><span class="line">    foo: <span class="built_in">String</span></span><br><span class="line">  &#125;,</span><br><span class="line">  setup(props) &#123;</span><br><span class="line">    props.foo <span class="comment">// &lt;- type: string</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-01-13T15:24:54.000Z" itemprop="dateUpdated">2020-01-13 23:24:54</time>
+</span><br>
+
+
+        
+        谢谢浏览，我会继续努力的，示例：<a href="/2019/11/16/vue3基本玩法/" target="_blank" rel="external">http://yoursite.com/2019/11/16/vue3基本玩法/</a>
+        
+    </div>
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.jpg" alt="BingZhenhuang">
+            BingZhenhuang
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue-compisition-api/">vue-compisition-api</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue-function-api/">vue-function-api</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue-next/">vue-next</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue3/">vue3</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/11/16/vue3基本玩法/&title=《vue3基本玩法》 — 小方块 - hhardyy.com&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/11/16/vue3基本玩法/&title=《vue3基本玩法》 — 小方块 - hhardyy.com&source=尤大大在5号凌晨公布了尚处于Pre-Alpha状态的Vue3源码。
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/11/16/vue3基本玩法/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《vue3基本玩法》 — 小方块 - hhardyy.com&url=http://yoursite.com/2019/11/16/vue3基本玩法/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/11/16/vue3基本玩法/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/11/30/eslint规范代码/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">eslint规范代码</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/11/08/如何简单粗暴生成条码和二维码/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">如何简单粗暴生成条码和二维码</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        🤠 请我喝可乐！
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content" style="width:50%">
+        
+        <div class="reward-code" style="text-align:center">
+            <div style="width:300px;margin:0px auto;">
+               <img id="rewardCode" style="width:50%;height:60%;display:block; margin:0px auto;" src="/img/alipay.jpg" alt="支付宝打赏二维码">
+               <span style="display:inline-block; margin-bottom:20px;">0.88(支付宝 aliPay)</span>
+               <img id="rewardCode" style="width:50%;height:60%;display:block; margin:0px auto;" src="/img/wechat.jpg" alt="微信打赏二维码">
+               <span style="display:inline-block;">0.88(微信 weChat)</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+</div>
+
+        <script>
+!function(e,t,a){function n(){c(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"),o(),r()}function r(){for(var e=0;e<d.length;e++)d[e].alpha<=0?(t.body.removeChild(d[e].el),d.splice(e,1)):(d[e].y--,d[e].scale+=.004,d[e].alpha-=.013,d[e].el.style.cssText="left:"+d[e].x+"px;top:"+d[e].y+"px;opacity:"+d[e].alpha+";transform:scale("+d[e].scale+","+d[e].scale+") rotate(45deg);background:"+d[e].color+";z-index:99999");requestAnimationFrame(r)}function o(){var t="function"==typeof e.onclick&&e.onclick;e.onclick=function(e){t&&t(),i(e)}}function i(e){var a=t.createElement("div");a.className="heart",d.push({el:a,x:e.clientX-5,y:e.clientY-5,scale:1,alpha:1,color:s()}),t.body.appendChild(a)}function c(e){var a=t.createElement("style");a.type="text/css";try{a.appendChild(t.createTextNode(e))}catch(t){a.styleSheet.cssText=e}t.getElementsByTagName("head")[0].appendChild(a)}function s(){return"rgb("+~~(255*Math.random())+","+~~(255*Math.random())+","+~~(255*Math.random())+")"}var d=[];e.requestAnimationFrame=function(){return e.requestAnimationFrame||e.webkitRequestAnimationFrame||e.mozRequestAnimationFrame||e.oRequestAnimationFrame||e.msRequestAnimationFrame||function(e){setTimeout(e,1e3/60)}}(),n()}(window,document);
+</script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script>
+    function secondToDate(second) {
+        if (!second) {
+            return 0;
+        }
+        var time = new Array(0, 0, 0, 0, 0);
+        if (second >= 365 * 24 * 3600) {
+            time[0] = parseInt(second / (365 * 24 * 3600));
+            second %= 365 * 24 * 3600;
+        }
+        if (second >= 24 * 3600) {
+            time[1] = parseInt(second / (24 * 3600));
+            second %= 24 * 3600;
+        }
+        if (second >= 3600) {
+            time[2] = parseInt(second / 3600);
+            second %= 3600;
+        }
+        if (second >= 60) {
+            time[3] = parseInt(second / 60);
+            second %= 60;
+        }
+        if (second > 0) {
+            time[4] = second;
+        }
+        return time;
+    }</script>
+<script type="text/javascript" language="javascript">
+    function setTime() {
+        var create_time = Math.round(new Date(Date.UTC(2017, 08, 18, 11, 42, 23)).getTime() / 1000);
+        var timestamp = Math.round((new Date().getTime() + 8 * 60 * 60 * 1000) / 1000);
+        currentTime = secondToDate((timestamp - create_time));
+        currentTimeHtml = 'Running：' + currentTime[0] + '年 ' + currentTime[1] + '天 '
+                + currentTime[2] + '时 ' + currentTime[3] + '分 ' + currentTime[4]
+                + '秒';
+        document.getElementById("htmer_time").innerHTML = currentTimeHtml;
+    }    setInterval(setTime, 1000);
+</script>
+<footer class="footer">
+    <div class="top">
+        
+
+        <p>
+          <span id="busuanzi_container_page_pv">
+             [&nbsp;浏览量：&nbsp;<span id="busuanzi_value_page_pv"></span>&nbsp;]
+          </span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+        <span>BingZhenhuang &copy; 2017 - 2021</span>
+            <span>
+                
+                Power by <a href="https://hhardyy.github.io/" target="_blank">zhen On August 8</a> 
+            </span>
+            <span id="htmer_time" "></span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/11/16/vue3基本玩法/&title=《vue3基本玩法》 — 小方块 - hhardyy.com&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/11/16/vue3基本玩法/&title=《vue3基本玩法》 — 小方块 - hhardyy.com&source=尤大大在5号凌晨公布了尚处于Pre-Alpha状态的Vue3源码。
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/11/16/vue3基本玩法/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《vue3基本玩法》 — 小方块 - hhardyy.com&url=http://yoursite.com/2019/11/16/vue3基本玩法/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/11/16/vue3基本玩法/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACMklEQVR42u3aQW7DMAwF0dz/0ilQdJGN5fmkk9TUaBUYjqynBSGRfDzweP6O19+vT46er/9FZrh4yJAh47aM53IcvUPmOdoI/l+yNhkyZOzD4EF2vUQeiNOQfbJmGTJkyAABNH1CtkmGDBkyagy+XHKU/FrAlSFDxg0Z5BKbXjjTtNqH7uIyZMi4IaNWGPjM77fXN2TIkPHvGc9wkONarWxQW8/fPDJkyBjN6KS60vIAL2fy6BpUQWXIkHFzRg3DE3bk0ntxeUCGDBmjGTxcpmn9dIN44k+GDBmzGTz1T4qUpPGrVpA4IcmQIWN7Ru1QmIbgTplThgwZsxmkVLlOq/HDHN8mvn0nSTcZMmSMYPRT/2mgvOoYeng0lCFDxjhGP9WVLqhfEA3mlyFDxghGquwHxDSII54MGTJGM4Lk+0Wf5DPEyTgZMmQMZdQSautFXxZAMVWGDBmzGVclwvg1lTdtkIH2WIYMGTdnBOGs1ELRaSALLtIyZMgYzei0YZFl9QsDafJOhgwZ8xj8+NW51vJAXDtWypAhYx8GD4g18BubYmXIkDGasf7YA4/4A6UvxjPLkCFjBKOWiOdBs1PUDJJ6MmTIGM3oBMRaYwS5xHaaM2TIkDGVkQbZ2vW1c0lGh0gZMmRswOBJf55Q4yGYb8FJc5gMGTK2Z1xQbiy9iVJvMmTIkFEKi500XBrKZciQsQMjLQaswyVn196RIUPGboz3FQbSRaftYmlqT4YMGTdk/AA5xNYsrlddZwAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '(•‾̑⌣‾̑•)✧˖°回来看我';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(゜-゜)つロ欢迎回来';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

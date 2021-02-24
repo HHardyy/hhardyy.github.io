@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?d890b1f16fb364253e79c5bb20225c3a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+    
+
+    
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?busuanzi_value_site_uv"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    <meta name="baidu-site-verification" content="FYMCShbUK8">
+    <meta name="baidu-site-verification" content="ZYRF7OxQRW">
+    <meta name="baidu-site-verification" content="cHSqtjI0PN">
+    <meta name="baidu-site-verification" content="cHSqtjI0PN">
+    <meta name="baidu-site-verification" content="cHSqtjI0PN">
+    
+    
+    <link rel="canonical" href="https://hhardyy.com/2021/02/12/java基础/">
+    
+    
+    <title>java秒入门 | 小方块 - hhardyy.com | 复杂的坑+归其原理+了解实现规则===解决？解决成功：加油解决成功;</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#958e93">
+    
+    
+    <meta name="keywords" content="localStorage,java,Set,集合">
+    <meta name="description" content="复习了一波 java">
+<meta name="keywords" content="localStorage,java,Set,集合">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java秒入门">
+<meta property="og:url" content="http://yoursite.com/2021/02/12/java基础/index.html">
+<meta property="og:site_name" content="小方块 - hhardyy.com">
+<meta property="og:description" content="复习了一波 java">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/images/java-base/1.png">
+<meta property="og:image" content="http://yoursite.com/images/java-base/2.png">
+<meta property="og:image" content="http://yoursite.com/images/java-base/3.png">
+<meta property="og:image" content="http://yoursite.com/images/java-base/4.png">
+<meta property="og:image" content="http://yoursite.com/images/java-base/5.png">
+<meta property="og:image" content="http://yoursite.com/images/java-base/6.png">
+<meta property="og:image" content="http://yoursite.com/images/java-base/7.png">
+<meta property="og:image" content="http://yoursite.com/images/java-base/8.png">
+<meta property="og:updated_time" content="2021-02-24T23:13:31.528Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="java秒入门">
+<meta name="twitter:description" content="复习了一波 java">
+<meta name="twitter:image" content="http://yoursite.com/images/java-base/1.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="小方块 - hhardyy.com" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/hardyfavicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/paulGraham.jpg)">
+      <div class="brand" style="background-color:#4154b2">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">BingZhenhuang</h5>
+          <a href="mailto:huangbingzhen@hhardyy.com" title="huangbingzhen@hhardyy.com" class="mail">huangbingzhen@hhardyy.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                所有文章
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/HHardyy" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://gitee.com/hhardyy" target="_blank" >
+                <i class="icon icon-lg icon-cloud"></i>
+                Gitee
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://juejin.im/user/59a26f926fb9a02487553b04"  >
+                <i class="icon icon-lg icon-pencil"></i>
+                掘金-圳
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://segmentfault.com/u/hhardyy"  >
+                <i class="icon icon-lg icon-comments"></i>
+                Segmentfault
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://codepen.io/HHardyy/" target="_blank" >
+                <i class="icon icon-lg icon-codepen"></i>
+                Codepen
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.freecodecamp.cn/hhardyy" target="_blank" >
+                <i class="icon icon-lg icon-leaf"></i>
+                Freecodecamp
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/友情链接"  >
+                <i class="icon icon-lg icon-link"></i>
+                友链
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">java秒入门</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">java秒入门</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2021-02-12T05:53:49.000Z" itemprop="datePublished" class="page-time">
+  2021-02-12
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#八种数据类型"><span class="post-toc-number">1.</span> <span class="post-toc-text">八种数据类型</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#计算机存储数据的形式"><span class="post-toc-number">2.</span> <span class="post-toc-text">计算机存储数据的形式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#类型转换"><span class="post-toc-number">3.</span> <span class="post-toc-text">类型转换</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1、自动-隐式-类型转换"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">1、自动(隐式)类型转换</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2、强制-显式-类型转换"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">2、强制(显式)类型转换</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#方法重载"><span class="post-toc-number">4.</span> <span class="post-toc-text">方法重载</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#什么是方法重载"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">什么是方法重载</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#参数列表不同"><span class="post-toc-number">4.1.1.</span> <span class="post-toc-text">参数列表不同:</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#方法签名"><span class="post-toc-number">4.1.2.</span> <span class="post-toc-text">方法签名</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#为什么需要方法重载"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">为什么需要方法重载</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#数组初始化"><span class="post-toc-number">5.</span> <span class="post-toc-text">数组初始化</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#内存"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">内存</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#连续空间"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">连续空间</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#程序的内存分配"><span class="post-toc-number">6.</span> <span class="post-toc-text">程序的内存分配</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#方法区"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">方法区</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#栈"><span class="post-toc-number">6.2.</span> <span class="post-toc-text">栈</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#堆"><span class="post-toc-number">6.3.</span> <span class="post-toc-text">堆</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#本地方法栈"><span class="post-toc-number">6.4.</span> <span class="post-toc-text">本地方法栈</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#寄存器"><span class="post-toc-number">6.5.</span> <span class="post-toc-text">寄存器</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#数组类型"><span class="post-toc-number">6.6.</span> <span class="post-toc-text">数组类型</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#final-关键字"><span class="post-toc-number">7.</span> <span class="post-toc-text">final 关键字</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#static-关键字"><span class="post-toc-number">8.</span> <span class="post-toc-text">static 关键字</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#接口的概念"><span class="post-toc-number">9.</span> <span class="post-toc-text">接口的概念</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#接口的定义"><span class="post-toc-number">9.1.</span> <span class="post-toc-text">接口的定义</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#成员变量"><span class="post-toc-number">9.2.</span> <span class="post-toc-text">成员变量</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#成员方法"><span class="post-toc-number">9.3.</span> <span class="post-toc-text">成员方法</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#接口中构造方法"><span class="post-toc-number">9.4.</span> <span class="post-toc-text">接口中构造方法</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Java-中的-API"><span class="post-toc-number">10.</span> <span class="post-toc-text">Java 中的 API</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#java-中组件的层次结构"><span class="post-toc-number">10.1.</span> <span class="post-toc-text">java 中组件的层次结构</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Object-类"><span class="post-toc-number">10.2.</span> <span class="post-toc-text">Object 类</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#常用到的类"><span class="post-toc-number">10.3.</span> <span class="post-toc-text">常用到的类</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#集合"><span class="post-toc-number">11.</span> <span class="post-toc-text">集合</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#什么是集合"><span class="post-toc-number">11.1.</span> <span class="post-toc-text">什么是集合</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#集合和数组的区别"><span class="post-toc-number">11.2.</span> <span class="post-toc-text">集合和数组的区别</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#集合体系"><span class="post-toc-number">11.3.</span> <span class="post-toc-text">集合体系</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#单例集合-Collection"><span class="post-toc-number">11.3.1.</span> <span class="post-toc-text">单例集合(Collection)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#为什么用了-Set-没有去重"><span class="post-toc-number">11.3.1.1.</span> <span class="post-toc-text">为什么用了 Set 没有去重?</span></a></li></ol></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#双例集合-Map-key-value"><span class="post-toc-number">11.3.2.</span> <span class="post-toc-text">双例集合(Map: key, value)</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#增强-for-循环"><span class="post-toc-number">11.3.3.</span> <span class="post-toc-text">增强 for 循环</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#迭代器"><span class="post-toc-number">12.</span> <span class="post-toc-text">迭代器</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#为什么需要迭代器"><span class="post-toc-number">12.1.</span> <span class="post-toc-text">为什么需要迭代器?</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#迭代器的常用方法"><span class="post-toc-number">12.2.</span> <span class="post-toc-text">迭代器的常用方法</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#泛型"><span class="post-toc-number">13.</span> <span class="post-toc-text">泛型</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#集合类型的解释"><span class="post-toc-number">13.1.</span> <span class="post-toc-text">集合类型的解释</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Collections-工具类"><span class="post-toc-number">14.</span> <span class="post-toc-text">Collections 工具类</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#什么是-IO-流"><span class="post-toc-number">15.</span> <span class="post-toc-text">什么是 IO 流</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#IO-流能做什么"><span class="post-toc-number">16.</span> <span class="post-toc-text">IO 流能做什么</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#IO-流的分类"><span class="post-toc-number">17.</span> <span class="post-toc-text">IO 流的分类</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-java基础"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">java秒入门</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2021-02-12 13:53:49" datetime="2021-02-12T05:53:49.000Z"  itemprop="datePublished">2021-02-12</time>
+
+            
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>复习了一波 java</p>
+<p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=478507889&auto=0&height=66"></iframe><br><a id="more"></a></p>
+<p><a href="https://docs.oracle.com/en/" target="_blank" rel="noopener">oracle 官网: https://docs.oracle.com/en/</a></p>
+<p><a href="https://docs.oracle.com/en/java/javase/" target="_blank" rel="noopener">选择 JDK 版本进入: https://docs.oracle.com/en/java/javase/</a></p>
+<p><a href="https://docs.oracle.com/en/java/javase/11/docs/api/index.html" target="_blank" rel="noopener">java 官网 API: https://docs.oracle.com/en/java/javase/11/docs/api/index.html</a></p>
+<h3 id="八种数据类型"><a href="#八种数据类型" class="headerlink" title="八种数据类型"></a>八种数据类型</h3><p>1、byte: 1 个字节 (-2^7~2^7-1 )<br>2、short: 2 个字节 (-2^15~2^15-1)<br>3、int: 4 个字节 (-2^31~2^31-1)<br>4、long: 8 个字节 (-2^63~2^63-1)<br>5、float: 4 个字节 (3.4<em>10^(-38) ~ 3.4</em>10^(+38)) (float 占 4 个字节, 为什么比 long 表示的范围大? 因为虽然 long 占 8 个字节, 但是按整数的规则计算的, float 虽然占 4 个字节, 但是是按小数的规则计算的, 所以 float 表示的范围要比 long 大)<br>6、double: 8 个字节 (1.7<em>10^(-308) ~ 1.7</em>10(308))<br>7、char: 2 个字节 (0~2^16-1)<br>8、boolean: 1 个字节 (true || false)</p>
+<h3 id="计算机存储数据的形式"><a href="#计算机存储数据的形式" class="headerlink" title="计算机存储数据的形式"></a>计算机存储数据的形式</h3><p>计算机中最小的存储单元是<span style="color: #FF7DC7">字节</span>(Byte, 通常用 B 表示), 每个字节包含 8 个<span style="color: #FF7DC7">位</span>(bit, 又叫“比特位” 通常用 b 表示, 值为 0 或者 1)</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">单位</th>
+<th style="text-align:center">换算</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1B(字节)</td>
+<td style="text-align:center">8bit</td>
+</tr>
+<tr>
+<td style="text-align:center">1KB</td>
+<td style="text-align:center">1024B</td>
+</tr>
+<tr>
+<td style="text-align:center">1MB</td>
+<td style="text-align:center">1024KB</td>
+</tr>
+<tr>
+<td style="text-align:center">1GB</td>
+<td style="text-align:center">1024MB</td>
+</tr>
+<tr>
+<td style="text-align:center">1TB</td>
+<td style="text-align:center">1024GB</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>所以通常我们获取浏览器当前本地缓存容量剩余可以这么求:</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (!<span class="built_in">window</span>.localStorage) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"浏览器不支持localstorage"</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> size = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> item <span class="keyword">in</span> <span class="built_in">window</span>.localStorage) &#123;</span><br><span class="line">      <span class="keyword">if</span> (<span class="built_in">window</span>.localStorage.hasOwnProperty(item)) &#123;</span><br><span class="line">        size += <span class="built_in">window</span>.localStorage.getItem(item).length;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`当前localstorage的剩余容量为<span class="subst">$&#123;(size <span class="regexp">/ 1024).toFixed(2)&#125;KB`);</span></span></span></span><br><span class="line"><span class="string"><span class="subst"><span class="regexp">  &#125;</span></span></span></span><br><span class="line"><span class="string"><span class="subst"><span class="regexp">&#125;)();</span></span></span></span><br></pre></td></tr></table></figure>
+<h3 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h3><p>不同类型的数据之间可能会进行运算, 而这些数据取值范围不同, 存储方式不同, 直接进行运算可能会造成数据损失, 所以需要将一种类型转换成另外一种类型再进行运算</p>
+<h4 id="1、自动-隐式-类型转换"><a href="#1、自动-隐式-类型转换" class="headerlink" title="1、自动(隐式)类型转换"></a>1、自动(隐式)类型转换</h4><p>小类型转大类型, 自动提升为大类型, 运算结果是大类型</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">数据类型的范围从小到大如下:</span><br><span class="line"><span class="keyword">byte</span>, <span class="keyword">short</span>, <span class="keyword">char</span> -&gt;  <span class="keyword">int</span>(默认的整形) -&gt; <span class="keyword">long</span> -&gt; <span class="keyword">float</span> -&gt; <span class="keyword">double</span>(默认的浮点型)</span><br><span class="line"></span><br><span class="line"><span class="keyword">boolean</span>型不参与比较, 它的值只有<span class="keyword">true</span>和<span class="keyword">float</span>两个</span><br></pre></td></tr></table></figure>
+<h4 id="2、强制-显式-类型转换"><a href="#2、强制-显式-类型转换" class="headerlink" title="2、强制(显式)类型转换"></a>2、强制(显式)类型转换</h4><p>手动将大类型转换成小类型, 运算结果是小类型, 转换格式: 小类型 变量名 = (小类型)大类型数据</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">目标类型 变量名 = (目标类型) 要转换的值</span><br><span class="line">⚠️注意: 强制类型转换在使用的时候可能会出现丢失精度的问题</span><br></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/java-base/1.png" alt="一般的类型转换''" title>
+                </div>
+                <div class="image-caption">一般的类型转换''</div>
+            </figure>
+<h3 id="方法重载"><a href="#方法重载" class="headerlink" title="方法重载"></a>方法重载</h3><h4 id="什么是方法重载"><a href="#什么是方法重载" class="headerlink" title="什么是方法重载"></a>什么是方法重载</h4><p>在同一个类中的多个方法, 它们方法名相同, 参数列表不同, 这样的情况称为方法重载. 方法重载与返回值类型无关</p>
+<h5 id="参数列表不同"><a href="#参数列表不同" class="headerlink" title="参数列表不同:"></a>参数列表不同:</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、参数的个数不同</span><br><span class="line"><span class="number">2</span>、对应位置的参数类型不同</span><br></pre></td></tr></table></figure>
+<h5 id="方法签名"><a href="#方法签名" class="headerlink" title="方法签名"></a>方法签名</h5><p>方法名 + 参数列表</p>
+<h4 id="为什么需要方法重载"><a href="#为什么需要方法重载" class="headerlink" title="为什么需要方法重载"></a>为什么需要方法重载</h4><p>当实现的功能相同, 但具体的实现方式不同, 我们可以通过定义名称相同, 参数(条件)不同的方法, 来更好的识别和管理类中的方法.</p>
+<h3 id="数组初始化"><a href="#数组初始化" class="headerlink" title="数组初始化"></a>数组初始化</h3><p>在内存中为数组开辟连续空间并为每个元素赋值的过程</p>
+<h4 id="内存"><a href="#内存" class="headerlink" title="内存"></a>内存</h4><p>计算机的重要组件, 用于程序运行中临时存储数据</p>
+<h4 id="连续空间"><a href="#连续空间" class="headerlink" title="连续空间"></a>连续空间</h4><p>数组元素在内存中的存放位置是连续的</p>
+<h3 id="程序的内存分配"><a href="#程序的内存分配" class="headerlink" title="程序的内存分配"></a>程序的内存分配</h3><h4 id="方法区"><a href="#方法区" class="headerlink" title="方法区"></a>方法区</h4><p>存储可运行的 class 文件, 包含方法, 静态成员, 常量等</p>
+<h4 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h4><p>方法运行时使用的内存,特点是“后进先出”, 即最先进入栈区的方法最后出栈, 比如 main 方法</p>
+<h4 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h4><p>存储 new 出来的数组或者对象</p>
+<h4 id="本地方法栈"><a href="#本地方法栈" class="headerlink" title="本地方法栈"></a>本地方法栈</h4><p>JVM 在调用操作系统功能时使用, 与开发无关</p>
+<h4 id="寄存器"><a href="#寄存器" class="headerlink" title="寄存器"></a>寄存器</h4><p>CPU 使用, 与开发无关</p>
+<h4 id="数组类型"><a href="#数组类型" class="headerlink" title="数组类型"></a>数组类型</h4><p>变量 arr 存储的是数组在堆内存中的地址值, 而不是数组元素的值, 变量 arr 通过内存地址引用堆内存中的数组, 所以数组是引用类型</p>
+<h3 id="final-关键字"><a href="#final-关键字" class="headerlink" title="final 关键字"></a>final 关键字</h3><p>final: “最终”的意思; 在 Java 中是一个关键字, 可以用来修饰类, 成员变量, 成员方法<br>1、修饰的类: 不能被继承(没有子类), 但是可以继承其他类<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/java-base/2.png" alt="demo''" title>
+                </div>
+                <div class="image-caption">demo''</div>
+            </figure><br>2、修饰的方法: 不能被重写(和 abstract 冲突, 因为 abstract 修饰的类是抽象类, 要求必须重写), System, String 这些关键字其实就是被 final 修饰的, 所以不能重写<br>3、修饰的变量: 是一个常量, 值只能设置一次; 如果修饰的是一个引用的地址, 那么地址不能改动而属性可以改</p>
+<h3 id="static-关键字"><a href="#static-关键字" class="headerlink" title="static 关键字"></a>static 关键字</h3><p>用于修饰类的成员, 被修饰的成员变量 = 类变量, 被修饰的成员方法 = 类方法; 然后可以直接类名.xxx 直接调用, 所以通常随意改变 static 修饰的类成员变量或者类方法是有风险的, 所以可以使用 final 关键字对其进行修饰, 使之成为一个不可修改的常量;</p>
+<h3 id="接口的概念"><a href="#接口的概念" class="headerlink" title="接口的概念"></a>接口的概念</h3><p>用于描述类具有什么功能, 但是不给出具体实现, 类要遵从接口描述的统一规则进行定义, 所以, 接口是对外提供的一组规则、标准</p>
+<blockquote>
+<p>举例: 插座(接口) =&gt; 插头(具体实现根据插座是几个孔的规则)</p>
+</blockquote>
+<h4 id="接口的定义"><a href="#接口的定义" class="headerlink" title="接口的定义"></a>接口的定义</h4><p>定义接口关键字 interface</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> 接口名 </span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+<p>类和接口是实现关系, 用 implements 表示</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> 类名 <span class="keyword">implements</span> 接口名 </span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+<p>⚠️ 在声明接口的时候成员方法如果不写方法体, 会默认加上 public abstract</p>
+<p>demo:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Working</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">work</span><span class="params">()</span></span>;  <span class="comment">// 没写方法体. 默认会加上public abstract</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// 正常来说是这样的</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">work</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>此时接口中有抽象方法, 在 work 的实现类就要实现这个抽象方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> <span class="keyword">implements</span> <span class="title">Work</span> </span>&#123;</span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">work</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"努力工作"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>⚠️ 还需要注意的点是, 接口不能实例化,但是可以实例化实现的子类, 这种写法也叫多态</p>
+<h4 id="成员变量"><a href="#成员变量" class="headerlink" title="成员变量"></a>成员变量</h4><p>接口中没有成员变量, 只有公有的, 静态的常量; 原因是接口中所有的变量都默认有一组修饰符, 这是系统默认写的, 如果你写了系统就不写, 如果你不写系统就默认写上, 而 final 的作用可以看上面部分</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> 常量名 = 常量值</span><br></pre></td></tr></table></figure>
+<h4 id="成员方法"><a href="#成员方法" class="headerlink" title="成员方法"></a>成员方法</h4><p>JDK7 以前, 接口中只有公有的抽象方法, 因为接口中的方法系统都会默认加上</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> 返回类型 方法名()</span><br></pre></td></tr></table></figure>
+<p>JDK8 以后, 可以拥有默认方法和静态方法;<br>默认方法:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">default</span> 返回类型 方法名 () &#123;&#125;</span><br></pre></td></tr></table></figure>
+<p>静态方法:<br>直接写就可以了</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> 返回类型 方法名() &#123;&#125;</span><br></pre></td></tr></table></figure>
+<p>JDK9 以后, 可以有私有方法:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> 返回类型 方法名 () &#123;&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="接口中构造方法"><a href="#接口中构造方法" class="headerlink" title="接口中构造方法"></a>接口中构造方法</h4><p>由于接口不能实例化, 也没有需要初始化的成员变量. 所以接口没有构造方法;</p>
+<h3 id="Java-中的-API"><a href="#Java-中的-API" class="headerlink" title="Java 中的 API"></a>Java 中的 API</h3><h4 id="java-中组件的层次结构"><a href="#java-中组件的层次结构" class="headerlink" title="java 中组件的层次结构"></a>java 中组件的层次结构</h4><p>模块(module) =&gt; 包(package) =&gt; 类或接口(class / interface)<br>模块: 在包的基础上又进行了一层封装, 是包的容器</p>
+<h4 id="Object-类"><a href="#Object-类" class="headerlink" title="Object 类"></a>Object 类</h4><p>类层次结构最顶层的基类, 所有类都直接或间接的继承自 Object 类, 所以, 所有的类都是一个 Object(对象), 继承自 java.base;</p>
+<h4 id="常用到的类"><a href="#常用到的类" class="headerlink" title="常用到的类"></a>常用到的类</h4><p>Object, Scanner, String, StringBuilder, StringBuffer, Date, Calendar</p>
+<h3 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h3><h4 id="什么是集合"><a href="#什么是集合" class="headerlink" title="什么是集合"></a>什么是集合</h4><p>简称集, 是用来存储多个元素的容器</p>
+<h4 id="集合和数组的区别"><a href="#集合和数组的区别" class="headerlink" title="集合和数组的区别"></a>集合和数组的区别</h4><ul>
+<li>元素类型<br>集合: 存储引用类型数据(存储基本类型时自动装箱)<br>数组: 可以存储基本类型和引用类型的数据</li>
+<li>元素个数<br>集合: 元素个数不固定, 可任意扩容<br>数组: 固定, 不能改变容量</li>
+<li>集合的好处<br>可以不受容器大小限制(写 js 爽的同学用起来也爽), 可以随时添加, 删除元素, 提供了大量操作元素的方法(判断,获取等等, 类似: StringBuilder 和 StringBuffer)</li>
+</ul>
+<h4 id="集合体系"><a href="#集合体系" class="headerlink" title="集合体系"></a>集合体系</h4><h5 id="单例集合-Collection"><a href="#单例集合-Collection" class="headerlink" title="单例集合(Collection)"></a>单例集合(Collection)</h5><ul>
+<li>List: ArrayList<br>可重复, 有序(存取顺序相同)</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">List list = <span class="keyword">new</span> ArrayList();</span><br><span class="line"><span class="comment">// 增加元素</span></span><br><span class="line">list.add(<span class="number">1</span>);</span><br><span class="line">list.add(<span class="number">2</span>);</span><br><span class="line">list.add(<span class="number">3</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 输出</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;list.size();i++)&#123;</span><br><span class="line">    System.out.print(list.get(i));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Set: HashSet<br>不可重复, 无序</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Set&lt;Student&gt; set = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br></pre></td></tr></table></figure>
+<p>写一个 demo, 首先声明一个学生累<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/java-base/3.png" alt="Class Student" title>
+                </div>
+                <div class="image-caption">Class Student</div>
+            </figure><br>然后声明 5 个学生, 用 set 去重</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SetDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Set&lt;Student&gt; set = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line"></span><br><span class="line">        Student s1 = <span class="keyword">new</span> Student(<span class="string">"唐三"</span>, <span class="number">15</span>);</span><br><span class="line">        Student s2 = <span class="keyword">new</span> Student(<span class="string">"戴沐白"</span>, <span class="number">16</span>);</span><br><span class="line">        Student s3 = <span class="keyword">new</span> Student(<span class="string">"马红俊"</span>, <span class="number">17</span>);</span><br><span class="line">        Student s4 = <span class="keyword">new</span> Student(<span class="string">"戴沐白"</span>, <span class="number">16</span>);</span><br><span class="line">        Student s5 = <span class="keyword">new</span> Student(<span class="string">"马红俊"</span>, <span class="number">17</span>);</span><br><span class="line"></span><br><span class="line">        set.add(s1);</span><br><span class="line">        set.add(s2);</span><br><span class="line">        set.add(s3);</span><br><span class="line">        set.add(s4);</span><br><span class="line">        set.add(s5);</span><br><span class="line"></span><br><span class="line">        System.out.println(set);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h6 id="为什么用了-Set-没有去重"><a href="#为什么用了-Set-没有去重" class="headerlink" title="为什么用了 Set 没有去重?"></a>为什么用了 Set 没有去重?</h6><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/java-base/4.png" alt="你会发现无序了," title="但是还没有去重''">
+                </div>
+                <div class="image-caption">但是还没有去重''</div>
+            </figure>
+<p>实际上已经去重完成了, 因为 Set 集合保证元素的唯一性依赖 equals()和 hashCode()两个方法, 我们没有在 student 中重写这两个方法, 默认就会使用 Object 类中的 equals(), Object 类下的 equals()方法默认比较的是内存地址, 5 个 studen 都是 new 出来的, 所以指向的内存地址不一样(这个去掉 toString 方法就可以打出来了)<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/java-base/5.png" alt="toString方法注释掉之后打印每个student指向内存地址''" title>
+                </div>
+                <div class="image-caption">toString方法注释掉之后打印每个student指向内存地址''</div>
+            </figure></p>
+<ul>
+<li>解决方案: 在 Student 类中重写 equals()和 hashCode</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object o)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span> == o) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    <span class="keyword">if</span> (o == <span class="keyword">null</span> || getClass() != o.getClass()) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    Student student = (Student) o;</span><br><span class="line">    <span class="keyword">return</span> age == student.age &amp;&amp;</span><br><span class="line">            Objects.equals(name, student.name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> Objects.hash(name, age);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这时候再打印就是去重之后的了</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set集合： [Student&#123;name=<span class="string">'戴沐白'</span>, age=<span class="number">16</span>&#125;, Student&#123;name=<span class="string">'马红俊'</span>, age=<span class="number">17</span>&#125;, Student&#123;name=<span class="string">'唐三'</span>, age=<span class="number">15</span>&#125;]</span><br></pre></td></tr></table></figure>
+<h5 id="双例集合-Map-key-value"><a href="#双例集合-Map-key-value" class="headerlink" title="双例集合(Map: key, value)"></a>双例集合(Map: key, value)</h5><ul>
+<li>Map: HashMap<br>双例集合, 元素由键值对构成, key 不可重复, value 可以重复</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Map&lt;T1, T2&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br></pre></td></tr></table></figure>
+<p>写一个 demo, 还是用上面的 Student 类创建学生<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/java-base/6.png" alt="map" title="demo''">
+                </div>
+                <div class="image-caption">demo''</div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/java-base/7.png" alt="如果key值重复," title="则key对应最后一次赋值的value''">
+                </div>
+                <div class="image-caption">则key对应最后一次赋值的value''</div>
+            </figure><br>⚠️ 双例集合无法直接遍历, 只能先获取所有 key 的集合(keySet), 再根据 key 遍历出 value (迭代器,增强 for )<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/java-base/8.png" alt="遍历map''" title>
+                </div>
+                <div class="image-caption">遍历map''</div>
+            </figure></p>
+<h5 id="增强-for-循环"><a href="#增强-for-循环" class="headerlink" title="增强 for 循环"></a>增强 for 循环</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (Object obj:list) &#123;</span><br><span class="line">  Integer ii = (Integer)obj;</span><br><span class="line">  System.out.println(obj);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>⚠️ 增强 for 循环的底层依赖的是迭代器(Iterator), 可以理解成增强 for 就是迭代器的简写形式</p>
+<h3 id="迭代器"><a href="#迭代器" class="headerlink" title="迭代器"></a>迭代器</h3><h4 id="为什么需要迭代器"><a href="#为什么需要迭代器" class="headerlink" title="为什么需要迭代器?"></a>为什么需要迭代器?</h4><p>对过程的重复, 称为迭代. 迭代器是遍历 Collection(单例子)集合的通用方式, 可以在对集合遍历的同时进行添加, 删除等操作.</p>
+<h4 id="迭代器的常用方法"><a href="#迭代器的常用方法" class="headerlink" title="迭代器的常用方法"></a>迭代器的常用方法</h4><ul>
+<li>next(): 返回迭代的下一个元素对象</li>
+<li>hasNext(): 如果仍有下一个元素, 返回 true</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Iterator it = list.iterator()</span><br><span class="line"><span class="keyword">while</span>(it.hasNext()) &#123;</span><br><span class="line">  String s = (String)it.next();</span><br><span class="line">  System.out.println(s);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h3><p>即泛指任意类型, 又叫参数化类型, 对具体类型的使用起到辅助作用, 类似于方法的参数</p>
+<h4 id="集合类型的解释"><a href="#集合类型的解释" class="headerlink" title="集合类型的解释"></a>集合类型的解释</h4><p>表示该集合中存放指定类型的元素</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">List&lt;String&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br></pre></td></tr></table></figure>
+<p>好处: 类型安全, 避免了类型转化</p>
+<h3 id="Collections-工具类"><a href="#Collections-工具类" class="headerlink" title="Collections 工具类"></a>Collections 工具类</h3><p>针对集合进行操作的工具类<br>成员方法:</p>
+<ul>
+<li>sort(List<t>)<br>根据元素的自然顺序, 将指定列表按升序排序</t></li>
+<li>max(Collection<t>)<br>返回集合的最大元素</t></li>
+<li>reverse(List<t>)<br>反转 List 集合元素</t></li>
+<li><p>shuffle(List<t>)<br>使用默认的随机源随机置换指定的列表, 也就是可以将数组进行随机排列</t></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">      List list = <span class="keyword">new</span> ArrayList();</span><br><span class="line">      list.add(<span class="number">1</span>);</span><br><span class="line">      list.add(<span class="number">2</span>);</span><br><span class="line">      list.add(<span class="number">3</span>);</span><br><span class="line"></span><br><span class="line">      Collections.sort(list);</span><br><span class="line">      System.out.println(list);  <span class="comment">// []</span></span><br><span class="line"></span><br><span class="line">      System.out.println(Collections.max(list));</span><br><span class="line"></span><br><span class="line">      Collections.reverse(list);</span><br><span class="line">      System.out.println(list);</span><br><span class="line"></span><br><span class="line">      Collections.shuffle(list);</span><br><span class="line">      System.out.println(list);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// [1, 2, 3]</span></span><br><span class="line"><span class="comment">// 3</span></span><br><span class="line"><span class="comment">// [3, 2, 1]</span></span><br><span class="line"><span class="comment">// [3, 1, 2]</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&gt; 还有更多的方法, 在 java.utils 下面可以找到</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### java 中的异常, 顶层父类(Throwable)</span><br><span class="line">- 子类 (Error 报错)</span><br><span class="line">- 子类 (Exception 异常)</span><br><span class="line">处理方式</span><br><span class="line">- 方式一, 捕获, 自己处理</span><br><span class="line">```java</span><br><span class="line">try&#123;</span><br><span class="line">  // TODOS...</span><br><span class="line">&#125; catch(Exception e) &#123;</span><br><span class="line">  // TODOS...</span><br><span class="line">&#125; finally &#123;</span><br><span class="line">  // 写在这里的代码正常情况下一定会执行, 一般是用来释放资源</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>方式二, throw new Error(…)</li>
+<li>JVM 的默认处理方式: 在控制台打印异常信息, 并终止程序;</li>
+</ul>
+<h3 id="什么是-IO-流"><a href="#什么是-IO-流" class="headerlink" title="什么是 IO 流"></a>什么是 IO 流</h3><p>I/O, 即输入输出, IO 流指的是数据像连绵的流体一样进行传输</p>
+<h3 id="IO-流能做什么"><a href="#IO-流能做什么" class="headerlink" title="IO 流能做什么"></a>IO 流能做什么</h3><p>在本地磁盘和网络上操作数据</p>
+<h3 id="IO-流的分类"><a href="#IO-流的分类" class="headerlink" title="IO 流的分类"></a>IO 流的分类</h3><ul>
+<li>按数据流向(输入流, 输出流)</li>
+<li>按操作方式<br>1、字节流<br>InputStream: 字节输入流顶层抽象类(FileInputStream(普通的字节输入流), BufferedInputStream(高效字节输入流))<br>OutputStream: 字节输出流顶层抽象类(FileOutputStream(普通字节输出流), BufferOutputStream(高效字节输出流))<br>2、字符流<br>Reader: 字符输入流的顶层抽象类(FileReader(普通字符输入流, BufferedReader(高效字符输入流, 也叫字符缓冲输入流)))<br>Writer: 字符输出流的顶层抽象类(FileWrite(普通字符输出流), BufferedWriter(高效字符输出流, 也叫字符缓冲输出流))<blockquote>
+<p>File类</p>
+</blockquote>
+</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2021-02-24T23:13:31.528Z" itemprop="dateUpdated">2021-02-25 07:13:31</time>
+</span><br>
+
+
+        
+        谢谢浏览，我会继续努力的，示例：<a href="/2021/02/12/java基础/" target="_blank" rel="external">http://yoursite.com/2021/02/12/java基础/</a>
+        
+    </div>
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.jpg" alt="BingZhenhuang">
+            BingZhenhuang
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Set/">Set</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/localStorage/">localStorage</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/集合/">集合</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2021/02/12/java基础/&title=《java秒入门》 — 小方块 - hhardyy.com&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2021/02/12/java基础/&title=《java秒入门》 — 小方块 - hhardyy.com&source=复习了一波 java
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2021/02/12/java基础/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《java秒入门》 — 小方块 - hhardyy.com&url=http://yoursite.com/2021/02/12/java基础/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2021/02/12/java基础/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2021/02/22/ECMAScript-2020/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">ECMAScript 2020</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/07/19/vite秒开揭秘/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">vite秒开揭秘</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        🤠 请我喝可乐！
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content" style="width:50%">
+        
+        <div class="reward-code" style="text-align:center">
+            <div style="width:300px;margin:0px auto;">
+               <img id="rewardCode" style="width:50%;height:60%;display:block; margin:0px auto;" src="/img/alipay.jpg" alt="支付宝打赏二维码">
+               <span style="display:inline-block; margin-bottom:20px;">0.88(支付宝 aliPay)</span>
+               <img id="rewardCode" style="width:50%;height:60%;display:block; margin:0px auto;" src="/img/wechat.jpg" alt="微信打赏二维码">
+               <span style="display:inline-block;">0.88(微信 weChat)</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+</div>
+
+        <script>
+!function(e,t,a){function n(){c(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"),o(),r()}function r(){for(var e=0;e<d.length;e++)d[e].alpha<=0?(t.body.removeChild(d[e].el),d.splice(e,1)):(d[e].y--,d[e].scale+=.004,d[e].alpha-=.013,d[e].el.style.cssText="left:"+d[e].x+"px;top:"+d[e].y+"px;opacity:"+d[e].alpha+";transform:scale("+d[e].scale+","+d[e].scale+") rotate(45deg);background:"+d[e].color+";z-index:99999");requestAnimationFrame(r)}function o(){var t="function"==typeof e.onclick&&e.onclick;e.onclick=function(e){t&&t(),i(e)}}function i(e){var a=t.createElement("div");a.className="heart",d.push({el:a,x:e.clientX-5,y:e.clientY-5,scale:1,alpha:1,color:s()}),t.body.appendChild(a)}function c(e){var a=t.createElement("style");a.type="text/css";try{a.appendChild(t.createTextNode(e))}catch(t){a.styleSheet.cssText=e}t.getElementsByTagName("head")[0].appendChild(a)}function s(){return"rgb("+~~(255*Math.random())+","+~~(255*Math.random())+","+~~(255*Math.random())+")"}var d=[];e.requestAnimationFrame=function(){return e.requestAnimationFrame||e.webkitRequestAnimationFrame||e.mozRequestAnimationFrame||e.oRequestAnimationFrame||e.msRequestAnimationFrame||function(e){setTimeout(e,1e3/60)}}(),n()}(window,document);
+</script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script>
+    function secondToDate(second) {
+        if (!second) {
+            return 0;
+        }
+        var time = new Array(0, 0, 0, 0, 0);
+        if (second >= 365 * 24 * 3600) {
+            time[0] = parseInt(second / (365 * 24 * 3600));
+            second %= 365 * 24 * 3600;
+        }
+        if (second >= 24 * 3600) {
+            time[1] = parseInt(second / (24 * 3600));
+            second %= 24 * 3600;
+        }
+        if (second >= 3600) {
+            time[2] = parseInt(second / 3600);
+            second %= 3600;
+        }
+        if (second >= 60) {
+            time[3] = parseInt(second / 60);
+            second %= 60;
+        }
+        if (second > 0) {
+            time[4] = second;
+        }
+        return time;
+    }</script>
+<script type="text/javascript" language="javascript">
+    function setTime() {
+        var create_time = Math.round(new Date(Date.UTC(2017, 08, 18, 11, 42, 23)).getTime() / 1000);
+        var timestamp = Math.round((new Date().getTime() + 8 * 60 * 60 * 1000) / 1000);
+        currentTime = secondToDate((timestamp - create_time));
+        currentTimeHtml = 'Running：' + currentTime[0] + '年 ' + currentTime[1] + '天 '
+                + currentTime[2] + '时 ' + currentTime[3] + '分 ' + currentTime[4]
+                + '秒';
+        document.getElementById("htmer_time").innerHTML = currentTimeHtml;
+    }    setInterval(setTime, 1000);
+</script>
+<footer class="footer">
+    <div class="top">
+        
+
+        <p>
+          <span id="busuanzi_container_page_pv">
+             [&nbsp;浏览量：&nbsp;<span id="busuanzi_value_page_pv"></span>&nbsp;]
+          </span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+        <span>BingZhenhuang &copy; 2017 - 2021</span>
+            <span>
+                
+                Power by <a href="https://hhardyy.github.io/" target="_blank">zhen On August 8</a> 
+            </span>
+            <span id="htmer_time" "></span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2021/02/12/java基础/&title=《java秒入门》 — 小方块 - hhardyy.com&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2021/02/12/java基础/&title=《java秒入门》 — 小方块 - hhardyy.com&source=复习了一波 java
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2021/02/12/java基础/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《java秒入门》 — 小方块 - hhardyy.com&url=http://yoursite.com/2021/02/12/java基础/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2021/02/12/java基础/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABwklEQVR42u3aS27DMAwFwNz/0inQVYC26iMpKw4wWhmI7Yy8IPjR4xGv5/d6vX5d66d+3pk8O1q4uLhj7nO51tz1xhJ0bsDFxT3PzYNXL9it35ZvHhcX927cdb6RPJXfiYuL+yncpOzJSxpcXNz7c/OkpBrU8hRnc62Gi4s74E6Czq7ry/u7uLi4m6YSveBVbaMU/h0XF/cIN2le9IamyTt7LVRcXNyrufMhSq9o6R3awMXFPcPNX1Q9VFFtr1SDIC4u7klu/tJeCdRrtpbbJbi4uANubzfVMDT5HL90cXBxcQ9y9w5Ne6OaaBqMi4t7hJuHnl5TY94owcXFPcntDTl6Y9QoiUmewsXFPcLNBxjre/K2KS4u7p25kzCUX1d//fND4OLiHuFWW5wTXG8aUjgzgouLu4mbH55IiAmumgzh4uK+i9trdlTbr71xCy4u7ru4+Sr/QZAqjc6L4eLiXsCtBpSkeVo9ppmXSbi4uCe51YIn332vcPonjOLi4h7k9tKR6mB1QyqDi4t7M2614MmPcRSKIlxc3I/i5sPUZnKDi4t7nNsLLkm7ZF5QNWs1XFzcAXdvwzQJZPmBDFxc3OPcLybJn2ayyYILAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '(•‾̑⌣‾̑•)✧˖°回来看我';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(゜-゜)つロ欢迎回来';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

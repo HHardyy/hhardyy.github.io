@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?d890b1f16fb364253e79c5bb20225c3a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+    
+
+    
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?busuanzi_value_site_uv"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    <meta name="baidu-site-verification" content="FYMCShbUK8">
+    <meta name="baidu-site-verification" content="ZYRF7OxQRW">
+    <meta name="baidu-site-verification" content="cHSqtjI0PN">
+    <meta name="baidu-site-verification" content="cHSqtjI0PN">
+    <meta name="baidu-site-verification" content="cHSqtjI0PN">
+    
+    
+    <link rel="canonical" href="https://hhardyy.com/2018/11/06/Ant-Design-of-React-Upload/">
+    
+    
+    <title>Ant Design of React(Upload) | 小方块 - hhardyy.com | 复杂的坑+归其原理+了解实现规则===解决？解决成功：加油解决成功;</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#958e93">
+    
+    
+    <meta name="keywords" content="react,字符串html元素渲染,multer,Upload">
+    <meta name="description" content="日常记录，Upload大家都懂，写接口接Upload大家也都会，但是别拦我，我说说我遇到的antd Design的Upload">
+<meta name="keywords" content="react,字符串html元素渲染,multer,Upload">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ant Design of React(Upload)">
+<meta property="og:url" content="http://yoursite.com/2018/11/06/Ant-Design-of-React-Upload/index.html">
+<meta property="og:site_name" content="小方块 - hhardyy.com">
+<meta property="og:description" content="日常记录，Upload大家都懂，写接口接Upload大家也都会，但是别拦我，我说说我遇到的antd Design的Upload">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/images/AntDesignofReact/1.JPG">
+<meta property="og:image" content="http://yoursite.com/images/AntDesignofReact/2.JPG">
+<meta property="og:image" content="http://yoursite.com/images/AntDesignofReact/3.JPG">
+<meta property="og:image" content="http://yoursite.com/images/AntDesignofReact/4.JPG">
+<meta property="og:image" content="http://yoursite.com/images/AntDesignofReact/5.JPG">
+<meta property="og:updated_time" content="2020-01-13T15:14:48.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ant Design of React(Upload)">
+<meta name="twitter:description" content="日常记录，Upload大家都懂，写接口接Upload大家也都会，但是别拦我，我说说我遇到的antd Design的Upload">
+<meta name="twitter:image" content="http://yoursite.com/images/AntDesignofReact/1.JPG">
+    
+        <link rel="alternate" type="application/atom+xml" title="小方块 - hhardyy.com" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/hardyfavicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/paulGraham.jpg)">
+      <div class="brand" style="background-color:#4154b2">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">BingZhenhuang</h5>
+          <a href="mailto:huangbingzhen@hhardyy.com" title="huangbingzhen@hhardyy.com" class="mail">huangbingzhen@hhardyy.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                所有文章
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/HHardyy" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://gitee.com/hhardyy" target="_blank" >
+                <i class="icon icon-lg icon-cloud"></i>
+                Gitee
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://juejin.im/user/59a26f926fb9a02487553b04"  >
+                <i class="icon icon-lg icon-pencil"></i>
+                掘金-圳
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://segmentfault.com/u/hhardyy"  >
+                <i class="icon icon-lg icon-comments"></i>
+                Segmentfault
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://codepen.io/HHardyy/" target="_blank" >
+                <i class="icon icon-lg icon-codepen"></i>
+                Codepen
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.freecodecamp.cn/hhardyy" target="_blank" >
+                <i class="icon icon-lg icon-leaf"></i>
+                Freecodecamp
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/友情链接"  >
+                <i class="icon icon-lg icon-link"></i>
+                友链
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Ant Design of React(Upload)</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Ant Design of React(Upload)</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-11-05T16:11:51.000Z" itemprop="datePublished" class="page-time">
+  2018-11-06
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+<article id="post-Ant-Design-of-React-Upload"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Ant Design of React(Upload)</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-11-06 00:11:51" datetime="2018-11-05T16:11:51.000Z"  itemprop="datePublished">2018-11-06</time>
+
+            
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>日常记录，Upload大家都懂，写接口接Upload大家也都会，但是别拦我，我说说我遇到的antd Design的Upload</p>
+<p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=1320593213&auto=0&height=66"></iframe><br><a id="more"></a></p>
+<p>假如我有个文件要上传到服务器并且返回文件保存的路径，那我可能会像下面这么写</p>
+<blockquote>
+<p>FormData对象用以将数据编译成键值对，以便用XMLHttpRequest来发送数据。其主要用于发送表单数据，但亦可用于发送带键数据(keyed data)<br>而独立于表单使用。如果表单enctype属性设为multipart/form-data ，则会使用表单的submit()方法来发送数据，从而，发送数据具有同样形式。</p>
+</blockquote>
+<p>前端代码,也就是你点击上传或者发送或者什么的之后执行的方法<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">handleUpload = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">	<span class="comment">//为文件创建formData，key是files</span></span><br><span class="line">    <span class="keyword">const</span> formData = <span class="keyword">new</span> FormData();</span><br><span class="line">    fileList.forEach(<span class="function">(<span class="params">file</span>) =&gt;</span> &#123;</span><br><span class="line">      formData.append(<span class="string">'files'</span>, file);</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">      uploading: <span class="literal">true</span>,</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    reqwest(&#123;</span><br><span class="line">      url: <span class="string">'/upload'</span>,</span><br><span class="line">      method: <span class="string">'post'</span>,</span><br><span class="line">      processData: <span class="literal">false</span>,</span><br><span class="line">      data: formData,</span><br><span class="line">      success: <span class="function">(<span class="params">resp</span>) =&gt;</span> &#123;</span><br><span class="line">      	<span class="built_in">console</span>.log(resp)</span><br><span class="line">        <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">          fileList: [],</span><br><span class="line">          uploading: <span class="literal">false</span>,</span><br><span class="line">        &#125;);</span><br><span class="line">        message.success(<span class="string">'upload successfully.'</span>);</span><br><span class="line">      &#125;,</span><br><span class="line">      error: <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">          uploading: <span class="literal">false</span>,</span><br><span class="line">        &#125;);</span><br><span class="line">        message.error(<span class="string">'upload failed.'</span>);</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></p>
+<p>接口,比较简陋，主要是看看直接接收会出来什么东西<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> upload = multer(&#123;<span class="attr">dest</span>:<span class="string">'./目录/我的路径'</span>&#125;); <span class="comment">//设置文件存储位置</span></span><br><span class="line">app.use(express.static(<span class="string">'./目录'</span>));           <span class="comment">//设置静态文件目录</span></span><br><span class="line">app.post(<span class="string">"/upload"</span>,upload.single(<span class="string">'files'</span>),(req, res) =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(req.file)</span><br><span class="line">    <span class="keyword">const</span> initFileName=req.file.originalname  <span class="comment">//原始文件名</span></span><br><span class="line">    <span class="built_in">console</span>.log(initFileName)</span><br><span class="line">    res.send(<span class="string">'./uploads/'</span> + initFileName)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>然后我选择一个叫测试.doc的文档上传。接着打开浏览器调试看看给我返回了什么<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/AntDesignofReact/1.JPG" alt="response" title>
+                </div>
+                <div class="image-caption">response</div>
+            </figure><br>返回的文件地址，文件名是一串uuid的编码，开始我以为是组件默认的加密之后，但是服务器打印出来的文件信息显示encoding是“7bit”，所以并不是它默认加密或者什么<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/AntDesignofReact/2.JPG" alt="服务器打印" title>
+                </div>
+                <div class="image-caption">服务器打印</div>
+            </figure><br>（虽然是uuid编码，但是两个图文件名为啥不一样。。。这个怪我这个爪，是因为服务器的时候我又拖了个文件上传，其实同一个文件的话，它是一样的）<br>当然你想直接console.log(formData)查看数据是不可以的，formData不允许，只允许类似这样的操作<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> formData = <span class="keyword">new</span> FormData()</span><br><span class="line">formData.append(<span class="string">'user'</span>, <span class="string">'hhardyy'</span>)</span><br><span class="line">获取 formData.get(<span class="string">'user'</span>)  </span><br><span class="line">删除 formData.delete(<span class="string">'user'</span>)</span><br><span class="line">打印出来看的话就是 <span class="built_in">console</span>.log(formData.get(<span class="string">'user'</span>))</span><br></pre></td></tr></table></figure></p>
+<p>假如怀疑是不是真的上传有文件的话，可以看看我们发的请求<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/AntDesignofReact/3.JPG" alt="服务器打印" title>
+                </div>
+                <div class="image-caption">服务器打印</div>
+            </figure><br>实际上不仅是路径上的文件名变成了uuid编码，保存的文件名字也是一样<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/AntDesignofReact/4.JPG" alt="formData的信息" title>
+                </div>
+                <div class="image-caption">formData的信息</div>
+            </figure><br>这时候如果想让保存的文件名字是上传时候的名字或者自定义名字的话可以这么操作，上面那个后台接收其实用的是Express4.x的中间件multer，它有个东西叫diskstorage，可以用来自定义存储位<br>置和自定义文件名<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> storage = multer.diskStorage(&#123;</span><br><span class="line">  destination: <span class="function"><span class="keyword">function</span> (<span class="params">req, file, cb</span>) </span>&#123;</span><br><span class="line">    cb(<span class="literal">null</span>, <span class="string">'文件存储目录'</span>)</span><br><span class="line">  &#125;,</span><br><span class="line">  filename: <span class="function"><span class="keyword">function</span> (<span class="params">req, file, cb</span>) </span>&#123;</span><br><span class="line">    cb(<span class="literal">null</span>, <span class="string">'文件名'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"> </span><br><span class="line"><span class="keyword">var</span> upload = multer(&#123; <span class="attr">storage</span>: storage &#125;)</span><br></pre></td></tr></table></figure></p>
+<p>安装 multer<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install multer --save</span><br></pre></td></tr></table></figure></p>
+<p>destination和filename函数的参数req在这里.body都是空对象{}，未装载formdata的文本域数据。file虽然装载了文件对象，但是信息不全。<br>接口可以改成这么写<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> storage = multer.diskStorage(&#123;</span><br><span class="line">    destination: <span class="function"><span class="keyword">function</span> (<span class="params">req, file, cb</span>) </span>&#123;</span><br><span class="line">        cb(<span class="literal">null</span>, <span class="string">'./我的路径'</span>);</span><br><span class="line">    &#125;,<span class="comment">//指定存储路径</span></span><br><span class="line">    filename: <span class="function"><span class="keyword">function</span> (<span class="params">req, file, cb</span>) </span>&#123;</span><br><span class="line">    	<span class="comment">//originalname=原始文件名，原始文件名是测试.doc，我把它后缀干掉，下面改成文件名+上传时间+文件后缀</span></span><br><span class="line">        <span class="keyword">let</span> fileName=file.originalname.substring(<span class="number">0</span>,file.originalname.indexOf(<span class="string">'.'</span>,<span class="number">0</span>))    </span><br><span class="line">        cb(<span class="literal">null</span>, fileName + <span class="string">'-'</span> + <span class="built_in">Date</span>.now() + <span class="string">'.doc'</span>);<span class="comment">//指定文件名和扩展名</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);<span class="comment">//指定存储方法,upload.single=单个文件，upload.Array=多个文件</span></span><br><span class="line">app.use(express.static(<span class="string">'./我的路径'</span>));       <span class="comment">//设置静态文件目录</span></span><br><span class="line"><span class="keyword">let</span> upload = multer(&#123; <span class="attr">storage</span>: storage &#125;);  <span class="comment">//存储方法，5是限制大小，files是前端的files，一定要是一样的</span></span><br><span class="line">app.use(upload.single(<span class="string">'files'</span>, <span class="number">5</span>));</span><br><span class="line">app.post(<span class="string">'/upload'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    res.send(<span class="string">'./路径'</span> + req.file.filename);  <span class="comment">//文件的下载地址</span></span><br><span class="line">    <span class="built_in">console</span>.log(req.file)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>这样就正常了。继续深入了解可以去了解一下multer，这只是个简单的demo<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/AntDesignofReact/5.JPG" alt="保存的文件" title>
+                </div>
+                <div class="image-caption">保存的文件</div>
+            </figure></p>
+<p>还有一个问题就是返回的文件路径我想让别人点击一下就可以访问，那我这时候会用一个a来包裹，然后返回给前端直接可以点链接访问到文件的连接，但是后台返回的是字符串，你到前端的时候显示也是字符串，就像<br>这样<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=<span class="string">"http://$&#123;this.state.fileAddress&#125;"</span>&gt;请点击查看我的简历&lt;<span class="regexp">/a&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>其实在做react项目时，有时候需要将后台传过来的html元素的字符串形式变成真正的dom渲染到页面，如果直接插入的话页面显示的就是这段字符串，它不会自己进行转义，这时候可以在你要渲染的元素那写上<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;span dangerouslySetInnerHTML=&#123;&#123;<span class="attr">__html</span>: xxx&#125;&#125;&gt;&lt;<span class="regexp">/span&gt;               /</span><span class="regexp">/ xxx是你的那段字符串，只是html元素会被转义成dom</span></span><br></pre></td></tr></table></figure></p>
+<p>语法是这样<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str=<span class="string">"&lt;a href="</span>https:<span class="comment">//hhardyy.com/"&gt;hhardyy&lt;/a&gt;"</span></span><br><span class="line">&lt;span dangerouslySetInnerHTML=&#123;&#123;<span class="attr">__html</span>: str&#125;&#125;&gt;&lt;span/&gt;</span><br></pre></td></tr></table></figure></p>
+<p>今晚正好做了简历点对点发送接收功能，顺便写一写demo。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-01-13T15:14:48.000Z" itemprop="dateUpdated">2020-01-13 23:14:48</time>
+</span><br>
+
+
+        
+        谢谢浏览，我会继续努力的，示例：<a href="/2018/11/06/Ant-Design-of-React-Upload/" target="_blank" rel="external">http://yoursite.com/2018/11/06/Ant-Design-of-React-Upload/</a>
+        
+    </div>
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.jpg" alt="BingZhenhuang">
+            BingZhenhuang
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Upload/">Upload</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/multer/">multer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/字符串html元素渲染/">字符串html元素渲染</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/11/06/Ant-Design-of-React-Upload/&title=《Ant Design of React(Upload)》 — 小方块 - hhardyy.com&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/11/06/Ant-Design-of-React-Upload/&title=《Ant Design of React(Upload)》 — 小方块 - hhardyy.com&source=日常记录，Upload大家都懂，写接口接Upload大家也都会，但是别拦我，我说说我遇到的antd Design的Upload
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/11/06/Ant-Design-of-React-Upload/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Ant Design of React(Upload)》 — 小方块 - hhardyy.com&url=http://yoursite.com/2018/11/06/Ant-Design-of-React-Upload/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/11/06/Ant-Design-of-React-Upload/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/11/16/react造了一个PC城市选择的轮子/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">react造了一个PC城市选择的轮子</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/10/05/浅谈高阶组件/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">浅谈高阶组件</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        🤠 请我喝可乐！
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content" style="width:50%">
+        
+        <div class="reward-code" style="text-align:center">
+            <div style="width:300px;margin:0px auto;">
+               <img id="rewardCode" style="width:50%;height:60%;display:block; margin:0px auto;" src="/img/alipay.jpg" alt="支付宝打赏二维码">
+               <span style="display:inline-block; margin-bottom:20px;">0.88(支付宝 aliPay)</span>
+               <img id="rewardCode" style="width:50%;height:60%;display:block; margin:0px auto;" src="/img/wechat.jpg" alt="微信打赏二维码">
+               <span style="display:inline-block;">0.88(微信 weChat)</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+</div>
+
+        <script>
+!function(e,t,a){function n(){c(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"),o(),r()}function r(){for(var e=0;e<d.length;e++)d[e].alpha<=0?(t.body.removeChild(d[e].el),d.splice(e,1)):(d[e].y--,d[e].scale+=.004,d[e].alpha-=.013,d[e].el.style.cssText="left:"+d[e].x+"px;top:"+d[e].y+"px;opacity:"+d[e].alpha+";transform:scale("+d[e].scale+","+d[e].scale+") rotate(45deg);background:"+d[e].color+";z-index:99999");requestAnimationFrame(r)}function o(){var t="function"==typeof e.onclick&&e.onclick;e.onclick=function(e){t&&t(),i(e)}}function i(e){var a=t.createElement("div");a.className="heart",d.push({el:a,x:e.clientX-5,y:e.clientY-5,scale:1,alpha:1,color:s()}),t.body.appendChild(a)}function c(e){var a=t.createElement("style");a.type="text/css";try{a.appendChild(t.createTextNode(e))}catch(t){a.styleSheet.cssText=e}t.getElementsByTagName("head")[0].appendChild(a)}function s(){return"rgb("+~~(255*Math.random())+","+~~(255*Math.random())+","+~~(255*Math.random())+")"}var d=[];e.requestAnimationFrame=function(){return e.requestAnimationFrame||e.webkitRequestAnimationFrame||e.mozRequestAnimationFrame||e.oRequestAnimationFrame||e.msRequestAnimationFrame||function(e){setTimeout(e,1e3/60)}}(),n()}(window,document);
+</script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script>
+    function secondToDate(second) {
+        if (!second) {
+            return 0;
+        }
+        var time = new Array(0, 0, 0, 0, 0);
+        if (second >= 365 * 24 * 3600) {
+            time[0] = parseInt(second / (365 * 24 * 3600));
+            second %= 365 * 24 * 3600;
+        }
+        if (second >= 24 * 3600) {
+            time[1] = parseInt(second / (24 * 3600));
+            second %= 24 * 3600;
+        }
+        if (second >= 3600) {
+            time[2] = parseInt(second / 3600);
+            second %= 3600;
+        }
+        if (second >= 60) {
+            time[3] = parseInt(second / 60);
+            second %= 60;
+        }
+        if (second > 0) {
+            time[4] = second;
+        }
+        return time;
+    }</script>
+<script type="text/javascript" language="javascript">
+    function setTime() {
+        var create_time = Math.round(new Date(Date.UTC(2017, 08, 18, 11, 42, 23)).getTime() / 1000);
+        var timestamp = Math.round((new Date().getTime() + 8 * 60 * 60 * 1000) / 1000);
+        currentTime = secondToDate((timestamp - create_time));
+        currentTimeHtml = 'Running：' + currentTime[0] + '年 ' + currentTime[1] + '天 '
+                + currentTime[2] + '时 ' + currentTime[3] + '分 ' + currentTime[4]
+                + '秒';
+        document.getElementById("htmer_time").innerHTML = currentTimeHtml;
+    }    setInterval(setTime, 1000);
+</script>
+<footer class="footer">
+    <div class="top">
+        
+
+        <p>
+          <span id="busuanzi_container_page_pv">
+             [&nbsp;浏览量：&nbsp;<span id="busuanzi_value_page_pv"></span>&nbsp;]
+          </span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+        <span>BingZhenhuang &copy; 2017 - 2021</span>
+            <span>
+                
+                Power by <a href="https://hhardyy.github.io/" target="_blank">zhen On August 8</a> 
+            </span>
+            <span id="htmer_time" "></span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/11/06/Ant-Design-of-React-Upload/&title=《Ant Design of React(Upload)》 — 小方块 - hhardyy.com&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/11/06/Ant-Design-of-React-Upload/&title=《Ant Design of React(Upload)》 — 小方块 - hhardyy.com&source=日常记录，Upload大家都懂，写接口接Upload大家也都会，但是别拦我，我说说我遇到的antd Design的Upload
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/11/06/Ant-Design-of-React-Upload/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Ant Design of React(Upload)》 — 小方块 - hhardyy.com&url=http://yoursite.com/2018/11/06/Ant-Design-of-React-Upload/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/11/06/Ant-Design-of-React-Upload/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKklEQVR42u3aUY6DMAwFwN7/0uwBqrLvxaUSYfJVIbpkqOS1Hb9e8Tre1vv18/vbb72uWBgYGLdlHKcrecD59TV2vjcMDIznMM43lwfBfNPJs4oXh4GBgRE8+Jyap30YGBgY3w24k4QSAwMDo2UkG0qC73xbl9fiGBgYN2RMguDVny8538DAwLgV4yhX/tfOryTFcLErDAyMrRl5gEtSxkma2AZcDAyMpzHON5QE30kZnLyUIlnEwMDYlLF2GNmOVqyNfBXBHQMDY1NGUqYmD56kevnw6z+/AwYGxgMYa0GzHbzIjzYXxywwMDA2Zaw11/L6eO1goChiMTAwtma0bfcrwu7kxUW/EgYGxs0ZeXOtbd+fl77zRt7HmREMDIxNGXlIXRvq+m54jaZFMDAwNmLkW0mSxTYEt4egRdMNAwNjI0YbXtu23eKRZJmSYmBgPI2RJGRrYXetxR8VvRgYGFsz5gF0kg62Lby2eYeBgbEfI0najnhNDixH4xcYGBibMtoHt4eUyZ1t0vmx6YaBgbE1o23W/+ZgsmgFYmBgPJjxmzGLtvWGgYHxHMZRrrY0Tbabh+CP/wYwMDC2ZrTBrh2YyFPD5P7JOAgGBsbdGfMg2zbX5sXway3eY2Bg3JxR175l4z4PrO2QBwYGBkZSak4aam2i+eWAi4GBsTVj3iBbOxz9+F0MDIwHMJIiNh/kWjsiXSt0MTAwnsBYy7uua6WtDdFiYGBsyvgD9Xl+TMo8xwsAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '(•‾̑⌣‾̑•)✧˖°回来看我';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(゜-゜)つロ欢迎回来';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
