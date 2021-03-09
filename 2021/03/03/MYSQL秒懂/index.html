@@ -70,7 +70,7 @@ var _hmt = _hmt || [];
 <meta property="og:image" content="http://yoursite.com/images/mysql-base1/2.png">
 <meta property="og:image" content="http://yoursite.com/images/mysql-base1/3.png">
 <meta property="og:image" content="http://yoursite.com/images/mysql-base1/4.png">
-<meta property="og:updated_time" content="2021-03-08T23:55:52.693Z">
+<meta property="og:updated_time" content="2021-03-09T00:00:38.118Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MYSQL">
 <meta name="twitter:description" content="mysql">
@@ -345,14 +345,22 @@ var _hmt = _hmt || [];
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">-- and</span><br><span class="line">select * from 员工表 <span class="built_in">where</span> 编号 &gt;= 100 and 编号 &lt;= 120</span><br><span class="line"></span><br><span class="line">-- between and</span><br><span class="line">select * from 员工表 <span class="built_in">where</span> 编号 between 100 and 120;</span><br></pre></td></tr></table></figure>
 <ul>
-<li>in<br>1、判断某字段的值是否属于 in 列表中的某一项;<br>2、in列表中的值类型必须一致, 或者兼容<br>demo1: 查询员工编号是 hardy1, hardy2 中的一个员工名和员工编号</li>
+<li>in<br>1、判断某字段的值是否属于 in 列表中的某一项;<br>2、in 列表中的值类型必须一致, 或者兼容<br>demo1: 查询员工编号是 hardy1, hardy2 中的一个员工名和员工编号</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">-- or</span><br><span class="line">select 员工名, 员工编号 from 员工表 <span class="built_in">where</span> 工种 = <span class="string">'hardy1'</span> or 工种 = <span class="string">'hardy2'</span></span><br><span class="line"></span><br><span class="line">-- <span class="keyword">in</span></span><br><span class="line">select 员工名, 员工编号 from 员工表 <span class="built_in">where</span> 工种 <span class="keyword">in</span> (‘hardy1’, <span class="string">'hardy2'</span>)</span><br></pre></td></tr></table></figure>
 <ul>
-<li>is null<br>=或&lt;&gt;不能用于判断NUll值<br>is null或者is not null可以用来判断NULL<br>demo1: 查询null<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from 员工表 <span class="built_in">where</span> 奖金 is null</span><br></pre></td></tr></table></figure>
-</li>
+<li>is null<br>=或&lt;&gt;不能用于判断 NUll 值<br>is null 或者 is not null 可以用来判断 NULL<br>demo1: 查询 null</li>
 </ul>
-<p>demo2: 非null<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from 员工表 <span class="built_in">where</span> 奖金 is not null</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from 员工表 <span class="built_in">where</span> 奖金 is null</span><br></pre></td></tr></table></figure>
+<p>demo2: 非 null</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from 员工表 <span class="built_in">where</span> 奖金 is not null</span><br></pre></td></tr></table></figure>
+<ul>
+<li>&lt;=&gt;<br>和 is null 一样的用法<br>demo: 查询工资 3000 的员工</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from 员工表 <span class="built_in">where</span> 工资 &lt;=&gt; 3000</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>is null: 仅仅可以判断 null 值;<br>&lt;=&gt;: 既可以判断null值, 又可以判断普通值(推荐)</p>
+</blockquote>
 
         </div>
 
@@ -360,7 +368,7 @@ var _hmt = _hmt || [];
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2021-03-08T23:55:52.693Z" itemprop="dateUpdated">2021-03-09 07:55:52</time>
+    最后更新时间：<time datetime="2021-03-09T00:00:38.118Z" itemprop="dateUpdated">2021-03-09 08:00:38</time>
 </span><br>
 
 
