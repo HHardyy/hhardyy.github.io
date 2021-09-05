@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?d890b1f16fb364253e79c5bb20225c3a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+    
+
+    
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?busuanzi_value_site_uv"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    <meta name="baidu-site-verification" content="FYMCShbUK8">
+    <meta name="baidu-site-verification" content="ZYRF7OxQRW">
+    <meta name="baidu-site-verification" content="cHSqtjI0PN">
+    <meta name="baidu-site-verification" content="cHSqtjI0PN">
+    <meta name="baidu-site-verification" content="cHSqtjI0PN">
+    
+    
+    <link rel="canonical" href="https://hhardyy.com/2021/09/04/浏览器原理/">
+    
+    
+    <title>透视浏览器 | 小方块 - hhardyy.com | 复杂的坑+归其原理+了解实现规则===解决？解决成功：加油解决成功;</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#958e93">
+    
+    
+    <meta name="keywords" content="浏览器,内核,js引擎">
+    <meta name="description" content="浏览器是浏览器， 正不正经我不知道。">
+<meta name="keywords" content="浏览器,内核,js引擎">
+<meta property="og:type" content="article">
+<meta property="og:title" content="透视浏览器">
+<meta property="og:url" content="http://yoursite.com/2021/09/04/浏览器原理/index.html">
+<meta property="og:site_name" content="小方块 - hhardyy.com">
+<meta property="og:description" content="浏览器是浏览器， 正不正经我不知道。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/images/chrome/fps.png">
+<meta property="og:image" content="http://yoursite.com/images/chrome/2.png">
+<meta property="og:updated_time" content="2021-09-05T05:46:03.911Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="透视浏览器">
+<meta name="twitter:description" content="浏览器是浏览器， 正不正经我不知道。">
+<meta name="twitter:image" content="http://yoursite.com/images/chrome/fps.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="小方块 - hhardyy.com" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/hardyfavicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/paulGraham.jpg)">
+      <div class="brand" style="background-color:#4154b2">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">BingZhenhuang</h5>
+          <a href="mailto:huangbingzhen@hhardyy.com" title="huangbingzhen@hhardyy.com" class="mail">huangbingzhen@hhardyy.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                所有文章
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/HHardyy" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://gitee.com/hhardyy" target="_blank" >
+                <i class="icon icon-lg icon-cloud"></i>
+                Gitee
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://juejin.im/user/59a26f926fb9a02487553b04"  >
+                <i class="icon icon-lg icon-pencil"></i>
+                掘金-圳
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://segmentfault.com/u/hhardyy"  >
+                <i class="icon icon-lg icon-comments"></i>
+                Segmentfault
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://codepen.io/HHardyy/" target="_blank" >
+                <i class="icon icon-lg icon-codepen"></i>
+                Codepen
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.freecodecamp.cn/hhardyy" target="_blank" >
+                <i class="icon icon-lg icon-leaf"></i>
+                Freecodecamp
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/友情链接"  >
+                <i class="icon icon-lg icon-link"></i>
+                友链
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">透视浏览器</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">透视浏览器</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2021-09-04T15:52:29.000Z" itemprop="datePublished" class="page-time">
+  2021-09-04
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#浏览器是什么（百度百科）"><span class="post-toc-number">1.</span> <span class="post-toc-text">浏览器是什么（百度百科）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#什么是内核"><span class="post-toc-number">2.</span> <span class="post-toc-text">什么是内核</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#有哪些内核"><span class="post-toc-number">3.</span> <span class="post-toc-text">有哪些内核</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Trident"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">Trident</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Gecko"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">Gecko</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#WebKit"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">WebKit</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Presto"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">Presto</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#查看用户代理"><span class="post-toc-number">4.</span> <span class="post-toc-text">查看用户代理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#UserAgent的作用"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">UserAgent的作用</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#网页内容组成"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">网页内容组成</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#浏览器渲染"><span class="post-toc-number">5.</span> <span class="post-toc-text">浏览器渲染</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#加载"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">加载</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#资源加载机制"><span class="post-toc-number">5.1.1.</span> <span class="post-toc-text">资源加载机制</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#资源缓存-可以在浏览器的-network-加载项里面看到"><span class="post-toc-number">5.1.2.</span> <span class="post-toc-text">资源缓存(可以在浏览器的 network 加载项里面看到)</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#预先加载"><span class="post-toc-number">5.1.3.</span> <span class="post-toc-text">预先加载</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#如何提高加载速度"><span class="post-toc-number">5.1.4.</span> <span class="post-toc-text">如何提高加载速度</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#网络栈"><span class="post-toc-number">5.1.5.</span> <span class="post-toc-text">网络栈</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#渲染"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">渲染</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#html-解释器"><span class="post-toc-number">5.2.1.</span> <span class="post-toc-text">html 解释器</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#流程"><span class="post-toc-number">5.3.</span> <span class="post-toc-text">流程</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#词法分析"><span class="post-toc-number">5.4.</span> <span class="post-toc-text">词法分析</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#组成渲染引擎的重要组件（webkit）"><span class="post-toc-number">6.</span> <span class="post-toc-text">组成渲染引擎的重要组件（webkit）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#浏览器的fps"><span class="post-toc-number">7.</span> <span class="post-toc-text">浏览器的fps</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#fps和帧数的关系"><span class="post-toc-number">7.1.</span> <span class="post-toc-text">fps和帧数的关系</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#刷新率hz"><span class="post-toc-number">7.2.</span> <span class="post-toc-text">刷新率hz</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#渲染帧的流程"><span class="post-toc-number">7.3.</span> <span class="post-toc-text">渲染帧的流程</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#📢-耗时-JS-会造成丢帧"><span class="post-toc-number">7.4.</span> <span class="post-toc-text">📢 耗时 JS 会造成丢帧</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#测量渲染帧间隔"><span class="post-toc-number">7.5.</span> <span class="post-toc-text">测量渲染帧间隔</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#requestAnimationFrame-requestIdleCallback"><span class="post-toc-number">7.6.</span> <span class="post-toc-text">requestAnimationFrame, requestIdleCallback</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Chromium架构-chrome的开源版本，激进的版本，平常用的chrome是稳定的版本"><span class="post-toc-number">8.</span> <span class="post-toc-text">Chromium架构(chrome的开源版本，激进的版本，平常用的chrome是稳定的版本)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#现代浏览器的工作"><span class="post-toc-number">8.1.</span> <span class="post-toc-text">现代浏览器的工作</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#进程和线程"><span class="post-toc-number">8.2.</span> <span class="post-toc-text">进程和线程</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Chromium架构主要进程"><span class="post-toc-number">8.3.</span> <span class="post-toc-text">Chromium架构主要进程</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Chromium各进程介绍"><span class="post-toc-number">8.4.</span> <span class="post-toc-text">Chromium各进程介绍</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#多进程架构的目的"><span class="post-toc-number">8.5.</span> <span class="post-toc-text">多进程架构的目的</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#javascript-中的进程和线程"><span class="post-toc-number">8.6.</span> <span class="post-toc-text">javascript 中的进程和线程</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#现代浏览器格局"><span class="post-toc-number">9.</span> <span class="post-toc-text">现代浏览器格局</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#浏览器的事件轮询"><span class="post-toc-number">10.</span> <span class="post-toc-text">浏览器的事件轮询</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#浏览器缓存机制"><span class="post-toc-number">11.</span> <span class="post-toc-text">浏览器缓存机制</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#浏览器安全"><span class="post-toc-number">12.</span> <span class="post-toc-text">浏览器安全</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#🏹-几个思考："><span class="post-toc-number">13.</span> <span class="post-toc-text">🏹 几个思考：</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-浏览器原理"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">透视浏览器</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2021-09-04 23:52:29" datetime="2021-09-04T15:52:29.000Z"  itemprop="datePublished">2021-09-04</time>
+
+            
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>浏览器是浏览器， 正不正经我不知道。<br><a id="more"></a></p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=1875394943&auto=0&height=66"></iframe>
+
+<h3 id="浏览器是什么（百度百科）"><a href="#浏览器是什么（百度百科）" class="headerlink" title="浏览器是什么（百度百科）"></a>浏览器是什么（百度百科）</h3><p>浏览器是用来检索、展示以及传递Web信息资源的应用程序。Web信息资源由统一资源标识符( Uniform Resource Identifier，URI)所标记，它是一张网页、一张图片、一段视频或者任何在Web上所呈现的内容。使用者可以借助超级链接( Hyperlinks)，通过浏览器浏览互相关联的信息。<br>组成部分包括地址栏， 菜单栏， 选项卡， 页面窗口， 状态栏等。</p>
+<h3 id="什么是内核"><a href="#什么是内核" class="headerlink" title="什么是内核"></a>什么是内核</h3><p>对于操作系统来说,内核是操作系统的核心，是第一层基于硬件的软件扩充，提供最核心最基础的服务。应用程序通过内核进行系统调用来使用计算机的硬件，内核代码简洁高效，基本没有bug(由于是最底层的服务，一点微小的错误也会造成整个系统崩溃)； 对于浏览器来说，同样存在浏览器内核，与操作系统内核相似，浏览器内核需要提供API给浏览器开发者使用，同时提供最核心的功能(如加载和渲染网页，调用操作系统所提供的服务)；对浏览器厂商来说，高效使用和开发浏览器内核是核心问题；对于web开发者来说，理解浏览器内核的基本机制，才能开发出高性能的web应用。</p>
+<h3 id="有哪些内核"><a href="#有哪些内核" class="headerlink" title="有哪些内核"></a>有哪些内核</h3><h4 id="Trident"><a href="#Trident" class="headerlink" title="Trident"></a>Trident</h4><p>代表产品为Internet Explorer，又称其为IE内核。Trident（又称为MSHTML），是微软开发的一种排版引擎。使用Trident渲染引擎的浏览器有：IE、傲游、世界之窗浏览器、Avant、腾讯TT、Netscape 8、NetCaptor、Sleipnir、GOSURF、GreenBrowser和KKman等。</p>
+<h4 id="Gecko"><a href="#Gecko" class="headerlink" title="Gecko"></a>Gecko</h4><p>代表作品为Mozilla Firefox。Gecko是一套开放源代码的、以C++编写的网页排版引擎，是最流行的排版引擎之一，仅次于Trident。使用它的最著名浏览器有Firefox、Netscape6至9。</p>
+<h4 id="WebKit"><a href="#WebKit" class="headerlink" title="WebKit"></a>WebKit</h4><p>代表作品有Safari、Chrome。WebKit是一个开源项目，包含了来自KDE项目和苹果公司的一些组件，主要用于Mac OS系统，它的特点在于源码结构清晰、渲染速度极快。缺点是对网页代码的兼容性不高，导致一些编写不标准的网页无法正常显示。</p>
+<h4 id="Presto"><a href="#Presto" class="headerlink" title="Presto"></a>Presto</h4><p>代表作品Opera。Presto是由Opera Software开发的浏览器排版引擎，供Opera 7.0及以上使用。它取代了旧版Opera 4至6版本使用的Elektra排版引擎，包括加入动态功能，例如网页或其部分可随着DOM及Script语法的事件而重新排版。</p>
+<h3 id="查看用户代理"><a href="#查看用户代理" class="headerlink" title="查看用户代理"></a>查看用户代理</h3><p>1、打开控制台<br>2、输入navigator.userAgent</p>
+<h4 id="UserAgent的作用"><a href="#UserAgent的作用" class="headerlink" title="UserAgent的作用"></a>UserAgent的作用</h4><ul>
+<li>判断浏览器类型，采用兼容方案</li>
+<li>判断是否为移动端</li>
+<li>标识H5容器，方便调用H5容器特定接口</li>
+<li>要注意userAgent伪装成本很低，不要过于依赖</li>
+</ul>
+<h4 id="网页内容组成"><a href="#网页内容组成" class="headerlink" title="网页内容组成"></a>网页内容组成</h4><ul>
+<li>doctype：提供浏览器的html版本信息</li>
+<li>head：html头部<ul>
+<li>meta：元数据信息<ul>
+<li>charset：此特性声明当前文档所使用的字符编码</li>
+<li>http-equiv：客户端行为，如渲染模式，缓存等</li>
+<li>name[keywords]：搜索引擎关键字</li>
+<li>name[description]：搜索引擎描述</li>
+<li>name[viewport]：浏览器视口设置</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>link</li>
+<li>script：需要在body前完成加载或运行的脚本</li>
+<li>body：html实体</li>
+<li>script：需要在body解析时加载或运行的脚本</li>
+</ul>
+<h3 id="浏览器渲染"><a href="#浏览器渲染" class="headerlink" title="浏览器渲染"></a>浏览器渲染</h3><p>浏览器的渲染总共分成两部分</p>
+<ul>
+<li>加载：加载渲染所必须的html代码</li>
+<li>渲染：将html绘制成图像结果</li>
+</ul>
+<h4 id="加载"><a href="#加载" class="headerlink" title="加载"></a>加载</h4><h5 id="资源加载机制"><a href="#资源加载机制" class="headerlink" title="资源加载机制"></a>资源加载机制</h5><p>分为三类:<br>1、特定资源加载器: 针对每种资源类型的特定加载器, 仅加载某一种资源, 对应设计模式中的单例模式<br>2、缓存资源加载器: 与常规的缓存逻辑相同, 特定加载器先通过缓存资源加载器来查找是否有缓存资源, 如果在资源缓存池中存在缓存资源, 则取出以便使用, 若不存在, 发送请求给网络模块<br>3、通用资源加载器: 由于加载资源太多属于网络请求, 而网络请求的逻辑是可以被特定资源加载器所共享的, 所以通用资源加载器只负责通过网络获得目标资源的数据, 但是不负责进一步解析</p>
+<h5 id="资源缓存-可以在浏览器的-network-加载项里面看到"><a href="#资源缓存-可以在浏览器的-network-加载项里面看到" class="headerlink" title="资源缓存(可以在浏览器的 network 加载项里面看到)"></a>资源缓存(可以在浏览器的 network 加载项里面看到)</h5><p>1、page cache: 页面缓存<br>2、memory cache: 内存缓存<br>3、disk cache: 磁盘缓存</p>
+<h5 id="预先加载"><a href="#预先加载" class="headerlink" title="预先加载"></a>预先加载</h5><p>1、dns 预取 (比如请求头里面的 header rel=”dns-prefech” href=”” 去异步加载资源)<br>2、资源预取<br>3、TCP preconnect</p>
+<h5 id="如何提高加载速度"><a href="#如何提高加载速度" class="headerlink" title="如何提高加载速度"></a>如何提高加载速度</h5><p>1、合并请求: nginx 模块, sprite 雪碧图, (减少连接数(合并请求) (资源合并))<br>2、缓存, from cache(memory dist), localStorage, 本地缓存策略,http 头(结合业务 )<br>3、tcp 网络链接优化: tcp 调优, keep-alive<br>4、硬件: 加大带宽, 使用 cdn(对象存储)<br>5、资源大小: gzip, webp, image 压缩, cookie 体积<br>6、预加载: 多个 cdn 域名(加速), dns 预取, 异步读取 js</p>
+<h5 id="网络栈"><a href="#网络栈" class="headerlink" title="网络栈"></a>网络栈</h5><ul>
+<li>确定请求类型，协议</li>
+<li>判断是否需要建立网络连接</li>
+<li>建立http事务</li>
+<li>建立tcp socket连接</li>
+<li>套接字连接</li>
+</ul>
+<h4 id="渲染"><a href="#渲染" class="headerlink" title="渲染"></a>渲染</h4><h5 id="html-解释器"><a href="#html-解释器" class="headerlink" title="html 解释器"></a>html 解释器</h5><p>解释过程资源的变换:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">字节流 -&gt; 字符流 -&gt; tokens -&gt; 节点 -&gt; dom 树</span><br></pre></td></tr></table></figure></p>
+<h4 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">词法分析 -&gt; XSSauditor -&gt; 语法分析 -&gt; 生成dom树</span><br></pre></td></tr></table></figure>
+<h4 id="词法分析"><a href="#词法分析" class="headerlink" title="词法分析"></a>词法分析</h4><p>通过HTMLTokenizer来进行词法分析词法分析的任务是对输入字节流进行逐字扫描，根据构词规则识别单词和符号，词法分析器的主要接口是nextToken()函数，调用者只需要将字符串传入，就会得到一个词语。</p>
+<p>注意，在这里并不涉及标签类型信息，这是之后语法分析的工作</p>
+<h3 id="组成渲染引擎的重要组件（webkit）"><a href="#组成渲染引擎的重要组件（webkit）" class="headerlink" title="组成渲染引擎的重要组件（webkit）"></a>组成渲染引擎的重要组件（webkit）</h3><ul>
+<li>html解释器： 解释html文本的解释器，html文本 =&gt;  dom 树</li>
+<li>css解释器： 遇到级联样式的时候， 需要使用级联样式表解释器为dom对象计算出样式信息</li>
+<li>javascript解释器： 遇到js代码时， 使用js解释器， 使得js代码具有调用dom接口和cssom接口的能力（也就是操作dom）</li>
+<li>布局： 结合css， 计算出dom对象的大小位置信息</li>
+<li>绘图： 经过布局计算的dom绘制成图像</li>
+</ul>
+<h3 id="浏览器的fps"><a href="#浏览器的fps" class="headerlink" title="浏览器的fps"></a>浏览器的fps</h3><h4 id="fps和帧数的关系"><a href="#fps和帧数的关系" class="headerlink" title="fps和帧数的关系"></a>fps和帧数的关系</h4><ul>
+<li>fps：全称为Frames Per Second，即 每一秒的帧数；</li>
+<li>帧：指显示器显示的每一张画面；</li>
+</ul>
+<p>通常在浏览器上看到的各种各样的动画特效，都是由一帧一帧组成的，可以将 fps 理解为动画播放的速度。fps 越大，动画越流畅。</p>
+<h4 id="刷新率hz"><a href="#刷新率hz" class="headerlink" title="刷新率hz"></a>刷新率hz</h4><p>屏幕的刷新率 是指 屏幕每秒能够显示图像的次数，单位为 hz（赫兹）。</p>
+<blockquote>
+<p>一般浏览器的 fps 为 60。当然，如果你的显示器的刷新率能够达到 144 hz 的话，浏览器的 fps 可以达到 144 fps， fps 的值受限于屏幕的刷新率，即 fps 的值小于等于屏幕刷新率的值。</p>
+</blockquote>
+<p>以 Chromium 的 Blink 引擎为例分析:</p>
+<ul>
+<li>一个渲染帧内 commit 的多次 DOM 改动会被合并渲染；</li>
+<li>耗时 JS 会造成丢帧；</li>
+<li>渲染帧间隔为 16ms 左右；</li>
+<li>避免耗时脚本、交错读写样式以保证流畅的渲染。</li>
+</ul>
+<h4 id="渲染帧的流程"><a href="#渲染帧的流程" class="headerlink" title="渲染帧的流程"></a>渲染帧的流程</h4><p>渲染帧是指浏览器一次完整绘制过程，帧之间的时间间隔是 DOM 视图更新的最小间隔。 由于主流的屏幕刷新率都在 60Hz，那么渲染一帧的时间就必须控制在 16ms 才能保证不掉帧。 也就是说每一次渲染都要在 16ms 内页面才够流畅不会有卡顿感。 这段时间内浏览器需要完成如下事情：</p>
+<ul>
+<li>脚本执行（JavaScript）：脚本造成了需要重绘的改动，比如增删 DOM、请求动画等</li>
+<li>样式计算（CSS Object Model）：级联地生成每个节点的生效样式。</li>
+<li>布局（Layout）：计算布局，执行渲染算法</li>
+<li>重绘（Paint）：各层分别进行绘制（比如 3D 动画）</li>
+<li>合成（Composite）：合成各层的渲染结果</li>
+</ul>
+<h4 id="📢-耗时-JS-会造成丢帧"><a href="#📢-耗时-JS-会造成丢帧" class="headerlink" title="📢 耗时 JS 会造成丢帧"></a>📢 耗时 JS 会造成丢帧</h4><p>JavaScript 在并发编程上一个重要特点是“Run To Completion”。在事件循环的一次 Tick 中， 如果要执行的逻辑太多会一直阻塞下一个 Tick，所有异步过程都会被阻塞。 一个流畅的页面中，JavaScript 引擎中的执行队列可能是这样的：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">执行 JS -&gt; 空闲 -&gt; 绘制（16ms）-&gt; 执行 JS -&gt; 空闲 -&gt; 绘制（32ms）-&gt; ...</span><br></pre></td></tr></table></figure></p>
+<p>如果在某个时刻有太多 JavaScript 要执行，就会丢掉一次帧的绘制：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">执行很多 JS...（20ms）-&gt; 空闲 -&gt; 绘制（32ms）-&gt; ...</span><br></pre></td></tr></table></figure></p>
+<p>demo: 阻塞dom渲染<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=<span class="string">"msg"</span>&gt;&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">  &lt;script&gt;</span></span><br><span class="line"><span class="regexp">    let preTime = Date.now();</span></span><br><span class="line"><span class="regexp">    let i = 0;</span></span><br><span class="line"><span class="regexp">    let mdom = document.querySelector('#msg');</span></span><br><span class="line"><span class="regexp">    while(true) &#123;</span></span><br><span class="line"><span class="regexp">      let nowTime = Date.now()</span></span><br><span class="line"><span class="regexp">      if(nowTime - preTime &gt; 1000) &#123;</span></span><br><span class="line"><span class="regexp">        if (i++ &gt;=5) &#123;</span></span><br><span class="line"><span class="regexp">          break;</span></span><br><span class="line"><span class="regexp">        &#125;</span></span><br><span class="line"><span class="regexp">        mdom.innerText +='hardy!\n'</span></span><br><span class="line"><span class="regexp">        console.log(i)</span></span><br><span class="line"><span class="regexp">        preTime = nowTime;</span></span><br><span class="line"><span class="regexp">      &#125;</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">  &lt;/</span>script&gt;</span><br></pre></td></tr></table></figure></p>
+<p>很明显每秒都写一次dom，但是5秒之后才会全部渲染出来，说明耗时脚本阻塞了渲染。</p>
+<h4 id="测量渲染帧间隔"><a href="#测量渲染帧间隔" class="headerlink" title="测量渲染帧间隔"></a>测量渲染帧间隔</h4><p>用最新版本浏览器提供的requestAnimationFrame，这个 API 可以请求浏览器在下一个渲染帧执行某个回调，于是测量渲染间隔就很方便了：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> preTime = <span class="built_in">Date</span>.now()</span><br><span class="line"><span class="keyword">let</span> count = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> nextFrame = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  requestAnimationFrame(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    count++</span><br><span class="line">    <span class="keyword">if</span> (count % <span class="number">20</span> === <span class="number">0</span>) &#123;</span><br><span class="line">      <span class="keyword">let</span> time = (<span class="built_in">Date</span>.now() - preTime) / count</span><br><span class="line">      <span class="keyword">let</span> ms = <span class="built_in">Math</span>.round(time * <span class="number">1000</span>) / <span class="number">1000</span></span><br><span class="line">      <span class="keyword">let</span> fps = <span class="built_in">Math</span>.round(<span class="number">100000</span> / ms) / <span class="number">100</span></span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">`count: <span class="subst">$&#123;count&#125;</span>\t<span class="subst">$&#123;ms&#125;</span>ms/frame\t<span class="subst">$&#123;fps&#125;</span>fps`</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    nextFrame()</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line">nextFrame()</span><br></pre></td></tr></table></figure></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/chrome/fps.png" alt="运行效果" title>
+                </div>
+                <div class="image-caption">运行效果</div>
+            </figure>
+<p>每次 requestAnimationFrame 回调执行时发起下一个 requestAnimationFrame，统计一段时间即可得到渲染帧间隔，以及 fps。知道了浏览器需要在 16ms 内完成整个JS-&gt;Style-&gt;Layout-&gt;Paint-&gt;Composite 流程，那么基于此有哪些页面渲染的优化建议， 后面更<del>~</del></p>
+<h4 id="requestAnimationFrame-requestIdleCallback"><a href="#requestAnimationFrame-requestIdleCallback" class="headerlink" title="requestAnimationFrame, requestIdleCallback"></a>requestAnimationFrame, requestIdleCallback</h4><p>在react（v16.8）源码中，有这样的两个api <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/requestAnimationFrame" target="_blank" rel="noopener">requestAnimationFrame</a> 和 <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/requestIdleCallback" target="_blank" rel="noopener">requestIdleCallback</a></p>
+<p>分别看一下mdn上这两个方法的定义：<br><br>1、requestAnimationFrame<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">window.requestAnimationFrame() 告诉浏览器——你希望执行一个动画，并且要求浏览器在下次重绘之前调用指定的回调函数更新动画。该方法需要传入一个回调函数作为参数，该回调函数会在浏览器下一次重绘之前执行</span><br></pre></td></tr></table></figure></p>
+<p>2、requestIdleCallback：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">window.requestIdleCallback()方法将在浏览器的空闲时段内调用的函数排队。这使开发者能够在主事件循环上执行后台和低优先级工作，而不会影响延迟关键事件，如动画和输入响应。函数一般会按先进先调用的顺序执行，然而，如果回调函数指定了执行超时时间timeout，则有可能为了在超时前执行函数而打乱执行顺序。</span><br><span class="line"></span><br><span class="line">你可以在空闲回调函数中调用requestIdleCallback()，以便在下一次通过事件循环之前调度另一个回调。</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>这两个 api 与 浏览器的 fps 存在着关系。 </p>
+</blockquote>
+<h3 id="Chromium架构-chrome的开源版本，激进的版本，平常用的chrome是稳定的版本"><a href="#Chromium架构-chrome的开源版本，激进的版本，平常用的chrome是稳定的版本" class="headerlink" title="Chromium架构(chrome的开源版本，激进的版本，平常用的chrome是稳定的版本)"></a>Chromium架构(chrome的开源版本，激进的版本，平常用的chrome是稳定的版本)</h3><p>除去webkit内核完成的功能，浏览器的工作有哪些？</p>
+<h4 id="现代浏览器的工作"><a href="#现代浏览器的工作" class="headerlink" title="现代浏览器的工作"></a>现代浏览器的工作</h4><ul>
+<li>资源管理：</li>
+<li>多页面管理：也就是多个标签页的管理</li>
+<li>插件和拓展：如flash，chrome拓展程序</li>
+<li>账户和同步</li>
+<li>安全机制</li>
+<li>多系统支持</li>
+</ul>
+<h4 id="进程和线程"><a href="#进程和线程" class="headerlink" title="进程和线程"></a>进程和线程</h4><ul>
+<li>进程：操作系统对一个正在运行的程序的抽象。你可以查看进程占用CPU，内存的大小。</li>
+<li>线程: 组成进程的执行单位</li>
+<li>进程通讯：进程间传输数据(交换信息) (linux 和 window 不一样 )</li>
+<li>线程同步：</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/chrome/2.png" alt="IPC是什么， 这是一张IPC通讯(进程间的通讯)" title>
+                </div>
+                <div class="image-caption">IPC是什么， 这是一张IPC通讯(进程间的通讯)</div>
+            </figure>
+<h4 id="Chromium架构主要进程"><a href="#Chromium架构主要进程" class="headerlink" title="Chromium架构主要进程"></a>Chromium架构主要进程</h4><ul>
+<li>Browser 进程: 主进程, 负责浏览器界面, 页面管理等</li>
+<li>Renderer 进程: 渲染进程</li>
+<li>NPAPI 插件进程</li>
+<li>GPU 进程: 当 GPU 硬件加速打开时会创建</li>
+</ul>
+<h4 id="Chromium各进程介绍"><a href="#Chromium各进程介绍" class="headerlink" title="Chromium各进程介绍"></a>Chromium各进程介绍</h4><ul>
+<li>父进程：Browser，负责管理整个浏览器的状态，运行UI，消息派发（如申请文件资源）。</li>
+<li>子进程：<ul>
+<li>Render，负责渲染网页，于Webkit（Blink）交互，向外（Browser、GPU）发送请求。</li>
+<li>GPU，当GPU硬件加速时会打开</li>
+</ul>
+</li>
+</ul>
+<h4 id="多进程架构的目的"><a href="#多进程架构的目的" class="headerlink" title="多进程架构的目的"></a>多进程架构的目的</h4><ul>
+<li>职责分离，故障范围小</li>
+<li>隔离性</li>
+<li>性能</li>
+</ul>
+<h4 id="javascript-中的进程和线程"><a href="#javascript-中的进程和线程" class="headerlink" title="javascript 中的进程和线程"></a>javascript 中的进程和线程</h4><p>js 是严格的单线程操作, 所以不会像 java 一样存在线程不安全的情况, 一般在操作的时候也是单独的进程(比如 node, 如果是用 pm2 创建的进程实际上是父子的关系, pm2 就是守护进程)</p>
+<h3 id="现代浏览器格局"><a href="#现代浏览器格局" class="headerlink" title="现代浏览器格局"></a>现代浏览器格局</h3><ul>
+<li>IE: Trident,IE8的javascript引擎是Jscript, IE9开始用Chakra</li>
+<li>Firfox: Gecko, Javascript引擎SpiderMonkey</li>
+<li>Safari: Webkit, 渲染引擎以及Javascript解析引擎均是从KDE的KHTML以及KJS引擎衍生而来</li>
+<li>Chrome: Blink, Javascript引擎V8</li>
+<li>Opera: 早期是Presto, 现在改成Blink与V8</li>
+</ul>
+<blockquote>
+<p>国内浏览器大部分都是基于chromium以及IE核的外壳型浏览器</p>
+</blockquote>
+<h3 id="浏览器的事件轮询"><a href="#浏览器的事件轮询" class="headerlink" title="浏览器的事件轮询"></a>浏览器的事件轮询</h3><h3 id="浏览器缓存机制"><a href="#浏览器缓存机制" class="headerlink" title="浏览器缓存机制"></a>浏览器缓存机制</h3><h3 id="浏览器安全"><a href="#浏览器安全" class="headerlink" title="浏览器安全"></a>浏览器安全</h3><h3 id="🏹-几个思考："><a href="#🏹-几个思考：" class="headerlink" title="🏹 几个思考："></a>🏹 几个思考：</h3><ul>
+<li><p>通过响应的内容，我们可以看到内容中还存在许多外联资源，浏览器是如何处理的？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">不同的外链资源，webkit中右不同的资源加载器，当浏览器解析到URL地址时，调用特定的资源加载器，如果不是特殊资源(js)，加载过程不会阻碍渲染过程</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>著名的优化：“css放在头部，js放在尾部”，为什么？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">一般来说css资源不会阻碍渲染过程，但是js资源在浏览器会阻碍渲染过程的进行，如果放在头部，渲染过程会暂停，造成“白屏”，但现代浏览器的优化已经做得很好了，所以当渲染被阻塞时，浏览器会开启新的线程继续渲染。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>浏览器在渲染之前或之后还要做哪些事情？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">渲染之前需要加载资源，渲染之后在DOM或者CSS变化后，重新进行布局计算和重渲染操作。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>移动端的浏览器和PC端的浏览器是否相同？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">功能基本相同，但所运行的操作系统不同，渲染机制有些差异</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2021-09-05T05:46:03.911Z" itemprop="dateUpdated">2021-09-05 13:46:03</time>
+</span><br>
+
+
+        
+        谢谢浏览，我会继续努力的，示例：<a href="/2021/09/04/浏览器原理/" target="_blank" rel="external">http://yoursite.com/2021/09/04/浏览器原理/</a>
+        
+    </div>
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.jpg" alt="BingZhenhuang">
+            BingZhenhuang
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js引擎/">js引擎</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/内核/">内核</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/浏览器/">浏览器</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2021/09/04/浏览器原理/&title=《透视浏览器》 — 小方块 - hhardyy.com&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2021/09/04/浏览器原理/&title=《透视浏览器》 — 小方块 - hhardyy.com&source=浏览器是浏览器， 正不正经我不知道。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2021/09/04/浏览器原理/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《透视浏览器》 — 小方块 - hhardyy.com&url=http://yoursite.com/2021/09/04/浏览器原理/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2021/09/04/浏览器原理/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2021/03/03/MYSQL秒懂/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">MYSQL</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        🤠 请我喝可乐！
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content" style="width:50%">
+        
+        <div class="reward-code" style="text-align:center">
+            <div style="width:300px;margin:0px auto;">
+               <img id="rewardCode" style="width:50%;height:60%;display:block; margin:0px auto;" src="/img/alipay.jpg" alt="支付宝打赏二维码">
+               <span style="display:inline-block; margin-bottom:20px;">0.88(支付宝 aliPay)</span>
+               <img id="rewardCode" style="width:50%;height:60%;display:block; margin:0px auto;" src="/img/wechat.jpg" alt="微信打赏二维码">
+               <span style="display:inline-block;">0.88(微信 weChat)</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+</div>
+
+        <script>
+!function(e,t,a){function n(){c(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"),o(),r()}function r(){for(var e=0;e<d.length;e++)d[e].alpha<=0?(t.body.removeChild(d[e].el),d.splice(e,1)):(d[e].y--,d[e].scale+=.004,d[e].alpha-=.013,d[e].el.style.cssText="left:"+d[e].x+"px;top:"+d[e].y+"px;opacity:"+d[e].alpha+";transform:scale("+d[e].scale+","+d[e].scale+") rotate(45deg);background:"+d[e].color+";z-index:99999");requestAnimationFrame(r)}function o(){var t="function"==typeof e.onclick&&e.onclick;e.onclick=function(e){t&&t(),i(e)}}function i(e){var a=t.createElement("div");a.className="heart",d.push({el:a,x:e.clientX-5,y:e.clientY-5,scale:1,alpha:1,color:s()}),t.body.appendChild(a)}function c(e){var a=t.createElement("style");a.type="text/css";try{a.appendChild(t.createTextNode(e))}catch(t){a.styleSheet.cssText=e}t.getElementsByTagName("head")[0].appendChild(a)}function s(){return"rgb("+~~(255*Math.random())+","+~~(255*Math.random())+","+~~(255*Math.random())+")"}var d=[];e.requestAnimationFrame=function(){return e.requestAnimationFrame||e.webkitRequestAnimationFrame||e.mozRequestAnimationFrame||e.oRequestAnimationFrame||e.msRequestAnimationFrame||function(e){setTimeout(e,1e3/60)}}(),n()}(window,document);
+</script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script>
+    function secondToDate(second) {
+        if (!second) {
+            return 0;
+        }
+        var time = new Array(0, 0, 0, 0, 0);
+        if (second >= 365 * 24 * 3600) {
+            time[0] = parseInt(second / (365 * 24 * 3600));
+            second %= 365 * 24 * 3600;
+        }
+        if (second >= 24 * 3600) {
+            time[1] = parseInt(second / (24 * 3600));
+            second %= 24 * 3600;
+        }
+        if (second >= 3600) {
+            time[2] = parseInt(second / 3600);
+            second %= 3600;
+        }
+        if (second >= 60) {
+            time[3] = parseInt(second / 60);
+            second %= 60;
+        }
+        if (second > 0) {
+            time[4] = second;
+        }
+        return time;
+    }</script>
+<script type="text/javascript" language="javascript">
+    function setTime() {
+        var create_time = Math.round(new Date(Date.UTC(2017, 08, 18, 11, 42, 23)).getTime() / 1000);
+        var timestamp = Math.round((new Date().getTime() + 8 * 60 * 60 * 1000) / 1000);
+        currentTime = secondToDate((timestamp - create_time));
+        currentTimeHtml = 'Running：' + currentTime[0] + '年 ' + currentTime[1] + '天 '
+                + currentTime[2] + '时 ' + currentTime[3] + '分 ' + currentTime[4]
+                + '秒';
+        document.getElementById("htmer_time").innerHTML = currentTimeHtml;
+    }    setInterval(setTime, 1000);
+</script>
+<footer class="footer">
+    <div class="top">
+        
+
+        <p>
+          <span id="busuanzi_container_page_pv">
+             [&nbsp;浏览量：&nbsp;<span id="busuanzi_value_page_pv"></span>&nbsp;]
+          </span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+        <span>BingZhenhuang &copy; 2017 - 2021</span>
+            <span>
+                
+                Power by <a href="https://hhardyy.github.io/" target="_blank">zhen On August 8</a> 
+            </span>
+            <span id="htmer_time" "></span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2021/09/04/浏览器原理/&title=《透视浏览器》 — 小方块 - hhardyy.com&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2021/09/04/浏览器原理/&title=《透视浏览器》 — 小方块 - hhardyy.com&source=浏览器是浏览器， 正不正经我不知道。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2021/09/04/浏览器原理/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《透视浏览器》 — 小方块 - hhardyy.com&url=http://yoursite.com/2021/09/04/浏览器原理/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2021/09/04/浏览器原理/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACNElEQVR42u3aQXKDMAwF0Nz/0ulMty3wJZFOsR+rTALBj4WQJb1e8fH+Pn5+Pjrz5znJ90fn3HZgYGA8lvE+Pc4Z+eIm942oGBgYGzB6QTYJkfPHdL42DAwMjGS5vWUl6SMGBgZGL+D2gm8Sav/0vYGBgfFARr6ZTEpyk8rYx/fiGBgYD2RMGgOf/vxH/Q0MDIx/zHi3jrz0f74ZrobXw2sxMDCWZuRpX3VZ563N5EHkpTcMDIwdGL0y/QQ/KbRd/IqBgbEoo9pi7BX683BcHSnDwMBYm3Hv7XsjGtVH9ss5GBgYmzGqwS7BV///PDGN3hgYGBiLMu5KAfO2QW+TfNjfwMDA2IaRhMtqlOuNceQJKwYGxtqMSSsxR+YhNWcfNgYwMDCWY1RvkATEXvKXN0Qv3hsYGBiLMu4Kl/MUMF/Ja3IxBgbGYxm9NLE6+NUrxl3cEQMDYwNGXohPhjCSEY1qsL4I4hgYGEsz8mDaHNiaNCZ7zVEMDIxFGZPxrCSlS8pqebEPAwMDo7p97W13q2MWURKJgYGxMWOS9lX/J99CY2Bg7MaolvjzYFodtsjXFl2FgYGxBOPTZf1eAE0ewWEnFgMDYzlGr1l47yhGNfVsAjAwMB7OyINs/iTyQlsvrfzlGwwMjA0YeeF+nib2ov4FDAMDAyMYrcjbA72tbJQaYmBgbM+ojp/mBbv5JhkDA2MHRrUZ0BtgnZTVMDAwdmb0GgPNBC6g5g/xhhYmBgbGf2d8Ac/00T88FF/oAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '(•‾̑⌣‾̑•)✧˖°回来看我';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(゜-゜)つロ欢迎回来';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
