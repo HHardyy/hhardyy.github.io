@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2021-09-05T05:46:03.911Z</updated>
+  <updated>2021-12-23T16:49:44.476Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>写了一个v8</title>
+    <link href="http://yoursite.com/2021/12/24/%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AAv8/"/>
+    <id>http://yoursite.com/2021/12/24/写了一个v8/</id>
+    <published>2021-12-23T16:42:03.000Z</published>
+    <updated>2021-12-23T16:49:44.476Z</updated>
+    
+    <content type="html"><![CDATA[<p>写了一个v8</p><p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=1357999894&auto=0&height=66"></iframe><br><a id="more"></a><br><a href="https://github.com/HHardyy/js_v8" target="_blank" rel="noopener">点这里，有三个tag，分别对应三个demo(https://github.com/HHardyy/js_v8)</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;写了一个v8&lt;/p&gt;
+&lt;p&gt;&lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=&quot;330&quot; height=&quot;86&quot; src=&quot;//music.163.com/outchain/player?type=2&amp;id=1357999894&amp;auto=0&amp;height=66&quot;&gt;&lt;/iframe&gt;&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="node" scheme="http://yoursite.com/tags/node/"/>
+    
+      <category term="v8" scheme="http://yoursite.com/tags/v8/"/>
+    
+  </entry>
   
   <entry>
     <title>透视浏览器</title>
@@ -527,31 +550,6 @@
       <category term="scoped" scheme="http://yoursite.com/tags/scoped/"/>
     
       <category term="css私有" scheme="http://yoursite.com/tags/css%E7%A7%81%E6%9C%89/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>根据经纬度计算两点间距</title>
-    <link href="http://yoursite.com/2019/06/15/%E6%A0%B9%E6%8D%AE%E7%BB%8F%E7%BA%AC%E5%BA%A6%E8%AE%A1%E7%AE%97%E4%B8%A4%E7%82%B9%E9%97%B4%E8%B7%9D/"/>
-    <id>http://yoursite.com/2019/06/15/根据经纬度计算两点间距/</id>
-    <published>2019-06-15T07:37:32.000Z</published>
-    <updated>2020-01-13T15:32:30.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>打卡是很多人每天都要做两次的事情，钉钉很多人都用过，但是应该怎么判断你的位置可不可以打卡呢</p><p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=35476986&auto=0&height=66"></iframe><br><a id="more"></a></p><blockquote><p>我最近在做一个打卡的工具，简略它就是设置一个打卡的地点，允许打卡的范围等，然后提醒某个团体进行打卡，但是只能在设定的范围内打卡，不在范围或者不在打卡时间则打卡失败，因为源代码和软件是公司的东西，这里就写一个大家都玩的小例子来计算一下经纬度间的距离。</p></blockquote><h3 id="计算距离主要需要的数据就是"><a href="#计算距离主要需要的数据就是" class="headerlink" title="计算距离主要需要的数据就是"></a>计算距离主要需要的数据就是</h3><p>1、设置的活动地点的经纬度<br>2、打卡者当前位置的经纬度（这个经纬度有可能会改变，因为打卡者有可能在移动，或者是在没进入范围的时候发起的打卡，避免进入范围之后打卡失败）<br>得到上面1、2的数据之后，就可以根据计算出的距离≤设置的打卡范围（100米，200米，500米等），则打卡成功<br>3、地球半径<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/images/earch_juli/1.JPG" alt title>                </div>                <div class="image-caption"></div>            </figure></p><h4 id="计算公式"><a href="#计算公式" class="headerlink" title="计算公式"></a>计算公式</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> PI = <span class="built_in">Math</span>.PI;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getDistance</span>(<span class="params">lat1,lng1,lat2,lng2</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> f = getRad((lat1 + lat2)/<span class="number">2</span>);</span><br><span class="line">    <span class="keyword">var</span> g = getRad((lat1 - lat2)/<span class="number">2</span>);</span><br><span class="line">    <span class="keyword">var</span> l = getRad((lng1 - lng2)/<span class="number">2</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> sg = <span class="built_in">Math</span>.sin(g);</span><br><span class="line">    <span class="keyword">var</span> sl = <span class="built_in">Math</span>.sin(l);</span><br><span class="line">    <span class="keyword">var</span> sf = <span class="built_in">Math</span>.sin(f);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> s,c,w,r,d,h1,h2;</span><br><span class="line">    <span class="keyword">var</span> a = EARTH_RADIUS;</span><br><span class="line">    <span class="keyword">var</span> fl = <span class="number">1</span>/<span class="number">298.257</span>;</span><br><span class="line">    </span><br><span class="line">    sg = sg*sg;</span><br><span class="line">    sl = sl*sl;</span><br><span class="line">    sf = sf*sf;</span><br><span class="line">    </span><br><span class="line">    s = sg*(<span class="number">1</span>-sl) + (<span class="number">1</span>-sf)*sl;</span><br><span class="line">    c = (<span class="number">1</span>-sg)*(<span class="number">1</span>-sl) + sf*sl;</span><br><span class="line">    </span><br><span class="line">    w = <span class="built_in">Math</span>.atan(<span class="built_in">Math</span>.sqrt(s/c));</span><br><span class="line">    r = <span class="built_in">Math</span>.sqrt(s*c)/w;</span><br><span class="line">    d = <span class="number">2</span>*w*a;</span><br><span class="line">    h1 = (<span class="number">3</span>*r <span class="number">-1</span>)/<span class="number">2</span>/c;</span><br><span class="line">    h2 = (<span class="number">3</span>*r +<span class="number">1</span>)/<span class="number">2</span>/s;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> d*(<span class="number">1</span> + fl*(h1*sf*(<span class="number">1</span>-sg) - h2*(<span class="number">1</span>-sf)*sg));</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getRad</span>(<span class="params">d</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> d*PI/<span class="number">180.0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>也可以是这样<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">getDistance:<span class="function"><span class="keyword">function</span>(<span class="params">lat1,lng1,lat2,lng2</span>)</span>&#123;</span><br><span class="line">      lat1 = lat1 || <span class="number">0</span>;</span><br><span class="line">      lng1 = lng1 || <span class="number">0</span>;</span><br><span class="line">      lat2 = lat2 || <span class="number">0</span>;</span><br><span class="line">      lng2 = lng2 || <span class="number">0</span>;    </span><br><span class="line">      <span class="keyword">var</span> rad1 = lat1 * <span class="built_in">Math</span>.PI / <span class="number">180.0</span>;    </span><br><span class="line">      <span class="keyword">var</span> rad2 = lat2 * <span class="built_in">Math</span>.PI / <span class="number">180.0</span>;    </span><br><span class="line">      <span class="keyword">var</span> a = rad1 - rad2;    </span><br><span class="line">      <span class="keyword">var</span> b = lng1 * <span class="built_in">Math</span>.PI / <span class="number">180.0</span> - lng2 * <span class="built_in">Math</span>.PI / <span class="number">180.0</span>;    </span><br><span class="line">      <span class="keyword">var</span> r = <span class="number">637139.3</span>;  <span class="comment">//地球半径</span></span><br><span class="line">      <span class="keyword">var</span> distance = r * <span class="number">2</span> * <span class="built_in">Math</span>.asin(<span class="built_in">Math</span>.sqrt(<span class="built_in">Math</span>.pow(<span class="built_in">Math</span>.sin(a / <span class="number">2</span>), <span class="number">2</span>) + <span class="built_in">Math</span>.cos(rad1) * <span class="built_in">Math</span>.cos(rad2) * <span class="built_in">Math</span>.pow(<span class="built_in">Math</span>.sin(b / <span class="number">2</span>), <span class="number">2</span>)));  </span><br><span class="line">      <span class="keyword">return</span> distance;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>cosbeta通过搜索找到了一个js的计算脚本（其实是google map的计算脚本，应该算是比较准确了），做成了<a href="http://www.storyday.com/wp-content/uploads/2008/09/latlung_dis.html" target="_blank" rel="noopener">一个根据经纬度计算两点距离的工具</a>，前辈利用google map的经纬度到距离计算的js脚本还原出来的公式是这个样子的<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/images/earch_juli/2.JPG" alt title>                </div>                <div class="image-caption"></div>            </figure><br>公式中经纬度均用弧度表示，<a href="http://www.360doc.com/content/10/1228/10/284485_81937345.shtml" target="_blank" rel="noopener">可以参考这里</a></p><p>lat1 lng1 表示A点纬度和经度<br>lat2 lng2 表示B点纬度和经度</p><p>两点纬度之差: a=lat1 – lat2<br>两点经度之差: b=lng1 - lng2</p><p>637139.3为地球半径，单位为米<br>计算过程为<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//计算距离，参数分别为第一点的纬度，经度；第二点的纬度，经度</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getDistance</span>(<span class="params">lat1,lng1,lat2,lng2</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> radLat1 = Rad(lat1);</span><br><span class="line">    <span class="keyword">var</span> radLat2 = Rad(lat2);</span><br><span class="line">    <span class="keyword">var</span> a = radLat1 - radLat2;</span><br><span class="line">    <span class="keyword">var</span>  b = Rad(lng1) - Rad(lng2);</span><br><span class="line">    <span class="keyword">var</span> s = <span class="number">2</span> * <span class="built_in">Math</span>.asin(<span class="built_in">Math</span>.sqrt(<span class="built_in">Math</span>.pow(<span class="built_in">Math</span>.sin(a/<span class="number">2</span>),<span class="number">2</span>) + <span class="built_in">Math</span>.cos(radLat1)*<span class="built_in">Math</span>.cos(radLat2)*<span class="built_in">Math</span>.pow(<span class="built_in">Math</span>.sin(b/<span class="number">2</span>),<span class="number">2</span>)))*<span class="number">637139.3</span>;</span><br><span class="line">    s = <span class="built_in">Math</span>.round(s * <span class="number">10000</span>) / <span class="number">10000</span>; </span><br><span class="line">    <span class="keyword">return</span> s;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Rad</span>(<span class="params">d</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> d * <span class="built_in">Math</span>.PI / <span class="number">180.0</span>;<span class="comment">//经纬度转换成三角函数中度分表形式。</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>总之，计算的的精度取决于传入的经纬度的精度，同样的经纬度在百度、腾讯、高德等得到的位置有可能都不一样，不过偏差可以尽量缩小</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;打卡是很多人每天都要做两次的事情，钉钉很多人都用过，但是应该怎么判断你的位置可不可以打卡呢&lt;/p&gt;
-&lt;p&gt;&lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=&quot;330&quot; height=&quot;86&quot; src=&quot;//music.163.com/outchain/player?type=2&amp;id=35476986&amp;auto=0&amp;height=66&quot;&gt;&lt;/iframe&gt;&lt;br&gt;
-    
-    </summary>
-    
-    
-      <category term="longitude" scheme="http://yoursite.com/tags/longitude/"/>
-    
-      <category term="latitude" scheme="http://yoursite.com/tags/latitude/"/>
-    
-      <category term="经纬度" scheme="http://yoursite.com/tags/%E7%BB%8F%E7%BA%AC%E5%BA%A6/"/>
     
   </entry>
   
